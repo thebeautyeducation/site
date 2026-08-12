@@ -3,6 +3,11 @@
 Prototip static, fidel la pixel, gândit ca **referință pentru replicarea în WordPress**.
 Se deschide cu dublu-click pe `index.html`. Fără build, fără server, fără internet.
 
+**Preview live (de distribuit):** https://thebeautyeducation.github.io/site/
+· repo: [`thebeautyeducation/site`](https://github.com/thebeautyeducation/site) (public)
+· publicare: push pe `main` → GitHub Pages reconstruiește în ~1 minut.
+Pe preview, linkurile interne (`/empiria`, `/blog`, logo-ul → `/`) dau 404 — paginile nu există încă.
+
 **Pasul 1 (acesta):** design system global + navbar + footer + hero gol.
 Nu există încă nicio secțiune de conținut — asta e intenționat.
 
