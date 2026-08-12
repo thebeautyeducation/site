@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<!-- SECȚIUNEA „POVESTEA NOASTRĂ" — varianta aleasă: mozaic cu fir.
+     Pagină de lucru, nelegată în site. Banda de sus există doar ca să ai unde
+     derula: firul se desenează și cifrele pornesc când intră în ecran, deci
+     trebuie să vii spre secțiune cu scroll, nu să aterizezi direct pe ea. -->
+<html lang="ro" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Povestea noastră — secțiune · The Beauty Education</title>
+  <meta name="robots" content="noindex">
+
+  <link rel="icon" href="assets/logo/tbe-icon-color.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonturi/Jost%5Bwght%5D.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/fonturi/CormorantGaramond%5Bwght%5D.ttf" as="font" type="font/ttf" crossorigin>
+
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="stylesheet" href="assets/css/povestea.css">
+  <link rel="stylesheet" href="assets/css/timeline.css">
+
+  <style>
+    /* Schela paginii de lucru — se șterge împreună cu fișierul. */
+    .lucru-banda {
+      height: 62vh; display: grid; place-items: center;
+      background: var(--tbe-bg-alt); color: var(--tbe-text-subtle);
+      font-family: var(--font-mono); font-size: var(--fs-xs);
+      letter-spacing: var(--ls-kicker); text-transform: uppercase;
+    }
+    .lucru-banda.is-jos { height: 40vh; }
+    .lucru-eticheta {
+      position: fixed; top: 12px; left: 12px; z-index: 500; padding: 7px 14px;
+      background: rgba(26, 20, 22, 0.86); color: rgba(250, 244, 239, 0.78);
+      border-radius: var(--r-pill); font-family: var(--font-mono); font-size: 10px;
+      letter-spacing: 0.08em; text-transform: uppercase; backdrop-filter: blur(10px);
+    }
+  </style>
+</head>
+
+<body>
+
+<span class="lucru-eticheta">Secțiune izolată · pagină de lucru</span>
+
+<div class="lucru-banda">↑ aici se termină hero-ul — derulează în jos</div>
+
+<!-- ==========================================================================
+     POVESTEA NOASTRĂ
+     ========================================================================== -->
+<section class="site-section" aria-labelledby="povestea-titlu">
+  <div class="tbe-container">
+
+    <header class="povestea-head">
+      <span class="tbe-kicker">Povestea noastră</span>
+      <h2 class="povestea-title" id="povestea-titlu">De la un curs online la un ecosistem</h2>
+      <p class="povestea-lead">
+        Un curs online, apoi un grup de Facebook, apoi o comunitate care a cerut mai mult.
+        Fiecare pas a venit din ce lipsea coafezelor din România.
+      </p>
+    </header>
+
+    <!-- Mozaicul. Wrapper-ul e obligatoriu: firul (SVG) e injectat în el de
+         timeline.js și se poziționează absolut față de el. -->
+    <div class="tl-mozaic-wrap" data-tl-fir>
+      <ul class="tl-mozaic">
+        <li>
+          <article class="tl-card">
+            <div class="tl-card-cap"><span class="tl-an">2020</span></div>
+            <h3 class="tl-titlu">Primele cursuri online</h3>
+            <ul class="tl-badges"><li class="tl-badge">Coafuri</li></ul>
+          </article>
+        </li>
+        <li>
+          <article class="tl-card">
+            <div class="tl-card-cap"><span class="tl-an">2021</span></div>
+            <h3 class="tl-titlu">Prima comunitate, într-un grup de Facebook</h3>
+          </article>
+        </li>
+        <li>
+          <article class="tl-card">
+            <div class="tl-card-cap"><span class="tl-an">2022</span></div>
+            <h3 class="tl-titlu">Lansarea brandului The Beauty Education</h3>
+          </article>
+        </li>
+        <li>
+          <article class="tl-card">
+            <div class="tl-card-cap"><span class="tl-an">2023</span></div>
+            <h3 class="tl-titlu">Echipa se extinde</h3>
+            <ul class="tl-badges"><li class="tl-badge">+ Makeup</li></ul>
+          </article>
+        </li>
+        <li>
+          <article class="tl-card">
+            <div class="tl-card-cap"><span class="tl-an">2024</span></div>
+            <h3 class="tl-titlu">Platformă unificată și aplicație de mobil</h3>
+            <ul class="tl-badges"><li class="tl-badge">+ Tunsoare</li></ul>
+          </article>
+        </li>
+        <li>
+          <article class="tl-card">
+            <div class="tl-card-cap"><span class="tl-an">2025</span></div>
+            <h3 class="tl-titlu">Creștere de 180% și 3.000 de membri activi</h3>
+            <ul class="tl-badges">
+              <li class="tl-badge">Empiria</li>
+              <li class="tl-badge">+ Colorimetrie</li>
+            </ul>
+          </article>
+        </li>
+        <li>
+          <article class="tl-card is-acum">
+            <div class="tl-card-cap">
+              <span class="tl-an">2026</span>
+              <span class="tl-acum">Acum</span>
+            </div>
+            <h3 class="tl-titlu">Ecosistemul se completează</h3>
+            <ul class="tl-badges">
+              <li class="tl-badge">Harta Coafezelor</li>
+              <li class="tl-badge">Rootine+</li>
+              <li class="tl-badge">Revista Coafezelor</li>
+            </ul>
+          </article>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Banda de cifre. Separată de mozaic prin spațiu (96px), nu prin linie. -->
+    <ul class="cifre">
+      <li class="cifra">
+        <span class="cifra-num" data-count="7000" data-suffix="+">
+          <span class="cifra-fantoma" aria-hidden="true">7.000+</span>
+          <span class="cifra-val">7.000+</span>
+        </span>
+        <span class="cifra-eticheta">Cursanți</span>
+      </li>
+      <li class="cifra">
+        <span class="cifra-num" data-count="3600" data-suffix="+">
+          <span class="cifra-fantoma" aria-hidden="true">3.600+</span>
+          <span class="cifra-val">3.600+</span>
+        </span>
+        <span class="cifra-eticheta">Membri</span>
+      </li>
+      <li class="cifra">
+        <span class="cifra-num" data-count="250" data-suffix="+">
+          <span class="cifra-fantoma" aria-hidden="true">250+</span>
+          <span class="cifra-val">250+</span>
+        </span>
+        <span class="cifra-eticheta">Tutoriale</span>
+      </li>
+      <li class="cifra">
+        <span class="cifra-num" data-count="430" data-suffix="+">
+          <span class="cifra-fantoma" aria-hidden="true">430+</span>
+          <span class="cifra-val">430+</span>
+        </span>
+        <span class="cifra-eticheta">Ore conținut educațional</span>
+      </li>
+      <li class="cifra">
+        <span class="cifra-num" data-count="100" data-suffix="+">
+          <span class="cifra-fantoma" aria-hidden="true">100+</span>
+          <span class="cifra-val">100+</span>
+        </span>
+        <span class="cifra-eticheta">Cursuri fizice</span>
+      </li>
+    </ul>
+
+  </div>
+</section>
+
+<div class="lucru-banda is-jos">↓ aici continuă pagina</div>
+
+<script src="assets/js/timeline.js"></script>
+<script src="assets/js/count-up.js"></script>
+</body>
+</html>

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<!-- PAGINĂ DE LUCRU — 3 aranjări pentru secțiunea „Comunitatea ta".
+     Comuți cu butoanele de jos sau cu tastele 1 / 2 / 3.
+
+     FOTOGRAFIILE SUNT PROVIZORII: șapte decupaje diferite din poza comunității
+     (assets/poze/placeholder/). Sunt oameni reali din TBE, deci designul se
+     judecă pe conținut adevărat — dar se înlocuiesc cu poze proprii pentru
+     fiecare temă (revistă, aplicație, hartă, booking).
+
+     Toate cele trei variante sunt clicabile: fiecare element duce la o pagină.
+     Niciuna dintre paginile țintă nu există încă. -->
+<html lang="ro" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Comunitatea ta — 3 aranjări · The Beauty Education</title>
+  <meta name="robots" content="noindex">
+
+  <link rel="icon" href="assets/logo/tbe-icon-color.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonturi/Jost%5Bwght%5D.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/fonturi/CormorantGaramond%5Bwght%5D.ttf" as="font" type="font/ttf" crossorigin>
+
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="stylesheet" href="assets/css/comunitate.css">
+
+  <style>
+    /* Schelă de comparare — se șterge împreună cu fișierul. */
+    .vswitch { position: fixed; bottom: var(--s-3); left: 50%; transform: translateX(-50%);
+      z-index: 500; display: flex; flex-direction: column; align-items: center; gap: var(--s-1);
+      max-width: calc(100vw - 32px); }
+    .vswitch-row { display: flex; gap: 4px; padding: 5px; background: rgba(26,20,22,.88);
+      border: 1px solid rgba(250,244,239,.16); border-radius: var(--r-pill);
+      backdrop-filter: blur(12px); box-shadow: 0 20px 50px -12px rgba(0,0,0,.5); }
+    .vswitch button { font-family: var(--font-mono); font-size: var(--fs-xs); letter-spacing: .06em;
+      color: rgba(250,244,239,.72); background: none; border: 0; padding: 9px var(--s-2);
+      border-radius: var(--r-pill); cursor: pointer; white-space: nowrap;
+      transition: background var(--dur-base) var(--ease-out), color var(--dur-base) var(--ease-out); }
+    .vswitch button:hover { color: #fff; background: rgba(250,244,239,.08); }
+    .vswitch button[aria-pressed="true"] { background: var(--c-magenta-500); color: #fff; }
+    .vswitch-note { margin: 0; padding: 6px var(--s-2); background: rgba(26,20,22,.88);
+      border-radius: var(--r-pill); font-family: var(--font-mono); font-size: 11px; line-height: 1.5;
+      color: rgba(250,244,239,.7); text-align: center; backdrop-filter: blur(12px); max-width: 660px; }
+    .lucru-eticheta { position: fixed; top: 12px; left: 12px; z-index: 500; padding: 7px 14px;
+      background: rgba(26,20,22,.86); color: rgba(250,244,239,.78); border-radius: var(--r-pill);
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase;
+      backdrop-filter: blur(10px); }
+    [data-cm][hidden] { display: none; }
+    @media (max-width: 780px) {
+      .vswitch button { padding: 9px 10px; font-size: 10px; letter-spacing: 0; }
+      .vswitch-note { display: none; }
+    }
+  </style>
+</head>
+
+<body>
+
+<span class="lucru-eticheta">Comunitatea ta · 3 aranjări · poze provizorii</span>
+
+<section class="site-section" aria-labelledby="cm-titlu">
+  <div class="tbe-container">
+
+    <!-- Antetul e MUTAT în coloana fixă la varianta 3, nu duplicat. -->
+    <header class="cm-head" data-cm-head>
+      <span class="tbe-kicker">Comunitatea ta</span>
+      <h2 class="cm-head-title" id="cm-titlu">Tot ce ți se deschide când intri</h2>
+      <p class="cm-head-lead">
+        Educație, instrumente și oameni. Șapte lucruri care lucrează împreună —
+        nu șapte produse vândute separat.
+      </p>
+    </header>
+
+    <!-- ====================================================================
+         A · BENTO CU FOTOGRAFII
+         ==================================================================== -->
+    <ul class="cm-bento" data-cm="1">
+      <li>
+        <a class="cm-card has-photo" href="/comunitate">
+          <img class="cm-card-img" src="assets/poze/placeholder/card-1.jpg" alt=""
+               width="1000" height="667" loading="lazy" decoding="async">
+          <span class="cm-card-scrim" aria-hidden="true"></span>
+          <span class="cm-card-arrow" aria-hidden="true">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg>
+          </span>
+          <div class="cm-card-body">
+            <h3 class="cm-titlu">Locul tău printre 3.600+ de coafeze</h3>
+            <p class="cm-desc">Aparții unei comunități care te ridică, nu te judecă.</p>
+          </div>
+        </a>
+      </li>
+
+      <li>
+        <a class="cm-card has-photo" href="/empiria">
+          <img class="cm-card-img" src="assets/poze/placeholder/card-2.jpg" alt=""
+               width="1000" height="667" loading="lazy" decoding="async">
+          <span class="cm-card-scrim" aria-hidden="true"></span>
+          <span class="cm-card-arrow" aria-hidden="true">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg>
+          </span>
+          <div class="cm-card-body">
+            <span class="cm-eticheta">Empiria</span>
+            <h3 class="cm-titlu">Certificarea nivelului profesional</h3>
+            <p class="cm-desc">Un traseu structurat pe niveluri, de la baze la expertă în meseria ta.</p>
+          </div>
+        </a>
+      </li>
+
+      <li>
+        <a class="cm-card has-photo" href="/revista">
+          <img class="cm-card-img" src="assets/poze/placeholder/card-3.jpg" alt=""
+               width="1000" height="667" loading="lazy" decoding="async">
+          <span class="cm-card-scrim" aria-hidden="true"></span>
+          <span class="cm-card-arrow" aria-hidden="true">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg>
+          </span>
+          <div class="cm-card-body">
+            <h3 class="cm-titlu">Revista Coafezelor</h3>
+            <p class="cm-desc">Educație, inspirație și dezvoltare personală. Revista voastră, inspirată din comunitate.</p>
+          </div>
+        </a>
+      </li>
+
+      <li>
+        <a class="cm-card has-photo" href="/cursuri">
+          <img class="cm-card-img" src="assets/poze/placeholder/card-4.jpg" alt=""
+               width="1000" height="667" loading="lazy" decoding="async">
+          <span class="cm-card-scrim" aria-hidden="true"></span>
+          <span class="cm-card-arrow" aria-hidden="true">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg>
+          </span>
+          <div class="cm-card-body">
+            <h3 class="cm-titlu">250+ tutoriale și cursuri fizice</h3>
+            <p class="cm-desc">Online sau fizic — înveți în ritmul tău.</p>
+          </div>
+        </a>
+      </li>
+
+      <li>
+        <a class="cm-card has-photo" href="/aplicatie">
+          <img class="cm-card-img" src="assets/poze/placeholder/card-5.jpg" alt=""
+               width="1000" height="667" loading="lazy" decoding="async">
+          <span class="cm-card-scrim" aria-hidden="true"></span>
+          <span class="cm-card-arrow" aria-hidden="true">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg>
+          </span>
+          <div class="cm-card-body">
+            <span class="cm-eticheta">Aplicație de mobil</span>
+            <h3 class="cm-titlu">Educația ta, mereu la tine</h3>
+            <p class="cm-desc">Toată platforma, în buzunar, oriunde ai fi.</p>
+          </div>
+        </a>
+      </li>
+
+      <li>
+        <a class="cm-card has-photo" href="https://harta-coafezelor.ro">
+          <img class="cm-card-img" src="assets/poze/placeholder/card-6.jpg" alt=""
+               width="1000" height="667" loading="lazy" decoding="async">
+          <span class="cm-card-scrim" aria-hidden="true"></span>
+          <span class="cm-card-arrow" aria-hidden="true">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg>
+          </span>
+          <div class="cm-card-body">
+            <h3 class="cm-titlu">Harta Coafezelor</h3>
+            <p class="cm-desc">Ai probleme în a găsi cliente? Am acoperit și asta — tu concentrează-te pe educația ta.</p>
+          </div>
+        </a>
+      </li>
+
+      <li>
+        <a class="cm-card has-photo" href="/rootine-plus">
+          <img class="cm-card-img" src="assets/poze/placeholder/card-7.jpg" alt=""
+               width="1000" height="667" loading="lazy" decoding="async">
+          <span class="cm-card-scrim" aria-hidden="true"></span>
+          <span class="cm-card-arrow" aria-hidden="true">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg>
+          </span>
+          <div class="cm-card-body">
+            <h3 class="cm-titlu">Rootine+ <span class="cm-curand">În curând</span></h3>
+            <p class="cm-desc">O aplicație de booking care chiar îți generează cliente, nu doar îți gestionează programările.</p>
+          </div>
+        </a>
+      </li>
+    </ul>
+
+    <!-- ====================================================================
+         B · LISTĂ NUMEROTATĂ
+         ==================================================================== -->
+    <ol class="cm-lista" data-cm="2" hidden>
+      <li>
+        <a class="cm-item" href="/comunitate">
+          <span class="cm-num">01</span>
+          <span>
+            <h3 class="cm-titlu">Locul tău printre 3.600+ de coafeze</h3>
+            <p class="cm-desc">Aparții unei comunități care te ridică, nu te judecă.</p>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a class="cm-item" href="/empiria">
+          <span class="cm-num">02</span>
+          <span>
+            <span class="cm-eticheta">Empiria</span>
+            <h3 class="cm-titlu">Certificarea nivelului profesional</h3>
+            <p class="cm-desc">Un traseu structurat pe niveluri, de la baze la expertă în meseria ta.</p>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a class="cm-item" href="/revista">
+          <span class="cm-num">03</span>
+          <span>
+            <h3 class="cm-titlu">Revista Coafezelor</h3>
+            <p class="cm-desc">Educație, inspirație și dezvoltare personală. Revista voastră, inspirată din comunitate.</p>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a class="cm-item" href="/cursuri">
+          <span class="cm-num">04</span>
+          <span>
+            <h3 class="cm-titlu">250+ tutoriale și cursuri fizice</h3>
+            <p class="cm-desc">Online sau fizic — înveți în ritmul tău.</p>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a class="cm-item" href="/aplicatie">
+          <span class="cm-num">05</span>
+          <span>
+            <span class="cm-eticheta">Aplicație de mobil</span>
+            <h3 class="cm-titlu">Educația ta, mereu la tine</h3>
+            <p class="cm-desc">Toată platforma, în buzunar, oriunde ai fi.</p>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a class="cm-item" href="https://harta-coafezelor.ro">
+          <span class="cm-num">06</span>
+          <span>
+            <h3 class="cm-titlu">Harta Coafezelor</h3>
+            <p class="cm-desc">Ai probleme în a găsi cliente? Am acoperit și asta — tu concentrează-te pe educația ta.</p>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a class="cm-item" href="/rootine-plus">
+          <span class="cm-num">07</span>
+          <span>
+            <h3 class="cm-titlu">Rootine+ <span class="cm-curand">În curând</span></h3>
+            <p class="cm-desc">O aplicație de booking care chiar îți generează cliente, nu doar îți gestionează programările.</p>
+          </span>
+        </a>
+      </li>
+    </ol>
+
+    <!-- ====================================================================
+         C · ANTET FIX + LISTĂ
+         ==================================================================== -->
+    <div class="cm-sticky" data-cm="3" hidden>
+      <div class="cm-sticky-head" data-cm-slot></div>
+
+      <ul class="cm-stack">
+        <li>
+          <a class="cm-rand" href="/comunitate">
+            <h3 class="cm-titlu">Locul tău printre 3.600+ de coafeze</h3>
+            <p class="cm-desc">Aparții unei comunități care te ridică, nu te judecă.</p>
+          </a>
+        </li>
+        <li>
+          <a class="cm-rand" href="/empiria">
+            <span class="cm-eticheta">Empiria</span>
+            <h3 class="cm-titlu">Certificarea nivelului profesional</h3>
+            <p class="cm-desc">Un traseu structurat pe niveluri, de la baze la expertă în meseria ta.</p>
+          </a>
+        </li>
+        <li>
+          <a class="cm-rand" href="/revista">
+            <h3 class="cm-titlu">Revista Coafezelor</h3>
+            <p class="cm-desc">Educație, inspirație și dezvoltare personală. Revista voastră, inspirată din comunitate.</p>
+          </a>
+        </li>
+        <li>
+          <a class="cm-rand" href="/cursuri">
+            <h3 class="cm-titlu">250+ tutoriale și cursuri fizice</h3>
+            <p class="cm-desc">Online sau fizic — înveți în ritmul tău.</p>
+          </a>
+        </li>
+        <li>
+          <a class="cm-rand" href="/aplicatie">
+            <span class="cm-eticheta">Aplicație de mobil</span>
+            <h3 class="cm-titlu">Educația ta, mereu la tine</h3>
+            <p class="cm-desc">Toată platforma, în buzunar, oriunde ai fi.</p>
+          </a>
+        </li>
+        <li>
+          <a class="cm-rand" href="https://harta-coafezelor.ro">
+            <h3 class="cm-titlu">Harta Coafezelor</h3>
+            <p class="cm-desc">Ai probleme în a găsi cliente? Am acoperit și asta — tu concentrează-te pe educația ta.</p>
+          </a>
+        </li>
+        <li>
+          <a class="cm-rand" href="/rootine-plus">
+            <h3 class="cm-titlu">Rootine+ <span class="cm-curand">În curând</span></h3>
+            <p class="cm-desc">O aplicație de booking care chiar îți generează cliente, nu doar îți gestionează programările.</p>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<div class="vswitch" role="group" aria-label="Comparare aranjări">
+  <div class="vswitch-row">
+    <button type="button" data-v="1" aria-pressed="true">1 · Bento cu poze</button>
+    <button type="button" data-v="2" aria-pressed="false">2 · Listă numerotată</button>
+    <button type="button" data-v="3" aria-pressed="false">3 · Antet fix</button>
+  </div>
+  <p class="vswitch-note"></p>
+</div>
+
+<script>
+(function () {
+  var bloc = Array.prototype.slice.call(document.querySelectorAll('[data-cm]'));
+  var head = document.querySelector('[data-cm-head]');
+  var slot = document.querySelector('[data-cm-slot]');
+  var acasa = head.parentNode, dupa = head.nextSibling;   // unde stă antetul normal
+  var btns = Array.prototype.slice.call(document.querySelectorAll('.vswitch button'));
+  var note = document.querySelector('.vswitch-note');
+  var notes = {
+    '1': 'Grilă asimetrică 7/5 · 5/7 · 4/4/4, cu fotografie în spate și gradient dimensionat pe măsurători (0,58 în banda de text = 0% pixeli sub 4,5:1 pe toate 7 pozele). Cea mai densă.',
+    '2': 'Fără carduri și fără poze: numerale, linii fine, aer. Curgere pe coloană (01–04 stânga, 05–07 dreapta), pentru că o listă se citește în jos, nu în zigzag.',
+    '3': 'Antetul rămâne pe loc cât lista trece pe lângă el. Cea mai lentă — forțează parcurgerea, nu scanarea. Pe mobil sticky-ul se dezactivează singur.'
+  };
+  function arata(n) {
+    n = String(n);
+    bloc.forEach(function (b) { b.hidden = b.getAttribute('data-cm') !== n; });
+    if (n === '3') slot.appendChild(head);
+    else if (head.parentNode !== acasa) acasa.insertBefore(head, dupa);
+    btns.forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-v') === n ? 'true' : 'false'); });
+    note.textContent = notes[n];
+    history.replaceState(null, '', '#c' + n);
+  }
+  btns.forEach(function (b) { b.addEventListener('click', function () { arata(b.getAttribute('data-v')); }); });
+  document.addEventListener('keydown', function (e) {
+    if (e.target.matches('input, textarea, select')) return;
+    if (['1', '2', '3'].indexOf(e.key) > -1) arata(e.key);
+  });
+  var m = location.hash.match(/c([123])/);
+  arata(m ? m[1] : '1');
+})();
+</script>
+</body>
+</html>

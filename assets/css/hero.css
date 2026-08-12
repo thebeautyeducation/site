@@ -1,0 +1,335 @@
+/* ==========================================================================
+   THE BEAUTY EDUCATION — HERO CU FOTOGRAFIE · 3 variante
+   Se încarcă DUPĂ site.css.
+   --------------------------------------------------------------------------
+   De ce scrim-urile arată așa cum arată — măsurat, nu estimat:
+
+   Fotografia (grup în sală ornată) e luminoasă neuniform. Am măsurat pe
+   pixeli, în zonele unde ajunge textul, cu cropul real de desktop (16:9 din
+   3:2 taie 7,8% sus și jos):
+
+     zonă              luminanță mediană   P95     pixel maxim
+     V1 bloc centrat        0,109          0,446   RGB(255,226,212)
+     V2 jos-stânga          0,047          0,429
+     V3 bloc jos            0,069          0,426
+     V3 bară de dovezi      0,119          0,268
+
+   Procent de pixeli sub 4,5:1 pentru text alb, în zona centrată:
+     alpha 0,30 → 13,0%  ·  0,40 → 3,6%  ·  0,50 → 0,1%  ·  0,60 → 0%
+
+   Concluzii care au dictat designul:
+   1. Pragul e ~0,55. Sub el textul mic cade pe ținutele albe.
+   2. Mediana e foarte închisă (0,05–0,12), deci un overlay uniform gros ar
+      strivi o poză care e deja închisă. De aici gradientele: tari exact unde
+      stă textul, slabe unde se vede lumea.
+   3. Zonele de jos sunt mai închise decât centrul la mediană → overlay-ul de
+      jos (cerut) e și cel mai ieftin vizual. V3 exploatează exact asta.
+   4. Kickerul e CREM, nu mauve. Abatere conștientă de la „mauve = voce
+      editorială": peste fotografie mauve-ul nu atinge 4,5:1. Lizibilitatea
+      batepreferința cromatică. Pe fundal solid, regula rămâne mauve.
+   5. Umbra minusculă de text (0 1px 3px) e plasa de siguranță pentru cei
+      0,1% pixeli foarte luminoși care scapă gradientului.
+   ========================================================================== */
+
+/* ==========================================================================
+   COMUN — structura de straturi, identică la toate trei
+   ========================================================================== */
+.hero {
+  position: relative;
+  display: grid;
+  min-height: 90vh;
+  min-height: 90svh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hero-media {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--c-neutral-950);   /* ce se vede până se încarcă poza */
+}
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 55%;   /* ușor spre podea: acolo stă textul, iar cupola nu ne lipsește */
+}
+.hero-scrim { position: absolute; inset: 0; }
+
+/* Scrimul de sus, sub navbar. Necesar și măsurat: banda în care stă navbar-ul
+   are mediana 0,045 (tavanul e închis) dar maximul 0,969 — vitraliul cupolei,
+   exact în centru, adică exact sub link-urile din meniu. La alpha 0,40 cad
+   0,9% din pixeli sub 4,5:1; la 0,55 doar 0,1%. Gradientul de mai jos dă ~0,52
+   în centrul navbar-ului, iar restul îl acoperă umbra de text din site.css. */
+.hero-scrim::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 300px;
+  background: linear-gradient(to bottom,
+    rgba(26, 20, 22, 0.62) 0,
+    rgba(26, 20, 22, 0.26) 160px,
+    rgba(26, 20, 22, 0) 100%);
+}
+
+.hero-body {
+  position: relative;
+  z-index: 1;
+  padding-top: var(--site-nav-h);
+}
+
+/* --- Tipografie comună --------------------------------------------------- */
+.hero-kicker {
+  display: block;
+  margin: 0 0 var(--s-3);
+  font-family: var(--font-mono);
+  font-size: var(--fs-kicker);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-kicker);
+  text-transform: uppercase;
+  color: rgba(250, 244, 239, 0.88);
+  text-shadow: 0 1px 3px rgba(26, 20, 22, 0.55);
+}
+
+.hero-title {
+  margin: 0 0 var(--s-3);
+  font-family: var(--font-display);
+  font-size: var(--fs-display);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+  color: var(--c-neutral-0);
+  text-wrap: balance;
+  text-shadow: 0 2px 12px rgba(26, 20, 22, 0.35);
+}
+
+.hero-sub {
+  margin: 0 0 var(--s-5);
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-light);
+  line-height: var(--lh-relaxed);
+  color: var(--c-neutral-50);
+  text-shadow: 0 1px 3px rgba(26, 20, 22, 0.55);
+}
+
+/* --- Butoane ------------------------------------------------------------- */
+.hero-actions {
+  display: flex;
+  gap: var(--s-2);
+  flex-wrap: wrap;
+}
+
+/* Secundarul de pe fotografie: contur alb, nu magenta. Magenta pe magenta ar
+   da două butoane pline și ar rupe regula „un singur primar pe ecran". */
+.hero-btn-glass {
+  background: rgba(250, 244, 239, 0.10);
+  color: var(--c-neutral-0);
+  border: var(--bw-thin) solid rgba(250, 244, 239, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.hero-btn-glass:hover {
+  background: var(--c-neutral-0);
+  color: var(--c-neutral-900);
+  border-color: var(--c-neutral-0);
+}
+
+/* --- Dovezi: numere + discipline ---------------------------------------- */
+.hero-proof-num {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-semibold);
+  line-height: 1;
+  color: var(--c-neutral-0);
+  font-variant-numeric: tabular-nums;
+}
+.hero-proof-label,
+.hero-proof-list {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-kicker);
+  text-transform: uppercase;
+  color: rgba(250, 244, 239, 0.82);
+}
+.hero-proof-num,
+.hero-proof-label,
+.hero-proof-list { text-shadow: 0 1px 3px rgba(26, 20, 22, 0.6); }
+
+/* ==========================================================================
+   VARIANTA 1 · CENTRAT
+   Poza e simetrică (mulțimea e centrată), deci textul centrat i se așază
+   natural pe ax. Scrim aproape uniform, ușor mai tare jos.
+   Dovezile: o singură linie, mono, separatori subțiri.
+   ========================================================================== */
+/* Stopurile sunt puse ca alpha să fie ≥0,55 pe TOATĂ înălțimea blocului de
+   text, inclusiv la kicker, care e cel mai sus și primește cel mai puțin. */
+.hero.is-v1 .hero-scrim {
+  background: linear-gradient(to top,
+    rgba(26, 20, 22, 0.92) 0%,
+    rgba(26, 20, 22, 0.64) 30%,
+    rgba(26, 20, 22, 0.56) 75%,
+    rgba(26, 20, 22, 0.44) 100%);
+}
+.hero.is-v1 .hero-body {
+  place-self: center;
+  text-align: center;
+  max-width: 800px;
+  padding-block: var(--s-8);
+}
+.hero.is-v1 .hero-title { max-width: 20ch; margin-inline: auto; }
+.hero.is-v1 .hero-sub   { max-width: 54ch; margin-inline: auto; }
+.hero.is-v1 .hero-actions { justify-content: center; }
+
+.hero.is-v1 .hero-proof {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-2);
+  flex-wrap: wrap;
+  margin-top: var(--s-5);
+}
+.hero.is-v1 .hero-proof li {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+.hero.is-v1 .hero-proof li + li::before {
+  content: '';
+  align-self: center;
+  width: 1px;
+  height: 14px;
+  margin-right: var(--s-2);
+  background: rgba(250, 244, 239, 0.28);
+}
+.hero.is-v1 .hero-proof-num { font-size: var(--fs-h4); }
+
+/* ==========================================================================
+   VARIANTA 2 · EDITORIAL JOS-STÂNGA
+   Textul ancorat jos-stânga, aliniat la stânga, pe o coloană îngustă.
+   Scrim diagonal: tare în colțul textului, aproape absent în dreapta sus —
+   partea dreaptă a sălii rămâne vizibilă. Cel mai „revistă" din cele trei.
+   Dovezile: două rânduri — numerele mari, apoi disciplinele.
+   ========================================================================== */
+.hero.is-v2 .hero-scrim {
+  background:
+    linear-gradient(102deg,
+      rgba(26, 20, 22, 0.90) 0%,
+      rgba(26, 20, 22, 0.74) 32%,
+      rgba(26, 20, 22, 0.32) 62%,
+      rgba(26, 20, 22, 0.10) 100%),
+    linear-gradient(to top,
+      rgba(26, 20, 22, 0.82) 0%,
+      rgba(26, 20, 22, 0.34) 40%,
+      rgba(26, 20, 22, 0) 72%);
+}
+.hero.is-v2 .hero-body {
+  place-self: end start;
+  width: 100%;
+  max-width: 680px;
+  padding-bottom: var(--s-12);
+}
+.hero.is-v2 .hero-title {
+  font-size: clamp(2rem, 1.2rem + 3.6vw, 3.4rem);
+  max-width: 19ch;
+}
+.hero.is-v2 .hero-sub { max-width: 46ch; }
+
+.hero.is-v2 .hero-proof {
+  margin-top: var(--s-6);
+  padding-top: var(--s-3);
+  border-top: 1px solid rgba(250, 244, 239, 0.22);
+}
+.hero.is-v2 .hero-proof-nums {
+  display: flex;
+  gap: var(--s-5);
+  margin-bottom: var(--s-2);
+}
+.hero.is-v2 .hero-proof-nums li {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s-1);
+}
+.hero.is-v2 .hero-proof-num { font-size: var(--fs-h2); }
+.hero.is-v2 .hero-proof-list { display: block; }
+
+/* ==========================================================================
+   VARIANTA 3 · BLOC JOS + BARĂ DE DOVEZI
+   Promisiunea (titlu, subtitlu, butoane) jos, peste overlay-ul negru cerut.
+   Dovezile într-o bară proprie, lipită de marginea de jos, despărțită de o
+   linie fină. Jumătatea de sus a pozei rămâne curată: fețele se văd toate.
+   Cea mai blândă cu fotografia din cele trei — și cea care folosește exact
+   zona măsurată ca fiind cea mai închisă.
+   ========================================================================== */
+/* Pragul de 0,62 urcat la 50%: kickerul stă la ~46% de la bază, iar sub 0,55
+   textul mic cade pe ținutele albe. Jumătatea de sus rămâne totuși curată. */
+.hero.is-v3 .hero-scrim {
+  background: linear-gradient(to top,
+    rgba(26, 20, 22, 0.95) 0%,
+    rgba(26, 20, 22, 0.88) 22%,
+    rgba(26, 20, 22, 0.62) 50%,
+    rgba(26, 20, 22, 0.14) 72%,
+    rgba(26, 20, 22, 0) 100%);
+}
+.hero.is-v3 .hero-body {
+  place-self: end center;
+  text-align: center;
+  max-width: 860px;
+  padding-bottom: calc(var(--s-10) + 72px);   /* loc pentru bara de dovezi */
+}
+.hero.is-v3 .hero-title { max-width: 24ch; margin-inline: auto; }
+.hero.is-v3 .hero-sub   { max-width: 56ch; margin-inline: auto; }
+.hero.is-v3 .hero-actions { justify-content: center; }
+
+.hero-bar {
+  position: absolute;
+  inset: auto 0 0 0;
+  z-index: 1;
+  border-top: 1px solid rgba(250, 244, 239, 0.18);
+}
+.hero-bar-inner {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  align-items: center;
+  gap: var(--s-5);
+  padding-block: var(--s-3);
+}
+.hero-bar-cell {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s-1);
+}
+.hero-bar-cell + .hero-bar-cell { border-left: 1px solid rgba(250, 244, 239, 0.18); padding-left: var(--s-5); }
+.hero-bar .hero-proof-num { font-size: var(--fs-h3); }
+.hero-bar .hero-proof-list { text-align: right; }
+
+/* ==========================================================================
+   RESPONSIVE — comun
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .hero-img { object-position: 50% 50%; }
+  .hero.is-v2 .hero-body { padding-bottom: var(--s-10); }
+  .hero.is-v3 .hero-body { padding-bottom: calc(var(--s-8) + 96px); }
+  .hero-bar-inner { grid-template-columns: auto auto; gap: var(--s-3); }
+  .hero-bar .hero-proof-list { grid-column: 1 / -1; text-align: left; }
+  .hero-bar .hero-proof-list { border-top: 1px solid rgba(250, 244, 239, 0.14); padding-top: var(--s-2); }
+}
+
+@media (max-width: 640px) {
+  .hero-title { font-size: clamp(1.875rem, 1.2rem + 4vw, 2.5rem); }
+  .hero-sub { font-size: var(--fs-base); }
+  .hero-actions { flex-direction: column; align-items: stretch; }
+  .hero-actions .tbe-btn { width: 100%; }
+  .hero.is-v1 .hero-proof { gap: var(--s-1); }
+  .hero.is-v1 .hero-proof li + li::before { display: none; }
+  .hero.is-v1 .hero-proof { flex-direction: column; }
+  .hero.is-v2 .hero-proof-nums { gap: var(--s-4); }
+  .hero-bar-cell + .hero-bar-cell { border-left: 0; padding-left: 0; }
+  /* Bara se compactează: pe 731px de hero, 150px de bară mâncau prea mult din
+     poză. Padding redus + listă pe un rând = ~110px. */
+  .hero-bar-inner { padding-block: var(--s-2); gap: var(--s-1) var(--s-3); }
+  .hero-bar .hero-proof-num { font-size: var(--fs-h4); }
+  .hero-bar .hero-proof-list { letter-spacing: 0.08em; padding-top: var(--s-1); }
+  .hero.is-v3 .hero-body { padding-bottom: calc(var(--s-4) + 116px); }
+}

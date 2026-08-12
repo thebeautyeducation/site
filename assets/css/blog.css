@@ -1,0 +1,179 @@
+/* ==========================================================================
+   THE BEAUTY EDUCATION — SECȚIUNEA „BLOG"
+   Se încarcă după site.css.
+   --------------------------------------------------------------------------
+   Referința: antet pe două coloane (titlu stânga · descriere + link dreapta)
+   și carduri ORIZONTALE — imagine stânga, conținut dreapta, cu autor sus.
+   Adaptări la TBE: titlurile articolelor în Cormorant (nu sans bold), linkul
+   „Citește articolul" magenta (acțiune), iar punctele de carusel din
+   referință au fost scoase — pe site secțiunea arată ultimele 2 articole;
+   în WordPress devine un loop peste postările recente.
+
+   Fundal ALB, ultima secțiune înainte de footer: alb → charcoal = 11,4:1.
+   Granița de sus (cremul CTA-ului → alb) primește linia fină, ca peste tot.
+   ========================================================================== */
+
+.blog {
+  background: var(--c-neutral-0);
+  border-top: 1px solid var(--tbe-border-subtle);
+}
+
+/* --- Antetul pe două coloane -------------------------------------------------- */
+.blog-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 400px);
+  gap: var(--s-4) var(--s-8);
+  align-items: end;
+  margin-bottom: var(--s-8);
+}
+.blog-marcaj {
+  width: 64px;
+  height: 2px;
+  margin: 0 0 var(--s-3);
+  border: 0;
+  border-radius: var(--r-pill);
+  background: var(--tbe-editorial-line);
+}
+.blog-titlu {
+  margin: 0;
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-light);
+  letter-spacing: var(--ls-tight);
+}
+.blog-desc {
+  margin: 0 0 var(--s-2);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-light);
+  line-height: var(--lh-body);
+  color: var(--tbe-text-muted);
+  max-width: none;
+}
+
+/* --- Cardurile ------------------------------------------------------------------ */
+.blog-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-3);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.blog-card {
+  display: grid;
+  grid-template-columns: 42% minmax(0, 1fr);
+  gap: var(--s-4);
+  padding: var(--s-3);
+  background: var(--tbe-surface);
+  border-radius: var(--tbe-radius-card);
+  box-shadow: var(--site-shadow-card);
+  transition: box-shadow var(--dur-slow) var(--ease-out),
+              transform var(--dur-slow) var(--ease-out);
+}
+.blog-card:hover {
+  box-shadow: var(--site-shadow-card-hover);
+  transform: translateY(-2px);
+}
+
+.blog-media {
+  border-radius: var(--r-md);   /* colț interior mai strâns decât cardul */
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  background: var(--tbe-decor);
+}
+.blog-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--dur-slower) var(--ease-out);
+}
+.blog-card:hover .blog-media img { transform: scale(1.04); }
+
+.blog-continut {
+  display: flex;
+  flex-direction: column;
+  padding: var(--s-2) var(--s-2) var(--s-2) 0;
+  min-width: 0;
+}
+
+/* Autorul */
+.blog-autor {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  margin-bottom: var(--s-3);
+}
+.blog-avatar {
+  flex: none;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--tbe-decor-strong);
+}
+.blog-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.blog-autor-nume {
+  display: block;
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--tbe-text);
+  line-height: 1.3;
+}
+.blog-autor-rol {
+  display: block;
+  font-size: var(--fs-xs);
+  color: var(--tbe-text-muted);
+}
+
+.blog-card-titlu {
+  margin: 0 0 var(--s-2);
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-tight);
+  color: var(--tbe-text);
+  text-wrap: balance;
+}
+.blog-extras {
+  margin: 0 0 var(--s-3);
+  font-size: var(--fs-sm);
+  line-height: var(--lh-body);
+  color: var(--tbe-text-muted);
+  max-width: none;
+}
+
+/* „Citește articolul" — jos, magenta, cu săgeata care alunecă */
+.blog-mai {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--tbe-action);
+  text-decoration: none;
+}
+.blog-mai svg {
+  width: 14px;
+  height: 14px;
+  transition: transform var(--dur-slow) var(--ease-out);
+}
+.blog-mai:hover { color: var(--tbe-action-hover); }
+.blog-mai:hover svg { transform: translateX(3px); }
+
+/* --- Responsive -------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .blog-head { grid-template-columns: 1fr; align-items: start; margin-bottom: var(--s-6); }
+  .blog-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  /* Imaginea trece deasupra conținutului — 42% dintr-un card îngust e prea puțin. */
+  .blog-card { grid-template-columns: 1fr; }
+  .blog-media { aspect-ratio: 16 / 10; }
+  .blog-continut { padding: var(--s-1) var(--s-2) var(--s-2); }
+}

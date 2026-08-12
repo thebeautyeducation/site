@@ -1,0 +1,394 @@
+/* ==========================================================================
+   THE BEAUTY EDUCATION — TIMELINE · 3 direcții
+   Se încarcă după site.css și povestea.css (de acolo vin antetul și cifrele).
+   --------------------------------------------------------------------------
+   Ce se păstrează din feedback: un TITLU pentru fiecare an + realizările ca
+   BADGES. Ce se aruncă: linia cu puncte, în toate formele ei.
+
+   Cele trei nu sunt trei fețe ale aceluiași layout — sunt trei modele de
+   interacțiune diferite:
+     1 MOZAIC    — totul vizibil deodată, grilă asimetrică. Zero interacțiune.
+     2 ACORDEON  — dezvăluire progresivă. Vezi 7 ani, deschizi unul.
+     3 RAIL      — navigare orizontală cu snap. Carduri egale, parcurse.
+   ========================================================================== */
+
+/* ==========================================================================
+   COMUN
+   ========================================================================== */
+/* Anul — magenta, semibold, vizibil mai mare decât restul metadatelor.
+   Abatere asumată de la „magenta = acțiune" (cerută explicit): anii sunt
+   reperul de scanare al secțiunii, iar pe cardurile albe magenta #A71257
+   ține 6,7:1. Nu e link — dar aici funcția de reper bate regula.          */
+.tl-an {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-wide);
+  color: var(--tbe-action);
+  font-variant-numeric: tabular-nums;
+}
+
+.tl-titlu {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-tight);
+  color: var(--tbe-text);
+  text-wrap: balance;
+}
+
+.tl-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-1);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.tl-badge {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--tbe-editorial);
+  background: var(--tbe-editorial-soft);
+  border: 1px solid var(--tbe-editorial-line);
+  border-radius: var(--r-pill);
+  padding: 5px 11px;
+  white-space: nowrap;
+}
+
+/* Marcajul prezentului */
+.tl-acum {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-kicker);
+  text-transform: uppercase;
+  color: var(--tbe-action);
+}
+.tl-acum::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--tbe-action);
+}
+
+/* Cardul folosit de mozaic și de rail */
+.tl-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  height: 100%;
+  padding: var(--s-4);
+  background: var(--tbe-surface);
+  border-radius: var(--tbe-radius-card);
+  box-shadow: var(--site-shadow-card);
+  transition: box-shadow var(--dur-slow) var(--ease-out),
+              transform var(--dur-slow) var(--ease-out);
+}
+.tl-card:hover {
+  box-shadow: var(--site-shadow-card-hover);
+  transform: translateY(-2px);
+}
+.tl-card .tl-badges { margin-top: auto; padding-top: var(--s-2); }
+
+/* Cardul prezentului: charcoal. Un singur bloc închis în toată secțiunea —
+   ochiul îl găsește instant, fără să fie nevoie de vreo linie care să explice
+   unde s-a ajuns. */
+.tl-card.is-acum { background: var(--c-neutral-900); }
+.tl-card.is-acum .tl-titlu { color: var(--c-neutral-50); }
+/* Pe charcoal, magenta-500 nu se citește (2,1:1) — varianta luminoasă dă 5,0:1. */
+.tl-card.is-acum .tl-an { color: var(--c-magenta-light); }
+.tl-card.is-acum .tl-badge {
+  color: var(--c-neutral-50);
+  background: rgba(250, 244, 239, 0.08);
+  border-color: rgba(250, 244, 239, 0.22);
+}
+.tl-card.is-acum .tl-acum { color: var(--c-magenta-light); }
+.tl-card.is-acum .tl-acum::before { background: var(--c-magenta-light); }
+
+.tl-card-cap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-2);
+}
+
+/* ==========================================================================
+   1 · MOZAIC — grilă asimetrică
+   Cronologia se citește în ordinea de lectură, nu pe o axă desenată.
+   Lățimile inegale (5/7, 7/5, 4/4/4) rup ritmul de „galerie de carduri".
+   ========================================================================== */
+.tl-mozaic-wrap { position: relative; }
+
+.tl-mozaic {
+  display: grid;
+  column-gap: var(--s-3);
+  row-gap: var(--s-7);   /* 56px: întoarcerile firului au nevoie de spațiu */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+/* Cardurile stau deasupra firului, care intră sub umbra lor. */
+.tl-mozaic > li { position: relative; z-index: 1; }
+
+/* --- FIRUL ---------------------------------------------------------------
+   Traseul e calculat din pozițiile reale ale cardurilor (timeline.js), nu
+   desenat fix: se recalculează la fiecare schimbare de lățime. Se desenează
+   pe scroll, în ordine cronologică — de aceea e „călătorie", nu decor.
+   Fără JS firul pur și simplu nu apare, iar mozaicul rămâne întreg.          */
+.tl-fir {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+.tl-fir-linie {
+  fill: none;
+  stroke: var(--tbe-editorial-line);
+  stroke-width: 1.25;
+  stroke-linecap: round;
+}
+.tl-fir-capat { fill: var(--tbe-editorial); }
+
+@media (min-width: 1025px) {
+  .tl-mozaic { grid-template-columns: repeat(12, 1fr); }
+  .tl-mozaic > li:nth-child(1) { grid-column: span 5; }
+  .tl-mozaic > li:nth-child(2) { grid-column: span 7; }
+  .tl-mozaic > li:nth-child(3) { grid-column: span 7; }
+  .tl-mozaic > li:nth-child(4) { grid-column: span 5; }
+  .tl-mozaic > li:nth-child(5) { grid-column: span 4; }
+  .tl-mozaic > li:nth-child(6) { grid-column: span 4; }
+  .tl-mozaic > li:nth-child(7) { grid-column: span 4; }
+  /* Cardurile mari primesc și titlu mai mare — altfel arată subîncărcate. */
+  .tl-mozaic > li:nth-child(2) .tl-titlu,
+  .tl-mozaic > li:nth-child(3) .tl-titlu { font-size: var(--fs-h2); }
+  .tl-mozaic > li:nth-child(2) .tl-card,
+  .tl-mozaic > li:nth-child(3) .tl-card { padding: var(--s-5); }
+}
+
+@media (max-width: 1024px) {
+  .tl-mozaic { grid-template-columns: repeat(2, 1fr); }
+  .tl-mozaic > li:last-child { grid-column: 1 / -1; }
+}
+@media (max-width: 640px) {
+  .tl-mozaic { grid-template-columns: 1fr; }
+}
+
+/* ==========================================================================
+   2 · ACORDEON — dezvăluire progresivă
+   Închis: doar anul și o linie care se întinde spre dreapta. Șapte ani, o
+   coloană, mult aer. Deschis: titlul și badge-urile apar.
+   Ideea: nu arăți tot deodată. Cine vrea povestea o deschide.
+   ========================================================================== */
+.tl-acordeon {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--tbe-border-subtle);
+}
+.tl-ac-item { border-bottom: 1px solid var(--tbe-border-subtle); }
+
+.tl-ac-cap {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  width: 100%;
+  padding: var(--s-3) 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+}
+
+.tl-ac-an {
+  flex: none;
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 1.2rem + 1.6vw, 2.75rem);   /* 28 → 44px */
+  font-weight: var(--fw-light);
+  line-height: 1;
+  letter-spacing: var(--ls-tight);
+  color: var(--tbe-text-muted);
+  font-variant-numeric: tabular-nums;
+  transition: color var(--dur-base) var(--ease-out);
+}
+.tl-ac-item.is-open .tl-ac-an,
+.tl-ac-cap:hover .tl-ac-an { color: var(--tbe-text); }
+
+/* Linia care umple spațiul dintre an și semnul de plus. Nu e o axă — e ce
+   rămâne din rând când nu-i pui nimic altceva. */
+.tl-ac-linie {
+  flex: 1;
+  height: 1px;
+  background: var(--tbe-border);
+  transition: background var(--dur-base) var(--ease-out);
+}
+.tl-ac-item.is-open .tl-ac-linie { background: var(--tbe-action); }
+
+.tl-ac-semn {
+  flex: none;
+  position: relative;
+  width: 22px;
+  height: 22px;
+  color: var(--tbe-text-muted);
+}
+.tl-ac-semn::before,
+.tl-ac-semn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: currentColor;
+  transform: translate(-50%, -50%);
+  transition: transform var(--dur-slow) var(--ease-out), opacity var(--dur-base) var(--ease-out);
+}
+.tl-ac-semn::before { width: 13px; height: 1.5px; }
+.tl-ac-semn::after  { width: 1.5px; height: 13px; }
+.tl-ac-item.is-open .tl-ac-semn { color: var(--tbe-action); }
+.tl-ac-item.is-open .tl-ac-semn::after { transform: translate(-50%, -50%) rotate(90deg); opacity: 0; }
+
+/* Corpul. Animăm grid-template-rows 0fr → 1fr: singura tehnică prin care o
+   înălțime necunoscută se animează fără să inventăm un max-height fix. */
+.tl-ac-corp {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--dur-slow) var(--ease-out);
+}
+.tl-ac-item.is-open .tl-ac-corp { grid-template-rows: 1fr; }
+.tl-ac-corp > div {
+  overflow: hidden;
+  min-height: 0;
+  opacity: 0;
+  transition: opacity var(--dur-base) var(--ease-out);
+}
+.tl-ac-item.is-open .tl-ac-corp > div { opacity: 1; }
+
+.tl-ac-continut {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  padding: 0 0 var(--s-4) 0;
+  max-width: 620px;
+}
+.tl-ac-continut .tl-titlu { font-size: var(--fs-h2); font-weight: var(--fw-light); }
+
+@media (max-width: 640px) {
+  .tl-ac-cap { gap: var(--s-2); }
+  .tl-ac-linie { display: none; }
+  .tl-ac-cap { justify-content: space-between; }
+  .tl-ac-continut .tl-titlu { font-size: var(--fs-h3); }
+}
+
+/* ==========================================================================
+   3 · RAIL — navigare orizontală cu snap
+   Carduri egale, parcurse cu scroll nativ (funcționează și fără JS).
+   JS-ul adaugă doar butoanele și segmentul activ.
+   ========================================================================== */
+.tl-rail-wrap { position: relative; }
+
+.tl-rail {
+  display: flex;
+  gap: var(--s-3);
+  list-style: none;
+  margin: 0;
+  padding: 4px 4px var(--s-2);   /* loc pentru umbra cardurilor */
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  overscroll-behavior-x: contain;
+}
+.tl-rail::-webkit-scrollbar { display: none; }
+
+.tl-rail > li {
+  flex: 0 0 clamp(258px, 31%, 372px);
+  scroll-snap-align: start;
+}
+.tl-rail .tl-card { min-height: 232px; }
+
+/* Cardul prezentului în rail: rămâne alb, dar cu o linie magenta sus —
+   într-un șir de carduri egale, inversarea completă ar rupe ritmul. */
+.tl-rail .tl-card.is-acum {
+  background: var(--tbe-surface);
+  border-top: 2px solid var(--tbe-action);
+  padding-top: calc(var(--s-4) - 2px);
+}
+.tl-rail .tl-card.is-acum .tl-titlu { color: var(--tbe-text); }
+.tl-rail .tl-card.is-acum .tl-an { color: var(--tbe-editorial); }
+.tl-rail .tl-card.is-acum .tl-badge {
+  color: var(--tbe-editorial);
+  background: var(--tbe-editorial-soft);
+  border-color: var(--tbe-editorial-line);
+}
+.tl-rail .tl-card.is-acum .tl-acum { color: var(--tbe-action); }
+.tl-rail .tl-card.is-acum .tl-acum::before { background: var(--tbe-action); }
+
+.tl-rail-ctrl {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-3);
+  margin-top: var(--s-3);
+}
+.tl-segmente {
+  display: flex;
+  gap: 4px;
+  flex: 1;
+  max-width: 320px;
+}
+.tl-seg {
+  flex: 1;
+  height: 2px;
+  border-radius: var(--r-pill);
+  background: var(--tbe-border);
+  transition: background var(--dur-base) var(--ease-out);
+}
+.tl-seg.is-activ { background: var(--tbe-action); }
+
+.tl-nav { display: flex; gap: var(--s-1); }
+.tl-nav button {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid var(--tbe-border);
+  background: var(--tbe-surface);
+  color: var(--tbe-text);
+  cursor: pointer;
+  transition: border-color var(--dur-base) var(--ease-out),
+              color var(--dur-base) var(--ease-out),
+              box-shadow var(--dur-base) var(--ease-out);
+}
+.tl-nav button:hover:not(:disabled) {
+  border-color: var(--tbe-action);
+  color: var(--tbe-action);
+  box-shadow: var(--shadow-sm);
+}
+.tl-nav button:disabled { opacity: 0.35; cursor: default; }
+.tl-nav svg { width: 16px; height: 16px; }
+
+@media (max-width: 640px) {
+  .tl-rail > li { flex: 0 0 84%; }
+  .tl-rail .tl-card { min-height: 0; }
+  .tl-segmente { max-width: none; }
+}

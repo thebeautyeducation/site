@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<!-- data-theme="light" blochează tema deschisă. Design system-ul are dark mode
+     care s-ar activa singur din preferința sistemului; site-ul nu-l folosește. -->
+<html lang="ro" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Beauty Education — comunitatea coafezelor din România</title>
+  <meta name="description" content="Cea mai mare comunitate pentru coafeze din România. Educație, comunitate și produse profesionale într-un singur loc.">
+
+  <link rel="icon" href="assets/logo/tbe-icon-color.svg" type="image/svg+xml">
+
+  <!-- Fonturile critice, încărcate din start: fără ele, primul cadru e cu serif de sistem. -->
+  <link rel="preload" href="assets/fonturi/Jost%5Bwght%5D.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/fonturi/CormorantGaramond%5Bwght%5D.ttf" as="font" type="font/ttf" crossorigin>
+
+  <!-- Fotografia de hero e elementul LCP al paginii: o cerem din <head>, ca să
+       nu aștepte descoperirea în <body>. -->
+  <link rel="preload" as="image" href="assets/poze/hero-comunitate-1600.jpg"
+        imagesrcset="assets/poze/hero-comunitate-1000.jpg 1000w,
+                     assets/poze/hero-comunitate-1600.jpg 1600w,
+                     assets/poze/hero-comunitate-2400.jpg 2400w"
+        imagesizes="100vw" fetchpriority="high">
+
+  <!-- ORDINEA CONTEAZĂ: tokens → components → site → secțiuni -->
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="stylesheet" href="assets/css/hero.css">
+  <link rel="stylesheet" href="assets/css/povestea.css">
+  <link rel="stylesheet" href="assets/css/timeline.css">
+  <link rel="stylesheet" href="assets/css/comunitate.css">
+  <link rel="stylesheet" href="assets/css/problema.css">
+  <link rel="stylesheet" href="assets/css/empiria.css">
+  <link rel="stylesheet" href="assets/css/galerie.css">
+  <link rel="stylesheet" href="assets/css/loialitate.css">
+  <link rel="stylesheet" href="assets/css/harta.css">
+  <link rel="stylesheet" href="assets/css/marturii.css">
+  <link rel="stylesheet" href="assets/css/faq.css">
+  <link rel="stylesheet" href="assets/css/cta.css">
+  <link rel="stylesheet" href="assets/css/blog.css">
+</head>
+
+<!-- site-has-hero = pagina începe cu hero, deci navbar-ul fix stă PESTE el.
+     Pe paginile fără hero: scoate clasa de pe <body> și adaugă is-locked pe <header>. -->
+<body class="site-has-hero">
+
+<a class="site-skip" href="#continut">Sari la conținut</a>
+
+<!-- ==========================================================================
+     NAVBAR  →  în WordPress: header.php / template part „header"
+     ========================================================================== -->
+<header class="site-nav" data-site-nav>
+  <div class="site-nav-inner tbe-container">
+
+    <a class="site-nav-brand" href="/" aria-label="The Beauty Education — prima pagină">
+      <img class="site-nav-logo is-white" src="assets/logo/tbe-orizontal-alb.svg"
+           alt="The Beauty Education" width="150" height="40">
+      <img class="site-nav-logo is-color" src="assets/logo/tbe-orizontal-color.svg"
+           alt="" aria-hidden="true" width="150" height="40">
+    </a>
+
+    <nav class="site-nav-menu" aria-label="Navigare principală">
+      <ul class="site-nav-list">
+        <li class="site-nav-item">
+          <a class="site-nav-link" href="https://ro.thebeautyeducation.com">Comunitate</a>
+        </li>
+        <li class="site-nav-item">
+          <a class="site-nav-link" href="/empiria">Empiria</a>
+        </li>
+
+        <li class="site-nav-item site-nav-has-sub" data-site-dropdown>
+          <button type="button" class="site-nav-link" aria-expanded="false" aria-controls="submeniu-cursuri">
+            Cursuri
+            <svg class="site-nav-caret" viewBox="0 0 12 12" fill="none" stroke="currentColor"
+                 stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M2.5 4.5 6 8l3.5-3.5"/>
+            </svg>
+          </button>
+          <ul class="site-nav-sub" id="submeniu-cursuri">
+            <li><a href="/cursuri-online">Cursuri online</a></li>
+            <li><a href="/cursuri-fizice">Cursuri fizice</a></li>
+          </ul>
+        </li>
+
+        <li class="site-nav-item">
+          <a class="site-nav-link" href="https://harta-coafezelor.ro">Harta Coafezelor</a>
+        </li>
+        <li class="site-nav-item">
+          <a class="site-nav-link" href="https://beautifier.ro">Magazin</a>
+        </li>
+      </ul>
+    </nav>
+
+    <a class="tbe-btn is-primary site-nav-cta" href="https://ro.thebeautyeducation.com">
+      Alătură-te comunității
+    </a>
+
+    <button type="button" class="site-nav-burger" data-site-burger
+            aria-expanded="false" aria-controls="sertar-meniu" aria-label="Deschide meniul">
+      <span class="site-burger-box" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </span>
+    </button>
+
+  </div>
+</header>
+
+<!-- Sertar mobil — aceleași iteme, sub-meniul ca <details> (merge și fără JS). -->
+<div class="site-drawer" id="sertar-meniu" data-site-drawer aria-hidden="true">
+  <div class="tbe-container">
+    <ul class="site-drawer-list">
+      <li><a class="site-drawer-link" href="https://ro.thebeautyeducation.com">Comunitate</a></li>
+      <li><a class="site-drawer-link" href="/empiria">Empiria</a></li>
+      <li>
+        <details class="site-drawer-details">
+          <summary class="site-drawer-sub-toggle">
+            Cursuri
+            <svg class="site-nav-caret" viewBox="0 0 12 12" fill="none" stroke="currentColor"
+                 stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M2.5 4.5 6 8l3.5-3.5"/>
+            </svg>
+          </summary>
+          <ul class="site-drawer-sub">
+            <li><a href="/cursuri-online">Cursuri online</a></li>
+            <li><a href="/cursuri-fizice">Cursuri fizice</a></li>
+          </ul>
+        </details>
+      </li>
+      <li><a class="site-drawer-link" href="https://harta-coafezelor.ro">Harta Coafezelor</a></li>
+      <li><a class="site-drawer-link" href="https://beautifier.ro">Magazin</a></li>
+    </ul>
+
+    <div class="site-drawer-foot">
+      <a class="tbe-btn is-primary is-lg is-block" href="https://ro.thebeautyeducation.com">
+        Alătură-te comunității
+      </a>
+    </div>
+  </div>
+</div>
+
+<main id="continut">
+
+  <!-- ========================================================================
+       HERO · varianta 3 — bloc jos + bară de dovezi
+       Promisiunea stă jos, peste overlay-ul întărit; dovezile în bara lipită de
+       marginea de jos. Jumătatea de sus a fotografiei rămâne curată, deci se
+       văd toate fețele — ăsta e tot rostul pozei.
+       Gradientele scrimului sunt dimensionate pe măsurători, nu din ochi:
+       vezi comentariul din capul lui hero.css.
+       ======================================================================== -->
+  <section class="hero is-v3">
+    <div class="hero-media">
+      <img class="hero-img" alt=""
+           src="assets/poze/hero-comunitate-1600.jpg"
+           srcset="assets/poze/hero-comunitate-1000.jpg 1000w,
+                   assets/poze/hero-comunitate-1600.jpg 1600w,
+                   assets/poze/hero-comunitate-2400.jpg 2400w"
+           sizes="100vw" width="1600" height="1067" fetchpriority="high">
+      <div class="hero-scrim"></div>
+    </div>
+
+    <div class="hero-body tbe-container">
+      <span class="hero-kicker">Din 2020 · peste 70 de cursuri fizice</span>
+      <h1 class="hero-title">Cea mai mare comunitate de coafeze din România</h1>
+      <p class="hero-sub">
+        Educație, produse profesionale și vizibilitate, într-un singur abonament.
+        Contul e gratuit — abonamentul îl faci când ești pregătită.
+      </p>
+      <div class="hero-actions">
+        <a class="tbe-btn is-primary is-lg" href="https://ro.thebeautyeducation.com">Creează cont gratuit</a>
+        <a class="tbe-btn is-lg hero-btn-glass" href="/abonament">Vezi abonamentul</a>
+      </div>
+    </div>
+
+    <div class="hero-bar">
+      <div class="hero-bar-inner tbe-container">
+        <div class="hero-bar-cell">
+          <span class="hero-proof-num">3.600+</span> <span class="hero-proof-label">membri</span>
+        </div>
+        <div class="hero-bar-cell">
+          <span class="hero-proof-num">7</span> <span class="hero-proof-label">traineri</span>
+        </div>
+        <span class="hero-proof-list">Coafuri · Colorimetrie · Tunsoare · Makeup</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       POVESTEA NOASTRĂ — mozaic cu fir
+       Firul (SVG) e injectat de timeline.js în .tl-mozaic-wrap și se desenează
+       pe scroll. Wrapper-ul e obligatoriu: e sistemul de coordonate al firului.
+       ======================================================================== -->
+  <section class="site-section" aria-labelledby="povestea-titlu">
+    <div class="tbe-container">
+
+      <header class="povestea-head">
+        <span class="tbe-kicker">Povestea noastră</span>
+        <h2 class="povestea-title" id="povestea-titlu">De la un curs online la un ecosistem</h2>
+        <p class="povestea-lead">
+          Un curs online, apoi un grup de Facebook, apoi o comunitate care a cerut mai mult.
+          Fiecare pas a venit din ce lipsea coafezelor din România.
+        </p>
+      </header>
+
+      <div class="tl-mozaic-wrap" data-tl-fir>
+        <ul class="tl-mozaic">
+          <li>
+            <article class="tl-card">
+              <div class="tl-card-cap"><span class="tl-an">2020</span></div>
+              <h3 class="tl-titlu">Primele cursuri online</h3>
+              <ul class="tl-badges"><li class="tl-badge">Coafuri</li></ul>
+            </article>
+          </li>
+          <li>
+            <article class="tl-card">
+              <div class="tl-card-cap"><span class="tl-an">2021</span></div>
+              <h3 class="tl-titlu">Prima comunitate, într-un grup de Facebook</h3>
+            </article>
+          </li>
+          <li>
+            <article class="tl-card">
+              <div class="tl-card-cap"><span class="tl-an">2022</span></div>
+              <h3 class="tl-titlu">Lansarea brandului The Beauty Education</h3>
+            </article>
+          </li>
+          <li>
+            <article class="tl-card">
+              <div class="tl-card-cap"><span class="tl-an">2023</span></div>
+              <h3 class="tl-titlu">Echipa se extinde</h3>
+              <ul class="tl-badges"><li class="tl-badge">+ Makeup</li></ul>
+            </article>
+          </li>
+          <li>
+            <article class="tl-card">
+              <div class="tl-card-cap"><span class="tl-an">2024</span></div>
+              <h3 class="tl-titlu">Platformă unificată și aplicație de mobil</h3>
+              <ul class="tl-badges"><li class="tl-badge">+ Tunsoare</li></ul>
+            </article>
+          </li>
+          <li>
+            <article class="tl-card">
+              <div class="tl-card-cap"><span class="tl-an">2025</span></div>
+              <h3 class="tl-titlu">Creștere de 180% și 3.000 de membri activi</h3>
+              <ul class="tl-badges">
+                <li class="tl-badge">Empiria</li>
+                <li class="tl-badge">+ Colorimetrie</li>
+              </ul>
+            </article>
+          </li>
+          <li>
+            <article class="tl-card is-acum">
+              <div class="tl-card-cap">
+                <span class="tl-an">2026</span>
+                <span class="tl-acum">Acum</span>
+              </div>
+              <h3 class="tl-titlu">Ecosistemul se completează</h3>
+              <ul class="tl-badges">
+                <li class="tl-badge">Harta Coafezelor</li>
+                <li class="tl-badge">Rootine+</li>
+                <li class="tl-badge">Revista Coafezelor</li>
+              </ul>
+            </article>
+          </li>
+        </ul>
+      </div>
+
+      <ul class="cifre">
+        <li class="cifra">
+          <span class="cifra-num" data-count="7000" data-suffix="+">
+            <span class="cifra-fantoma" aria-hidden="true">7.000+</span>
+            <span class="cifra-val">7.000+</span>
+          </span>
+          <span class="cifra-eticheta">Cursanți</span>
+        </li>
+        <li class="cifra">
+          <span class="cifra-num" data-count="3600" data-suffix="+">
+            <span class="cifra-fantoma" aria-hidden="true">3.600+</span>
+            <span class="cifra-val">3.600+</span>
+          </span>
+          <span class="cifra-eticheta">Membri</span>
+        </li>
+        <li class="cifra">
+          <span class="cifra-num" data-count="250" data-suffix="+">
+            <span class="cifra-fantoma" aria-hidden="true">250+</span>
+            <span class="cifra-val">250+</span>
+          </span>
+          <span class="cifra-eticheta">Tutoriale</span>
+        </li>
+        <li class="cifra">
+          <span class="cifra-num" data-count="430" data-suffix="+">
+            <span class="cifra-fantoma" aria-hidden="true">430+</span>
+            <span class="cifra-val">430+</span>
+          </span>
+          <span class="cifra-eticheta">Ore conținut educațional</span>
+        </li>
+        <li class="cifra">
+          <span class="cifra-num" data-count="100" data-suffix="+">
+            <span class="cifra-fantoma" aria-hidden="true">100+</span>
+            <span class="cifra-val">100+</span>
+          </span>
+          <span class="cifra-eticheta">Cursuri fizice</span>
+        </li>
+      </ul>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       COMUNITATEA TA — bento cu fotografii
+       `is-band` dă bandă bej cald full-bleed: despărțirea de secțiunea de
+       deasupra (crem) e cromatică, iar linia mauve de deasupra kickerului o
+       confirmă tipografic.
+       Gradientul de pe carduri e dimensionat pe măsurători — vezi comentariul
+       din comunitate.css.
+       POZELE SUNT PROVIZORII: decupaje din fotografia comunității.
+       ======================================================================== -->
+  <section class="site-section is-band" aria-labelledby="cm-titlu">
+    <div class="tbe-container">
+
+      <header class="cm-head">
+        <hr class="cm-marcaj" aria-hidden="true">
+        <span class="tbe-kicker">Comunitatea ta</span>
+        <h2 class="cm-head-title" id="cm-titlu">Tot ce ți se deschide când intri</h2>
+        <p class="cm-head-lead">
+          Educație, instrumente și oameni. Șapte lucruri care lucrează împreună —
+          nu șapte produse vândute separat.
+        </p>
+      </header>
+
+      <ul class="cm-bento">
+        <li>
+          <a class="cm-card has-photo" href="/comunitate">
+            <img class="cm-card-img" src="assets/poze/placeholder/card-1.jpg" alt=""
+                 width="1000" height="667" loading="lazy" decoding="async">
+            <span class="cm-card-scrim" aria-hidden="true"></span>
+            <span class="cm-card-arrow" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg>
+            </span>
+            <div class="cm-card-body">
+              <h3 class="cm-titlu">Locul tău printre 3.600+ de coafeze</h3>
+              <p class="cm-desc">Aparții unei comunități care te ridică, nu te judecă.</p>
+            </div>
+          </a>
+        </li>
+
+        <li>
+          <a class="cm-card has-photo" href="/empiria">
+            <img class="cm-card-img" src="assets/poze/placeholder/card-2.jpg" alt=""
+                 width="1000" height="667" loading="lazy" decoding="async">
+            <span class="cm-card-scrim" aria-hidden="true"></span>
+            <span class="cm-card-arrow" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg>
+            </span>
+            <div class="cm-card-body">
+              <span class="cm-eticheta">Empiria</span>
+              <h3 class="cm-titlu">Certificarea nivelului profesional</h3>
+              <p class="cm-desc">Un traseu structurat pe niveluri, de la baze la expertă în meseria ta.</p>
+            </div>
+          </a>
+        </li>
+
+        <li>
+          <a class="cm-card has-photo" href="/revista">
+            <img class="cm-card-img" src="assets/poze/placeholder/card-3.jpg" alt=""
+                 width="1000" height="667" loading="lazy" decoding="async">
+            <span class="cm-card-scrim" aria-hidden="true"></span>
+            <span class="cm-card-arrow" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg>
+            </span>
+            <div class="cm-card-body">
+              <h3 class="cm-titlu">Revista Coafezelor</h3>
+              <p class="cm-desc">Educație, inspirație și dezvoltare personală. Revista voastră, inspirată din comunitate.</p>
+            </div>
+          </a>
+        </li>
+
+        <li>
+          <a class="cm-card has-photo" href="/cursuri">
+            <img class="cm-card-img" src="assets/poze/placeholder/card-4.jpg" alt=""
+                 width="1000" height="667" loading="lazy" decoding="async">
+            <span class="cm-card-scrim" aria-hidden="true"></span>
+            <span class="cm-card-arrow" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg>
+            </span>
+            <div class="cm-card-body">
+              <h3 class="cm-titlu">250+ tutoriale și cursuri fizice</h3>
+              <p class="cm-desc">Online sau fizic — înveți în ritmul tău.</p>
+            </div>
+          </a>
+        </li>
+
+        <li>
+          <a class="cm-card has-photo" href="/aplicatie">
+            <img class="cm-card-img" src="assets/poze/placeholder/card-5.jpg" alt=""
+                 width="1000" height="667" loading="lazy" decoding="async">
+            <span class="cm-card-scrim" aria-hidden="true"></span>
+            <span class="cm-card-arrow" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg>
+            </span>
+            <div class="cm-card-body">
+              <span class="cm-eticheta">Aplicație de mobil</span>
+              <h3 class="cm-titlu">Educația ta, mereu la tine</h3>
+              <p class="cm-desc">Toată platforma, în buzunar, oriunde ai fi.</p>
+            </div>
+          </a>
+        </li>
+
+        <li>
+          <a class="cm-card has-photo" href="https://harta-coafezelor.ro">
+            <img class="cm-card-img" src="assets/poze/placeholder/card-6.jpg" alt=""
+                 width="1000" height="667" loading="lazy" decoding="async">
+            <span class="cm-card-scrim" aria-hidden="true"></span>
+            <span class="cm-card-arrow" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg>
+            </span>
+            <div class="cm-card-body">
+              <h3 class="cm-titlu">Harta Coafezelor</h3>
+              <p class="cm-desc">Ai probleme în a găsi cliente? Am acoperit și asta — tu concentrează-te pe educația ta.</p>
+            </div>
+          </a>
+        </li>
+
+        <li>
+          <a class="cm-card has-photo" href="/rootine-plus">
+            <img class="cm-card-img" src="assets/poze/placeholder/card-7.jpg" alt=""
+                 width="1000" height="667" loading="lazy" decoding="async">
+            <span class="cm-card-scrim" aria-hidden="true"></span>
+            <span class="cm-card-arrow" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg>
+            </span>
+            <div class="cm-card-body">
+              <h3 class="cm-titlu">Rootine+ <span class="cm-curand">În curând</span></h3>
+              <p class="cm-desc">O aplicație de booking care chiar îți generează cliente, nu doar îți gestionează programările.</p>
+            </div>
+          </a>
+        </li>
+      </ul>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       PROBLEMA — moment de reflecție
+       Charcoal plin, fără fotografii și fără carduri: ruptura de ritm față de
+       bento-ul de deasupra E designul. Aliniat stânga, editorial.
+       După ea urmează FAQ (fundal diferit), deci nu se lipește de footer.
+       ======================================================================== -->
+  <section class="site-section problema" aria-labelledby="problema-titlu">
+    <div class="tbe-container">
+      <div class="problema-inner">
+
+        <span class="tbe-kicker">De ce existăm</span>
+
+        <blockquote class="problema-quote">
+          <p id="problema-titlu">Talentul nu e de-ajuns. Ai nevoie de un drum — și de oameni lângă tine.</p>
+          <cite>Adriana Dobre · Fondatoare</cite>
+        </blockquote>
+
+        <div class="problema-text">
+          <p>Poate ai simțit-o și tu.</p>
+          <p>
+            Înveți singură, din tutoriale adunate de peste tot, fără să știi dacă
+            mergi în direcția bună sau unde greșești.
+          </p>
+          <p>
+            Meseria asta poate fi singuratică — ore întregi în salon, și puțini
+            care înțeleg cu adevărat prin ce treci, profesional sau personal.
+          </p>
+          <p>
+            Iar educația de calitate pare mereu scumpă, departe, rezervată celor
+            din orașele mari. <strong>Noi am construit The Beauty Education exact
+            pentru a schimba asta.</strong>
+          </p>
+        </div>
+
+        <div class="problema-actions">
+          <a class="tbe-btn is-primary is-lg" href="https://ro.thebeautyeducation.com">Alătură-te comunității</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       EMPIRIA — programul educațional
+       Pe crem (charcoal → crem = graniță puternică după „Problema").
+       Geometrie în oglindă: col 1 = mic sus / mare jos · col 2 = mare sus /
+       mic jos. Alinierea NU e aproximată — vezi comentariul din empiria.css.
+       Diploma e placeholder A4 STRICT (210:297) până vine fotografia.
+       TEXTUL de la „2 specializări" e LOREM IPSUM, se înlocuiește.
+       ======================================================================== -->
+  <section class="site-section" aria-labelledby="empiria-titlu">
+    <div class="tbe-container">
+
+      <header class="emp-head">
+        <span class="tbe-kicker is-action">Programul Empiria</span>
+        <h2 class="emp-titlu" id="empiria-titlu">EMPIRIA — drumul de la baze la expert</h2>
+        <p class="emp-lead">
+          Un program structurat pe niveluri, în două specializări, care te duce pas
+          cu pas de la primele tehnici până la diploma care îți confirmă excelența.
+        </p>
+      </header>
+
+      <div class="emp-layout">
+
+        <!-- Zona stângă: diploma supremă, A4 vertical. Placeholder până la poză. -->
+        <div class="emp-diploma" role="img" aria-label="Diploma EMPIRIA — fotografie în curând">
+          <span class="emp-diploma-eticheta">[ Poză: Diplomă A4 ]</span>
+        </div>
+
+        <!-- Zona dreaptă: grila în oglindă. -->
+        <div class="emp-cols">
+
+          <!-- Coloana 1: mic sus, mare jos -->
+          <div class="emp-col">
+            <article class="emp-card">
+              <span class="emp-num">250+</span>
+              <p class="emp-desc">
+                cursanți sunt deja în program — o parte dintre ei au terminat deja.
+              </p>
+            </article>
+
+            <article class="emp-card is-mare">
+              <span class="emp-num">8</span>
+              <h3 class="emp-card-titlu">diplome</h3>
+              <p class="emp-desc">
+                Am pregătit câte 4 diplome pentru fiecare specializare: Fundamentals,
+                Essentials, Mastery și Diploma EMPIRIA.
+              </p>
+            </article>
+          </div>
+
+          <!-- Coloana 2: mare sus, mic jos -->
+          <div class="emp-col">
+            <article class="emp-card is-mare">
+              <span class="emp-num">2</span>
+              <h3 class="emp-card-titlu">specializări</h3>
+              <p class="emp-sub">Coafuri și Colorimetrie</p>
+              <!-- LOREM — se înlocuiește cu textul final. -->
+              <p class="emp-desc">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                ad minim veniam, quis nostrud exercitation.
+              </p>
+            </article>
+
+            <article class="emp-card">
+              <span class="emp-num">3</span>
+              <h3 class="emp-card-titlu">niveluri</h3>
+              <!-- LOREM — se înlocuiește cu textul final. SCURT intenționat:
+                   conținutul coloanelor trebuie să rămână sub înălțimea
+                   diplomei A4, altfel oglinda se rupe (vezi empiria.css). -->
+              <p class="emp-desc">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                eiusmod tempor incididunt ut labore.
+              </p>
+            </article>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="emp-actions">
+        <a class="tbe-btn is-primary is-lg emp-btn" href="/empiria?utm_source=empiria_section">
+          Mai multe detalii
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       GALERIE — „Dinăuntru"
+       Alb (umbrele ies pe alb) + linie fină sus: cremul Empiriei și albul dau
+       doar 1,06:1, granița are nevoie de linie. Masonry real cu CSS columns —
+       fiecare poză la înălțimea ei naturală.
+       POZELE SUNT PROVIZORII: decupaje din fotografia comunității, la rapoarte
+       variate. Se înlocuiesc 1:1 cu poze reale (postări, evenimente, lucrări).
+       ======================================================================== -->
+  <section class="site-section galerie" aria-labelledby="galerie-titlu">
+    <div class="tbe-container">
+
+      <header class="gal-head">
+        <hr class="gal-marcaj" aria-hidden="true">
+        <span class="tbe-kicker is-action">Dinăuntru</span>
+        <h2 class="gal-titlu" id="galerie-titlu">Aruncă o privire înăuntru</h2>
+        <p class="gal-lead">
+          Momente reale din comunitatea The Beauty Education — postări, evenimente,
+          lucrări și interacțiuni de zi cu zi.
+        </p>
+      </header>
+
+      <!-- Ordinea NU e 1–8: e calculată ca înălțimile să se împartă echilibrat
+           pe coloane (2200/2240/2367px pe 3 coloane · 3400/3407 pe 2). Dacă
+           înlocuiești pozele cu altele de alte rapoarte, reechilibrează. -->
+      <ul class="gal-masonry" data-galerie>
+        <li>
+          <figure class="gal-item">
+            <img src="assets/poze/placeholder/galerie-1.jpg" alt=""
+                 width="800" height="1067" loading="lazy" decoding="async">
+          </figure>
+        </li>
+        <li>
+          <figure class="gal-item">
+            <img src="assets/poze/placeholder/galerie-2.jpg" alt=""
+                 width="800" height="533" loading="lazy" decoding="async">
+          </figure>
+        </li>
+        <li>
+          <figure class="gal-item">
+            <img src="assets/poze/placeholder/galerie-7.jpg" alt=""
+                 width="800" height="600" loading="lazy" decoding="async">
+          </figure>
+        </li>
+        <li>
+          <figure class="gal-item">
+            <img src="assets/poze/placeholder/galerie-3.jpg" alt=""
+                 width="800" height="1200" loading="lazy" decoding="async">
+          </figure>
+        </li>
+        <li>
+          <figure class="gal-item">
+            <img src="assets/poze/placeholder/galerie-8.jpg" alt=""
+                 width="800" height="1040" loading="lazy" decoding="async">
+          </figure>
+        </li>
+        <li>
+          <figure class="gal-item">
+            <img src="assets/poze/placeholder/galerie-4.jpg" alt=""
+                 width="800" height="800" loading="lazy" decoding="async">
+          </figure>
+        </li>
+        <li>
+          <figure class="gal-item">
+            <img src="assets/poze/placeholder/galerie-5.jpg" alt=""
+                 width="800" height="500" loading="lazy" decoding="async">
+          </figure>
+        </li>
+        <li>
+          <figure class="gal-item">
+            <img src="assets/poze/placeholder/galerie-6.jpg" alt=""
+                 width="800" height="1067" loading="lazy" decoding="async">
+          </figure>
+        </li>
+      </ul>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       PROGRAM DE LOIALITATE
+       Pe cremul paginii, cu linie fină sus (albul galeriei → crem = 1,06:1,
+       granița are nevoie de linie, ca la celelalte treceri subtile).
+       Rândul de niveluri e RANDAT DIN JS: valorile stau în constanta LEVELS
+       din capul lui assets/js/loialitate.js — acolo se editează.
+       ======================================================================== -->
+  <section class="site-section loialitate" aria-labelledby="loy-titlu">
+    <div class="tbe-container">
+
+      <div class="loy-top">
+
+        <div class="loy-intro">
+          <hr class="loy-marcaj" aria-hidden="true">
+          <span class="tbe-kicker is-action">Program de loialitate</span>
+          <h2 class="loy-titlu" id="loy-titlu">Cu cât ești mai activă, cu atât primești mai mult</h2>
+          <p class="loy-lead">
+            Fiecare curs parcurs, fiecare postare, fiecare achiziție îți aduce puncte.
+            Le transformi în beneficii reale — iar pe măsură ce urci în niveluri,
+            câștigi tot mai mult.
+          </p>
+          <div class="loy-actions">
+            <a class="tbe-btn is-primary is-lg loy-btn" href="/program-loialitate?utm_source=loyalty_section">
+              Vezi cum funcționează
+            </a>
+          </div>
+        </div>
+
+        <div class="loy-cards">
+          <article class="loy-card">
+            <h3 class="loy-card-titlu">Puncte pentru fiecare pas</h3>
+            <ul class="loy-lista">
+              <li>Înveți în EMPIRIA și în comunitate</li>
+              <li>Ești activă — postezi, comentezi, participi</li>
+              <li>Cumperi produse pe Beautifier</li>
+            </ul>
+          </article>
+
+          <article class="loy-card is-bonus">
+            <h3 class="loy-card-titlu">Primele 3 luni, punctele se dublează</h3>
+            <p class="loy-card-text">
+              Ca membru nou, tot ce faci în primele 90 de zile îți aduce puncte duble.
+              E cel mai bun moment să începi.
+            </p>
+          </article>
+        </div>
+
+      </div>
+
+      <div class="loy-niveluri-wrap">
+        <p class="loy-niveluri-titlu">
+          Patru niveluri. Cu cât urci mai sus, cu atât punctele contează mai mult.
+        </p>
+
+        <!-- Se umple din constanta LEVELS (assets/js/loialitate.js). -->
+        <ol class="loy-niveluri" data-loy-niveluri></ol>
+
+        <noscript>
+          <p class="loy-noscript">
+            Bronze 1x — punctul de plecare · Silver 1,2x — mai multe puncte ·
+            Gold 1,5x — și mai multe · Diamond 2x — maximum de puncte
+          </p>
+        </noscript>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       HARTA COAFEZELOR
+       Bandă bej (crem → bej = graniță vizibilă, ca la Comunitatea ta).
+       Vizualul din stânga e un MOCK din componentele design system-ului:
+       pini Verde Hartă + cardul de coafeză oficial (.tbe-salon). Datele de pe
+       card sunt DEMONSTRATIVE (nume fictiv); mockul întreg e decorativ.
+       Cifrele (600+, 42) sunt cele publicate pe harta-coafezelor.ro.
+       ======================================================================== -->
+  <section class="site-section is-band" aria-labelledby="harta-titlu">
+    <div class="tbe-container">
+      <div class="hc-layout">
+
+        <!-- Colțul de hartă — decorativ, neinteractiv -->
+        <div class="hc-vizual" aria-hidden="true">
+          <span class="hc-pin" style="top: 14%; left: 12%;">GC</span>
+          <span class="hc-pin is-mic" style="top: 34%; left: 38%;">AS</span>
+          <span class="hc-pin" style="top: 56%; left: 18%;">CD</span>
+          <span class="hc-pin is-mic" style="top: 10%; left: 62%;">NC</span>
+
+          <!-- Cardul de coafeză din design system — conținut demonstrativ -->
+          <div class="tbe-salon hc-salon">
+            <div class="tbe-salon-media">
+              <img src="assets/poze/placeholder/card-6.jpg" alt=""
+                   width="1000" height="667" loading="lazy" decoding="async">
+              <span class="tbe-badge-recomandat">Recomandat de TBE</span>
+            </div>
+            <div class="tbe-salon-body">
+              <p class="tbe-salon-name">Andreea M.</p>
+              <p class="tbe-salon-role">Colorist &amp; hairstylist</p>
+              <p class="tbe-salon-loc">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                     stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 21s-7-6.1-7-11a7 7 0 1 1 14 0c0 4.9-7 11-7 11z"/>
+                  <circle cx="12" cy="10" r="2.6"/>
+                </svg>
+                Cluj-Napoca · Mărăști
+              </p>
+              <div class="tbe-salon-tags">
+                <span class="tbe-tag">Balayage</span>
+                <span class="tbe-tag">Coafuri eveniment</span>
+              </div>
+              <div class="tbe-salon-actions">
+                <span class="tbe-btn-contact">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                       stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/>
+                  </svg>
+                  WhatsApp
+                </span>
+                <span class="tbe-social is-instagram">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+                    <rect x="3" y="3" width="18" height="18" rx="5.5"/>
+                    <circle cx="12" cy="12" r="4.1"/>
+                    <circle cx="17.3" cy="6.7" r="1.05" fill="currentColor" stroke="none"/>
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Conținutul -->
+        <div class="hc-continut">
+          <hr class="hc-marcaj" aria-hidden="true">
+          <span class="tbe-kicker is-action">Harta Coafezelor</span>
+          <h2 class="hc-titlu" id="harta-titlu">Locul unde clientele te găsesc pe tine</h2>
+          <p class="hc-lead">
+            Profil cu portofoliul tău real, contact direct pe WhatsApp sau Instagram —
+            fără comision. Poziția pe hartă se câștigă prin activitate în comunitate,
+            nu se cumpără.
+          </p>
+          <div class="hc-actions">
+            <a class="tbe-btn is-primary is-lg" href="https://harta-coafezelor.ro">Vreau pe hartă</a>
+          </div>
+
+          <div class="hc-stats">
+            <div class="hc-stat">
+              <span class="hc-num">600+</span>
+              <span class="hc-eticheta">Profesioniste pe hartă</span>
+              <p class="hc-nota">alese una câte una, cu portofoliu real</p>
+            </div>
+            <div class="hc-stat">
+              <span class="hc-num">42</span>
+              <span class="hc-eticheta">Orașe din România</span>
+              <p class="hc-nota">contact direct, fără comision</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       MĂRTURII — „Din comunitate"
+       Bandă full-bleed derulabilă cu snap (nativ, fără JS obligatoriu);
+       carduri portret cu citatul peste gradient, Cormorant italic.
+
+       ►► TOATE CELE 5 TESTIMONIALE SUNT DEMO ◄◄ — citate scrise de noi,
+       nume fictive, poze provizorii. SE ÎNLOCUIESC cu citate reale (cu
+       acordul autoarelor) înainte de lansare. Testimoniale inventate pe un
+       site live = înșelătorie ușor de demontat.
+       ======================================================================== -->
+  <section class="site-section marturii" aria-labelledby="marturii-titlu" data-marturii>
+    <div class="tbe-container">
+      <header class="mt-head">
+        <hr class="mt-marcaj" aria-hidden="true">
+        <span class="tbe-kicker">Din comunitate</span>
+        <h2 class="mt-titlu" id="marturii-titlu">Ce spun coafezele</h2>
+        <p class="mt-lead">
+          Fiecare drum e diferit — educație, cliente, încredere. Câteva voci
+          din cele 3.600+.
+        </p>
+      </header>
+    </div>
+
+    <ul class="mt-rail" tabindex="0" aria-label="Mărturii din comunitate, derulare orizontală">
+      <li>
+        <figure class="mt-card">
+          <img src="assets/poze/placeholder/marturie-1.jpg" alt=""
+               width="640" height="1115" loading="lazy" decoding="async">
+          <span class="mt-scrim" aria-hidden="true"></span>
+          <div class="mt-corp">
+            <p class="mt-citat">„Trei ani am lucrat singură, fără să știu dacă fac bine.
+              Aici am primit primul feedback adevărat pe lucrările mele."</p>
+            <span class="mt-cine">Elena D.</span>
+            <span class="mt-rol">Coafeză · Brașov</span>
+          </div>
+        </figure>
+      </li>
+      <li>
+        <figure class="mt-card">
+          <img src="assets/poze/placeholder/marturie-2.jpg" alt=""
+               width="640" height="1115" loading="lazy" decoding="async">
+          <span class="mt-scrim" aria-hidden="true"></span>
+          <div class="mt-corp">
+            <p class="mt-citat">„Am terminat Fundamentals și mi-am dat seama câte făceam
+              din instinct, fără să înțeleg de ce."</p>
+            <span class="mt-cine">Ioana P.</span>
+            <span class="mt-rol">Cursantă EMPIRIA · Iași</span>
+          </div>
+        </figure>
+      </li>
+      <li>
+        <figure class="mt-card">
+          <img src="assets/poze/placeholder/marturie-3.jpg" alt=""
+               width="640" height="1115" loading="lazy" decoding="async">
+          <span class="mt-scrim" aria-hidden="true"></span>
+          <div class="mt-corp">
+            <p class="mt-citat">„De pe Hartă îmi vin acum 4–5 cliente noi pe lună.
+              Fără reclame, fără comision."</p>
+            <span class="mt-cine">Cristina V.</span>
+            <span class="mt-rol">Salon propriu · Cluj-Napoca</span>
+          </div>
+        </figure>
+      </li>
+      <li>
+        <figure class="mt-card">
+          <img src="assets/poze/placeholder/marturie-4.jpg" alt=""
+               width="640" height="1115" loading="lazy" decoding="async">
+          <span class="mt-scrim" aria-hidden="true"></span>
+          <div class="mt-corp">
+            <p class="mt-citat">„La 2 noaptea, după un balayage ratat, tot comunitatea
+              m-a liniștit. Nu ești niciodată singură aici."</p>
+            <span class="mt-cine">Ana-Maria S.</span>
+            <span class="mt-rol">Coafeză · București</span>
+          </div>
+        </figure>
+      </li>
+      <li>
+        <figure class="mt-card">
+          <img src="assets/poze/placeholder/marturie-5.jpg" alt=""
+               width="640" height="1115" loading="lazy" decoding="async">
+          <span class="mt-scrim" aria-hidden="true"></span>
+          <div class="mt-corp">
+            <p class="mt-citat">„Punctele din program mi-au acoperit jumătate din comanda
+              de produse. Practic, învățatul se plătește singur."</p>
+            <span class="mt-cine">Diana T.</span>
+            <span class="mt-rol">Membru Gold · Timișoara</span>
+          </div>
+        </figure>
+      </li>
+    </ul>
+
+    <div class="tbe-container">
+      <div class="mt-ctrl">
+        <button type="button" data-mt-prev aria-label="Mărturia anterioară">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3 5 8l5 5"/></svg>
+        </button>
+        <button type="button" data-mt-next aria-label="Mărturia următoare">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       FAQ — ultima secțiune
+       Alb (crem → alb primește linia fină sus; alb → footer charcoal = 11,4:1,
+       exact separarea promisă când s-a decis poziția secțiunii „Problema").
+       Antet fix stânga, acordeon dreapta. Itemele se randează din constanta
+       FAQS (assets/js/faq.js) — acolo se editează întrebările și răspunsurile.
+       ======================================================================== -->
+  <section class="site-section faq" aria-labelledby="faq-titlu">
+    <div class="tbe-container">
+      <div class="faq-layout">
+
+        <div class="faq-head-wrap">
+          <hr class="faq-marcaj" aria-hidden="true">
+          <span class="tbe-kicker is-action">Întrebări frecvente</span>
+          <h2 class="faq-titlu" id="faq-titlu">Ce vrei să știi înainte să începi</h2>
+          <p class="faq-lead">
+            Răspunsuri la cele mai frecvente întrebări despre comunitate,
+            abonament și acces.
+          </p>
+        </div>
+
+        <div>
+          <!-- Se umple din constanta FAQS (assets/js/faq.js). -->
+          <ol class="faq-lista" data-faq></ol>
+
+          <noscript>
+            <dl class="faq-noscript">
+              <dt>Cât costă abonamentul?</dt>
+              <dd>Avem mai multe niveluri de abonament, în funcție de cât de mult vrei să accesezi — detaliile complete sunt pe pagina de abonamente.</dd>
+              <dt>Trebuie să am experiență ca să mă înscriu?</dt>
+              <dd>Nu. Comunitatea e construită pentru toate nivelurile.</dd>
+              <dt>Cum funcționează programul EMPIRIA?</dt>
+              <dd>Trei niveluri — Fundamentals, Essentials și Mastery — în două specializări: Coafuri și Colorimetrie, cu diplome la fiecare nivel.</dd>
+              <dt>Pot accesa cursurile de pe telefon?</dt>
+              <dd>Da, din aplicația mobilă, oricând și de oriunde.</dd>
+              <dt>Ce este Harta Coafezelor?</dt>
+              <dd>Un director public unde clientele te găsesc după oraș, cu profil gratuit.</dd>
+            </dl>
+          </noscript>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       CTA FINAL — cardul magenta
+       Ultimul lucru citit înainte de footer. Închide bucla cu hero-ul:
+       același mesaj, același buton („Creează cont gratuit").
+       Singura suprafață magenta plină din site — cardul final E acțiunea.
+       ======================================================================== -->
+  <section class="site-section is-tight cta" aria-labelledby="cta-titlu">
+    <div class="tbe-container">
+      <div class="cta-card">
+
+        <div>
+          <h2 class="cta-titlu" id="cta-titlu">Locul tău e aici.</h2>
+          <p class="cta-sub">
+            Cont gratuit în două minute — abonamentul, când ești pregătită.
+          </p>
+
+          <ul class="cta-stats">
+            <li>
+              <span class="cta-num">3.600+</span>
+              <span class="cta-eticheta">coafeze</span>
+            </li>
+            <li>
+              <span class="cta-num">250+</span>
+              <span class="cta-eticheta">tutoriale</span>
+            </li>
+          </ul>
+          <ul class="cta-discipline">
+            <li>Coafuri</li>
+            <li>Colorimetrie</li>
+            <li>Tunsoare</li>
+            <li>Makeup</li>
+          </ul>
+        </div>
+
+        <a class="cta-btn" href="https://ro.thebeautyeducation.com">
+          Creează cont gratuit
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M2.5 8h11"/><path d="M9 3.5 13.5 8 9 12.5"/>
+          </svg>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       BLOG — ultima secțiune înainte de footer
+       Alb (crem CTA → alb primește linia fină; alb → footer charcoal = 11,4:1).
+       ARTICOLELE SUNT DEMO — titluri, extrase și poze provizorii. În WordPress
+       secțiunea devine un loop peste ultimele 2 postări.
+       ======================================================================== -->
+  <section class="site-section blog" aria-labelledby="blog-titlu">
+    <div class="tbe-container">
+
+      <header class="blog-head">
+        <div>
+          <hr class="blog-marcaj" aria-hidden="true">
+          <span class="tbe-kicker">Noutăți &amp; articole</span>
+          <h2 class="blog-titlu" id="blog-titlu">Din blog</h2>
+        </div>
+        <div>
+          <p class="blog-desc">
+            Tehnici, corecturi și lecții din comunitate — scrise pentru coafeze,
+            nu pentru algoritmi.
+          </p>
+          <a class="tbe-btn is-link" href="/blog">Vezi toate articolele →</a>
+        </div>
+      </header>
+
+      <ul class="blog-grid">
+        <li>
+          <article class="blog-card">
+            <div class="blog-media">
+              <img src="assets/poze/placeholder/galerie-2.jpg" alt=""
+                   width="800" height="533" loading="lazy" decoding="async">
+            </div>
+            <div class="blog-continut">
+              <div class="blog-autor">
+                <span class="blog-avatar">
+                  <img src="assets/poze/placeholder/marturie-2.jpg" alt=""
+                       width="640" height="1115" loading="lazy" decoding="async">
+                </span>
+                <span>
+                  <span class="blog-autor-nume">Adriana Dobre</span>
+                  <span class="blog-autor-rol">Fondatoare</span>
+                </span>
+              </div>
+              <h3 class="blog-card-titlu">Balayage pe păr vopsit: unde se greșește cel mai des</h3>
+              <p class="blog-extras">
+                Cele mai frecvente cinci greșeli pe care le vedem în evaluările
+                EMPIRIA — și cum le corectezi înainte să ajungă la clientă.
+              </p>
+              <a class="blog-mai" href="/blog">
+                Citește articolul
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7"
+                     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M2.5 8h11"/><path d="M9 3.5 13.5 8 9 12.5"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="blog-card">
+            <div class="blog-media">
+              <img src="assets/poze/placeholder/galerie-7.jpg" alt=""
+                   width="800" height="600" loading="lazy" decoding="async">
+            </div>
+            <div class="blog-continut">
+              <div class="blog-autor">
+                <span class="blog-avatar">
+                  <img src="assets/poze/placeholder/marturie-4.jpg" alt=""
+                       width="640" height="1115" loading="lazy" decoding="async">
+                </span>
+                <span>
+                  <span class="blog-autor-nume">Echipa TBE</span>
+                  <span class="blog-autor-rol">Editorial</span>
+                </span>
+              </div>
+              <h3 class="blog-card-titlu">Cum îți construiești portofoliul care aduce cliente</h3>
+              <p class="blog-extras">
+                Ce fotografii aleg clientele de pe Harta Coafezelor — și de ce
+                trei lucrări bune bat treizeci mediocre.
+              </p>
+              <a class="blog-mai" href="/blog">
+                Citește articolul
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7"
+                     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M2.5 8h11"/><path d="M9 3.5 13.5 8 9 12.5"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+        </li>
+      </ul>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- ==========================================================================
+     FOOTER  →  în WordPress: footer.php / template part „footer"
+     ========================================================================== -->
+<footer class="site-footer">
+  <div class="tbe-container">
+    <div class="site-footer-grid">
+
+      <!-- 1 · Brand -->
+      <div class="site-footer-col is-brand">
+        <img class="site-footer-logo" src="assets/logo/tbe-orizontal-alb.svg"
+             alt="The Beauty Education" width="142" height="38">
+        <p class="site-footer-about">
+          Cea mai mare comunitate pentru coafeze din România. Educație, comunitate
+          și produse profesionale într-un singur loc.
+        </p>
+
+        <!-- Datele firmei — obligatorii legal, deci vizibile, dar în registru
+             discret: nu concurează cu navigarea. -->
+        <div class="site-footer-entity">
+          <p class="site-footer-company">Beauty Education Publishing SRL</p>
+          <p class="site-footer-fiscal">
+            CUI: 54823960<br>
+            Reg. Com.: J2026036531002<br>
+            Str. Berzelor 348, Plevna, jud. Călărași
+          </p>
+        </div>
+      </div>
+
+      <!-- 2 · Navigare (aceleași iteme ca în navbar) -->
+      <nav class="site-footer-col" aria-labelledby="footer-navigare">
+        <h2 class="site-footer-title" id="footer-navigare">Navigare</h2>
+        <ul class="site-footer-list">
+          <li><a href="https://ro.thebeautyeducation.com">Comunitate</a></li>
+          <li><a href="/empiria">Empiria</a></li>
+          <li><a href="/cursuri-online">Cursuri online</a></li>
+          <li><a href="/cursuri-fizice">Cursuri fizice</a></li>
+          <li><a href="https://harta-coafezelor.ro">Harta Coafezelor</a></li>
+          <li><a href="https://beautifier.ro">Magazin</a></li>
+        </ul>
+      </nav>
+
+      <!-- 3 · Mai mult -->
+      <nav class="site-footer-col" aria-labelledby="footer-mai-mult">
+        <h2 class="site-footer-title" id="footer-mai-mult">Mai mult</h2>
+        <ul class="site-footer-list">
+          <li><a href="/revista">Revista Coafezelor</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/program-de-loialitate">Program de loialitate</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- 4 · Newsletter + social -->
+      <div class="site-footer-col">
+        <h2 class="site-footer-title" id="footer-newsletter">Rămâi aproape</h2>
+
+        <div class="site-newsletter">
+          <p class="site-newsletter-note">
+            Noutăți despre cursuri, tutoriale și Revista Coafezelor — o dată pe lună.
+          </p>
+          <form class="site-newsletter-form" action="#" method="post" aria-labelledby="footer-newsletter">
+            <label class="tbe-sr-only" for="newsletter-email">Adresa ta de email</label>
+            <input class="site-newsletter-input" type="email" id="newsletter-email" name="email"
+                   placeholder="adresa@email.ro" autocomplete="email" required>
+            <button class="tbe-btn is-primary is-block" type="submit">Abonează-te</button>
+          </form>
+          <p class="site-newsletter-legal">
+            Prin abonare accepți <a href="/politica-de-confidentialitate">politica de confidențialitate</a>.
+          </p>
+        </div>
+
+        <!-- TODO Marius: link-urile reale de social. Momentan sunt placeholder. -->
+        <ul class="site-social">
+          <li>
+            <a href="#" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                   stroke-linecap="round" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="5.5"/>
+                <circle cx="12" cy="12" r="4.1"/>
+                <circle cx="17.3" cy="6.7" r="1.05" fill="currentColor" stroke="none"/>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="#" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M15.6 4.6h-1.8c-1.9 0-2.9 1.2-2.9 3.2V10H8.6v3h2.3v6.4"/>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="#" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M13.9 4.8v9.7a3.5 3.5 0 1 1-3.5-3.5c.3 0 .6 0 .9.1"/>
+                <path d="M13.9 4.8c.3 2.3 2 4 4.3 4.2"/>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="#" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                   stroke-linejoin="round" aria-hidden="true">
+                <rect x="2.5" y="5.5" width="19" height="13" rx="4"/>
+                <path d="M10.4 9.4 15.7 12l-5.3 2.6z" fill="currentColor" stroke="none"/>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="site-footer-bottom">
+    <div class="tbe-container">
+
+      <!-- Rând de încredere: procesatorul de plăți + autoritățile de consum.
+           Stau împreună pentru că răspund aceleiași întrebări — „pot avea
+           încredere să plătesc aici?" -->
+      <div class="site-trust">
+        <p class="site-trust-pay">
+          <span class="site-trust-badge">
+            <img src="assets/logo/stripe.png" alt="Stripe" width="42" height="18">
+          </span>
+          Plăți securizate
+        </p>
+        <ul class="site-trust-legal">
+          <li><a href="https://anpc.ro">ANPC</a></li>
+          <li><a href="https://ec.europa.eu/consumers/odr">Soluționarea online a litigiilor (SOL)</a></li>
+        </ul>
+      </div>
+
+      <div class="site-footer-bottom-inner">
+        <p class="site-footer-copy">© 2026 The Beauty Education. Toate drepturile rezervate.</p>
+        <ul class="site-footer-legal">
+          <li><a href="/termeni-si-conditii">Termeni și condiții</a></li>
+          <li><a href="/politica-de-confidentialitate">Confidențialitate</a></li>
+          <li><a href="/politica-cookies">Cookies</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/site.js"></script>
+<script src="assets/js/timeline.js"></script>
+<script src="assets/js/count-up.js"></script>
+<script src="assets/js/galerie.js"></script>
+<script src="assets/js/loialitate.js"></script>
+<script src="assets/js/marturii.js"></script>
+<script src="assets/js/faq.js"></script>
+</body>
+</html>

@@ -1,0 +1,725 @@
+/* ==========================================================================
+   THE BEAUTY EDUCATION — SITE
+   Fundație: override-uri de formă + navbar + hero + footer.
+   --------------------------------------------------------------------------
+   Ordinea de încărcare, obligatorie:
+     1. tokens.css       ← paleta, tipografia, tokenii (din design system)
+     2. components.css   ← componentele .tbe-* (din design system)
+     3. site.css         ← ACEST fișier: forma site-ului + navbar/hero/footer
+
+   Regula de aur: tokens.css și components.css sunt COPII ale design system-ului
+   și nu se editează niciodată aici. Tot ce e specific site-ului trăiește în
+   fișierul ăsta, ca override explicit. Așa rămâne clar ce e brand și ce e site.
+   ========================================================================== */
+
+/* ==========================================================================
+   00 · FORMA SITE-ULUI — override-uri de token
+   Design system-ul e mai strâns (controale 8px, media 12px). Site-ul e mai
+   rotund și mai aerisit. Nu rescriem componentele: rescriem tokenii pe care
+   ele deja îi citesc, și totul se aliniază singur.
+   ========================================================================== */
+:root {
+  /* --- RADIUS ------------------------------------------------------------ */
+  --tbe-radius-card:    20px;   /* carduri */
+  --tbe-radius-media:   20px;   /* imagini, media în card */
+  --tbe-radius-control: 12px;   /* input, select, textarea */
+  --site-radius-btn:    999px;  /* butoane = pill, fără excepție */
+  --site-radius-panel:  20px;   /* panouri flotante: dropdown, popover */
+
+  /* --- SHADOW · soft și difuz -------------------------------------------
+     Specificația site-ului. Remapăm și tokenii DS (--shadow-*) pentru ca
+     nicio componentă moștenită să nu mai poată produce o umbră „hard".     */
+  --site-shadow-card:       0 20px 50px -12px rgba(26, 20, 22, 0.12);
+  --site-shadow-card-hover: 0 28px 60px -12px rgba(26, 20, 22, 0.18);
+
+  --shadow-xs: 0 4px 12px -6px rgba(26, 20, 22, 0.07);
+  --shadow-sm: 0 10px 28px -14px rgba(26, 20, 22, 0.10);
+  --shadow-md: var(--site-shadow-card);
+  --shadow-lg: var(--site-shadow-card-hover);
+  --shadow-xl: 0 40px 90px -20px rgba(26, 20, 22, 0.22);
+
+  /* --- SPACING · scară pe 8px ------------------------------------------- */
+  --s-1:  8px;
+  --s-2:  16px;
+  --s-3:  24px;
+  --s-4:  32px;
+  --s-5:  40px;
+  --s-6:  48px;
+  --s-7:  56px;
+  --s-8:  64px;
+  --s-10: 80px;
+  --s-12: 96px;
+  --s-16: 128px;
+
+  /* --- Ritm de pagină ---------------------------------------------------- */
+  --site-section-y: 128px;   /* padding vertical secțiuni — desktop */
+  --site-nav-h:     88px;    /* înălțimea navbar-ului */
+  --container:      1200px;  /* lățime max. conținut, centrat */
+  --gutter:         32px;    /* marginile laterale (DS îl citește în .tbe-container) */
+
+  /* --- Suprafețe permanent închise (footer, hero placeholder) -----------
+     Excepție documentată la regula „folosește doar tokeni --tbe-*": site-ul
+     e blocat pe tema light, deci tokenii semantici nu se inversează singuri
+     pe o suprafață care e închisă TOT TIMPUL. Definim tokeni proprii, ca să
+     nu apară hex-uri în componente.                                        */
+  --site-on-dark:        var(--c-neutral-50);    /* text principal      14.6:1 pe charcoal */
+  --site-on-dark-muted:  var(--c-neutral-400);   /* text secundar        7.3:1 */
+  --site-on-dark-kicker: var(--c-mauve-200);     /* voce editorială      9.6:1 */
+  --site-on-dark-action: var(--c-magenta-light); /* hover/acțiune        5.0:1 */
+  --site-on-dark-line:   rgba(250, 244, 239, 0.12);
+  --site-on-dark-fill:   rgba(250, 244, 239, 0.06);
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --site-section-y: 80px;   /* tabletă */
+    --site-nav-h:     72px;
+    --gutter:         24px;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --site-section-y: 56px;   /* mobil */
+    --site-nav-h:     64px;
+    --gutter:         16px;
+  }
+}
+
+/* Butoanele devin pill peste tot — inclusiv cele din design system. */
+.tbe-btn { border-radius: var(--site-radius-btn); }
+
+/* ==========================================================================
+   01 · BAZĂ & LAYOUT
+   ========================================================================== */
+html {
+  /* Ancorele nu mai aterizează sub navbar-ul fix. */
+  scroll-padding-top: calc(var(--site-nav-h) + var(--s-2));
+}
+
+/* Navbar-ul e fix și stă PESTE hero. Paginile fără hero au nevoie de spațiu. */
+body:not(.site-has-hero) { padding-top: var(--site-nav-h); }
+
+/* Secțiune de conținut — ritmul vertical al site-ului. */
+.site-section { padding-block: var(--site-section-y); }
+.site-section.is-tight { padding-block: var(--s-10); }
+.site-section.is-alt   { background: var(--tbe-bg-alt); }
+
+/* Bandă bej cald, pentru despărțirea vizibilă a două secțiuni consecutive.
+   `--tbe-bg-alt` (#F2E9E2) se deosebește de cremul paginii cu doar 8–13 pe
+   canal — prea puțin ca să citești o graniță. Bejul cald (#EDDDD3) se vede
+   ca bandă, dar rămâne în familia caldă a brandului: nu introduce o culoare
+   nouă, doar un ton mai adânc din aceeași scară.
+   Tokenul e propriu site-ului pentru că design system-ul nu are un semantic
+   pentru neutral-200; dacă vrei alt ton, se schimbă doar aici. */
+:root { --site-band: var(--c-neutral-200); }
+.site-section.is-band { background: var(--site-band); }
+
+/* Imagine de conținut — 20px, ca și cardurile. */
+.site-img {
+  border-radius: var(--tbe-radius-media);
+  overflow: hidden;
+}
+
+/* Sari la conținut — primul element focusabil din pagină. */
+.site-skip {
+  position: fixed;
+  top: var(--s-1);
+  left: 50%;
+  transform: translate(-50%, -200%);
+  z-index: var(--z-toast);
+  background: var(--tbe-surface);
+  color: var(--tbe-text);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  padding: var(--s-1) var(--s-3);
+  border-radius: var(--site-radius-btn);
+  box-shadow: var(--site-shadow-card);
+  text-decoration: none;
+  transition: transform var(--dur-base) var(--ease-out);
+}
+.site-skip:focus { transform: translate(-50%, 0); }
+
+/* ==========================================================================
+   02 · NAVBAR
+   Două stări:
+     implicit  → transparent, text alb (stă peste hero)
+     .is-solid → crema translucid + blur, text charcoal (după scroll)
+   .is-locked pe <header> = pagină fără hero, navbar solid din start.
+   ========================================================================== */
+.site-nav {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: var(--z-sticky);
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: background var(--dur-slow) var(--ease-out),
+              border-color var(--dur-slow) var(--ease-out),
+              box-shadow var(--dur-slow) var(--ease-out);
+}
+
+.site-nav.is-solid {
+  background: color-mix(in srgb, var(--c-neutral-50) 94%, transparent);
+  backdrop-filter: blur(16px) saturate(1.05);
+  -webkit-backdrop-filter: blur(16px) saturate(1.05);
+  border-bottom-color: var(--tbe-border-subtle);
+  box-shadow: 0 12px 32px -24px rgba(26, 20, 22, 0.35);
+}
+
+.site-nav-inner {
+  display: flex;
+  align-items: center;
+  gap: var(--s-4);
+  min-height: var(--site-nav-h);
+  /* Fără tranziție pe min-height: schimbarea de breakpoint e instantanee, iar
+     animarea ei produce un salt vizibil la rotirea telefonului. */
+}
+
+/* --- Logo ---------------------------------------------------------------- */
+/* Fișierele SVG sunt tăiate pe bounding box-ul real (raport 3.744:1), deci
+   înălțimea comandă totul și nu mai există spațiu gol parazit.              */
+.site-nav-brand {
+  position: relative;
+  display: block;
+  flex: none;
+  line-height: 0;
+  border-radius: var(--r-xs);
+}
+.site-nav-logo {
+  display: block;
+  height: 40px;
+  width: auto;
+  transition: opacity var(--dur-slow) var(--ease-out);
+}
+.site-nav-logo.is-color {           /* varianta color — doar pe fundal solid */
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+.site-nav.is-solid .site-nav-logo.is-white { opacity: 0; }
+.site-nav.is-solid .site-nav-logo.is-color { opacity: 1; }
+
+@media (max-width: 1024px) { .site-nav-logo { height: 34px; } }
+@media (max-width: 400px)  { .site-nav-logo { height: 30px; } }
+
+/* --- Meniu --------------------------------------------------------------- */
+.site-nav-menu {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+.site-nav-list {
+  display: flex;
+  align-items: center;
+  gap: var(--s-4);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.site-nav-item { position: relative; }
+
+.site-nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  position: relative;
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.01em;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.92);
+  background: none;
+  border: 0;
+  padding: 12px 0;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color var(--dur-base) var(--ease-out);
+}
+.site-nav-link:hover { color: #fff; }
+
+/* În starea transparentă, navbar-ul stă peste o fotografie cu zone foarte
+   luminoase (la noi: vitraliul cupolei, exact sub link-uri). Scrimul de sus
+   duce greul; umbra asta acoperă pixelii izolați care îi scapă. Dispare
+   complet când navbar-ul devine solid. */
+.site-nav:not(.is-solid) .site-nav-link,
+.site-nav:not(.is-solid) .site-nav-burger { text-shadow: 0 1px 3px rgba(26, 20, 22, 0.5); }
+.site-nav:not(.is-solid) .site-nav-logo.is-white { filter: drop-shadow(0 1px 3px rgba(26, 20, 22, 0.45)); }
+
+/* Linie fină care crește din centru — semnătura de hover a navbar-ului. */
+.site-nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 4px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.75;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform var(--dur-slow) var(--ease-out);
+}
+.site-nav-link:hover::after,
+.site-nav-link[aria-current="page"]::after,
+.site-nav-item.is-open > .site-nav-link::after { transform: scaleX(1); }
+
+/* Stare solidă — charcoal, hover magenta (magenta = acțiune). */
+.site-nav.is-solid .site-nav-link { color: var(--tbe-text); }
+.site-nav.is-solid .site-nav-link:hover,
+.site-nav.is-solid .site-nav-item.is-open > .site-nav-link,
+.site-nav.is-solid .site-nav-link[aria-current="page"] { color: var(--tbe-action); }
+
+.site-nav-caret {
+  width: 9px;
+  height: 9px;
+  flex: none;
+  transition: transform var(--dur-base) var(--ease-out);
+}
+.site-nav-item.is-open .site-nav-caret { transform: rotate(180deg); }
+
+/* --- Dropdown ------------------------------------------------------------ */
+.site-nav-sub {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  min-width: 240px;
+  padding: var(--s-1);
+  margin: 0;
+  list-style: none;
+  background: var(--tbe-surface);
+  border: 1px solid var(--tbe-border-subtle);
+  border-radius: var(--site-radius-panel);
+  box-shadow: var(--site-shadow-card);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translate(-50%, -8px);
+  transition: opacity var(--dur-base) var(--ease-out),
+              transform var(--dur-slow) var(--ease-out),
+              visibility var(--dur-base) linear;
+}
+.site-nav-item.is-open > .site-nav-sub,
+.site-nav-item:focus-within > .site-nav-sub {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translate(-50%, 0);
+}
+/* Deschidere la hover, doar pe desktop cu mouse. */
+@media (hover: hover) and (min-width: 1025px) {
+  .site-nav-item:hover > .site-nav-sub {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translate(-50%, 0);
+  }
+}
+/* Punte invizibilă între link și panou — cursorul nu mai „cade" în gol. */
+.site-nav-item.site-nav-has-sub::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  height: 8px;
+}
+
+.site-nav-sub a {
+  display: block;
+  padding: 12px var(--s-2);
+  border-radius: var(--tbe-radius-control);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-regular);
+  color: var(--tbe-text);
+  text-decoration: none;
+  transition: background var(--dur-base) var(--ease-out),
+              color var(--dur-base) var(--ease-out);
+}
+.site-nav-sub a:hover,
+.site-nav-sub a:focus-visible {
+  background: var(--tbe-action-soft);
+  color: var(--tbe-action);
+}
+
+/* --- CTA ---------------------------------------------------------------- */
+.site-nav-cta { flex: none; }
+
+/* --- Hamburger ---------------------------------------------------------- */
+.site-nav-burger {
+  display: none;
+  flex: none;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  margin-right: -10px;
+  background: none;
+  border: 0;
+  border-radius: var(--site-radius-btn);
+  color: #fff;
+  cursor: pointer;
+  transition: color var(--dur-base) var(--ease-out);
+}
+.site-nav.is-solid .site-nav-burger { color: var(--tbe-text); }
+
+.site-burger-box {
+  position: relative;
+  width: 20px;
+  height: 14px;
+}
+.site-burger-box span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1.5px;
+  border-radius: 2px;
+  background: currentColor;
+  transition: transform var(--dur-slow) var(--ease-out),
+              opacity var(--dur-fast) var(--ease-out);
+}
+.site-burger-box span:nth-child(1) { top: 0; }
+.site-burger-box span:nth-child(2) { top: 50%; margin-top: -0.75px; }
+.site-burger-box span:nth-child(3) { bottom: 0; }
+
+.site-nav-burger[aria-expanded="true"] .site-burger-box span:nth-child(1) { transform: translateY(6.25px) rotate(45deg); }
+.site-nav-burger[aria-expanded="true"] .site-burger-box span:nth-child(2) { opacity: 0; }
+.site-nav-burger[aria-expanded="true"] .site-burger-box span:nth-child(3) { transform: translateY(-6.25px) rotate(-45deg); }
+
+/* --- Comutarea desktop / mobil ------------------------------------------ */
+@media (max-width: 1024px) {
+  .site-nav-menu,
+  .site-nav-cta { display: none; }
+  .site-nav-burger { display: inline-flex; }
+}
+
+/* ==========================================================================
+   03 · SERTAR MOBIL
+   ========================================================================== */
+.site-drawer {
+  position: fixed;
+  inset: var(--site-nav-h) 0 0 0;
+  z-index: calc(var(--z-sticky) - 1);
+  display: flex;
+  flex-direction: column;
+  background: var(--tbe-bg);
+  padding: var(--s-3) 0 var(--s-8);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: opacity var(--dur-base) var(--ease-out),
+              transform var(--dur-slow) var(--ease-out),
+              visibility var(--dur-base) linear;
+}
+body.site-drawer-open .site-drawer {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+body.site-drawer-open { overflow: hidden; }
+
+@media (min-width: 1025px) {
+  .site-drawer { display: none; }
+}
+
+/* Containerul devine coloană, ca CTA-ul să poată fi împins jos. */
+.site-drawer > .tbe-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.site-drawer-list {
+  list-style: none;
+  margin: 0 0 var(--s-5);
+  padding: 0;
+}
+.site-drawer-list > li { border-bottom: 1px solid var(--tbe-border-subtle); }
+
+.site-drawer-link,
+.site-drawer-sub-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-2);
+  width: 100%;
+  padding: var(--s-2) 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-tight);
+  color: var(--tbe-text);
+  text-decoration: none;
+  background: none;
+  border: 0;
+  text-align: left;
+  cursor: pointer;
+}
+.site-drawer-link:hover,
+.site-drawer-sub-toggle:hover { color: var(--tbe-action); }
+
+/* Sub-meniul mobil folosește <details> — zero JS, funcționează oricum. */
+.site-drawer-details summary { list-style: none; cursor: pointer; }
+.site-drawer-details summary::-webkit-details-marker { display: none; }
+.site-drawer-details .site-nav-caret { width: 11px; height: 11px; color: var(--tbe-editorial); }
+.site-drawer-details[open] .site-nav-caret { transform: rotate(180deg); }
+
+.site-drawer-sub {
+  list-style: none;
+  margin: 0 0 var(--s-2);
+  padding: 0 0 0 var(--s-2);
+}
+.site-drawer-sub a {
+  display: block;
+  padding: 10px 0;
+  font-size: var(--fs-base);
+  color: var(--tbe-text-muted);
+  text-decoration: none;
+}
+.site-drawer-sub a:hover { color: var(--tbe-action); }
+
+.site-drawer-foot { margin-top: auto; padding-top: var(--s-5); }
+
+/* ==========================================================================
+   04 · HERO
+   Hero-ul real trăiește în hero.css (clasele .hero-*). Placeholder-ul cu
+   gradient charcoal care stătea aici a fost șters când a intrat fotografia.
+   ========================================================================== */
+
+/* Focus vizibil pe fundal închis — magenta nu se vede pe charcoal, nici peste
+   fotografia de hero. Se aplică navbar-ului transparent, hero-ului și footer-ului. */
+.site-nav:not(.is-solid) :focus-visible,
+.hero :focus-visible,
+.site-footer :focus-visible { outline-color: var(--c-nude-200); }
+
+/* ==========================================================================
+   05 · FOOTER
+   ========================================================================== */
+.site-footer {
+  background: var(--c-neutral-900);
+  color: var(--site-on-dark);
+  padding-top: var(--site-section-y);
+}
+
+.site-footer-grid {
+  display: grid;
+  grid-template-columns: 1.7fr 1fr 1fr 1.4fr;
+  gap: var(--s-6) var(--s-8);
+}
+@media (max-width: 1024px) {
+  .site-footer-grid { grid-template-columns: 1fr 1fr; gap: var(--s-6) var(--s-6); }
+  .site-footer-col.is-brand { grid-column: 1 / -1; }
+}
+@media (max-width: 560px) {
+  .site-footer-grid { grid-template-columns: 1fr; }
+}
+
+.site-footer-logo {
+  height: 38px;
+  width: auto;
+  margin-bottom: var(--s-3);
+}
+
+.site-footer-about {
+  max-width: 34ch;
+  margin: 0;
+  font-size: var(--fs-sm);
+  line-height: var(--lh-body);
+  color: var(--site-on-dark-muted);
+}
+
+/* --- Datele firmei -------------------------------------------------------
+   Informație obligatorie legal. O ținem lizibilă (7,2:1) dar în plan secund:
+   dimensiune de caption, cifre tabulare, spațiere generoasă între linii.     */
+.site-footer-entity { margin-top: var(--s-4); }
+
+.site-footer-company {
+  margin: 0 0 var(--s-1);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--site-on-dark);
+}
+.site-footer-fiscal {
+  margin: 0;
+  font-size: var(--fs-xs);
+  line-height: 1.75;
+  color: var(--site-on-dark-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.site-footer-title {
+  margin: 0 0 var(--s-3);
+  font-family: var(--font-mono);
+  font-size: var(--fs-kicker);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-kicker);
+  text-transform: uppercase;
+  color: var(--site-on-dark-kicker);
+}
+
+.site-footer-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.site-footer-list a {
+  font-size: var(--fs-sm);
+  color: var(--site-on-dark-muted);
+  text-decoration: none;
+  transition: color var(--dur-base) var(--ease-out);
+}
+.site-footer-list a:hover { color: var(--site-on-dark-action); }
+
+/* --- Newsletter --------------------------------------------------------- */
+.site-newsletter { margin: 0 0 var(--s-4); }
+.site-newsletter-note {
+  margin: 0 0 var(--s-2);
+  font-size: var(--fs-sm);
+  color: var(--site-on-dark-muted);
+  max-width: 32ch;
+}
+.site-newsletter-form { display: flex; flex-direction: column; gap: var(--s-1); }
+.site-newsletter-input {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px var(--s-2);
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  color: var(--site-on-dark);
+  background: var(--site-on-dark-fill);
+  border: 1px solid var(--site-on-dark-line);
+  border-radius: var(--tbe-radius-control);
+  transition: border-color var(--dur-base) var(--ease-out),
+              background var(--dur-base) var(--ease-out);
+}
+.site-newsletter-input::placeholder { color: var(--site-on-dark-muted); }
+.site-newsletter-input:focus {
+  outline: none;
+  border-color: var(--site-on-dark-action);
+  background: rgba(250, 244, 239, 0.09);
+}
+.site-newsletter-legal {
+  margin: var(--s-1) 0 0;
+  font-size: var(--fs-xs);
+  color: var(--site-on-dark-muted);
+}
+.site-newsletter-legal a { color: inherit; }
+.site-newsletter-legal a:hover { color: var(--site-on-dark-action); }
+
+/* --- Social ------------------------------------------------------------- */
+.site-social {
+  display: flex;
+  gap: var(--s-1);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.site-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--site-on-dark-line);
+  color: var(--site-on-dark-muted);
+  transition: color var(--dur-base) var(--ease-out),
+              border-color var(--dur-base) var(--ease-out),
+              background var(--dur-base) var(--ease-out);
+}
+.site-social a:hover {
+  color: var(--site-on-dark);
+  border-color: rgba(250, 244, 239, 0.32);
+  background: var(--site-on-dark-fill);
+}
+.site-social svg { width: 19px; height: 19px; }
+
+/* --- Rândul de încredere: plăți + autorități ------------------------------
+   Marca Stripe stă pe pilulă albă pentru că e singurul loc din site unde o
+   identitate străină are voie să-și păstreze culorile proprii — un badge de
+   plată recunoscut instant valorează mai mult decât coerența cromatică.      */
+.site-trust {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-2) var(--s-4);
+  flex-wrap: wrap;
+  padding-block: var(--s-4);
+}
+
+.site-trust-pay {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  margin: 0;
+  font-size: var(--fs-xs);
+  color: var(--site-on-dark-muted);
+}
+.site-trust-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  padding-inline: var(--s-2);
+  background: var(--c-neutral-0);
+  border-radius: var(--site-radius-btn);
+}
+.site-trust-badge img { display: block; height: 18px; width: auto; }
+
+.site-trust-legal {
+  display: flex;
+  gap: var(--s-3);
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: var(--fs-xs);
+}
+.site-trust-legal a {
+  color: var(--site-on-dark-muted);
+  text-decoration: none;
+  transition: color var(--dur-base) var(--ease-out);
+}
+.site-trust-legal a:hover { color: var(--site-on-dark-action); }
+
+/* --- Bara de jos -------------------------------------------------------- */
+.site-footer-bottom {
+  margin-top: var(--s-10);
+  border-top: 1px solid var(--site-on-dark-line);
+}
+.site-footer-bottom-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-2) var(--s-4);
+  flex-wrap: wrap;
+  padding-block: var(--s-1) var(--s-4);
+  font-size: var(--fs-xs);
+  color: var(--site-on-dark-muted);
+}
+.site-footer-copy { margin: 0; }
+
+@media (max-width: 640px) {
+  .site-trust,
+  .site-footer-bottom-inner { flex-direction: column; align-items: flex-start; }
+}
+.site-footer-legal {
+  display: flex;
+  gap: var(--s-2);
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.site-footer-legal a {
+  color: var(--site-on-dark-muted);
+  text-decoration: none;
+}
+.site-footer-legal a:hover { color: var(--site-on-dark-action); }

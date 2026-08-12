@@ -1,0 +1,216 @@
+/* ==========================================================================
+   THE BEAUTY EDUCATION — SECȚIUNEA „PROGRAM DE LOIALITATE"
+   Se încarcă după site.css.
+   --------------------------------------------------------------------------
+   Structura: zona de sus = intro (~40%) + două carduri stivuite (~60%),
+   dedesubt rândul full-width cu cele 4 niveluri.
+
+   Nivelurile sunt RANDATE DIN JS (loialitate.js) dintr-o constantă LEVELS —
+   cerință explicită, ca valorile multiplicatorilor să se editeze într-un
+   singur loc. Fără JS, un <noscript> afișează nivelurile compact.
+
+   Fundal: cremul paginii. Granița cu albul galeriei de deasupra ar fi 1,06:1
+   (invizibilă) → linie fină sus + marcaj mauve în antet, ca la celelalte.
+
+   Umbra cardurilor: tokenul --site-shadow-card (0 20px 50px -12px · 0.12),
+   nu valoarea din brief (0 24px 60px -15px · 0.14) — aceeași familie vizuală,
+   dar toate cardurile din site împart un singur token.
+   ========================================================================== */
+
+.loialitate {
+  border-top: 1px solid var(--tbe-border-subtle);   /* granița alb → crem */
+}
+
+/* --- Zona de sus ----------------------------------------------------------- */
+.loy-top {
+  display: grid;
+  grid-template-columns: 5fr 7fr;   /* ~40 / ~60 */
+  gap: var(--s-6) var(--s-8);
+  align-items: center;
+}
+
+.loy-marcaj {
+  width: 64px;
+  height: 2px;
+  margin: 0 0 var(--s-3);
+  border: 0;
+  border-radius: var(--r-pill);
+  background: var(--tbe-editorial-line);
+}
+.loy-titlu {
+  margin: 0 0 var(--s-3);
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-light);
+  letter-spacing: var(--ls-tight);
+  text-wrap: balance;
+}
+.loy-lead {
+  margin: 0 0 var(--s-5);
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-light);
+  line-height: var(--lh-relaxed);
+  color: var(--tbe-text-muted);
+  max-width: 44ch;
+}
+.loy-intro { min-width: 0; }   /* copil de grid: textul nu forțează coloana */
+.loy-actions { display: flex; }
+.loy-btn:hover { transform: scale(1.04); }
+.loy-btn:active { transform: scale(1.04) translateY(1px); }
+
+/* --- Cardurile din dreapta -------------------------------------------------- */
+.loy-cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+.loy-card {
+  background: var(--tbe-surface);
+  border-radius: var(--tbe-radius-card);
+  box-shadow: var(--site-shadow-card);
+  padding: var(--s-5);
+}
+.loy-card-titlu {
+  margin: 0 0 var(--s-3);
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-tight);
+  color: var(--tbe-text);
+}
+.loy-card.is-bonus .loy-card-titlu { margin-bottom: var(--s-2); }
+.loy-card-text {
+  margin: 0;
+  font-size: var(--fs-sm);
+  line-height: var(--lh-body);
+  color: var(--tbe-text-muted);
+  max-width: none;
+}
+
+/* Lista „cum câștigi puncte" — marker magenta (accent cerut explicit). */
+.loy-lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+}
+.loy-lista li {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s-2);
+  font-size: var(--fs-base);
+  color: var(--tbe-text);
+}
+.loy-lista li::before {
+  content: '';
+  flex: none;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--tbe-action);
+  transform: translateY(-1px);
+}
+
+/* --- Rândul de niveluri ------------------------------------------------------ */
+.loy-niveluri-wrap { margin-top: var(--s-10); }
+
+.loy-niveluri-titlu {
+  margin: 0 0 var(--s-4);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-kicker);
+  text-transform: uppercase;
+  color: var(--tbe-editorial);
+}
+
+/* Progresia e literală: cardurile cresc în înălțime de la Bronze la Diamond
+   (align-items: end → baza comună, vârfurile urcă în trepte), iar indicatorul
+   de trepte umple câte un segment în plus la fiecare nivel. */
+.loy-niveluri {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--s-3);
+  align-items: end;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.loy-nivel {
+  display: flex;
+  flex-direction: column;
+  background: var(--tbe-surface);
+  border-radius: var(--tbe-radius-card);
+  box-shadow: var(--site-shadow-card);
+  padding: var(--s-4);
+}
+/* Treptele de înălțime doar pe desktop — în 2×2 sau pe o coloană, progresia
+   pe înălțime nu mai are sens și ar lăsa goluri ciudate. */
+@media (min-width: 1025px) {
+  .loy-nivel:nth-child(1) { min-height: 176px; }
+  .loy-nivel:nth-child(2) { min-height: 196px; }
+  .loy-nivel:nth-child(3) { min-height: 216px; }
+  .loy-nivel:nth-child(4) { min-height: 236px; }
+}
+
+/* Numele nivelului = badge-ul OFICIAL din design system (.tbe-badge.is-bronze
+   … .is-diamond, din components.css), cu glifă vie + text lizibil + fundal
+   soft. Exact ce văd membrele pe profil și în comunitate — secțiunea nu
+   descrie sistemul, îl arată. Progresia cromatică vine din DS: Bronze/Silver
+   calme, Gold și Diamond strălucesc. (A înlocuit indicatorul magenta de
+   trepte — două sisteme de culoare pe același card ar fi concurat.) */
+.loy-nivel-badge {
+  margin: 0 0 auto;      /* împinge conținutul la baza cardului */
+  padding-bottom: var(--s-3);
+  align-self: flex-start;
+}
+.loy-multiplu {
+  display: block;
+  margin-bottom: var(--s-1);
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 1.5rem + 1.4vw, 2.75rem);   /* 32 → 44px */
+  font-weight: var(--fw-regular);
+  line-height: 1;
+  letter-spacing: var(--ls-tight);
+  color: var(--tbe-action);
+  font-variant-numeric: tabular-nums;
+}
+.loy-nota {
+  margin: 0;
+  font-size: var(--fs-sm);
+  color: var(--tbe-text-muted);
+  max-width: none;
+}
+
+.loy-noscript {
+  margin: var(--s-3) 0 0;
+  font-size: var(--fs-sm);
+  color: var(--tbe-text-muted);
+}
+
+/* --- Animația de intrare (activată doar din JS, ca la galerie) -------------- */
+.loy-anim .loy-card,
+.loy-anim .loy-nivel {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity var(--dur-slower) var(--ease-out),
+              transform var(--dur-slower) var(--ease-out);
+}
+.loy-anim .loy-card.is-in,
+.loy-anim .loy-nivel.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* --- Responsive -------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .loy-top { grid-template-columns: 1fr; gap: var(--s-6); }
+  .loy-niveluri { grid-template-columns: repeat(2, 1fr); align-items: stretch; }
+}
+@media (max-width: 640px) {
+  .loy-niveluri { grid-template-columns: 1fr; }
+  .loy-card { padding: var(--s-4); }
+  .loy-btn { width: 100%; }
+  .loy-niveluri-wrap { margin-top: var(--s-8); }
+}

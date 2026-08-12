@@ -1,0 +1,165 @@
+/* ==========================================================================
+   THE BEAUTY EDUCATION — SECȚIUNEA „EMPIRIA"
+   Se încarcă după site.css.
+   --------------------------------------------------------------------------
+   Geometria cerută: două zone pe desktop (diploma A4 ~40% · grila de carduri
+   ~60%), iar grila de carduri e „în oglindă":
+     coloana 1: card MIC sus (250+)        + card MARE jos (8 diplome)
+     coloana 2: card MARE sus (2 special.) + card MIC jos (3 niveluri)
+   Butonul „Mai multe detalii" stă centrat sub tot layoutul (.emp-actions).
+
+   CONSTRÂNGERE DE CONȚINUT: minimul fiecărei coloane (mic + mare + gap)
+   trebuie să rămână sub înălțimea diplomei A4 (~655px la container plin),
+   altfel diploma e întinsă de grid și raportul 210:297 se rupe. Practic:
+   textele din cardurile mici rămân scurte (2 fraze).
+
+   Cum se aliniază oglinda fără înălțimi fixe: fiecare coloană e flex vertical
+   cu același gap, cardul mare are flex:1, iar ambele coloane sunt întinse la
+   înălțimea rândului de grid. Rândul e comandat de diploma A4 (raport strict
+   210:297 — la lățimea de container plin, ~643px), care e mai înaltă decât
+   minimul cardurilor, deci cardurile mari absorb diferența identic în ambele
+   coloane. Egalitatea mic+mare = mare+mic nu e aproximată — e consecința
+   directă a lui flex:1 pe aceeași înălțime totală.
+   ========================================================================== */
+
+/* --- Antet centrat -------------------------------------------------------- */
+.emp-head {
+  max-width: 720px;
+  margin: 0 auto var(--s-10);
+  text-align: center;
+}
+.emp-head .tbe-kicker { margin-bottom: var(--s-2); }
+.emp-titlu {
+  margin: 0 0 var(--s-3);
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-light);
+  letter-spacing: var(--ls-tight);
+}
+.emp-lead {
+  margin: 0;
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-light);
+  line-height: var(--lh-relaxed);
+  color: var(--tbe-text-muted);
+}
+
+/* --- Layoutul principal --------------------------------------------------- */
+.emp-layout {
+  display: grid;
+  grid-template-columns: 5fr 7fr;   /* ~40 / ~60 */
+  gap: var(--s-3);                  /* 24px, același gap peste tot */
+  align-items: stretch;
+}
+
+/* Diploma — A4 vertical STRICT (210:297). Nu 4/5, nu altceva: e o diplomă
+   reală care va fi fotografiată/exportată în format A4. */
+.emp-diploma {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 210 / 297;
+  width: 100%;
+  background: var(--tbe-decor-strong);   /* nude #DCC4B4 */
+  border-radius: var(--tbe-radius-card);
+  box-shadow: var(--site-shadow-card);
+}
+.emp-diploma-eticheta {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  letter-spacing: var(--ls-wide);
+  color: rgba(44, 37, 33, 0.4);   /* charcoal/40, cerut */
+}
+
+/* --- Grila în oglindă ------------------------------------------------------ */
+.emp-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-3);
+}
+.emp-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  min-height: 100%;
+}
+
+.emp-card {
+  background: var(--tbe-surface);
+  border-radius: var(--tbe-radius-card);
+  box-shadow: var(--site-shadow-card);
+  padding: var(--s-5);
+}
+.emp-card.is-mare {
+  flex: 1;                      /* absoarbe diferența → oglinda se închide */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;      /* conținutul plutește în cardul înalt */
+}
+
+/* Butonul stă centrat SUB layout, nu într-un card (prima versiune avea un
+   card-gazdă pentru buton în colțul din dreapta-jos; înlocuit la cerere cu
+   cardul „3 niveluri"). */
+.emp-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--s-6);
+}
+
+/* --- Conținutul cardurilor ------------------------------------------------- */
+.emp-num {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 1.8rem + 2vw, 3.75rem);   /* 40 → 60px */
+  font-weight: var(--fw-regular);
+  line-height: 1;
+  letter-spacing: var(--ls-tight);
+  color: var(--tbe-action);
+  font-variant-numeric: tabular-nums;
+  margin-bottom: var(--s-2);
+}
+.emp-card-titlu {
+  margin: 0 0 var(--s-1);
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-tight);
+  color: var(--tbe-text);
+}
+.emp-sub {
+  margin: 0 0 var(--s-2);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--tbe-text);
+}
+.emp-desc {
+  margin: 0;
+  font-size: var(--fs-sm);
+  line-height: var(--lh-body);
+  color: var(--tbe-text-muted);
+  max-width: none;
+}
+
+/* Butonul — pill magenta cu hover scale (cerut explicit; restul butoanelor
+   din site nu scalează, doar acesta). */
+.emp-btn:hover { transform: scale(1.04); }
+.emp-btn:active { transform: scale(1.04) translateY(1px); }
+
+/* --- Responsive ------------------------------------------------------------ */
+@media (max-width: 1024px) {
+  /* Zonele se stivuiesc. Diploma nu mai poate fi full-width (A4 la 768px
+     lățime ar avea ~1086px înălțime) — o limităm și o centrăm. */
+  .emp-layout { grid-template-columns: 1fr; }
+  .emp-diploma {
+    max-width: 420px;
+    margin-inline: auto;
+  }
+  /* Oglinda nu mai are sens stivuită: carduri egale, în ordine logică. */
+  .emp-card.is-mare { flex: none; }
+  .emp-col { min-height: 0; }
+}
+
+@media (max-width: 640px) {
+  .emp-head { margin-bottom: var(--s-6); }
+  .emp-cols { grid-template-columns: 1fr; }
+  .emp-card { padding: var(--s-4); }
+  .emp-btn { width: 100%; }
+}

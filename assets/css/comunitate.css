@@ -1,0 +1,412 @@
+/* ==========================================================================
+   THE BEAUTY EDUCATION — SECȚIUNEA „COMUNITATEA TA" · 3 variante
+   Se încarcă după site.css.
+   --------------------------------------------------------------------------
+   Șapte lucruri de arătat, fiecare cu titlu și o frază. Trei aranjări:
+     A BENTO   — grilă asimetrică, carduri, trei tipuri de suprafață
+     B LISTĂ   — index numerotat pe două coloane, fără carduri
+     C STICKY  — antetul rămâne pe loc, lista trece pe lângă el
+
+   Nicio cifră mare aici, deliberat: banda de statistici e chiar deasupra, în
+   „Povestea noastră". Dacă repetăm numerele, niciunul nu mai contează.
+
+   Fără iconițe. Design system-ul e editorial (Cormorant + Jost), iar iconițele
+   în cerculețe ar trage secțiunea spre „SaaS". Ritmul îl fac suprafețele și
+   dimensiunile, nu simbolurile.
+   ========================================================================== */
+
+/* ==========================================================================
+   COMUN
+   ========================================================================== */
+.cm-head {
+  max-width: 720px;   /* px, nu ch — vezi nota din povestea.css */
+  margin-bottom: var(--s-10);
+}
+
+/* Marcaj de început de secțiune: linia scurtă mauve din design system
+   (.tbe-rule.is-short). Banda bej spune „altă secțiune", linia spune „începe
+   aici". Două semnale, unul cromatic și unul tipografic. */
+.cm-marcaj {
+  width: 64px;
+  height: 2px;
+  margin: 0 0 var(--s-3);
+  border: 0;
+  border-radius: var(--r-pill);
+  background: var(--tbe-editorial-line);
+}
+
+/* Pe bandă bej, cardurile plate (fără poză) ar fi prea aproape de fundal:
+   suprafața lor rămâne albă și umbra difuză le desprinde. Cardurile cu poză
+   se desprind singure. */
+.site-section.is-band .cm-card:not(.has-photo) { background: var(--tbe-surface); }
+.cm-head-title {
+  margin: 0 0 var(--s-3);
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-light);
+  letter-spacing: var(--ls-tight);
+}
+.cm-head-lead {
+  margin: 0;
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-light);
+  line-height: var(--lh-relaxed);
+  color: var(--tbe-text-muted);
+}
+
+.cm-eticheta {
+  display: block;
+  margin-bottom: var(--s-1);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-kicker);
+  text-transform: uppercase;
+  color: var(--tbe-editorial);
+}
+
+.cm-titlu {
+  margin: 0 0 var(--s-2);
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-tight);
+  color: var(--tbe-text);
+  text-wrap: balance;
+}
+
+.cm-desc {
+  margin: 0;
+  font-size: var(--fs-sm);
+  line-height: var(--lh-body);
+  color: var(--tbe-text-muted);
+  max-width: 46ch;
+}
+
+/* „În curând" — Rootine+ e în dezvoltare. Un produs neanunțat ca atare e o
+   promisiune pe care site-ul nu o poate ține. */
+.cm-curand {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: var(--s-1);
+  padding: 4px 10px;
+  border-radius: var(--r-pill);
+  background: var(--tbe-editorial-soft);
+  border: 1px solid var(--tbe-editorial-line);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-kicker);
+  text-transform: uppercase;
+  color: var(--tbe-editorial);
+  vertical-align: 0.25em;
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   A · BENTO
+   Grilă asimetrică 7/5 · 5/7 · 4/4/4. Trei suprafețe, ca ritmul să nu fie o
+   galerie de carduri identice:
+     charcoal — comunitatea (miezul emoțional, cardul cel mai mare)
+     nude     — educația (250+ tutoriale)
+     alb      — restul
+   ========================================================================== */
+.cm-bento {
+  display: grid;
+  gap: var(--s-3);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cm-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: var(--s-5);
+  background: var(--tbe-surface);
+  border-radius: var(--tbe-radius-card);
+  box-shadow: var(--site-shadow-card);
+  text-decoration: none;
+  transition: box-shadow var(--dur-slow) var(--ease-out),
+              transform var(--dur-slow) var(--ease-out);
+}
+.cm-card:hover {
+  box-shadow: var(--site-shadow-card-hover);
+  transform: translateY(-2px);
+}
+.cm-card .cm-desc { margin-top: auto; padding-top: var(--s-3); }
+
+/* --- CARD CU FOTOGRAFIE ---------------------------------------------------
+   Gradientul nu e ales din ochi. Am măsurat toate cele 7 decupaje în banda de
+   jos (55% din înălțime, unde stă textul): pixelul cel mai luminos ajunge la
+   RGB(255,224,209) pe unul, iar cupola la luminanță 0,865. Procentul de pixeli
+   sub 4,5:1 pentru text alb:
+     alpha 0,45 → între 0,0% și 2,0%
+     alpha 0,55 → 0,0% pe TOATE șapte
+   De aici gradientul de mai jos, care ține ≥0,58 pe toată banda de text.
+
+   Consecință pe culori: peste fotografie, mauve-ul (--tbe-editorial, eticheta)
+   NU atinge 4,5:1 — ajunge la ~2,8:1. Deci pe cardurile cu poză eticheta trece
+   pe crem. Aceeași abatere documentată ca la hero: pe fotografie lizibilitatea
+   bate preferința cromatică; pe fundal solid regula rămâne mauve.            */
+.cm-card.has-photo {
+  position: relative;
+  overflow: hidden;
+  justify-content: flex-end;   /* textul se așază jos, peste partea opacă */
+  padding: 0;
+  min-height: 300px;
+  background: var(--c-neutral-900);   /* ce se vede până se încarcă poza */
+  isolation: isolate;
+}
+
+.cm-card-img {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--dur-slower) var(--ease-out);
+}
+.cm-card.has-photo:hover .cm-card-img { transform: scale(1.045); }
+
+.cm-card-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(to top,
+    rgba(26, 20, 22, 0.92) 0%,
+    rgba(26, 20, 22, 0.74) 28%,
+    rgba(26, 20, 22, 0.58) 56%,
+    rgba(26, 20, 22, 0.18) 80%,
+    rgba(26, 20, 22, 0) 100%);
+}
+
+.cm-card-body { position: relative; padding: var(--s-5); }
+
+.cm-card.has-photo .cm-titlu { color: var(--c-neutral-0); }
+.cm-card.has-photo .cm-desc {
+  color: var(--c-neutral-50);
+  margin-top: var(--s-2);
+  padding-top: 0;
+}
+.cm-card.has-photo .cm-eticheta { color: var(--c-neutral-50); }
+.cm-card.has-photo .cm-titlu,
+.cm-card.has-photo .cm-desc,
+.cm-card.has-photo .cm-eticheta { text-shadow: 0 1px 3px rgba(26, 20, 22, 0.5); }
+.cm-card.has-photo .cm-curand {
+  color: var(--c-neutral-50);
+  background: rgba(250, 244, 239, 0.14);
+  border-color: rgba(250, 244, 239, 0.34);
+  text-shadow: none;
+}
+
+/* --- Semnalul de „se dă click" -------------------------------------------
+   Cerc în colțul de sus-dreapta, cu fundal propriu și blur: trebuie să se vadă
+   peste orice fotografie, inclusiv peste zona de sus, unde scrimul e slab.   */
+.cm-card-arrow {
+  position: absolute;
+  top: var(--s-3);
+  right: var(--s-3);
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(250, 244, 239, 0.45);
+  background: rgba(26, 20, 22, 0.38);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--c-neutral-0);
+  transition: background var(--dur-base) var(--ease-out),
+              border-color var(--dur-base) var(--ease-out),
+              color var(--dur-base) var(--ease-out),
+              transform var(--dur-slow) var(--ease-out);
+}
+.cm-card-arrow svg { width: 15px; height: 15px; }
+.cm-card:hover .cm-card-arrow {
+  background: var(--c-neutral-0);
+  border-color: var(--c-neutral-0);
+  color: var(--c-neutral-900);
+  transform: translate(2px, -2px);
+}
+/* Pe cardurile fără fotografie, cercul stă pe fundal deschis. */
+.cm-card:not(.has-photo) .cm-card-arrow {
+  border-color: var(--tbe-border);
+  background: var(--tbe-surface);
+  color: var(--tbe-text);
+  backdrop-filter: none;
+}
+.cm-card:not(.has-photo):hover .cm-card-arrow {
+  background: var(--tbe-action);
+  border-color: var(--tbe-action);
+  color: var(--tbe-text-on-action);
+}
+
+/* Inelul de focus, pe cardul întreg — nu doar pe textul din el. */
+.cm-card:focus-visible {
+  outline: var(--bw-thick) solid var(--tbe-ring);
+  outline-offset: 3px;
+}
+.cm-card.has-photo:focus-visible { outline-color: var(--c-nude-200); }
+
+/* Suprafață închisă */
+.cm-card.is-dark { background: var(--c-neutral-900); }
+.cm-card.is-dark .cm-titlu { color: var(--c-neutral-50); }
+.cm-card.is-dark .cm-desc { color: var(--c-neutral-400); }
+.cm-card.is-dark .cm-eticheta { color: var(--c-mauve-200); }
+
+/* Suprafață nude — decor din design system, fără umbră: e un bloc, nu un card */
+.cm-card.is-decor {
+  background: var(--tbe-decor);
+  box-shadow: none;
+}
+.cm-card.is-decor:hover { box-shadow: var(--shadow-sm); }
+
+@media (min-width: 1025px) {
+  .cm-bento { grid-template-columns: repeat(12, 1fr); }
+  .cm-bento > li:nth-child(1) { grid-column: span 7; }
+  .cm-bento > li:nth-child(2) { grid-column: span 5; }
+  .cm-bento > li:nth-child(3) { grid-column: span 5; }
+  .cm-bento > li:nth-child(4) { grid-column: span 7; }
+  .cm-bento > li:nth-child(5) { grid-column: span 4; }
+  .cm-bento > li:nth-child(6) { grid-column: span 4; }
+  .cm-bento > li:nth-child(7) { grid-column: span 4; }
+  /* Cardurile late suportă titlu mai mare fără să pară strâmte. */
+  .cm-bento > li:nth-child(1) .cm-titlu,
+  .cm-bento > li:nth-child(4) .cm-titlu { font-size: var(--fs-h2); }
+  .cm-bento > li:nth-child(1) .cm-desc,
+  .cm-bento > li:nth-child(4) .cm-desc { font-size: var(--fs-base); }
+  /* ATENȚIE la specificitate: `.cm-bento > li:nth-child(1) .cm-card` (0,3,1) bate
+     `.cm-card.has-photo` (0,2,0), deci un padding pus aici ar strica cardul cu
+     fotografie, unde padding-ul trebuie să stea pe .cm-card-body. De aceea
+     regula e scoasă explicit din calea cardurilor cu poză. */
+  .cm-bento > li:nth-child(1) .cm-card:not(.has-photo),
+  .cm-bento > li:nth-child(4) .cm-card:not(.has-photo) { padding: var(--s-6); }
+  .cm-bento > li:nth-child(1) .cm-card-body,
+  .cm-bento > li:nth-child(4) .cm-card-body { padding: var(--s-6); }
+  .cm-bento > li:nth-child(1) .cm-card.has-photo,
+  .cm-bento > li:nth-child(4) .cm-card.has-photo { min-height: 400px; }
+}
+
+@media (max-width: 1024px) {
+  .cm-bento { grid-template-columns: repeat(2, 1fr); }
+  .cm-bento > li:nth-child(1) { grid-column: 1 / -1; }
+  .cm-bento > li:last-child { grid-column: 1 / -1; }
+}
+@media (max-width: 640px) {
+  .cm-bento { grid-template-columns: 1fr; }
+  .cm-card { padding: var(--s-4); }
+  .cm-card-body { padding: var(--s-4); }
+  .cm-card.has-photo { min-height: 260px; }
+  .cm-bento > li:nth-child(1) .cm-card.has-photo,
+  .cm-bento > li:nth-child(4) .cm-card.has-photo { min-height: 300px; }
+}
+
+/* ==========================================================================
+   B · LISTĂ NUMEROTATĂ
+   Fără carduri, fără umbre. Doar numerale, linii fine și aer. Numerotarea face
+   ce fac cardurile în bento: separă și dă ordine — cu mult mai puțină cerneală.
+   Curgere pe COLOANĂ (1–4 stânga, 5–7 dreapta), nu pe rând: o listă se citește
+   în jos, nu în zigzag.
+   ========================================================================== */
+.cm-lista {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(4, auto);
+  grid-auto-flow: column;
+  column-gap: var(--s-8);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--tbe-border-subtle);
+}
+
+/* Elementul <a> ESTE grila rândului: toată suprafața se dă click, nu doar titlul. */
+.cm-item {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: var(--s-3);
+  align-items: start;
+  padding-block: var(--s-4);
+  border-bottom: 1px solid var(--tbe-border-subtle);
+  text-decoration: none;
+  color: inherit;
+  transition: padding-left var(--dur-slow) var(--ease-out),
+              border-color var(--dur-base) var(--ease-out);
+}
+.cm-item:hover { padding-left: var(--s-2); border-bottom-color: var(--tbe-action); }
+.cm-item:hover .cm-titlu { color: var(--tbe-action); }
+.cm-item:focus-visible { outline: var(--bw-thick) solid var(--tbe-ring); outline-offset: 4px; }
+
+.cm-num {
+  font-family: var(--font-display);
+  font-size: 1.75rem;   /* 28px */
+  font-weight: var(--fw-light);
+  line-height: 1;
+  letter-spacing: var(--ls-tight);
+  color: var(--tbe-editorial);
+  font-variant-numeric: tabular-nums;
+  padding-top: 2px;   /* nudge optic față de titlul de 22px */
+}
+
+.cm-item .cm-titlu { font-size: var(--fs-h4); }
+.cm-item .cm-desc { max-width: 42ch; }
+
+@media (max-width: 900px) {
+  .cm-lista {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    grid-auto-flow: row;
+  }
+}
+
+/* ==========================================================================
+   C · ANTET FIX + LISTĂ
+   Antetul rămâne pe loc cât lista trece pe lângă el. Cea mai lentă din cele
+   trei: forțează cititorul să parcurgă, nu să scaneze. Pe mobil sticky-ul se
+   dezactivează singur — n-ar avea unde să stea.
+   ========================================================================== */
+.cm-sticky {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: var(--s-8);
+  align-items: start;
+}
+
+.cm-sticky-head {
+  position: sticky;
+  top: calc(var(--site-nav-h) + var(--s-5));
+}
+.cm-sticky-head .cm-head { margin-bottom: 0; max-width: 38ch; }
+
+.cm-stack {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.cm-rand {
+  display: block;
+  padding-block: var(--s-4);
+  border-bottom: 1px solid var(--tbe-border-subtle);
+  text-decoration: none;
+  color: inherit;
+  transition: padding-left var(--dur-slow) var(--ease-out),
+              border-color var(--dur-base) var(--ease-out);
+}
+.cm-stack > li:first-child .cm-rand { padding-top: 0; }
+.cm-rand:hover { padding-left: var(--s-2); border-bottom-color: var(--tbe-action); }
+.cm-rand:hover .cm-titlu { color: var(--tbe-action); }
+.cm-rand:focus-visible { outline: var(--bw-thick) solid var(--tbe-ring); outline-offset: 4px; }
+.cm-rand .cm-titlu { font-size: var(--fs-h3); }
+.cm-rand .cm-desc { max-width: 52ch; }
+
+@media (max-width: 1024px) {
+  .cm-sticky { grid-template-columns: 1fr; gap: var(--s-6); }
+  .cm-sticky-head { position: static; }
+  .cm-sticky-head .cm-head { max-width: 720px; }
+}

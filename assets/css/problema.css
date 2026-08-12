@@ -1,0 +1,95 @@
+/* ==========================================================================
+   THE BEAUTY EDUCATION — SECȚIUNEA „PROBLEMA"
+   Se încarcă după site.css.
+   --------------------------------------------------------------------------
+   Rolul secțiunii: moment de reflecție care rupe densitatea vizuală de
+   dinainte (bento cu 7 fotografii). De aici toate deciziile:
+   - charcoal plin, fără fotografie, fără carduri — singura secțiune „goală"
+   - CENTRAT (inițial era stânga, dar lăsa golul din dreapta să domine):
+     coloana stă pe axul paginii, ca o dedicație pe o pagină de gardă
+   - o singură coloană îngustă (680px), mult aer sus și jos
+
+   Culorile vin din tokenii --site-on-dark-* (definite în site.css pentru
+   suprafețele permanent închise): text 14,6:1 · muted 7,2:1 · kicker 9,6:1.
+   Ordinea benzilor din pagină: crem → bej → CHARCOAL → (urmează FAQ, fundal
+   diferit) → footer. Secțiunea NU e lipită de footer.
+   ========================================================================== */
+
+.problema {
+  background: var(--c-neutral-900);
+  color: var(--site-on-dark);
+}
+
+/* Coloana editorială, pe axul paginii. Puțin mai lată decât varianta aliniată
+   la stânga (680 vs 640): textul centrat suportă rânduri ceva mai lungi fără
+   să-și piardă forma, iar citatul respiră mai bine pe două rânduri. */
+.problema-inner {
+  max-width: 680px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.problema .tbe-kicker { color: var(--site-on-dark-kicker); }
+
+/* --- Citatul ---------------------------------------------------------------
+   Piesa centrală. Cormorant italic, mare, alb — nu are ghilimele desenate:
+   la dimensiunea asta, italicul + semnătura spun singure „citat".            */
+.problema-quote {
+  margin: 0 0 var(--s-6);
+}
+.problema-quote p {
+  margin: 0 0 var(--s-3);
+  max-width: none;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.75rem, 1.2rem + 2.2vw, 2.75rem);   /* 28 → 44px */
+  font-weight: var(--fw-light);
+  line-height: 1.3;
+  letter-spacing: var(--ls-tight);
+  color: var(--c-neutral-0);
+  text-wrap: balance;
+}
+.problema-quote cite {
+  display: block;
+  font-family: var(--font-mono);
+  font-style: normal;
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-kicker);
+  text-transform: uppercase;
+  color: var(--site-on-dark-kicker);
+}
+
+/* --- Textul de reflecție -------------------------------------------------- */
+.problema-text p {
+  margin: 0 0 var(--s-3);
+  max-width: none;
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-light);
+  line-height: var(--lh-relaxed);
+  color: var(--site-on-dark-muted);
+}
+
+/* Prima frază — „Poate ai simțit-o și tu." — e puntea dintre citat și
+   confesiune: mai deschisă la culoare, ca să se simtă schimbarea de voce. */
+.problema-text p:first-child {
+  color: var(--site-on-dark);
+  font-weight: var(--fw-regular);
+}
+
+/* Concluzia din ultima frază iese din registrul „muted": e promisiunea. */
+.problema-text strong {
+  color: var(--c-neutral-0);
+  font-weight: var(--fw-medium);
+}
+
+.problema-actions {
+  margin-top: var(--s-6);
+}
+
+@media (max-width: 640px) {
+  .problema-quote { margin-bottom: var(--s-5); }
+  .problema-text p { font-size: var(--fs-base); }
+  .problema-actions { margin-top: var(--s-5); }
+  .problema-actions .tbe-btn { width: 100%; }
+}

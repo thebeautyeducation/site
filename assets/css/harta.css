@@ -1,0 +1,189 @@
+/* ==========================================================================
+   THE BEAUTY EDUCATION — SECȚIUNEA „HARTA COAFEZELOR"
+   Se încarcă după site.css.
+   --------------------------------------------------------------------------
+   Layout: vizual stânga (~50%) + conținut dreapta, cu rând de statistici sub
+   CTA — adaptarea editorială a referinței (telefon + glass card, stil SaaS).
+
+   Vizualul NU e o poză: e un mock construit din componentele reale ale
+   design system-ului — pini de hartă în Verde Hartă (--c-harta-*) peste un
+   caroiaj discret, plus cardul de coafeză oficial (.tbe-salon din
+   components.css), cu badge-ul „Recomandat" magenta și butoanele de contact
+   în culorile canalelor. Secțiunea arată produsul, nu o ilustrație a lui.
+   Mockul întreg e decorativ: aria-hidden + pointer-events: none.
+
+   Fundal: banda bej (is-band) — cremul Loialității → bej dă graniță vizibilă
+   (1,21:1), aceeași soluție ca la „Comunitatea ta".
+   ========================================================================== */
+
+.hc-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-6) var(--s-8);
+  align-items: center;
+}
+
+/* --- VIZUALUL — colț de hartă ---------------------------------------------- */
+.hc-vizual {
+  position: relative;
+  min-height: 600px;
+  border-radius: var(--tbe-radius-card);
+  overflow: hidden;
+  box-shadow: var(--site-shadow-card);
+  background-color: var(--c-nude-50);
+  /* Caroiaj de hartă: linii fine la 56px — sugerează străzi fără să deseneze
+     o hartă falsă a vreunui oraș real. */
+  background-image:
+    linear-gradient(rgba(44, 37, 33, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(44, 37, 33, 0.05) 1px, transparent 1px);
+  background-size: 56px 56px;
+  pointer-events: none;   /* e demonstrativ, nu interactiv */
+}
+/* Un „parc" — o pată verde moale care rupe caroiajul, ca pe orice hartă. */
+.hc-vizual::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  left: -80px;
+  width: 300px;
+  height: 240px;
+  border-radius: 50% 60% 55% 45% / 55% 45% 60% 50%;
+  background: var(--c-harta-100);
+  opacity: 0.8;
+}
+
+/* --- Pinii ------------------------------------------------------------------
+   Verde Hartă — semnalul oficial al sub-brandului (tokens § 08). Inițialele
+   sunt cele de pe harta live (GC, AS, CD, NC). Alb pe #2E6F5E = 5,9:1. */
+.hc-pin {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--c-harta-500);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.02em;
+  box-shadow: 0 6px 16px -6px rgba(31, 76, 64, 0.5);
+  animation: hc-plutire 3.6s ease-in-out infinite;
+}
+/* Coada pinului */
+.hc-pin::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  background: inherit;
+  transform: translateX(-50%) rotate(45deg);
+  border-radius: 2px;
+  z-index: -1;
+}
+.hc-pin.is-mic {
+  width: 30px;
+  height: 30px;
+  font-size: 10px;
+  opacity: 0.85;
+}
+/* Plutire decalată — pinii respiră, nu sar în cor. Reduced-motion e acoperit
+   global (tokens.css § 09 oprește toate animațiile). */
+.hc-pin:nth-of-type(2) { animation-delay: 0.6s; }
+.hc-pin:nth-of-type(3) { animation-delay: 1.2s; }
+.hc-pin:nth-of-type(4) { animation-delay: 1.8s; }
+@keyframes hc-plutire {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-4px); }
+}
+
+/* --- Cardul de coafeză (componenta DS, doar poziționată aici) --------------- */
+.hc-salon {
+  position: absolute;
+  right: var(--s-3);
+  bottom: var(--s-3);
+  width: min(300px, calc(100% - 32px));
+}
+/* În mock, „butoanele" sunt spanuri (nu duc nicăieri) — componentele DS își
+   păstrează aspectul pe orice tag. */
+
+/* --- CONȚINUTUL -------------------------------------------------------------- */
+.hc-continut { min-width: 0; }   /* copil de grid: textul nu forțează coloana */
+.hc-marcaj {
+  width: 64px;
+  height: 2px;
+  margin: 0 0 var(--s-3);
+  border: 0;
+  border-radius: var(--r-pill);
+  background: var(--tbe-editorial-line);
+}
+.hc-titlu {
+  margin: 0 0 var(--s-3);
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-light);
+  letter-spacing: var(--ls-tight);
+  text-wrap: balance;
+}
+.hc-lead {
+  margin: 0 0 var(--s-5);
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-light);
+  line-height: var(--lh-relaxed);
+  color: var(--tbe-text-muted);
+  max-width: 46ch;
+}
+.hc-actions { display: flex; }
+
+/* --- Statisticile ------------------------------------------------------------ */
+.hc-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-4);
+  margin-top: var(--s-6);
+  padding-top: var(--s-5);
+  border-top: 1px solid rgba(44, 37, 33, 0.10);
+}
+.hc-stat + .hc-stat {
+  border-left: 1px solid rgba(44, 37, 33, 0.10);
+  padding-left: var(--s-4);
+}
+.hc-num {
+  display: block;
+  margin-bottom: var(--s-1);
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 1.5rem + 1.6vw, 3rem);   /* 32 → 48px */
+  font-weight: var(--fw-regular);
+  line-height: 1;
+  letter-spacing: var(--ls-tight);
+  color: var(--tbe-action);
+  font-variant-numeric: tabular-nums;
+}
+.hc-eticheta {
+  display: block;
+  margin-bottom: var(--s-1);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-medium);
+  color: var(--tbe-text);
+}
+.hc-nota {
+  margin: 0;
+  font-size: var(--fs-sm);
+  line-height: var(--lh-body);
+  color: var(--tbe-text-muted);
+  max-width: 24ch;
+}
+
+/* --- Responsive ---------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .hc-layout { grid-template-columns: 1fr; }
+  .hc-vizual { min-height: 560px; max-width: 560px; }
+}
+@media (max-width: 640px) {
+  .hc-vizual { min-height: 540px; }
+  .hc-actions .tbe-btn { width: 100%; }
+  .hc-stats { grid-template-columns: 1fr; gap: var(--s-3); }
+  .hc-stat + .hc-stat { border-left: 0; padding-left: 0; padding-top: var(--s-3); border-top: 1px solid rgba(44, 37, 33, 0.10); }
+}

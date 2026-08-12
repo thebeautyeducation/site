@@ -1,0 +1,105 @@
+/* ==========================================================================
+   THE BEAUTY EDUCATION — SECȚIUNEA „GALERIE / DINĂUNTRU"
+   Se încarcă după site.css.
+   --------------------------------------------------------------------------
+   Masonry REAL, cu CSS columns: coloane de lățime egală, fiecare imagine cu
+   înălțimea ei naturală (width 100%, height auto — raportul vine din fișier),
+   împăturite vertical fără goluri. Nu e grid cu rânduri egale.
+   Consecință asumată a lui `columns`: ordinea vizuală curge pe coloană
+   (1,2,3 în prima coloană...), nu pe rând — pentru o galerie foto e corect.
+
+   Fundal ALB (cerut: umbrele ies cel mai bine pe alb). Granița cu cremul
+   Empiriei de deasupra ar fi doar 1,06:1 — invizibilă — deci secțiunea
+   primește o linie fină sus + marcajul mauve în antet, ca la Comunitatea ta.
+   ========================================================================== */
+
+.galerie {
+  background: var(--c-neutral-0);
+  border-top: 1px solid var(--tbe-border-subtle);   /* granița crem → alb */
+}
+
+/* --- Antet — aliniat stânga, editorial ------------------------------------ */
+.gal-head {
+  max-width: 720px;
+  margin-bottom: var(--s-8);   /* spațiu generos înainte de galerie */
+}
+.gal-marcaj {
+  width: 64px;
+  height: 2px;
+  margin: 0 0 var(--s-3);
+  border: 0;
+  border-radius: var(--r-pill);
+  background: var(--tbe-editorial-line);
+}
+.gal-titlu {
+  margin: 0 0 var(--s-3);
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-light);
+  letter-spacing: var(--ls-tight);
+}
+.gal-lead {
+  margin: 0;
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-light);
+  line-height: var(--lh-relaxed);
+  color: var(--tbe-text-muted);   /* ~charcoal/70, dar cu contrast garantat 4,8:1 */
+  max-width: 700px;
+}
+
+/* --- Masonry ---------------------------------------------------------------
+   column-gap = marginea verticală dintre carduri = 24px, consecvent cu restul. */
+.gal-masonry {
+  columns: 3;
+  column-gap: var(--s-3);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.gal-masonry > li {
+  break-inside: avoid;
+  margin-bottom: var(--s-3);
+}
+
+.gal-item {
+  margin: 0;
+  border-radius: var(--tbe-radius-card);
+  overflow: hidden;
+  box-shadow: var(--site-shadow-card);
+  transition: transform var(--dur-slow) var(--ease-out),
+              box-shadow var(--dur-slow) var(--ease-out);
+}
+.gal-item img {
+  display: block;
+  width: 100%;
+  height: auto;   /* înălțimea naturală a imaginii — esența masonry-ului */
+}
+.gal-item:hover {
+  transform: scale(1.02);
+  box-shadow: var(--site-shadow-card-hover);
+}
+
+/* --- Animația de intrare ----------------------------------------------------
+   Starea ascunsă există DOAR sub .gal-anim, pe care o pune JS-ul la init:
+   fără JS, galeria e pur și simplu vizibilă. Decalajul (stagger) e per-item,
+   setat inline de JS. Translate-ul stă pe <li>, scale-ul de hover pe figură —
+   nu se calcă una pe alta. */
+.gal-anim > li {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity var(--dur-slower) var(--ease-out),
+              transform var(--dur-slower) var(--ease-out);
+}
+.gal-anim > li.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* --- Responsive ------------------------------------------------------------ */
+@media (max-width: 1024px) {
+  .gal-masonry { columns: 2; }
+}
+@media (max-width: 640px) {
+  .gal-head { margin-bottom: var(--s-6); }
+  .gal-masonry { columns: 2; column-gap: var(--s-2); }
+  .gal-masonry > li { margin-bottom: var(--s-2); }
+}

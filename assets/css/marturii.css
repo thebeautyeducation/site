@@ -1,0 +1,192 @@
+/* ==========================================================================
+   THE BEAUTY EDUCATION — SECȚIUNEA „MĂRTURII"
+   Se încarcă după site.css.
+   --------------------------------------------------------------------------
+   Carduri portret cu citatul peste un gradient jos (referință: Circle.so),
+   într-o bandă FULL-BLEED derulabilă cu snap: cardurile ies din container
+   până la marginea ecranului — tăierea de la margini spune singură „mai e".
+   Scroll-ul e nativ (merge fără JS); JS-ul adaugă doar butoanele și reveal-ul.
+
+   Gradientul: aceeași familie măsurată ca la cardurile din „Comunitatea ta"
+   (alpha ≥0,55 în zona de text = 0% pixeli sub 4,5:1 pe decupajele din
+   aceeași fotografie), dar urcat mai sus — citatul ocupă mai mult din card
+   decât un titlu. Citatul e Cormorant italic, ca toate citatele din brand.
+   ========================================================================== */
+
+/* Padding-ul care aliniază primul card cu marginea containerului, lăsând
+   banda să curgă până la marginea ecranului. */
+.marturii {
+  --mt-pad: max(var(--gutter), calc((100vw - var(--container)) / 2 + var(--gutter)));
+  overflow: hidden;   /* umbrele cardurilor nu produc scroll orizontal pe body */
+}
+
+.mt-head {
+  max-width: 720px;
+  margin-bottom: var(--s-8);
+}
+.mt-marcaj {
+  width: 64px;
+  height: 2px;
+  margin: 0 0 var(--s-3);
+  border: 0;
+  border-radius: var(--r-pill);
+  background: var(--tbe-editorial-line);
+}
+.mt-titlu {
+  margin: 0 0 var(--s-3);
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-light);
+  letter-spacing: var(--ls-tight);
+}
+.mt-lead {
+  margin: 0;
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-light);
+  line-height: var(--lh-relaxed);
+  color: var(--tbe-text-muted);
+}
+
+/* --- Banda ------------------------------------------------------------------- */
+.mt-rail {
+  display: flex;
+  gap: var(--s-3);
+  list-style: none;
+  margin: 0;
+  padding: 4px var(--mt-pad) var(--s-2);   /* 4px sus: loc pentru umbră la hover */
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scroll-padding-inline: var(--mt-pad);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  overscroll-behavior-x: contain;
+}
+.mt-rail::-webkit-scrollbar { display: none; }
+
+.mt-rail > li {
+  flex: 0 0 clamp(264px, 24vw, 336px);
+  scroll-snap-align: start;
+}
+
+/* --- Cardul -------------------------------------------------------------------- */
+.mt-card {
+  position: relative;
+  margin: 0;
+  aspect-ratio: 10 / 16;
+  border-radius: var(--tbe-radius-card);
+  overflow: hidden;
+  background: var(--c-neutral-900);
+  box-shadow: var(--site-shadow-card);
+  isolation: isolate;
+  transition: box-shadow var(--dur-slow) var(--ease-out),
+              transform var(--dur-slow) var(--ease-out);
+}
+.mt-card:hover {
+  box-shadow: var(--site-shadow-card-hover);
+  transform: translateY(-2px);
+}
+.mt-card img {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--dur-slower) var(--ease-out);
+}
+.mt-card:hover img { transform: scale(1.04); }
+
+.mt-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(to top,
+    rgba(26, 20, 22, 0.94) 0%,
+    rgba(26, 20, 22, 0.82) 30%,
+    rgba(26, 20, 22, 0.58) 55%,
+    rgba(26, 20, 22, 0.16) 78%,
+    rgba(26, 20, 22, 0) 100%);
+}
+
+.mt-corp {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: var(--s-4);
+  margin: 0;
+}
+.mt-citat {
+  margin: 0 0 var(--s-3);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.1875rem;   /* 19px */
+  font-weight: var(--fw-regular);
+  line-height: 1.45;
+  color: var(--c-neutral-0);
+  text-shadow: 0 1px 3px rgba(26, 20, 22, 0.5);
+}
+.mt-cine {
+  display: block;
+  font-family: var(--font-body);
+  font-style: normal;
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--c-neutral-0);
+  text-shadow: 0 1px 3px rgba(26, 20, 22, 0.5);
+}
+.mt-rol {
+  display: block;
+  margin-top: 2px;
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-regular);
+  color: rgba(250, 244, 239, 0.82);
+  text-shadow: 0 1px 3px rgba(26, 20, 22, 0.6);
+}
+
+/* --- Controalele ---------------------------------------------------------------- */
+.mt-ctrl {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--s-1);
+  margin-top: var(--s-3);
+}
+.mt-ctrl button {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid var(--tbe-border);
+  background: var(--tbe-surface);
+  color: var(--tbe-text);
+  cursor: pointer;
+  transition: border-color var(--dur-base) var(--ease-out),
+              color var(--dur-base) var(--ease-out),
+              box-shadow var(--dur-base) var(--ease-out);
+}
+.mt-ctrl button:hover:not(:disabled) {
+  border-color: var(--tbe-action);
+  color: var(--tbe-action);
+  box-shadow: var(--shadow-sm);
+}
+.mt-ctrl button:disabled { opacity: 0.35; cursor: default; }
+.mt-ctrl svg { width: 16px; height: 16px; }
+
+/* --- Intrarea pe scroll (activată doar din JS) ----------------------------------- */
+.mt-anim > li {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity var(--dur-slower) var(--ease-out),
+              transform var(--dur-slower) var(--ease-out);
+}
+.mt-anim > li.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* --- Responsive -------------------------------------------------------------------- */
+@media (max-width: 640px) {
+  .mt-head { margin-bottom: var(--s-6); }
+  .mt-rail > li { flex: 0 0 78vw; }
+  .mt-citat { font-size: 1.0625rem; }
+}

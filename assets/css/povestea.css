@@ -1,0 +1,118 @@
+/* ==========================================================================
+   THE BEAUTY EDUCATION — SECȚIUNEA „POVESTEA NOASTRĂ"
+   Antetul + banda de cifre. Timeline-ul stă în timeline.css.
+   Se încarcă DUPĂ site.css.
+   --------------------------------------------------------------------------
+   Istoric, ca să nu se refacă: prima versiune de timeline era un index
+   vertical cu spină de 1px și anii ca numerale mari (clasele `.cronica-*`).
+   A fost respinsă ca plictisitoare și s-a șters din fișierul ăsta. A rămas
+   mozaicul cu fir, din timeline.css.
+   ========================================================================== */
+
+:root {
+  /* Linia dintre cifre: charcoal 10%. Mai discretă decât --tbe-border-subtle,
+     care e bej și s-ar vedea prea mult între cifre mari. */
+  --povestea-hairline: rgba(44, 37, 33, 0.10);
+}
+
+/* ==========================================================================
+   ANTET
+   ========================================================================== */
+/* Lățimea e în px, nu în ch. Greșeala inițială: `max-width: 42ch` pe antet —
+   dar `ch` se calculează în fontul ELEMENTULUI, iar antetul moștenește Jost 16px,
+   unde 1ch = 9,60px. Deci 42ch ieșeau 403px, nu ~700 cum intenționam. De aici
+   titlul rupt în 3 rânduri și leadul în 4, cu mult gol în dreapta.
+
+   720px, măsurat pe metricile reale ale fonturilor:
+   - titlul „De la un curs online la un ecosistem" = 631px la 48px Cormorant
+     → un singur rând, cu 89px de rezervă (destul și pentru variații de weight)
+   - leadul = 1083px pe un rând → două rânduri (703 + 375)
+   - 720px la 18px Jost ≈ 67 caractere, adică exact --measure din design system */
+.povestea-head {
+  max-width: 720px;
+  margin-bottom: var(--s-10);
+}
+
+.povestea-title {
+  margin: 0 0 var(--s-3);
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-light);   /* mai ușor decât implicit: editorial, nu publicitar */
+  letter-spacing: var(--ls-tight);
+}
+
+.povestea-lead {
+  margin: 0;
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-light);
+  line-height: var(--lh-relaxed);
+  color: var(--tbe-text-muted);
+  max-width: 100%;   /* moștenește lățimea antetului */
+}
+
+@media (max-width: 640px) {
+  .povestea-head { margin-bottom: var(--s-6); }
+}
+
+/* ==========================================================================
+   BANDA DE CIFRE
+   Separată de timeline prin spațiu, nu prin linie. Fără cutii: cifrele respiră
+   pe fundalul paginii, despărțite doar de linii verticale la 10% charcoal.
+   ========================================================================== */
+.cifre {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  margin-top: var(--s-12);
+  list-style: none;
+  padding: 0;
+}
+
+.cifra {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s-2);
+  padding: var(--s-2) var(--s-3);
+  text-align: center;
+  border-left: 1px solid var(--povestea-hairline);
+}
+.cifra:first-child { border-left: 0; }
+
+/* Numărul. Grila suprapune valoarea animată peste o „fantomă" invizibilă cu
+   valoarea finală: fantoma ține lățimea, deci numărătoarea nu mai împinge
+   layout-ul la fiecare cifră în plus. */
+.cifra-num {
+  display: grid;
+  justify-items: center;
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 1.6rem + 2.6vw, 4rem);   /* 40 → 64px */
+  font-weight: var(--fw-regular);
+  line-height: 1;
+  letter-spacing: var(--ls-tight);
+  color: var(--tbe-action);
+  font-variant-numeric: tabular-nums;
+}
+.cifra-num > * { grid-area: 1 / 1; }
+.cifra-fantoma { visibility: hidden; }
+
+.cifra-eticheta {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-kicker);
+  text-transform: uppercase;
+  line-height: 1.5;
+  color: var(--tbe-editorial);
+  max-width: 16ch;
+}
+
+@media (max-width: 1024px) {
+  /* Pe mai multe rânduri, liniile verticale devin zgomot: rămâne doar spațiul. */
+  .cifre { grid-template-columns: repeat(3, 1fr); gap: var(--s-6) var(--s-4); }
+  .cifra { border-left: 0; padding-inline: var(--s-1); }
+}
+
+@media (max-width: 640px) {
+  .cifre { grid-template-columns: repeat(2, 1fr); gap: var(--s-5) var(--s-3); }
+  .cifra:last-child { grid-column: 1 / -1; }   /* a cincea, singură, se centrează */
+  .cifra-num { font-size: 2.5rem; }
+}

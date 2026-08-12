@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<!-- PAGINĂ DE LUCRU — compararea celor 3 variante de hero.
+     Nu face parte din site. După ce alegi varianta, ea intră în index.html
+     și fișierul ăsta se poate șterge împreună cu blocul „schelă de comparare"
+     din hero.css. Navbar-ul și footer-ul sunt cele reale, ca să vezi hero-ul
+     în context, nu izolat. -->
+<html lang="ro" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hero — 3 variante · The Beauty Education</title>
+  <meta name="robots" content="noindex">
+
+  <link rel="icon" href="assets/logo/tbe-icon-color.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonturi/Jost%5Bwght%5D.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/fonturi/CormorantGaramond%5Bwght%5D.ttf" as="font" type="font/ttf" crossorigin>
+
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="stylesheet" href="assets/css/hero.css">
+
+  <style>
+    /* Schelă de comparare — a stat în hero.css până s-a ales varianta 3, apoi
+       a fost mutată aici ca CSS-ul de producție să nu care butoane care nu
+       apar niciodată pe site. Se șterge împreună cu fișierul. */
+    .vswitch { position: fixed; bottom: var(--s-3); left: 50%; transform: translateX(-50%);
+      z-index: var(--z-toast); display: flex; flex-direction: column; align-items: center;
+      gap: var(--s-1); max-width: calc(100vw - 32px); }
+    .vswitch-row { display: flex; gap: 4px; padding: 5px; background: rgba(26,20,22,.86);
+      border: 1px solid rgba(250,244,239,.16); border-radius: var(--r-pill);
+      backdrop-filter: blur(12px); box-shadow: 0 20px 50px -12px rgba(0,0,0,.5); }
+    .vswitch button { font-family: var(--font-mono); font-size: var(--fs-xs); letter-spacing: .06em;
+      color: rgba(250,244,239,.72); background: none; border: 0; padding: 9px var(--s-2);
+      border-radius: var(--r-pill); cursor: pointer; white-space: nowrap;
+      transition: background var(--dur-base) var(--ease-out), color var(--dur-base) var(--ease-out); }
+    .vswitch button:hover { color: var(--c-neutral-0); background: rgba(250,244,239,.08); }
+    .vswitch button[aria-pressed="true"] { background: var(--c-magenta-500); color: #fff; }
+    .vswitch-note { margin: 0; padding: 6px var(--s-2); background: rgba(26,20,22,.86);
+      border-radius: var(--r-pill); font-family: var(--font-mono); font-size: 11px; line-height: 1.5;
+      color: rgba(250,244,239,.7); text-align: center; backdrop-filter: blur(12px); }
+    .hero[hidden] { display: none; }
+    @media (max-width: 700px) {
+      .vswitch button { padding: 9px 10px; font-size: 10px; letter-spacing: .02em; }
+      .vswitch-note { display: none; }
+    }
+  </style>
+</head>
+
+<body class="site-has-hero">
+
+<a class="site-skip" href="#continut">Sari la conținut</a>
+
+<header class="site-nav" data-site-nav>
+  <div class="site-nav-inner tbe-container">
+    <a class="site-nav-brand" href="index.html" aria-label="The Beauty Education — prima pagină">
+      <img class="site-nav-logo is-white" src="assets/logo/tbe-orizontal-alb.svg" alt="The Beauty Education" width="150" height="40">
+      <img class="site-nav-logo is-color" src="assets/logo/tbe-orizontal-color.svg" alt="" aria-hidden="true" width="150" height="40">
+    </a>
+
+    <nav class="site-nav-menu" aria-label="Navigare principală">
+      <ul class="site-nav-list">
+        <li class="site-nav-item"><a class="site-nav-link" href="https://ro.thebeautyeducation.com">Comunitate</a></li>
+        <li class="site-nav-item"><a class="site-nav-link" href="/empiria">Empiria</a></li>
+        <li class="site-nav-item site-nav-has-sub" data-site-dropdown>
+          <button type="button" class="site-nav-link" aria-expanded="false" aria-controls="submeniu-cursuri">
+            Cursuri
+            <svg class="site-nav-caret" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg>
+          </button>
+          <ul class="site-nav-sub" id="submeniu-cursuri">
+            <li><a href="/cursuri-online">Cursuri online</a></li>
+            <li><a href="/cursuri-fizice">Cursuri fizice</a></li>
+          </ul>
+        </li>
+        <li class="site-nav-item"><a class="site-nav-link" href="https://harta-coafezelor.ro">Harta Coafezelor</a></li>
+        <li class="site-nav-item"><a class="site-nav-link" href="https://beautifier.ro">Magazin</a></li>
+      </ul>
+    </nav>
+
+    <a class="tbe-btn is-primary site-nav-cta" href="https://ro.thebeautyeducation.com">Alătură-te comunității</a>
+
+    <button type="button" class="site-nav-burger" data-site-burger aria-expanded="false" aria-controls="sertar-meniu" aria-label="Deschide meniul">
+      <span class="site-burger-box" aria-hidden="true"><span></span><span></span><span></span></span>
+    </button>
+  </div>
+</header>
+
+<div class="site-drawer" id="sertar-meniu" data-site-drawer aria-hidden="true">
+  <div class="tbe-container">
+    <ul class="site-drawer-list">
+      <li><a class="site-drawer-link" href="https://ro.thebeautyeducation.com">Comunitate</a></li>
+      <li><a class="site-drawer-link" href="/empiria">Empiria</a></li>
+      <li>
+        <details class="site-drawer-details">
+          <summary class="site-drawer-sub-toggle">Cursuri
+            <svg class="site-nav-caret" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg>
+          </summary>
+          <ul class="site-drawer-sub">
+            <li><a href="/cursuri-online">Cursuri online</a></li>
+            <li><a href="/cursuri-fizice">Cursuri fizice</a></li>
+          </ul>
+        </details>
+      </li>
+      <li><a class="site-drawer-link" href="https://harta-coafezelor.ro">Harta Coafezelor</a></li>
+      <li><a class="site-drawer-link" href="https://beautifier.ro">Magazin</a></li>
+    </ul>
+    <div class="site-drawer-foot">
+      <a class="tbe-btn is-primary is-lg is-block" href="https://ro.thebeautyeducation.com">Alătură-te comunității</a>
+    </div>
+  </div>
+</div>
+
+<main id="continut">
+
+  <!-- ======================================================================
+       VARIANTA 1 · CENTRAT
+       ====================================================================== -->
+  <section class="hero is-v1" data-variant="1" aria-label="Hero varianta 1 — centrat">
+    <div class="hero-media">
+      <img class="hero-img" alt=""
+           src="assets/poze/hero-comunitate-1600.jpg"
+           srcset="assets/poze/hero-comunitate-1000.jpg 1000w,
+                   assets/poze/hero-comunitate-1600.jpg 1600w,
+                   assets/poze/hero-comunitate-2400.jpg 2400w"
+           sizes="100vw" width="1600" height="1067" fetchpriority="high">
+      <div class="hero-scrim"></div>
+    </div>
+
+    <div class="hero-body tbe-container">
+      <span class="hero-kicker">Comunitatea coafezelor din România</span>
+      <h1 class="hero-title">Meseria asta nu se învață singură</h1>
+      <p class="hero-sub">
+        Peste 250 de tutoriale, cursuri fizice în toată țara și traineri care îți
+        evaluează lucrările — formă, linii, finisaj.
+      </p>
+      <div class="hero-actions">
+        <a class="tbe-btn is-primary is-lg" href="https://ro.thebeautyeducation.com">Creează cont gratuit</a>
+        <a class="tbe-btn is-lg hero-btn-glass" href="/abonament">Vezi abonamentul</a>
+      </div>
+      <ul class="hero-proof">
+        <li><span class="hero-proof-num">3.600+</span> <span class="hero-proof-label">membri</span></li>
+        <li><span class="hero-proof-num">7</span> <span class="hero-proof-label">traineri</span></li>
+        <li><span class="hero-proof-list">Coafuri · Colorimetrie · Tunsoare · Makeup</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       VARIANTA 2 · EDITORIAL JOS-STÂNGA
+       ====================================================================== -->
+  <section class="hero is-v2" data-variant="2" aria-label="Hero varianta 2 — editorial jos-stânga" hidden>
+    <div class="hero-media">
+      <img class="hero-img" alt=""
+           src="assets/poze/hero-comunitate-1600.jpg"
+           srcset="assets/poze/hero-comunitate-1000.jpg 1000w,
+                   assets/poze/hero-comunitate-1600.jpg 1600w,
+                   assets/poze/hero-comunitate-2400.jpg 2400w"
+           sizes="100vw" width="1600" height="1067">
+      <div class="hero-scrim"></div>
+    </div>
+
+    <div class="hero-body tbe-container">
+      <span class="hero-kicker">Empiria · program în trei niveluri</span>
+      <h1 class="hero-title">De la „știu cum se face” la „pot să o fac”</h1>
+      <p class="hero-sub">
+        Vizionezi, exersezi, trimiți spre evaluare. Fundamentals, Essentials,
+        Mastery — deblocate pe rând, nu cumpărate deodată.
+      </p>
+      <div class="hero-actions">
+        <a class="tbe-btn is-primary is-lg" href="https://ro.thebeautyeducation.com">Creează cont gratuit</a>
+        <a class="tbe-btn is-lg hero-btn-glass" href="/abonament">Vezi abonamentul</a>
+      </div>
+      <div class="hero-proof">
+        <ul class="hero-proof-nums">
+          <li><span class="hero-proof-num">3.600+</span> <span class="hero-proof-label">membri</span></li>
+          <li><span class="hero-proof-num">7</span> <span class="hero-proof-label">traineri</span></li>
+        </ul>
+        <span class="hero-proof-list">Coafuri · Colorimetrie · Tunsoare · Makeup</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       VARIANTA 3 · BLOC JOS + BARĂ DE DOVEZI
+       ====================================================================== -->
+  <section class="hero is-v3" data-variant="3" aria-label="Hero varianta 3 — bloc jos cu bară de dovezi" hidden>
+    <div class="hero-media">
+      <img class="hero-img" alt=""
+           src="assets/poze/hero-comunitate-1600.jpg"
+           srcset="assets/poze/hero-comunitate-1000.jpg 1000w,
+                   assets/poze/hero-comunitate-1600.jpg 1600w,
+                   assets/poze/hero-comunitate-2400.jpg 2400w"
+           sizes="100vw" width="1600" height="1067">
+      <div class="hero-scrim"></div>
+    </div>
+
+    <div class="hero-body tbe-container">
+      <span class="hero-kicker">Din 2020 · peste 70 de cursuri fizice</span>
+      <h1 class="hero-title">Cea mai mare comunitate de coafeze din România</h1>
+      <p class="hero-sub">
+        Educație, produse profesionale și vizibilitate, într-un singur abonament.
+        Contul e gratuit — abonamentul îl faci când ești pregătită.
+      </p>
+      <div class="hero-actions">
+        <a class="tbe-btn is-primary is-lg" href="https://ro.thebeautyeducation.com">Creează cont gratuit</a>
+        <a class="tbe-btn is-lg hero-btn-glass" href="/abonament">Vezi abonamentul</a>
+      </div>
+    </div>
+
+    <div class="hero-bar">
+      <div class="hero-bar-inner tbe-container">
+        <div class="hero-bar-cell">
+          <span class="hero-proof-num">3.600+</span> <span class="hero-proof-label">membri</span>
+        </div>
+        <div class="hero-bar-cell">
+          <span class="hero-proof-num">7</span> <span class="hero-proof-label">traineri</span>
+        </div>
+        <span class="hero-proof-list">Coafuri · Colorimetrie · Tunsoare · Makeup</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="tbe-container">
+    <div class="site-footer-grid">
+
+      <div class="site-footer-col is-brand">
+        <img class="site-footer-logo" src="assets/logo/tbe-orizontal-alb.svg" alt="The Beauty Education" width="142" height="38">
+        <p class="site-footer-about">
+          Cea mai mare comunitate pentru coafeze din România. Educație, comunitate
+          și produse profesionale într-un singur loc.
+        </p>
+        <div class="site-footer-entity">
+          <p class="site-footer-company">Beauty Education Publishing SRL</p>
+          <p class="site-footer-fiscal">
+            CUI: 54823960<br>
+            Reg. Com.: J2026036531002<br>
+            Str. Berzelor 348, Plevna, jud. Călărași
+          </p>
+        </div>
+      </div>
+
+      <nav class="site-footer-col" aria-labelledby="footer-navigare">
+        <h2 class="site-footer-title" id="footer-navigare">Navigare</h2>
+        <ul class="site-footer-list">
+          <li><a href="https://ro.thebeautyeducation.com">Comunitate</a></li>
+          <li><a href="/empiria">Empiria</a></li>
+          <li><a href="/cursuri-online">Cursuri online</a></li>
+          <li><a href="/cursuri-fizice">Cursuri fizice</a></li>
+          <li><a href="https://harta-coafezelor.ro">Harta Coafezelor</a></li>
+          <li><a href="https://beautifier.ro">Magazin</a></li>
+        </ul>
+      </nav>
+
+      <nav class="site-footer-col" aria-labelledby="footer-mai-mult">
+        <h2 class="site-footer-title" id="footer-mai-mult">Mai mult</h2>
+        <ul class="site-footer-list">
+          <li><a href="/revista">Revista Coafezelor</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/program-de-loialitate">Program de loialitate</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="site-footer-col">
+        <h2 class="site-footer-title" id="footer-newsletter">Rămâi aproape</h2>
+        <div class="site-newsletter">
+          <p class="site-newsletter-note">
+            Noutăți despre cursuri, tutoriale și Revista Coafezelor — o dată pe lună.
+          </p>
+          <form class="site-newsletter-form" action="#" method="post" aria-labelledby="footer-newsletter">
+            <label class="tbe-sr-only" for="newsletter-email">Adresa ta de email</label>
+            <input class="site-newsletter-input" type="email" id="newsletter-email" name="email" placeholder="adresa@email.ro" autocomplete="email" required>
+            <button class="tbe-btn is-primary is-block" type="submit">Abonează-te</button>
+          </form>
+          <p class="site-newsletter-legal">
+            Prin abonare accepți <a href="/politica-de-confidentialitate">politica de confidențialitate</a>.
+          </p>
+        </div>
+        <ul class="site-social">
+          <li><a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5.5"/><circle cx="12" cy="12" r="4.1"/><circle cx="17.3" cy="6.7" r="1.05" fill="currentColor" stroke="none"/></svg></a></li>
+          <li><a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15.6 4.6h-1.8c-1.9 0-2.9 1.2-2.9 3.2V10H8.6v3h2.3v6.4"/></svg></a></li>
+          <li><a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.9 4.8v9.7a3.5 3.5 0 1 1-3.5-3.5c.3 0 .6 0 .9.1"/><path d="M13.9 4.8c.3 2.3 2 4 4.3 4.2"/></svg></a></li>
+          <li><a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10.4 9.4 15.7 12l-5.3 2.6z" fill="currentColor" stroke="none"/></svg></a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="site-footer-bottom">
+    <div class="tbe-container">
+      <div class="site-trust">
+        <p class="site-trust-pay">
+          <span class="site-trust-badge"><img src="assets/logo/stripe.png" alt="Stripe" width="42" height="18"></span>
+          Plăți securizate
+        </p>
+        <ul class="site-trust-legal">
+          <li><a href="https://anpc.ro">ANPC</a></li>
+          <li><a href="https://ec.europa.eu/consumers/odr">Soluționarea online a litigiilor (SOL)</a></li>
+        </ul>
+      </div>
+      <div class="site-footer-bottom-inner">
+        <p class="site-footer-copy">© 2026 The Beauty Education. Toate drepturile rezervate.</p>
+        <ul class="site-footer-legal">
+          <li><a href="/termeni-si-conditii">Termeni și condiții</a></li>
+          <li><a href="/politica-de-confidentialitate">Confidențialitate</a></li>
+          <li><a href="/politica-cookies">Cookies</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- SCHELĂ DE COMPARARE — se șterge împreună cu fișierul. -->
+<div class="vswitch" role="group" aria-label="Comparare variante hero">
+  <div class="vswitch-row">
+    <button type="button" data-v="1" aria-pressed="true">1 · Centrat</button>
+    <button type="button" data-v="2" aria-pressed="false">2 · Editorial jos-stânga</button>
+    <button type="button" data-v="3" aria-pressed="false">3 · Bară de dovezi</button>
+  </div>
+  <p class="vswitch-note"></p>
+</div>
+
+<script src="assets/js/site.js"></script>
+<script>
+(function () {
+  var heroes = Array.prototype.slice.call(document.querySelectorAll('.hero'));
+  var btns   = Array.prototype.slice.call(document.querySelectorAll('.vswitch button'));
+  var note   = document.querySelector('.vswitch-note');
+  var notes = {
+    '1': 'Simetric, ca poza. Dovezile pe un rând. Scrim aproape uniform (0,55) — mulțimea se vede peste tot, dar mai estompată.',
+    '2': 'Text jos-stânga, coloană îngustă. Scrim diagonal: dreapta sălii rămâne descoperită. Cel mai „revistă” din cele trei.',
+    '3': 'Promisiunea jos, dovezile în bară lipită de margine. Jumătatea de sus a pozei rămâne curată — toate fețele se văd.'
+  };
+
+  function show(n) {
+    n = String(n);
+    heroes.forEach(function (h) { h.hidden = h.getAttribute('data-variant') !== n; });
+    btns.forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-v') === n ? 'true' : 'false'); });
+    note.textContent = notes[n];
+    history.replaceState(null, '', '#v' + n);
+    window.scrollTo(0, 0);
+  }
+
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () { show(b.getAttribute('data-v')); });
+  });
+
+  // Tastele 1/2/3 comută variantele — doar când nu scrii într-un câmp.
+  document.addEventListener('keydown', function (e) {
+    if (e.target.matches('input, textarea, select')) return;
+    if (['1', '2', '3'].indexOf(e.key) > -1) show(e.key);
+  });
+
+  var m = location.hash.match(/v([123])/);
+  show(m ? m[1] : '1');
+})();
+</script>
+</body>
+</html>
