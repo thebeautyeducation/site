@@ -383,6 +383,34 @@ body:not(.site-has-hero) { padding-top: var(--site-nav-h); }
   color: var(--tbe-action);
 }
 
+/* --- Dropdown grupat (Cursuri) -------------------------------------------
+   Nu există pagini-categorie „cursuri online/fizice"; fiecare curs are
+   landing page propriu, deci dropdown-ul E indexul. Grupurile despart după
+   format, pentru că fizic vs. online schimbă decizia de cumpărare.
+   `.site-nav-sub` e aici <div>, nu <ul> — regulile de mai sus nu sunt
+   calificate pe tag, deci se aplică identic. */
+.site-nav-sub.is-grupat { min-width: 280px; }
+.site-nav-sub-lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.site-nav-sub-grup {
+  margin: 0;
+  padding: var(--s-2) var(--s-2) 6px;
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--tbe-text-subtle);
+}
+/* Al doilea grup primește linie de separare — nu și primul. */
+.site-nav-sub-lista + .site-nav-sub-grup {
+  margin-top: var(--s-2);
+  padding-top: var(--s-3);
+  border-top: 1px solid var(--tbe-border-subtle);
+}
+
 /* --- CTA ---------------------------------------------------------------- */
 .site-nav-cta { flex: none; }
 
@@ -521,6 +549,26 @@ body.site-drawer-open { overflow: hidden; }
 }
 .site-drawer-sub a:hover { color: var(--tbe-action); }
 
+/* Grupurile din sertar — aceeași logică ca în dropdown-ul de desktop. */
+.site-drawer-sub-lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.site-drawer-sub-grup {
+  margin: 0;
+  padding-top: var(--s-2);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--tbe-text-subtle);
+}
+.site-drawer-sub-lista + .site-drawer-sub-grup {
+  margin-top: var(--s-2);
+  border-top: 1px solid var(--tbe-border-subtle);
+}
+
 .site-drawer-foot { margin-top: auto; padding-top: var(--s-5); }
 
 /* ==========================================================================
@@ -544,10 +592,12 @@ body.site-drawer-open { overflow: hidden; }
   padding-top: var(--site-section-y);
 }
 
+/* 5 coloane de când „Cursuri" are coloana ei: nu mai există pagini-categorie
+   de cursuri, deci footer-ul listează cursurile individual. */
 .site-footer-grid {
   display: grid;
-  grid-template-columns: 1.7fr 1fr 1fr 1.4fr;
-  gap: var(--s-6) var(--s-8);
+  grid-template-columns: 1.6fr 0.9fr 1.2fr 0.9fr 1.3fr;
+  gap: var(--s-6) var(--s-7);
 }
 @media (max-width: 1024px) {
   .site-footer-grid { grid-template-columns: 1fr 1fr; gap: var(--s-6) var(--s-6); }

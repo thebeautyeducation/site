@@ -55,10 +55,23 @@
               <path d="M2.5 4.5 6 8l3.5-3.5"/>
             </svg>
           </button>
-          <ul class="site-nav-sub" id="submeniu-cursuri">
-            <li><a href="/cursuri-online">Cursuri online</a></li>
-            <li><a href="/cursuri-fizice">Cursuri fizice</a></li>
-          </ul>
+          <!-- Nu există pagini-categorie „cursuri online/fizice" — fiecare curs are
+               propriul landing page, deci dropdown-ul E indexul de cursuri.
+               Grupat pe format: fizic vs. online schimbă complet decizia de
+               cumpărare (te deplasezi într-un oraș vs. începi în seara asta). -->
+          <div class="site-nav-sub is-grupat" id="submeniu-cursuri">
+            <p class="site-nav-sub-grup" id="grup-nav-fizice">Cursuri fizice</p>
+            <ul class="site-nav-sub-lista" aria-labelledby="grup-nav-fizice">
+              <li><a href="/curs/bazele-coafurilor-texturate">Bazele Coafurilor Texturate</a></li>
+              <li><a href="/curs/coafuri-comerciale">Coafuri Comerciale</a></li>
+            </ul>
+            <p class="site-nav-sub-grup" id="grup-nav-online">Cursuri online</p>
+            <ul class="site-nav-sub-lista" aria-labelledby="grup-nav-online">
+              <li><a href="/curs/atelierul-de-bucle">Atelierul de Bucle</a></li>
+              <li><a href="/curs/color-mastery">Color Mastery</a></li>
+              <li><a href="/curs/makeup-essentials">Makeup Essentials</a></li>
+            </ul>
+          </div>
         </li>
 
         <li class="site-nav-item">
@@ -98,10 +111,19 @@
               <path d="M2.5 4.5 6 8l3.5-3.5"/>
             </svg>
           </summary>
-          <ul class="site-drawer-sub">
-            <li><a href="/cursuri-online">Cursuri online</a></li>
-            <li><a href="/cursuri-fizice">Cursuri fizice</a></li>
-          </ul>
+          <div class="site-drawer-sub">
+            <p class="site-drawer-sub-grup" id="grup-drawer-fizice">Cursuri fizice</p>
+            <ul class="site-drawer-sub-lista" aria-labelledby="grup-drawer-fizice">
+              <li><a href="/curs/bazele-coafurilor-texturate">Bazele Coafurilor Texturate</a></li>
+              <li><a href="/curs/coafuri-comerciale">Coafuri Comerciale</a></li>
+            </ul>
+            <p class="site-drawer-sub-grup" id="grup-drawer-online">Cursuri online</p>
+            <ul class="site-drawer-sub-lista" aria-labelledby="grup-drawer-online">
+              <li><a href="/curs/atelierul-de-bucle">Atelierul de Bucle</a></li>
+              <li><a href="/curs/color-mastery">Color Mastery</a></li>
+              <li><a href="/curs/makeup-essentials">Makeup Essentials</a></li>
+            </ul>
+          </div>
         </details>
       </li>
       <li><a class="site-drawer-link" href="https://harta-coafezelor.ro">Harta Coafezelor</a></li>
@@ -441,7 +463,7 @@
        Makeup Essentials, Bazele Coafurilor Texturate și Coafuri Comerciale
        sunt generice — DE VALIDAT conținutul real.
        ======================================================================== -->
-  <section class="site-section" aria-labelledby="cmp-cursuri-titlu">
+  <section class="site-section" id="cursuri" aria-labelledby="cmp-cursuri-titlu">
     <div class="tbe-container">
 
       <span class="tbe-kicker">Dincolo de abonament</span>
@@ -457,7 +479,7 @@
            neconstruite, rute placeholder ca restul site-ului. -->
       <ul class="cmp-cursuri-fizice">
         <li>
-          <a class="cmp-curs-fizic" href="/cursuri-fizice/bazele-coafurilor-texturate">
+          <a class="cmp-curs-fizic" href="/curs/bazele-coafurilor-texturate">
             <img src="assets/poze/placeholder/card-1.jpg" alt="" loading="lazy" decoding="async">
             <span class="cmp-curs-fizic-scrim" aria-hidden="true"></span>
             <span class="cmp-curs-fizic-body">
@@ -468,7 +490,7 @@
           </a>
         </li>
         <li>
-          <a class="cmp-curs-fizic" href="/cursuri-fizice/coafuri-comerciale">
+          <a class="cmp-curs-fizic" href="/curs/coafuri-comerciale">
             <img src="assets/poze/placeholder/card-7.jpg" alt="" loading="lazy" decoding="async">
             <span class="cmp-curs-fizic-scrim" aria-hidden="true"></span>
             <span class="cmp-curs-fizic-body">
@@ -483,21 +505,21 @@
       <!-- Rândul 2 — cursurile ONLINE, carduri text, fiecare clickabil. -->
       <ul class="cmp-cursuri">
         <li>
-          <a class="cmp-curs" href="/cursuri-online/atelierul-de-bucle">
+          <a class="cmp-curs" href="/curs/atelierul-de-bucle">
             <span class="cmp-curs-eticheta">Curs online</span>
             <h3>Atelierul de Bucle</h3>
             <p>22 de tehnici de bucle, pas cu pas — de la clasice la texturi lejere.</p>
           </a>
         </li>
         <li>
-          <a class="cmp-curs" href="/cursuri-online/color-mastery">
+          <a class="cmp-curs" href="/curs/color-mastery">
             <span class="cmp-curs-eticheta">Curs online</span>
             <h3>Color Mastery</h3>
             <p>Colorimetrie avansată, cu rubrică proprie de feedback pe lucrările tale.</p>
           </a>
         </li>
         <li>
-          <a class="cmp-curs" href="/cursuri-online/makeup-essentials">
+          <a class="cmp-curs" href="/curs/makeup-essentials">
             <span class="cmp-curs-eticheta">Curs online</span>
             <h3>Makeup Essentials</h3>
             <p>Bazele machiajului profesional, cu Cosmina Ducu.</p>
@@ -953,10 +975,19 @@
         <ul class="site-footer-list">
           <li><a href="comunitate.html" aria-current="page">Comunitate</a></li>
           <li><a href="empiria.html">Empiria</a></li>
-          <li><a href="/cursuri-online">Cursuri online</a></li>
-          <li><a href="/cursuri-fizice">Cursuri fizice</a></li>
           <li><a href="https://harta-coafezelor.ro">Harta Coafezelor</a></li>
           <li><a href="https://beautifier.ro">Magazin</a></li>
+        </ul>
+      </nav>
+
+      <nav class="site-footer-col" aria-labelledby="footer-cursuri">
+        <h2 class="site-footer-title" id="footer-cursuri">Cursuri</h2>
+        <ul class="site-footer-list">
+          <li><a href="/curs/bazele-coafurilor-texturate">Bazele Coafurilor Texturate</a></li>
+          <li><a href="/curs/coafuri-comerciale">Coafuri Comerciale</a></li>
+          <li><a href="/curs/atelierul-de-bucle">Atelierul de Bucle</a></li>
+          <li><a href="/curs/color-mastery">Color Mastery</a></li>
+          <li><a href="/curs/makeup-essentials">Makeup Essentials</a></li>
         </ul>
       </nav>
 

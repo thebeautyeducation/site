@@ -757,6 +757,32 @@ clipurile reels reale, pozele per categorie, link-ul `/abonament` și `/program-
    „Alătură-te comunității" sub „Mai mult decât tutoriale". Toate spre `/abonament` respectiv
    Circle, cu utm_source.
 
+## Cursurile în navigație — dropdown ca index
+
+Nu există (și nu vor exista) pagini-categorie „cursuri online" / „cursuri fizice": **fiecare curs
+primește propriul landing page**. Consecință în navigație:
+
+- **Dropdown-ul „Cursuri" E indexul de cursuri** — listează direct cele 5 cursuri, grupate pe
+  format: „Cursuri fizice" (Bazele Coafurilor Texturate, Coafuri Comerciale) și „Cursuri online"
+  (Atelierul de Bucle, Color Mastery, Makeup Essentials). Gruparea nu e cosmetică: fizic vs. online
+  schimbă complet decizia de cumpărare (te deplasezi într-un oraș vs. începi în seara asta).
+- **Footer: coloană proprie „Cursuri"** cu aceleași 5 link-uri; grila a trecut de la 4 la 5 coloane
+  (regulile responsive rămân: 2 coloane sub 1024px, 1 sub 560px).
+- **Sertarul mobil** repetă aceeași grupare, în `<details>`.
+
+Structural: `.site-nav-sub` și `.site-drawer-sub` sunt acum `<div>`-uri care conțin perechi
+titlu-de-grup + `<ul>` (`aria-labelledby` leagă lista de titlul ei). Regulile CSS existente nu erau
+calificate pe tag, deci se aplică neschimbate; s-au adăugat doar `.site-nav-sub-grup`,
+`.site-nav-sub-lista` și perechile lor din sertar.
+
+**Convenția de URL: `/curs/<slug>`** — un singur spațiu de nume, indiferent de format (un curs poate
+trece de la fizic la online fără ca adresa să mintă). Înlocuiește `/cursuri-fizice/…` și
+`/cursuri-online/…` folosite prima dată pe pagina Comunitate. Rutele sunt încă placeholder —
+paginile de curs nu există.
+
+Cardul „250+ tutoriale și cursuri fizice" din bento-ul de pe homepage ducea spre `/cursuri`
+(pagină inexistentă); acum trimite la `comunitate.html#cursuri`, secțiunea unde trăiesc cursurile.
+
 ## Ordinea de încărcare, acum că sunt mai multe fișiere
 
 ```html
