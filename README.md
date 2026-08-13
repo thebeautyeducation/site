@@ -687,6 +687,43 @@ rămâne text stânga / element vizual dreapta (ca înainte), dar dreapta e acum
 sus în loc de cardul de definiție. Citatul mare („Măiestria nu se fură…") rămâne neschimbat, la fel
 și tot conținutul de text — nimic din fapte nu s-a schimbat, doar cum arată.
 
+## Pagina COMUNITATE — `comunitate.html`
+
+Landing page pentru comunitatea de pe Circle. **Obiectiv de conversie: contul gratuit** —
+abonamentul se vinde în interiorul platformei, pagina vinde intrarea. Structura completă, cu
+sursele fiecărui bloc și research-ul de landing pages care a dictat ordinea:
+[`comunitate-structura.md`](comunitate-structura.md).
+
+Fișiere proprii: [`assets/css/comunitate-pagina.css`](assets/css/comunitate-pagina.css) (prefix
+`cmp-`; `cm-` era luat de secțiunea de pe homepage) și
+[`assets/js/comunitate-faq.js`](assets/js/comunitate-faq.js) (constanta `COMUNITATE_FAQS` —
+al treilea FAQ separat, homepage-ul și Empiria rămân neatinse).
+
+Decizii de conținut (confirmate de Marius, 13 aug 2026):
+- **480+ ore** e cifra oficială nouă (înlocuiește „~400 ore" din dosar).
+- **Cifrele din Circle sunt publicabile** — 23.896 vizitatori unici, 28.922 mesaje, 181.008
+  vizualizări etc. apar ca cifre reale, fără marcaj DEMO, cu notă de sursă.
+- **Testimonialele sunt reale**: texte preluate de pe pagina veche
+  (thebeautyeducation.com/comunitatea…), scurtate fără rescriere; nume reale. De validat cu
+  membrele înainte de lansare. **Avatar cu inițială, NU poze placeholder** — nu lipim fața
+  altcuiva de numele unei membre reale.
+- **Reels: placeholder DEMO** (marcat vizibil), fără nume inventate; embed-urile vin ulterior.
+
+Alte alegeri:
+- Hero split text/poză cu carduri flotante — tiparul aprobat pe Empiria, cu blob cu raze diferite
+  și poza nouă `comunitate-hero.jpg` (decupaj nefolosit: mulțimea cu mâinile ridicate).
+- Meniul Circle e redat ca **mockup DS** (`role="img"` + aria-label descriptiv), nu captură brută
+  — același principiu ca la Harta Coafezelor.
+- Itemul „Comunitate" din meniu/footer (pe toate paginile) duce acum pe **comunitate.html**;
+  BUTOANELE de CTA („Alătură-te comunității", „Creează cont gratuit") duc în continuare direct
+  spre Circle — pagina e vitrina, butonul e acțiunea.
+- Pozele categoriilor (Coafuri/Colorimetrie/Tunsoare/Makeup) sunt placeholder-e din poza de
+  eveniment — de înlocuit cu câte o poză reprezentativă per categorie.
+
+De completat înainte de lansare: validarea testimonialelor cu membrele (+ poze doar cu acord),
+clipurile reels reale, pozele per categorie, link-ul `/abonament` și `/program-loialitate`
+(pagini încă neconstruite).
+
 ## Ordinea de încărcare, acum că sunt mai multe fișiere
 
 ```html

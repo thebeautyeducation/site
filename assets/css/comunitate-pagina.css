@@ -1,0 +1,769 @@
+/* ==========================================================================
+   THE BEAUTY EDUCATION — PAGINA „COMUNITATE" (comunitate.html)
+   Se încarcă după site.css (+ faq.css). Prefix propriu `cmp-` (comunitate
+   pagina) — `cm-` e luat de secțiunea „Comunitatea ta" de pe homepage.
+   --------------------------------------------------------------------------
+   Landing page pentru comunitatea de pe Circle. Obiectiv de conversie:
+   CONTUL GRATUIT (nu abonamentul — acela se vinde în interiorul platformei).
+   Structura și sursele fiecărei secțiuni: vezi comunitate-structura.md.
+
+   Hero-ul split (text + blob foto + carduri flotante) reia INTENȚIONAT
+   tiparul aprobat pe pagina Empiria (eph-hero-*), cu prefixul propriu —
+   convenția site-ului e CSS per pagină, iar duplicarea celor ~100 de linii
+   e prețul ca empiria-pagina.css să rămână de-atins doar pentru Empiria.
+
+   Ritm de fundal: crem (hero) → bej (cifre) → crem (tur) → bej (activități)
+   → crem (beneficii) → bej (evenimente) → crem (testimoniale) → bej (reels)
+   → crem (drumul) → bej (planuri) → crem (FAQ) → crem (CTA, cmp-divider).
+   ========================================================================== */
+
+/* Granițe între secțiuni de același fundal (echivalentul eph-divider). */
+.cmp-divider { border-top: 1px solid var(--tbe-border-subtle); }
+/* Antet de secțiune (h2 + lead) — spațiere consecventă înainte de conținut. */
+.cmp-lead-spatiat { margin-bottom: var(--s-6); }
+
+/* ==========================================================================
+   0 · HERO — formula apartenenței, split text/poză
+   ========================================================================== */
+.cmp-header { padding-top: var(--s-6); }
+.cmp-header .tbe-breadcrumb { margin-bottom: var(--s-5); }
+
+.cmp-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  gap: var(--s-8);
+  align-items: center;
+}
+.cmp-hero-text { min-width: 0; }
+
+.cmp-titlu {
+  font-size: var(--fs-display);
+  font-weight: var(--fw-light);
+  letter-spacing: var(--ls-tight);
+  margin-bottom: var(--s-3);
+}
+.cmp-titlu em {
+  font-style: italic;
+  font-weight: var(--fw-regular);
+  color: var(--tbe-action);
+}
+
+.cmp-hero-actions {
+  display: flex;
+  gap: var(--s-2);
+  flex-wrap: wrap;
+  margin: var(--s-5) 0 var(--s-6);
+}
+
+.cmp-features {
+  display: flex;
+  gap: var(--s-5);
+  flex-wrap: wrap;
+  margin-bottom: var(--s-5);
+  padding-bottom: var(--s-5);
+  border-bottom: 1px solid var(--tbe-border-subtle);
+}
+.cmp-feature { display: flex; align-items: center; gap: 8px; }
+.cmp-feature svg {
+  flex: none;
+  width: 17px;
+  height: 17px;
+  color: var(--tbe-editorial);
+}
+.cmp-feature span {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  color: var(--tbe-text-muted);
+}
+
+.cmp-social {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+}
+.cmp-social-text strong {
+  display: block;
+  font-size: var(--fs-sm);
+  color: var(--tbe-text);
+}
+.cmp-social-text span {
+  font-size: var(--fs-xs);
+  color: var(--tbe-text-muted);
+}
+
+/* --- Vizualul din dreapta --- */
+.cmp-hero-visual { position: relative; }
+.cmp-hero-blob {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  /* Raze diferite față de blob-ul Empiria — să nu pară aceeași pagină. */
+  border-radius: 55% 45% 42% 58% / 46% 54% 46% 54%;
+  overflow: hidden;
+  box-shadow: var(--site-shadow-card);
+  background: var(--tbe-decor);
+}
+.cmp-hero-blob img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 40%;
+}
+.cmp-hero-visual::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  bottom: -8%;
+  left: -10%;
+  width: 60%;
+  height: 60%;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--tbe-editorial-soft) 0%, transparent 72%);
+}
+
+.cmp-float-card {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: var(--s-2) var(--s-3);
+  background: var(--tbe-surface);
+  border-radius: var(--tbe-radius-card);
+  box-shadow: var(--site-shadow-card-hover);
+  max-width: 230px;
+}
+.cmp-float-card.is-vizite { top: 8%; right: -6%; }
+.cmp-float-card.is-tutoriale { bottom: 10%; left: -8%; }
+
+.cmp-float-icon {
+  flex: none;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--tbe-action-soft);
+  color: var(--tbe-action);
+}
+.cmp-float-icon svg { width: 17px; height: 17px; }
+.cmp-float-card strong {
+  display: block;
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--tbe-text);
+  line-height: 1.25;
+}
+.cmp-float-card span {
+  font-size: 11px;
+  color: var(--tbe-text-muted);
+}
+
+/* ==========================================================================
+   1 · CIFRELE COMUNITĂȚII — .tbe-stat pe .tbe-grid.is-4 + nota de sursă.
+   Cifre REALE (Circle, an curent) — nu poartă marcaj DEMO, doar sursa.
+   ========================================================================== */
+.cmp-cifre-nota {
+  margin-top: var(--s-4);
+  font-size: var(--fs-xs);
+  color: var(--tbe-text-subtle);
+}
+
+/* ==========================================================================
+   2 · TURUL PLATFORMEI — 4 categorii foto + mockup-ul meniului Circle
+   Mockup în stilul DS (ca secțiunea Harta de pe homepage) — nu captură brută.
+   ========================================================================== */
+.cmp-categorii {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--s-3);
+  list-style: none;
+  margin: 0 0 var(--s-8);
+  padding: 0;
+}
+.cmp-cat-card {
+  position: relative;
+  display: block;
+  aspect-ratio: 3 / 4;
+  border-radius: var(--tbe-radius-card);
+  overflow: hidden;
+  background: var(--tbe-decor);
+}
+.cmp-cat-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* Scrim identic ca la cardurile foto de pe homepage: lizibilitate verificată. */
+.cmp-cat-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(var(--site-rgb-ink), 0.72) 0%, rgba(var(--site-rgb-ink), 0.25) 45%, transparent 70%);
+}
+.cmp-cat-nume {
+  position: absolute;
+  left: var(--s-4);
+  right: var(--s-4);
+  bottom: var(--s-4);
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-h4);
+  font-weight: var(--fw-semibold);
+  color: rgba(var(--site-rgb-alb), 0.97);
+}
+
+.cmp-tur {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: var(--s-8);
+  align-items: center;
+}
+.cmp-tur-text h3 {
+  font-size: var(--fs-h3);
+  margin-bottom: var(--s-3);
+}
+.cmp-tur-text p { max-width: none; }
+
+/* Mockup-ul meniului Circle — panou DS, nu screenshot. */
+.cmp-menu {
+  background: var(--tbe-surface);
+  border: var(--bw-hair) solid var(--tbe-border-subtle);
+  border-radius: var(--tbe-radius-card);
+  box-shadow: var(--site-shadow-card);
+  padding: var(--s-4);
+}
+.cmp-menu-titlu {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--tbe-text-subtle);
+  margin: 0 0 var(--s-3);
+  padding-bottom: var(--s-2);
+  border-bottom: 1px solid var(--tbe-border-subtle);
+}
+.cmp-menu-lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.cmp-menu-item {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: 8px 10px;
+  border-radius: var(--r-sm);
+  font-size: var(--fs-sm);
+  color: var(--tbe-text);
+}
+.cmp-menu-item svg {
+  flex: none;
+  width: 15px;
+  height: 15px;
+  color: var(--tbe-editorial);
+}
+.cmp-menu-item .cmp-menu-acces { margin-left: auto; }
+.cmp-menu-acces {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: var(--r-pill);
+}
+.cmp-menu-acces.is-gratuit { background: var(--tbe-success-bg); color: var(--tbe-success); }
+.cmp-menu-acces.is-abonament { background: var(--tbe-decor); color: var(--tbe-text-muted); }
+
+/* ==========================================================================
+   3 · ACTIVITĂȚILE SĂPTĂMÂNALE — rânduri, în ritmul unui program
+   ========================================================================== */
+.cmp-activitati {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+.cmp-activitate {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: var(--s-4);
+  align-items: baseline;
+  padding: var(--s-4) 0;
+  border-bottom: 1px solid var(--tbe-border-subtle);
+}
+.cmp-activitate:first-child { border-top: 1px solid var(--tbe-border-subtle); }
+.cmp-act-titlu {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-h4);
+  font-weight: var(--fw-semibold);
+}
+.cmp-act-ritm {
+  display: inline-block;
+  margin-left: var(--s-2);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--tbe-text-subtle);
+}
+.cmp-act-text {
+  margin: 4px 0 0;
+  font-size: var(--fs-sm);
+  color: var(--tbe-text-muted);
+  max-width: 56ch;
+}
+.cmp-act-nr {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  color: var(--tbe-text-subtle);
+  min-width: 2ch;
+}
+.cmp-act-puncte {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  color: var(--tbe-action);
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   4 · BENEFICII DINCOLO DE CONȚINUT — carduri mici cu icon
+   ========================================================================== */
+.cmp-beneficii {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-3);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.cmp-beneficiu {
+  background: var(--tbe-surface);
+  border: var(--bw-hair) solid var(--tbe-border-subtle);
+  border-radius: var(--tbe-radius-card);
+  padding: var(--s-5);
+}
+.cmp-beneficiu-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--tbe-action-soft);
+  color: var(--tbe-action);
+  margin-bottom: var(--s-3);
+}
+.cmp-beneficiu-icon svg { width: 18px; height: 18px; }
+.cmp-beneficiu h3 {
+  font-size: var(--fs-h4);
+  margin-bottom: var(--s-2);
+}
+.cmp-beneficiu p {
+  margin: 0;
+  font-size: var(--fs-sm);
+  color: var(--tbe-text-muted);
+  max-width: none;
+}
+
+/* ==========================================================================
+   5 · EVENIMENTE — cifre inline + galerie foto de la evenimentele fizice
+   ========================================================================== */
+.cmp-ev-cifre {
+  display: flex;
+  gap: var(--s-6);
+  flex-wrap: wrap;
+  margin: var(--s-5) 0 var(--s-6);
+}
+.cmp-galerie {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--s-3);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.cmp-galerie li {
+  border-radius: var(--tbe-radius-card);
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  background: var(--tbe-decor);
+}
+.cmp-galerie img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* Al 2-lea și al 4-lea element coboară puțin — ritm de masonry ușor. */
+.cmp-galerie li:nth-child(even) { transform: translateY(var(--s-5)); }
+
+/* ==========================================================================
+   6 · TESTIMONIALE — texte reale de pe pagina veche, tipar transformare
+   ========================================================================== */
+.cmp-marturii {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-3);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.cmp-marturie {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+  background: var(--tbe-surface);
+  border: var(--bw-hair) solid var(--tbe-border-subtle);
+  border-radius: var(--tbe-radius-card);
+  padding: var(--s-5);
+}
+.cmp-marturie blockquote {
+  margin: 0;
+  font-size: var(--fs-sm);
+  line-height: var(--lh-body);
+  color: var(--tbe-text);
+}
+.cmp-marturie footer {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  margin-top: auto;
+}
+/* Avatar cu inițială — NU folosim pozele-placeholder lângă nume reale:
+   ar lipi fața altcuiva de numele unei membre reale. Poza vine doar cu
+   acordul membrei, la completare. */
+.cmp-avatar-initiala {
+  flex: none;
+  display: inline-grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--tbe-editorial-soft);
+  color: var(--tbe-editorial);
+  font-family: var(--font-display);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-semibold);
+}
+.cmp-marturie cite {
+  font-style: normal;
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--tbe-text);
+}
+.cmp-marturie cite span {
+  display: block;
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-regular);
+  color: var(--tbe-text-subtle);
+}
+
+/* ==========================================================================
+   7 · REELS — placeholder DEMO, format vertical 9:16
+   ========================================================================== */
+.cmp-demo-marcaj {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: var(--s-5);
+  padding: 5px 12px;
+  border-radius: var(--r-pill);
+  background: var(--tbe-warning-bg);
+  color: var(--tbe-warning);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-kicker);
+  text-transform: uppercase;
+}
+.cmp-demo-marcaj::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--tbe-warning);
+}
+
+.cmp-reels {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--s-3);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.cmp-reel {
+  position: relative;
+  aspect-ratio: 9 / 16;
+  border-radius: var(--tbe-radius-card);
+  overflow: hidden;
+  background: var(--tbe-decor-strong);
+  display: flex;
+  align-items: flex-end;
+}
+.cmp-reel-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(var(--site-rgb-alb), 0.9);
+  color: var(--tbe-text);
+}
+.cmp-reel-play svg { width: 20px; height: 20px; margin-left: 3px; }
+.cmp-reel-info {
+  position: relative;
+  width: 100%;
+  padding: var(--s-4);
+  background: linear-gradient(to top, rgba(var(--site-rgb-ink), 0.55), transparent);
+}
+.cmp-reel-info strong {
+  display: block;
+  font-size: var(--fs-sm);
+  color: rgba(var(--site-rgb-alb), 0.97);
+}
+.cmp-reel-info span {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: rgba(var(--site-rgb-alb), 0.75);
+}
+
+/* ==========================================================================
+   8 · DRUMUL TĂU — niveluri + diplome + loialitate pe scurt
+   ========================================================================== */
+.cmp-niveluri {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--s-3);
+  list-style: none;
+  margin: 0 0 var(--s-6);
+  padding: 0;
+}
+.cmp-nivel {
+  background: var(--tbe-surface);
+  border: var(--bw-hair) solid var(--tbe-border-subtle);
+  border-radius: var(--tbe-radius-card);
+  padding: var(--s-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  align-items: flex-start;
+}
+.cmp-nivel-conditie {
+  margin: 0;
+  font-size: var(--fs-xs);
+  color: var(--tbe-text-muted);
+}
+.cmp-nivel-puncte {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--tbe-text-subtle);
+}
+
+/* Vârful drumului — Trainer TBE. Aceeași familie ca eph-suprema. */
+.cmp-trainer {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  padding: var(--s-4) var(--s-5);
+  background: var(--tbe-editorial-soft);
+  border: var(--bw-thin) solid var(--tbe-editorial-line);
+  border-radius: var(--tbe-radius-card);
+  margin-bottom: var(--s-8);
+}
+.cmp-trainer-icon {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--tbe-surface);
+  color: var(--c-gold-vivid);
+}
+.cmp-trainer-icon svg { width: 20px; height: 20px; }
+.cmp-trainer p { margin: 0; max-width: none; }
+.cmp-trainer .cmp-trainer-titlu {
+  font-family: var(--font-display);
+  font-size: var(--fs-h4);
+  font-weight: var(--fw-semibold);
+  color: var(--tbe-text);
+}
+.cmp-trainer .cmp-trainer-text {
+  margin-top: 2px;
+  font-size: var(--fs-sm);
+  color: var(--tbe-text-muted);
+}
+
+/* Cele 8 diplome — chip-uri solide, ca eph-diploma-badge de pe Empiria;
+   diploma supremă a fiecărei specializări e marcată distinct (contur auriu). */
+.cmp-diplome-grup {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-3);
+  margin-bottom: var(--s-6);
+}
+.cmp-diplome-col {
+  background: var(--tbe-surface);
+  border: var(--bw-hair) solid var(--tbe-border-subtle);
+  border-radius: var(--tbe-radius-card);
+  padding: var(--s-5);
+}
+.cmp-diplome-col h3 {
+  font-size: var(--fs-h4);
+  margin-bottom: var(--s-3);
+}
+.cmp-diplome-lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+}
+.cmp-diploma {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--tbe-action);
+  color: var(--tbe-text-on-action);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  padding: 0.5em 0.9em;
+  border-radius: var(--r-pill);
+}
+.cmp-diploma svg { flex: none; width: 13px; height: 13px; }
+.cmp-diploma.is-suprema {
+  background: var(--tbe-editorial-soft);
+  color: var(--tbe-text);
+  border: var(--bw-thin) solid var(--c-gold-vivid);
+}
+.cmp-diploma.is-suprema svg { color: var(--c-gold-vivid); }
+
+/* Loialitate pe scurt */
+.cmp-loialitate {
+  display: flex;
+  align-items: center;
+  gap: var(--s-4);
+  padding: var(--s-4) var(--s-5);
+  background: var(--tbe-action-soft);
+  border-radius: var(--tbe-radius-card);
+  flex-wrap: wrap;
+}
+.cmp-loialitate p { margin: 0; max-width: none; flex: 1 1 32ch; }
+.cmp-vreau {
+  font-family: var(--font-mono);
+  font-size: var(--fs-h4);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-wide);
+  color: var(--tbe-action);
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   9 · GRATUIT vs. ABONAMENT — două coloane; eroul e coloana gratuită
+   ========================================================================== */
+.cmp-planuri {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-3);
+  align-items: stretch;
+}
+.cmp-plan {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+  background: var(--tbe-surface);
+  border: var(--bw-hair) solid var(--tbe-border-subtle);
+  border-radius: var(--tbe-radius-card);
+  padding: var(--s-6);
+}
+.cmp-plan.is-gratuit { border: var(--bw-thin) solid var(--tbe-action); }
+.cmp-plan-eticheta {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--tbe-text-subtle);
+}
+.cmp-plan.is-gratuit .cmp-plan-eticheta { color: var(--tbe-action); }
+.cmp-plan h3 {
+  font-size: var(--fs-h3);
+  margin: 0;
+}
+.cmp-plan-lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.cmp-plan-lista li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: var(--fs-sm);
+  line-height: 1.45;
+}
+.cmp-plan-lista svg {
+  flex: none;
+  width: 14px;
+  height: 14px;
+  margin-top: 3px;
+  color: var(--tbe-editorial);
+}
+.cmp-plan.is-gratuit .cmp-plan-lista svg { color: var(--tbe-action); }
+.cmp-plan-actiune { margin-top: auto; padding-top: var(--s-2); }
+
+/* ==========================================================================
+   10 · CTA FINAL — invitație, un singur buton
+   ========================================================================== */
+.cmp-cta {
+  text-align: center;
+  max-width: 640px;
+  margin-inline: auto;
+}
+.cmp-cta h2 { margin-bottom: var(--s-3); }
+.cmp-cta-actiune { margin-top: var(--s-5); }
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .cmp-hero-grid { grid-template-columns: 1fr; }
+  .cmp-hero-visual { order: -1; max-width: 420px; margin-inline: auto; }
+  .cmp-float-card { max-width: 200px; }
+
+  .cmp-categorii { grid-template-columns: repeat(2, 1fr); }
+  .cmp-tur { grid-template-columns: 1fr; }
+  .cmp-beneficii { grid-template-columns: 1fr; }
+  .cmp-galerie { grid-template-columns: repeat(2, 1fr); }
+  .cmp-marturii { grid-template-columns: 1fr; }
+  .cmp-reels { grid-template-columns: repeat(2, 1fr); }
+  .cmp-niveluri { grid-template-columns: repeat(2, 1fr); }
+  .cmp-diplome-grup { grid-template-columns: 1fr; }
+  .cmp-planuri { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .cmp-titlu { font-size: var(--fs-h1); }
+  .cmp-hero-actions { flex-direction: column; }
+  .cmp-hero-actions .tbe-btn { width: 100%; }
+  .cmp-features { gap: var(--s-3); }
+  .cmp-float-card { display: none; }
+
+  .cmp-categorii { grid-template-columns: 1fr; }
+  .cmp-cat-card { aspect-ratio: 16 / 10; }
+  .cmp-activitate { grid-template-columns: auto 1fr; }
+  .cmp-activitate .cmp-act-puncte { grid-column: 2; }
+  .cmp-galerie li:nth-child(even) { transform: none; }
+  .cmp-niveluri { grid-template-columns: 1fr; }
+  .cmp-trainer { flex-direction: column; align-items: flex-start; }
+}
