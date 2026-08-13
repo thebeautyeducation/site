@@ -639,6 +639,35 @@ fost modificat în acest pas.**
   „DE VALIDAT cu Adriana" în comentariul HTML de deasupra secțiunii — nu conținut oficial confirmat
 - `/program-loialitate`, `/abonament` nu există încă (aceleași rute placeholder ca peste tot în site)
 
+### Revizuit după al doilea feedback
+
+**1 · „Ce mai trebuie să știi" a devenit FAQ**, consecvent cu homepage-ul. Nu refolosește
+`assets/js/faq.js` (ar fi însemnat să schimb FAQ-ul de pe homepage) — are propriul
+[`assets/js/empiria-faq.js`](assets/js/empiria-faq.js), cu constanta proprie `EMPIRIA_FAQS`, dar
+identic ca CSS și comportament (`assets/css/faq.css`, link nou în `<head>`). Tabelul de acces pe
+niveluri trăiește acum într-un răspuns, nu ca bloc separat.
+
+**2 · Badge-urile de diplomă erau prea șterse.** `.tbe-badge.is-action` (fundal magenta 8%, contur
+firav) era corect ca text (6,7:1) dar vizual „dispărea" lângă restul cardului. Înlocuite cu
+`.eph-diploma-badge` — magenta plin + icon, alb deasupra (7,3:1) — pe același precedent ca
+`.tbe-badge-recomandat` de pe Harta Coafezelor (indicator de încredere solid, nu buton).
+
+**3 · Hero-ul a fost refăcut integral** (era „extrem de plictisitor" — text centrat, nimic de
+privit). Structură nouă, inspirată din cele trei referințe trimise (split text/poză cu formă
+rotunjită + carduri UI flotante peste imagine), adaptată la brand:
+- **Poză nouă**: [`assets/poze/placeholder/empiria-hero.jpg`](assets/poze/placeholder/empiria-hero.jpg) —
+  decupaj nedecupat încă din fotografia comunității (arhitectura sălii + oameni cu mâinile ridicate),
+  nu reciclat din alte secțiuni.
+- **Titlu cu accent italic magenta** (`<em>expertă</em>") — ecoul cuvântului accentuat din
+  referințe („naturally.", „moves you."), dar cuvântul E promisiunea, nu decor.
+- **Două carduri flotante peste poză**: unul arată conceptul central (diplomă verificată manual),
+  celălalt e **singura cifră din hero care nu e DEMO** — „3 traineri TBE promovate din comunitate",
+  confirmată în dosar (p17). Cifra „180+" din rândul de dovadă socială e **identică**, nu nouă, cu
+  statistica DEMO din „EMPIRIA în cifre" mai jos — comentate la ambele capete, ca să se schimbe împreună.
+- **Cardul de definiție** („Empiria, substantiv, greacă veche = experiență") — componentă nouă,
+  contrapunctul vizual al blocului „Iluzia Cunoașterii": nu e o a doua fotografie, e un moment
+  tipografic în registru de dicționar, care rupe monotonia unui text lung fără să adauge încă o poză.
+
 ## Ordinea de încărcare, acum că sunt mai multe fișiere
 
 ```html

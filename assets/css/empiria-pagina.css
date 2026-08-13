@@ -30,22 +30,227 @@
 .eph-spatiu-sus { margin-top: var(--s-5); }
 
 /* ==========================================================================
-   0 · CAP DE PAGINĂ
-   Fără fotografie — e o pagină de referință, nu o poartă de intrare. Puțin
-   aer în plus sub navbar (navbar-ul e solid din start, .is-locked).
+   0 · HERO — split text/poză, cu carduri flotante
+   Revizuit după feedback: prima variantă (kicker + H1 + lead, centrat, fără
+   nimic vizual) era plictisitoare — nimic de privit, nimic de citit primul.
+   Inspirație: pagini de landing cu split hero (text stânga, poză în formă
+   rotunjită dreapta + carduri UI flotante peste poză). Adaptat la brand:
+   accentul italic din titlu (ca „naturally.”/„moves you.”) devine magenta,
+   nu decor — cuvântul accentuat E promisiunea („expertă”). Cardurile
+   flotante NU sunt decor gratuit: unul arată conceptul central (diplomă
+   verificată manual), celălalt e o cifră REALĂ din dosar (3 traineri
+   promovate din comunitate), nu o cifră inventată — singurul loc din pagină
+   unde o cifră stă needificată de „DEMO”, pentru că chiar e confirmată.
    ========================================================================== */
-.eph-header {
-  padding-top: var(--s-8);
-}
+.eph-header { padding-top: var(--s-6); }
 .eph-header .tbe-breadcrumb { margin-bottom: var(--s-5); }
-.eph-header-inner {
-  max-width: 780px;
+
+.eph-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  gap: var(--s-8);
+  align-items: center;
 }
+.eph-hero-text { min-width: 0; }
+
 .eph-titlu {
   font-size: var(--fs-display);
   font-weight: var(--fw-light);
   letter-spacing: var(--ls-tight);
   margin-bottom: var(--s-3);
+}
+/* Cuvântul accentuat — italic Cormorant, magenta. Cormorant Italic e deja
+   încărcat de tokens.css, deci fără cost suplimentar de font. */
+.eph-titlu em {
+  font-style: italic;
+  font-weight: var(--fw-regular);
+  color: var(--tbe-action);
+}
+
+.eph-hero-actions {
+  display: flex;
+  gap: var(--s-2);
+  flex-wrap: wrap;
+  margin: var(--s-5) 0 var(--s-6);
+}
+
+/* Rândul de trei caracteristici mici — icon + etichetă, orizontal. */
+.eph-features {
+  display: flex;
+  gap: var(--s-5);
+  flex-wrap: wrap;
+  margin-bottom: var(--s-5);
+  padding-bottom: var(--s-5);
+  border-bottom: 1px solid var(--tbe-border-subtle);
+}
+.eph-feature { display: flex; align-items: center; gap: 8px; }
+.eph-feature svg {
+  flex: none;
+  width: 17px;
+  height: 17px;
+  color: var(--tbe-editorial);
+}
+.eph-feature span {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  color: var(--tbe-text-muted);
+}
+
+/* Dovada socială — avatare + text. Cifra „180+” reflectă EXACT statistica
+   DEMO din secțiunea „EMPIRIA în cifre” de mai jos în pagină — nu e o cifră
+   nouă inventată, e aceeași, repetată. Dacă se schimbă acolo, se schimbă și
+   aici (comentariu identic pus la ambele capete). */
+.eph-social {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+}
+.eph-social-text strong {
+  display: block;
+  font-size: var(--fs-sm);
+  color: var(--tbe-text);
+}
+.eph-social-text span {
+  font-size: var(--fs-xs);
+  color: var(--tbe-text-muted);
+}
+
+/* --- Vizualul din dreapta -------------------------------------------------- */
+.eph-hero-visual { position: relative; }
+
+/* Forma rotunjită + fundal decorativ moale în spatele fotografiei — ecoul
+   arcului/blob-ului din referințe, construit din tokenii de brand (nude),
+   nu dintr-o culoare nouă. */
+.eph-hero-blob {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: 40% 60% 55% 45% / 50% 45% 55% 50%;
+  overflow: hidden;
+  box-shadow: var(--site-shadow-card);
+  background: var(--tbe-decor);
+}
+.eph-hero-blob img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 30%;
+}
+/* Pată decorativă în spate, ca petala din Lumière/Aurora — pur CSS. */
+.eph-hero-visual::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: -8%;
+  right: -10%;
+  width: 60%;
+  height: 60%;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--tbe-editorial-soft) 0%, transparent 72%);
+}
+
+/* Cardurile flotante — carduri DS obișnuite (fundal alb, umbră difuză),
+   doar poziționate absolut peste blob. */
+.eph-float-card {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: var(--s-2) var(--s-3);
+  background: var(--tbe-surface);
+  border-radius: var(--tbe-radius-card);
+  box-shadow: var(--site-shadow-card-hover);
+  max-width: 230px;
+}
+.eph-float-card.is-diploma { top: 8%; left: -8%; }
+.eph-float-card.is-stat { bottom: 10%; right: -6%; }
+
+.eph-float-icon {
+  flex: none;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--tbe-action-soft);
+  color: var(--tbe-action);
+}
+.eph-float-icon svg { width: 17px; height: 17px; }
+.eph-float-card strong {
+  display: block;
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--tbe-text);
+  line-height: 1.25;
+}
+.eph-float-card span {
+  font-size: 11px;
+  color: var(--tbe-text-muted);
+}
+
+/* ==========================================================================
+   0b · CARDUL DE DEFINIȚIE — „EMPIRIA, substantiv, greacă veche"
+   Componentă nouă: contrapunctul vizual al blocului de text „Iluzia
+   Cunoașterii”. Nu e o a doua fotografie — e un moment tipografic, în
+   registrul dicționar/glosar, care rupe monotonia unui bloc lung de text
+   fără să adauge încă o poză.
+   ========================================================================== */
+.eph-ce-este {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: var(--s-8);
+  align-items: start;
+  margin-top: var(--s-9);
+}
+.eph-ce-este-text { min-width: 0; }
+
+.eph-def-card {
+  position: sticky;
+  top: calc(var(--site-nav-h) + var(--s-5));
+  background: var(--tbe-decor);
+  border-radius: var(--tbe-radius-card);
+  padding: var(--s-6);
+}
+.eph-def-cuvant {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 2rem + 2vw, 3.5rem);
+  font-weight: var(--fw-light);
+  line-height: 1;
+  color: var(--tbe-text);
+  margin: 0;
+}
+.eph-def-gramatica {
+  display: block;
+  margin-top: var(--s-2);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-wide);
+  color: var(--tbe-text-subtle);
+}
+.eph-def-sens {
+  margin: var(--s-3) 0 0;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--fs-h3);
+  color: var(--tbe-action);
+}
+.eph-def-versus {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  margin-top: var(--s-5);
+  padding-top: var(--s-5);
+  border-top: 1px solid var(--tbe-editorial-line);
+}
+.eph-def-versus .is-nu {
+  font-size: var(--fs-sm);
+  color: var(--tbe-text-subtle);
+  text-decoration: line-through;
+  text-decoration-color: var(--tbe-text-subtle);
+}
+.eph-def-versus .is-da {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--tbe-text);
 }
 
 /* ==========================================================================
@@ -190,8 +395,28 @@
 }
 .eph-pasi li strong { color: var(--tbe-text); font-weight: var(--fw-medium); }
 
-/* Diploma nivelului — badge cu conținutul componentei DS, nu vopsim din nou. */
+/* Diploma nivelului — revizuit după feedback: „.tbe-badge.is-action” (fundal
+   magenta 8%, text magenta, contur firav) era corect ca text (6,7:1) dar
+   arăta „șters” lângă restul cardului — un dreptunghi palid, ușor de ratat.
+   Model: SOLID, ca .tbe-badge-recomandat de pe Harta Coafezelor (același
+   precedent — magenta plin, alb deasupra — pentru un indicator de încredere,
+   nu un buton). Icon + text, contrast alb-pe-magenta 6,7:1. */
 .eph-nivel-diploma { margin-top: auto; padding-top: var(--s-1); }
+.eph-diploma-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--tbe-action);
+  color: var(--tbe-text-on-action);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  padding: 0.5em 0.9em;
+  border-radius: var(--r-pill);
+}
+.eph-diploma-badge svg { flex: none; width: 13px; height: 13px; }
 
 /* --- Diploma supremă -----------------------------------------------------
    Componentă nouă, nu există în DS: un „ribbon" discret care marchează
@@ -233,45 +458,14 @@
 }
 
 /* ==========================================================================
-   3 · TRIOUL DE CARACTERISTICI — fără termen, efortul se păstrează, acces
-   ========================================================================== */
-.eph-trio {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--s-3);
-  margin-block: var(--s-6);
-  list-style: none;
-  padding: 0;
-}
-.eph-trio-item {
-  padding: var(--s-5);
-  background: var(--tbe-bg-alt);
-  border-radius: var(--tbe-radius-card);
-}
-.eph-trio-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  margin-bottom: var(--s-3);
-  border-radius: 50%;
-  background: var(--tbe-surface);
-  color: var(--tbe-action);
-}
-.eph-trio-icon svg { width: 19px; height: 19px; }
-.eph-trio-titlu {
-  margin: 0 0 var(--s-1);
-  font-family: var(--font-display);
-  font-size: var(--fs-h4);
-  font-weight: var(--fw-semibold);
-}
-.eph-trio-text {
-  margin: 0;
-  font-size: var(--fs-sm);
-  color: var(--tbe-text-muted);
-  max-width: none;
-}
+   3 · FAQ „Ce mai trebuie să știi" — convertit din trio de carduri în
+   acordeon, ca pe homepage (feedback: consecvență cu restul site-ului).
+   Refolosește EXACT clasele .faq-* din faq.css (link în <head>), ca
+   animația și comportamentul să fie identice. Conținutul e altul
+   (assets/js/empiria-faq.js, propriul array, ca să nu ating faq.js —
+   acela rămâne al FAQ-ului de pe homepage). Tabelul de acces pe niveluri
+   trăiește acum ÎN interiorul unui răspuns, nu ca bloc separat. */
+.eph-faq-tabel { margin-top: var(--s-3); }
 
 /* ==========================================================================
    4 · CIFRE DEMO — .tbe-grid.is-4 + .tbe-stat, cu marcaj vizibil de „demo"
@@ -352,10 +546,21 @@
    ========================================================================== */
 @media (max-width: 1024px) {
   .eph-niveluri { grid-template-columns: 1fr; }
-  .eph-trio { grid-template-columns: 1fr; }
+
+  .eph-hero-grid { grid-template-columns: 1fr; }
+  .eph-hero-visual { order: -1; max-width: 420px; margin-inline: auto; }
+  .eph-float-card { max-width: 200px; }
+
+  .eph-ce-este { grid-template-columns: 1fr; }
+  .eph-def-card { position: static; }
 }
 @media (max-width: 640px) {
   .eph-titlu { font-size: var(--fs-h1); }
+  .eph-hero-actions .tbe-btn,
+  .eph-hero-actions { width: 100%; }
+  .eph-hero-actions { flex-direction: column; }
+  .eph-features { gap: var(--s-3); }
+  .eph-float-card { display: none; }   /* pe ecran mic, blob-ul + cardurile se aglomerează */
   .eph-suprema { flex-direction: column; align-items: flex-start; }
   .eph-cta-actions { flex-direction: column; }
   .eph-cta-actions .tbe-btn { width: 100%; }

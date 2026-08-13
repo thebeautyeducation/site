@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="assets/css/tokens.css">
   <link rel="stylesheet" href="assets/css/components.css">
   <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="stylesheet" href="assets/css/faq.css">
   <link rel="stylesheet" href="assets/css/empiria-pagina.css">
 </head>
 
@@ -117,8 +118,14 @@
 <main id="continut">
 
   <!-- ========================================================================
-       0 · CAP DE PAGINĂ + 1 · CE ESTE EMPIRIA + citat
-       Sursă conținut: dosar p12, secțiunea 08.
+       0 · HERO — split text/poză + carduri flotante
+       Refăcut după feedback („extrem de plictisitor, nimeni nu stă să
+       citească"): prima variantă era text centrat, fără nimic vizual.
+       Poza: assets/poze/placeholder/empiria-hero.jpg — decupaj nou, distinct
+       de restul fotografiilor din site (nu reciclat).
+       Cifra „180+” din dovada socială e IDENTICĂ cu statistica DEMO din
+       „EMPIRIA în cifre” mai jos — nu o cifră nouă. Cardul „3 traineri” e
+       singura cifră din hero care NU e demo — dosar p17, confirmată.
        ======================================================================== -->
   <section class="site-section eph-header" aria-labelledby="eph-titlu">
     <div class="tbe-container">
@@ -130,46 +137,116 @@
         </ol>
       </nav>
 
-      <div class="eph-header-inner">
-        <span class="tbe-kicker is-action">Programul Empiria</span>
-        <h1 class="eph-titlu" id="eph-titlu">EMPIRIA — drumul de la baze la expert</h1>
-        <p class="tbe-lead">
-          Un program educațional secvențial, în două specializări, care te scoate din haosul
-          tutorialelor și te duce, pas cu pas, verificat de traineri, spre măiestrie.
-        </p>
+      <div class="eph-hero-grid">
+        <div class="eph-hero-text">
+          <span class="tbe-kicker is-action">Programul Empiria</span>
+          <h1 class="eph-titlu" id="eph-titlu">De la primii pași, la <em>expertă</em> recunoscută.</h1>
+          <p class="tbe-lead">
+            Un traseu în două specializări — Coafuri și Colorimetrie — verificat manual de
+            traineri, la fiecare nivel. Nu privești. Exersezi, greșești, corectezi, și primești
+            diploma care o dovedește.
+          </p>
+
+          <div class="eph-hero-actions">
+            <a class="tbe-btn is-primary is-lg" href="#coafuri">Vezi cele 2 specializări</a>
+            <a class="tbe-btn is-secondary is-lg" href="#cum-functioneaza">Cum funcționează</a>
+          </div>
+
+          <div class="eph-features">
+            <span class="eph-feature">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.5 3.5L13 4"/></svg>
+              <span>2 specializări</span>
+            </span>
+            <span class="eph-feature">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2.5 10 6l4 .6-3 2.8.7 4L8 11.6 4.3 13.4l.7-4-3-2.8L6 6z"/></svg>
+              <span>Verificat manual</span>
+            </span>
+            <span class="eph-feature">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 1.3"/></svg>
+              <span>Fără termen-limită</span>
+            </span>
+          </div>
+
+          <div class="eph-social">
+            <span class="tbe-avatar-group">
+              <span class="tbe-avatar is-sm"><img src="assets/poze/placeholder/marturie-1.jpg" alt=""></span>
+              <span class="tbe-avatar is-sm"><img src="assets/poze/placeholder/marturie-2.jpg" alt=""></span>
+              <span class="tbe-avatar is-sm"><img src="assets/poze/placeholder/marturie-3.jpg" alt=""></span>
+            </span>
+            <span class="eph-social-text">
+              <strong>180+ coafeze au pornit pe drumul EMPIRIA</strong>
+              <span>verificate manual, la fiecare nivel</span>
+            </span>
+          </div>
+        </div>
+
+        <div class="eph-hero-visual">
+          <div class="eph-hero-blob">
+            <img src="assets/poze/placeholder/empiria-hero.jpg" alt=""
+                 width="900" height="1125" fetchpriority="high" decoding="async">
+          </div>
+
+          <div class="eph-float-card is-diploma" aria-hidden="true">
+            <span class="eph-float-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M9 12.5 7 21l5-3 5 3-2-8.5"/></svg>
+            </span>
+            <span><strong>Diplomă verificată</strong><span>manual, de traineri TBE</span></span>
+          </div>
+
+          <div class="eph-float-card is-stat" aria-hidden="true">
+            <span class="eph-float-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 9 9l-7 1 5 5-1.5 7L12 18l6.5 4L17 15l5-5-7-1z"/></svg>
+            </span>
+            <span><strong>3 traineri TBE</strong><span>promovate din comunitate</span></span>
+          </div>
+        </div>
       </div>
 
-      <div class="eph-header-inner">
-        <hr class="tbe-rule">
+      <!-- ==========================================================================
+           1 · CE ESTE EMPIRIA — text + cardul de definiție
+           Sursă conținut: dosar p12, secțiunea 08.
+           ========================================================================== -->
+      <div class="eph-ce-este">
+        <div class="eph-ce-este-text">
+          <hr class="tbe-rule">
+          <h2>Iluzia Cunoașterii</h2>
+          <p>
+            Privești zeci de tutoriale. Salvezi sute de poze. Telefonul e plin de capturi de
+            coafuri perfecte. Și totuși, când o clientă cere exact acea coafură, apare un gol în
+            stomac. Acesta e sindromul Iluziei Cunoașterii: crezi că, dacă privești, înveți.
+          </p>
 
-        <h2>Iluzia Cunoașterii</h2>
-        <p>
-          Privești zeci de tutoriale. Salvezi sute de poze. Telefonul e plin de capturi de coafuri
-          perfecte. Și totuși, când o clientă cere exact acea coafură, apare un gol în stomac.
-          Acesta e sindromul Iluziei Cunoașterii: crezi că, dacă privești, înveți.
-        </p>
+          <figure class="eph-citat-card">
+            <blockquote class="tbe-quote">
+              Măiestria nu se fură. Măiestria se construiește. Nu poți învăța să coafezi doar
+              privind un ecran, la fel cum nu poți învăța să înoți citind o carte.
+              <cite>The Beauty Education</cite>
+            </blockquote>
+          </figure>
 
-        <figure class="eph-citat-card">
-          <blockquote class="tbe-quote">
-            Măiestria nu se fură. Măiestria se construiește. Nu poți învăța să coafezi doar
-            privind un ecran, la fel cum nu poți învăța să înoți citind o carte.
-            <cite>The Beauty Education</cite>
-          </blockquote>
-        </figure>
+          <p>
+            EMPIRIA nu e „încă un curs online" — e Harta care te scoate din haosul informațional
+            (cursuri fizice, cursuri online, tutoriale de pe rețele) și te ghidează pas cu pas
+            printr-un sistem de practică verificată.
+          </p>
+          <p>
+            Este disponibilă în <strong>două specializări</strong> — Coafuri și Colorimetrie — și e
+            <strong>singura modalitate</strong> prin care poți obține o diplomă oficială
+            The Beauty Education. Fiecare specializare urmează aceeași structură: trei niveluri,
+            parcurse strict în ordine, fiecare deblocat doar după finalizarea celui anterior.
+          </p>
+        </div>
 
-        <p>
-          Numele vine din greaca veche și înseamnă „experiență" — ales deliberat, în contrast cu
-          „teoria". Filozofia din spate e empirismul: cunoașterea adevărată vine din observare,
-          experimentare și practică repetată, nu din teorie. EMPIRIA nu e „încă un curs online" —
-          e Harta care te scoate din haosul informațional (cursuri fizice, cursuri online,
-          tutoriale de pe rețele) și te ghidează pas cu pas printr-un sistem de practică verificată.
-        </p>
-        <p>
-          Este disponibilă în <strong>două specializări</strong> — Coafuri și Colorimetrie — și e
-          <strong>singura modalitate</strong> prin care poți obține o diplomă oficială
-          The Beauty Education. Fiecare specializare urmează aceeași structură: trei niveluri,
-          parcurse strict în ordine, fiecare deblocat doar după finalizarea celui anterior.
-        </p>
+        <aside class="eph-def-card" aria-label="Originea numelui EMPIRIA">
+          <p class="eph-def-cuvant">Empiria</p>
+          <span class="eph-def-gramatica">substantiv, greacă veche</span>
+          <p class="eph-def-sens">= experiență</p>
+          <div class="eph-def-versus">
+            <span class="is-nu">teoria</span>
+            <span aria-hidden="true">→</span>
+            <span class="is-da">practică repetată, verificată</span>
+          </div>
+        </aside>
       </div>
 
     </div>
@@ -179,7 +256,7 @@
        2 · SPECIALIZAREA 01 — COAFURI
        Sursă: dosar p12-13. Conținut detaliat complet în dosar.
        ======================================================================== -->
-  <section class="site-section eph-divider" aria-labelledby="eph-coafuri-titlu">
+  <section class="site-section eph-divider" id="coafuri" aria-labelledby="eph-coafuri-titlu">
     <div class="tbe-container">
 
       <header class="eph-specializare-head">
@@ -229,7 +306,7 @@
               <li data-pas="5">Verificare manuală TBE — <strong>Formă, Linii, Finisaj</strong></li>
             </ol>
             <div class="eph-nivel-diploma">
-              <span class="tbe-badge is-action">Diploma Fundamentals</span>
+              <span class="eph-diploma-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="5"/><path d="M9 12.5 7 21l5-3 5 3-2-8.5"/></svg>Diploma Fundamentals</span>
             </div>
           </article>
         </li>
@@ -258,7 +335,7 @@
               <li data-pas="5">Verificare manuală TBE</li>
             </ol>
             <div class="eph-nivel-diploma">
-              <span class="tbe-badge is-action">Diploma Essentials</span>
+              <span class="eph-diploma-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="5"/><path d="M9 12.5 7 21l5-3 5 3-2-8.5"/></svg>Diploma Essentials</span>
             </div>
           </article>
         </li>
@@ -286,7 +363,7 @@
               <li data-pas="5">Verificare manuală TBE</li>
             </ol>
             <div class="eph-nivel-diploma">
-              <span class="tbe-badge is-action">Diploma Mastery</span>
+              <span class="eph-diploma-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="5"/><path d="M9 12.5 7 21l5-3 5 3-2-8.5"/></svg>Diploma Mastery</span>
             </div>
           </article>
         </li>
@@ -367,7 +444,7 @@
               <li data-pas="5">Verificare manuală TBE</li>
             </ol>
             <div class="eph-nivel-diploma">
-              <span class="tbe-badge is-action">Diploma Fundamentals</span>
+              <span class="eph-diploma-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="5"/><path d="M9 12.5 7 21l5-3 5 3-2-8.5"/></svg>Diploma Fundamentals</span>
             </div>
           </article>
         </li>
@@ -394,7 +471,7 @@
               <li data-pas="5">Verificare manuală TBE</li>
             </ol>
             <div class="eph-nivel-diploma">
-              <span class="tbe-badge is-action">Diploma Essentials</span>
+              <span class="eph-diploma-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="5"/><path d="M9 12.5 7 21l5-3 5 3-2-8.5"/></svg>Diploma Essentials</span>
             </div>
           </article>
         </li>
@@ -421,7 +498,7 @@
               <li data-pas="5">Verificare manuală TBE</li>
             </ol>
             <div class="eph-nivel-diploma">
-              <span class="tbe-badge is-action">Diploma Mastery</span>
+              <span class="eph-diploma-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="5"/><path d="M9 12.5 7 21l5-3 5 3-2-8.5"/></svg>Diploma Mastery</span>
             </div>
           </article>
         </li>
@@ -447,77 +524,39 @@
   </section>
 
   <!-- ========================================================================
-       4 · TRIOUL DE CARACTERISTICI + TABEL DE ACCES
-       Sursă: dosar p12 (tabelul de condiții) + [user] pentru persistența
-       progresului la reactivarea abonamentului.
+       4 · FAQ — „Ce mai trebuie să știi"
+       Convertit din trio de carduri în acordeon, ca pe homepage (feedback:
+       consecvență). Reutilizează .faq-* din faq.css; conținutul propriu e în
+       assets/js/empiria-faq.js (EMPIRIA_FAQS), separat de faq.js — FAQ-ul de
+       pe homepage rămâne neatins.
+       Sursă: dosar p12 (tabelul de condiții, acum în interiorul unui
+       răspuns) + [user] pentru persistența progresului la reactivare.
        ======================================================================== -->
-  <section class="site-section" aria-labelledby="eph-info-titlu">
+  <section class="site-section" id="cum-functioneaza" aria-labelledby="eph-info-titlu">
     <div class="tbe-container">
-
+      <span class="tbe-kicker">Întrebări frecvente</span>
       <h2 id="eph-info-titlu">Ce mai trebuie să știi</h2>
+      <p class="tbe-lead eph-lead-spatiat">
+        Termene, acces și cine îți verifică lucrările — pe scurt.
+      </p>
 
-      <ul class="eph-trio">
-        <li class="eph-trio-item">
-          <span class="eph-trio-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/>
-            </svg>
-          </span>
-          <h3 class="eph-trio-titlu">Fără termen-limită</h3>
-          <p class="eph-trio-text">
-            Parcurgi nivelurile în ritmul tău. Nu există un interval în care trebuie să termini —
-            EMPIRIA nu se grăbește, se construiește.
-          </p>
-        </li>
-        <li class="eph-trio-item">
-          <span class="eph-trio-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 3l7 3v6c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/>
-            </svg>
-          </span>
-          <h3 class="eph-trio-titlu">Ce ai finalizat rămâne al tău</h3>
-          <p class="eph-trio-text">
-            Dacă îți întrerupi abonamentul, nimic din ce ai obținut nu se pierde. Nivelurile
-            finalizate rămân pe cont — reactivezi exact de unde ai rămas.
-          </p>
-        </li>
-        <li class="eph-trio-item">
-          <span class="eph-trio-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="6" width="18" height="13" rx="2.2"/><path d="M3 10.5h18"/><path d="M7 15h4"/>
-            </svg>
-          </span>
-          <h3 class="eph-trio-titlu">Acces cu abonament activ</h3>
-          <p class="eph-trio-text">
-            Fiecare nivel următor necesită abonament activ, plus finalizarea nivelului anterior.
-            Un singur abonament deschide toată platforma.
-          </p>
-        </li>
-      </ul>
+      <!-- Se umple din EMPIRIA_FAQS (assets/js/empiria-faq.js). -->
+      <ol class="faq-lista" data-empiria-faq></ol>
 
-      <table class="tbe-table">
-        <thead>
-          <tr>
-            <th scope="col">Nivel</th>
-            <th scope="col">Condiție de acces</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Fundamentals</td>
-            <td>Abonament activ</td>
-          </tr>
-          <tr>
-            <td>Essentials</td>
-            <td>Abonament activ <span class="tbe-muted">+</span> Fundamentals finalizat</td>
-          </tr>
-          <tr>
-            <td>Mastery</td>
-            <td>Abonament activ <span class="tbe-muted">+</span> Essentials finalizat</td>
-          </tr>
-        </tbody>
-      </table>
-
+      <noscript>
+        <dl class="faq-noscript">
+          <dt>Există un termen-limită pentru parcurgerea EMPIRIA?</dt>
+          <dd>Nu. Parcurgi nivelurile în ritmul tău.</dd>
+          <dt>Ce se întâmplă cu progresul meu dacă îmi întrerup abonamentul?</dt>
+          <dd>Nimic nu se pierde. Nivelurile finalizate rămân pe cont.</dd>
+          <dt>Am nevoie de abonament pentru fiecare nivel?</dt>
+          <dd>Da — abonament activ, plus nivelul anterior finalizat.</dd>
+          <dt>Pot sări direct la un nivel mai avansat?</dt>
+          <dd>Nu. Nivelurile sunt strict secvențiale.</dd>
+          <dt>Cine îmi verifică lucrările?</dt>
+          <dd>Echipa de traineri TBE, manual — Formă, Linii, Finisaj.</dd>
+        </dl>
+      </noscript>
     </div>
   </section>
 
@@ -761,5 +800,6 @@
 </footer>
 
 <script src="assets/js/site.js"></script>
+<script src="assets/js/empiria-faq.js"></script>
 </body>
 </html>
