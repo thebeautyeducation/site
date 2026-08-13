@@ -23,18 +23,6 @@
   margin-bottom: var(--s-10);
 }
 
-/* Marcaj de început de secțiune: linia scurtă mauve din design system
-   (.tbe-rule.is-short). Banda bej spune „altă secțiune", linia spune „începe
-   aici". Două semnale, unul cromatic și unul tipografic. */
-.cm-marcaj {
-  width: 64px;
-  height: 2px;
-  margin: 0 0 var(--s-3);
-  border: 0;
-  border-radius: var(--r-pill);
-  background: var(--tbe-editorial-line);
-}
-
 /* Pe bandă bej, cardurile plate (fără poză) ar fi prea aproape de fundal:
    suprafața lor rămâne albă și umbra difuză le desprinde. Cardurile cu poză
    se desprind singure. */
@@ -57,7 +45,7 @@
   display: block;
   margin-bottom: var(--s-1);
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--fs-xs);
   font-weight: var(--fw-medium);
   letter-spacing: var(--ls-kicker);
   text-transform: uppercase;
@@ -95,7 +83,7 @@
   background: var(--tbe-editorial-soft);
   border: 1px solid var(--tbe-editorial-line);
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--fs-xs);
   font-weight: var(--fw-medium);
   letter-spacing: var(--ls-kicker);
   text-transform: uppercase;
@@ -177,11 +165,11 @@
   inset: 0;
   z-index: -1;
   background: linear-gradient(to top,
-    rgba(26, 20, 22, 0.92) 0%,
-    rgba(26, 20, 22, 0.74) 28%,
-    rgba(26, 20, 22, 0.58) 56%,
-    rgba(26, 20, 22, 0.18) 80%,
-    rgba(26, 20, 22, 0) 100%);
+    rgba(var(--site-rgb-ink), 0.92) 0%,
+    rgba(var(--site-rgb-ink), 0.74) 28%,
+    rgba(var(--site-rgb-ink), 0.58) 56%,
+    rgba(var(--site-rgb-ink), 0.18) 80%,
+    rgba(var(--site-rgb-ink), 0) 100%);
 }
 
 .cm-card-body { position: relative; padding: var(--s-5); }
@@ -195,11 +183,11 @@
 .cm-card.has-photo .cm-eticheta { color: var(--c-neutral-50); }
 .cm-card.has-photo .cm-titlu,
 .cm-card.has-photo .cm-desc,
-.cm-card.has-photo .cm-eticheta { text-shadow: 0 1px 3px rgba(26, 20, 22, 0.5); }
+.cm-card.has-photo .cm-eticheta { text-shadow: 0 1px 3px rgba(var(--site-rgb-ink), 0.5); }
 .cm-card.has-photo .cm-curand {
   color: var(--c-neutral-50);
-  background: rgba(250, 244, 239, 0.14);
-  border-color: rgba(250, 244, 239, 0.34);
+  background: rgba(var(--site-rgb-crem), 0.14);
+  border-color: rgba(var(--site-rgb-crem), 0.34);
   text-shadow: none;
 }
 
@@ -217,8 +205,8 @@
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  border: 1px solid rgba(250, 244, 239, 0.45);
-  background: rgba(26, 20, 22, 0.38);
+  border: 1px solid rgba(var(--site-rgb-crem), 0.45);
+  background: rgba(var(--site-rgb-ink), 0.38);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   color: var(--c-neutral-0);

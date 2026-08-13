@@ -68,9 +68,9 @@
   inset: 0 0 auto 0;
   height: 300px;
   background: linear-gradient(to bottom,
-    rgba(26, 20, 22, 0.62) 0,
-    rgba(26, 20, 22, 0.26) 160px,
-    rgba(26, 20, 22, 0) 100%);
+    rgba(var(--site-rgb-ink), 0.62) 0,
+    rgba(var(--site-rgb-ink), 0.26) 160px,
+    rgba(var(--site-rgb-ink), 0) 100%);
 }
 
 .hero-body {
@@ -88,8 +88,8 @@
   font-weight: var(--fw-medium);
   letter-spacing: var(--ls-kicker);
   text-transform: uppercase;
-  color: rgba(250, 244, 239, 0.88);
-  text-shadow: 0 1px 3px rgba(26, 20, 22, 0.55);
+  color: rgba(var(--site-rgb-crem), 0.88);
+  text-shadow: 0 1px 3px rgba(var(--site-rgb-ink), 0.55);
 }
 
 .hero-title {
@@ -101,7 +101,7 @@
   letter-spacing: var(--ls-tight);
   color: var(--c-neutral-0);
   text-wrap: balance;
-  text-shadow: 0 2px 12px rgba(26, 20, 22, 0.35);
+  text-shadow: 0 2px 12px rgba(var(--site-rgb-ink), 0.35);
 }
 
 .hero-sub {
@@ -110,7 +110,7 @@
   font-weight: var(--fw-light);
   line-height: var(--lh-relaxed);
   color: var(--c-neutral-50);
-  text-shadow: 0 1px 3px rgba(26, 20, 22, 0.55);
+  text-shadow: 0 1px 3px rgba(var(--site-rgb-ink), 0.55);
 }
 
 /* --- Butoane ------------------------------------------------------------- */
@@ -123,9 +123,9 @@
 /* Secundarul de pe fotografie: contur alb, nu magenta. Magenta pe magenta ar
    da două butoane pline și ar rupe regula „un singur primar pe ecran". */
 .hero-btn-glass {
-  background: rgba(250, 244, 239, 0.10);
+  background: rgba(var(--site-rgb-crem), 0.10);
   color: var(--c-neutral-0);
-  border: var(--bw-thin) solid rgba(250, 244, 239, 0.55);
+  border: var(--bw-thin) solid rgba(var(--site-rgb-crem), 0.55);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
 }
@@ -151,11 +151,11 @@
   font-weight: var(--fw-medium);
   letter-spacing: var(--ls-kicker);
   text-transform: uppercase;
-  color: rgba(250, 244, 239, 0.82);
+  color: rgba(var(--site-rgb-crem), 0.82);
 }
 .hero-proof-num,
 .hero-proof-label,
-.hero-proof-list { text-shadow: 0 1px 3px rgba(26, 20, 22, 0.6); }
+.hero-proof-list { text-shadow: 0 1px 3px rgba(var(--site-rgb-ink), 0.6); }
 
 /* ==========================================================================
    VARIANTA 1 · CENTRAT
@@ -167,10 +167,10 @@
    text, inclusiv la kicker, care e cel mai sus și primește cel mai puțin. */
 .hero.is-v1 .hero-scrim {
   background: linear-gradient(to top,
-    rgba(26, 20, 22, 0.92) 0%,
-    rgba(26, 20, 22, 0.64) 30%,
-    rgba(26, 20, 22, 0.56) 75%,
-    rgba(26, 20, 22, 0.44) 100%);
+    rgba(var(--site-rgb-ink), 0.92) 0%,
+    rgba(var(--site-rgb-ink), 0.64) 30%,
+    rgba(var(--site-rgb-ink), 0.56) 75%,
+    rgba(var(--site-rgb-ink), 0.44) 100%);
 }
 .hero.is-v1 .hero-body {
   place-self: center;
@@ -201,7 +201,7 @@
   width: 1px;
   height: 14px;
   margin-right: var(--s-2);
-  background: rgba(250, 244, 239, 0.28);
+  background: rgba(var(--site-rgb-crem), 0.28);
 }
 .hero.is-v1 .hero-proof-num { font-size: var(--fs-h4); }
 
@@ -215,14 +215,14 @@
 .hero.is-v2 .hero-scrim {
   background:
     linear-gradient(102deg,
-      rgba(26, 20, 22, 0.90) 0%,
-      rgba(26, 20, 22, 0.74) 32%,
-      rgba(26, 20, 22, 0.32) 62%,
-      rgba(26, 20, 22, 0.10) 100%),
+      rgba(var(--site-rgb-ink), 0.90) 0%,
+      rgba(var(--site-rgb-ink), 0.74) 32%,
+      rgba(var(--site-rgb-ink), 0.32) 62%,
+      rgba(var(--site-rgb-ink), 0.10) 100%),
     linear-gradient(to top,
-      rgba(26, 20, 22, 0.82) 0%,
-      rgba(26, 20, 22, 0.34) 40%,
-      rgba(26, 20, 22, 0) 72%);
+      rgba(var(--site-rgb-ink), 0.82) 0%,
+      rgba(var(--site-rgb-ink), 0.34) 40%,
+      rgba(var(--site-rgb-ink), 0) 72%);
 }
 .hero.is-v2 .hero-body {
   place-self: end start;
@@ -239,7 +239,7 @@
 .hero.is-v2 .hero-proof {
   margin-top: var(--s-6);
   padding-top: var(--s-3);
-  border-top: 1px solid rgba(250, 244, 239, 0.22);
+  border-top: 1px solid rgba(var(--site-rgb-crem), 0.22);
 }
 .hero.is-v2 .hero-proof-nums {
   display: flex;
@@ -266,11 +266,11 @@
    textul mic cade pe ținutele albe. Jumătatea de sus rămâne totuși curată. */
 .hero.is-v3 .hero-scrim {
   background: linear-gradient(to top,
-    rgba(26, 20, 22, 0.95) 0%,
-    rgba(26, 20, 22, 0.88) 22%,
-    rgba(26, 20, 22, 0.62) 50%,
-    rgba(26, 20, 22, 0.14) 72%,
-    rgba(26, 20, 22, 0) 100%);
+    rgba(var(--site-rgb-ink), 0.95) 0%,
+    rgba(var(--site-rgb-ink), 0.88) 22%,
+    rgba(var(--site-rgb-ink), 0.62) 50%,
+    rgba(var(--site-rgb-ink), 0.14) 72%,
+    rgba(var(--site-rgb-ink), 0) 100%);
 }
 .hero.is-v3 .hero-body {
   place-self: end center;
@@ -286,7 +286,7 @@
   position: absolute;
   inset: auto 0 0 0;
   z-index: 1;
-  border-top: 1px solid rgba(250, 244, 239, 0.18);
+  border-top: 1px solid rgba(var(--site-rgb-crem), 0.18);
 }
 .hero-bar-inner {
   display: grid;
@@ -300,7 +300,7 @@
   align-items: baseline;
   gap: var(--s-1);
 }
-.hero-bar-cell + .hero-bar-cell { border-left: 1px solid rgba(250, 244, 239, 0.18); padding-left: var(--s-5); }
+.hero-bar-cell + .hero-bar-cell { border-left: 1px solid rgba(var(--site-rgb-crem), 0.18); padding-left: var(--s-5); }
 .hero-bar .hero-proof-num { font-size: var(--fs-h3); }
 .hero-bar .hero-proof-list { text-align: right; }
 
@@ -313,7 +313,7 @@
   .hero.is-v3 .hero-body { padding-bottom: calc(var(--s-8) + 96px); }
   .hero-bar-inner { grid-template-columns: auto auto; gap: var(--s-3); }
   .hero-bar .hero-proof-list { grid-column: 1 / -1; text-align: left; }
-  .hero-bar .hero-proof-list { border-top: 1px solid rgba(250, 244, 239, 0.14); padding-top: var(--s-2); }
+  .hero-bar .hero-proof-list { border-top: 1px solid rgba(var(--site-rgb-crem), 0.14); padding-top: var(--s-2); }
 }
 
 @media (max-width: 640px) {

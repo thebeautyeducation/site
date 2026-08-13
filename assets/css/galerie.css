@@ -23,14 +23,7 @@
   max-width: 720px;
   margin-bottom: var(--s-8);   /* spațiu generos înainte de galerie */
 }
-.gal-marcaj {
-  width: 64px;
-  height: 2px;
-  margin: 0 0 var(--s-3);
-  border: 0;
-  border-radius: var(--r-pill);
-  background: var(--tbe-editorial-line);
-}
+
 .gal-titlu {
   margin: 0 0 var(--s-3);
   font-size: var(--fs-h1);

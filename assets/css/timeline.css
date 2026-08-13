@@ -53,7 +53,7 @@
   display: inline-flex;
   align-items: center;
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--fs-xs);
   font-weight: var(--fw-medium);
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -71,7 +71,7 @@
   align-items: center;
   gap: 5px;
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--fs-xs);
   font-weight: var(--fw-medium);
   letter-spacing: var(--ls-kicker);
   text-transform: uppercase;
@@ -113,8 +113,8 @@
 .tl-card.is-acum .tl-an { color: var(--c-magenta-light); }
 .tl-card.is-acum .tl-badge {
   color: var(--c-neutral-50);
-  background: rgba(250, 244, 239, 0.08);
-  border-color: rgba(250, 244, 239, 0.22);
+  background: rgba(var(--site-rgb-crem), 0.08);
+  border-color: rgba(var(--site-rgb-crem), 0.22);
 }
 .tl-card.is-acum .tl-acum { color: var(--c-magenta-light); }
 .tl-card.is-acum .tl-acum::before { background: var(--c-magenta-light); }

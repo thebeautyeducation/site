@@ -27,9 +27,9 @@
   padding: var(--s-6) var(--s-7);
   border-radius: var(--tbe-radius-card);
   background:
-    radial-gradient(90% 140% at 88% 0%, rgba(227, 109, 158, 0.28) 0%, transparent 55%),
+    radial-gradient(90% 140% at 88% 0%, rgba(var(--site-rgb-mg-light), 0.28) 0%, transparent 55%),
     linear-gradient(115deg, var(--c-magenta-600) 0%, var(--c-magenta-500) 45%, var(--c-magenta-700) 100%);
-  box-shadow: 0 28px 60px -12px rgba(90, 9, 47, 0.35);   /* umbra difuză, în tonul cardului */
+  box-shadow: 0 28px 60px -12px rgba(var(--site-rgb-mg-adanc), 0.35);   /* umbra difuză, în tonul cardului */
 }
 
 .cta-titlu {
@@ -46,7 +46,7 @@
   font-size: var(--fs-lg);
   font-weight: var(--fw-light);
   line-height: var(--lh-body);
-  color: rgba(250, 244, 239, 0.92);
+  color: rgba(var(--site-rgb-crem), 0.92);
   max-width: 52ch;
 }
 
@@ -59,15 +59,13 @@
   list-style: none;
   padding: 0;
 }
+/* Tipografia din stilul comun (site.css); aici dimensiunea + inversarea pe
+   magenta: alb, ușor mai greu ca să țină pe gradient. */
 .cta-num {
   display: block;
-  font-family: var(--font-display);
   font-size: clamp(2rem, 1.5rem + 1.4vw, 2.75rem);   /* 32 → 44px */
   font-weight: var(--fw-medium);
-  line-height: 1;
-  letter-spacing: var(--ls-tight);
   color: var(--c-neutral-0);
-  font-variant-numeric: tabular-nums;
 }
 .cta-eticheta {
   display: block;
@@ -78,7 +76,7 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   line-height: 1.5;
-  color: rgba(250, 244, 239, 0.82);
+  color: rgba(var(--site-rgb-crem), 0.82);
 }
 
 /* Cele 4 discipline — pastile discrete sub statistici, nu un „4" fără sens
@@ -93,38 +91,27 @@
 }
 .cta-discipline li {
   padding: 5px 13px;
-  border: 1px solid rgba(250, 244, 239, 0.38);
+  border: 1px solid rgba(var(--site-rgb-crem), 0.38);
   border-radius: var(--r-pill);
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--fs-xs);
   font-weight: var(--fw-medium);
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(250, 244, 239, 0.92);
+  color: rgba(var(--site-rgb-crem), 0.92);
   white-space: nowrap;
 }
 
-/* --- Butonul — crem pe magenta, cu săgeată ------------------------------------ */
+/* --- Butonul — crem pe magenta, cu săgeată ------------------------------------
+   Variantă .tbe-btn, nu buton paralel (consolidare): DS-ul expune --_bg/--_fg
+   exact pentru asta, deci aici rămân doar culorile inversate, umbra, săgeata
+   și hover-ul cu scale. Markup: class="tbe-btn is-lg cta-btn".               */
 .cta-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--s-1);
-  padding: 1em 1.8em;
-  min-height: 52px;
-  border-radius: var(--site-radius-btn);
-  background: var(--c-neutral-50);
-  color: var(--c-magenta-700);
-  font-family: var(--font-body);
-  font-size: var(--fs-base);
-  font-weight: var(--fw-medium);
-  letter-spacing: var(--ls-wide);
-  line-height: 1;
-  text-decoration: none;
+  --_bg: var(--c-neutral-50);
+  --_fg: var(--c-magenta-700);
+  --_bd: transparent;
   white-space: nowrap;
-  box-shadow: 0 12px 28px -10px rgba(26, 20, 22, 0.35);
-  transition: background var(--dur-base) var(--ease-out),
-              transform var(--dur-slow) var(--ease-out),
-              box-shadow var(--dur-base) var(--ease-out);
+  box-shadow: 0 12px 28px -10px rgba(var(--site-rgb-ink), 0.35);
 }
 .cta-btn svg {
   width: 16px;
@@ -132,8 +119,8 @@
   transition: transform var(--dur-slow) var(--ease-out);
 }
 .cta-btn:hover {
-  background: var(--c-neutral-0);
-  color: var(--c-magenta-700);
+  --_bg: var(--c-neutral-0);
+  --_fg: var(--c-magenta-700);
   transform: scale(1.03);
 }
 .cta-btn:hover svg { transform: translateX(3px); }

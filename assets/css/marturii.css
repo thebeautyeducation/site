@@ -24,14 +24,7 @@
   max-width: 720px;
   margin-bottom: var(--s-8);
 }
-.mt-marcaj {
-  width: 64px;
-  height: 2px;
-  margin: 0 0 var(--s-3);
-  border: 0;
-  border-radius: var(--r-pill);
-  background: var(--tbe-editorial-line);
-}
+
 .mt-titlu {
   margin: 0 0 var(--s-3);
   font-size: var(--fs-h1);
@@ -101,11 +94,11 @@
   inset: 0;
   z-index: -1;
   background: linear-gradient(to top,
-    rgba(26, 20, 22, 0.94) 0%,
-    rgba(26, 20, 22, 0.82) 30%,
-    rgba(26, 20, 22, 0.58) 55%,
-    rgba(26, 20, 22, 0.16) 78%,
-    rgba(26, 20, 22, 0) 100%);
+    rgba(var(--site-rgb-ink), 0.94) 0%,
+    rgba(var(--site-rgb-ink), 0.82) 30%,
+    rgba(var(--site-rgb-ink), 0.58) 55%,
+    rgba(var(--site-rgb-ink), 0.16) 78%,
+    rgba(var(--site-rgb-ink), 0) 100%);
 }
 
 .mt-corp {
@@ -122,7 +115,7 @@
   font-weight: var(--fw-regular);
   line-height: 1.45;
   color: var(--c-neutral-0);
-  text-shadow: 0 1px 3px rgba(26, 20, 22, 0.5);
+  text-shadow: 0 1px 3px rgba(var(--site-rgb-ink), 0.5);
 }
 .mt-cine {
   display: block;
@@ -131,15 +124,15 @@
   font-size: var(--fs-sm);
   font-weight: var(--fw-semibold);
   color: var(--c-neutral-0);
-  text-shadow: 0 1px 3px rgba(26, 20, 22, 0.5);
+  text-shadow: 0 1px 3px rgba(var(--site-rgb-ink), 0.5);
 }
 .mt-rol {
   display: block;
   margin-top: 2px;
   font-size: var(--fs-xs);
   font-weight: var(--fw-regular);
-  color: rgba(250, 244, 239, 0.82);
-  text-shadow: 0 1px 3px rgba(26, 20, 22, 0.6);
+  color: rgba(var(--site-rgb-crem), 0.82);
+  text-shadow: 0 1px 3px rgba(var(--site-rgb-ink), 0.6);
 }
 
 /* --- Controalele ---------------------------------------------------------------- */

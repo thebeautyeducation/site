@@ -34,8 +34,8 @@
   /* Caroiaj de hartă: linii fine la 56px — sugerează străzi fără să deseneze
      o hartă falsă a vreunui oraș real. */
   background-image:
-    linear-gradient(rgba(44, 37, 33, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(44, 37, 33, 0.05) 1px, transparent 1px);
+    linear-gradient(rgba(var(--site-rgb-charcoal), 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--site-rgb-charcoal), 0.05) 1px, transparent 1px);
   background-size: 56px 56px;
   pointer-events: none;   /* e demonstrativ, nu interactiv */
 }
@@ -63,12 +63,12 @@
   height: 38px;
   border-radius: 50%;
   background: var(--c-harta-500);
-  color: #fff;
+  color: var(--c-neutral-0);
   font-family: var(--font-mono);
   font-size: 12px;
   font-weight: var(--fw-semibold);
   letter-spacing: 0.02em;
-  box-shadow: 0 6px 16px -6px rgba(31, 76, 64, 0.5);
+  box-shadow: 0 6px 16px -6px rgba(var(--site-rgb-harta), 0.5);
   animation: hc-plutire 3.6s ease-in-out infinite;
 }
 /* Coada pinului */
@@ -87,7 +87,7 @@
 .hc-pin.is-mic {
   width: 30px;
   height: 30px;
-  font-size: 10px;
+  font-size: var(--fs-xs);
   opacity: 0.85;
 }
 /* Plutire decalată — pinii respiră, nu sar în cor. Reduced-motion e acoperit
@@ -111,15 +111,7 @@
    păstrează aspectul pe orice tag. */
 
 /* --- CONȚINUTUL -------------------------------------------------------------- */
-.hc-continut { min-width: 0; }   /* copil de grid: textul nu forțează coloana */
-.hc-marcaj {
-  width: 64px;
-  height: 2px;
-  margin: 0 0 var(--s-3);
-  border: 0;
-  border-radius: var(--r-pill);
-  background: var(--tbe-editorial-line);
-}
+.hc-continut { min-width: 0; }   
 .hc-titlu {
   margin: 0 0 var(--s-3);
   font-size: var(--fs-h1);
@@ -144,22 +136,17 @@
   gap: var(--s-4);
   margin-top: var(--s-6);
   padding-top: var(--s-5);
-  border-top: 1px solid rgba(44, 37, 33, 0.10);
+  border-top: 1px solid rgba(var(--site-rgb-charcoal), 0.10);
 }
 .hc-stat + .hc-stat {
-  border-left: 1px solid rgba(44, 37, 33, 0.10);
+  border-left: 1px solid rgba(var(--site-rgb-charcoal), 0.10);
   padding-left: var(--s-4);
 }
+/* Tipografia din stilul comun (site.css); aici doar dimensiunea. */
 .hc-num {
   display: block;
   margin-bottom: var(--s-1);
-  font-family: var(--font-display);
   font-size: clamp(2rem, 1.5rem + 1.6vw, 3rem);   /* 32 → 48px */
-  font-weight: var(--fw-regular);
-  line-height: 1;
-  letter-spacing: var(--ls-tight);
-  color: var(--tbe-action);
-  font-variant-numeric: tabular-nums;
 }
 .hc-eticheta {
   display: block;
@@ -185,5 +172,5 @@
   .hc-vizual { min-height: 540px; }
   .hc-actions .tbe-btn { width: 100%; }
   .hc-stats { grid-template-columns: 1fr; gap: var(--s-3); }
-  .hc-stat + .hc-stat { border-left: 0; padding-left: 0; padding-top: var(--s-3); border-top: 1px solid rgba(44, 37, 33, 0.10); }
+  .hc-stat + .hc-stat { border-left: 0; padding-left: 0; padding-top: var(--s-3); border-top: 1px solid rgba(var(--site-rgb-charcoal), 0.10); }
 }

@@ -26,14 +26,7 @@
   align-items: end;
   margin-bottom: var(--s-8);
 }
-.blog-marcaj {
-  width: 64px;
-  height: 2px;
-  margin: 0 0 var(--s-3);
-  border: 0;
-  border-radius: var(--r-pill);
-  background: var(--tbe-editorial-line);
-}
+
 .blog-titlu {
   margin: 0;
   font-size: var(--fs-h1);

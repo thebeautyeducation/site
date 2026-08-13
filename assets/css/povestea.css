@@ -12,7 +12,7 @@
 :root {
   /* Linia dintre cifre: charcoal 10%. Mai discretă decât --tbe-border-subtle,
      care e bej și s-ar vedea prea mult între cifre mari. */
-  --povestea-hairline: rgba(44, 37, 33, 0.10);
+  --povestea-hairline: rgba(var(--site-rgb-charcoal), 0.10);
 }
 
 /* ==========================================================================
@@ -80,16 +80,12 @@
 /* Numărul. Grila suprapune valoarea animată peste o „fantomă" invizibilă cu
    valoarea finală: fantoma ține lățimea, deci numărătoarea nu mai împinge
    layout-ul la fiecare cifră în plus. */
+/* Tipografia numărului vine din stilul comun (site.css § numere editoriale);
+   aici doar dimensiunea și grila de suprapunere. */
 .cifra-num {
   display: grid;
   justify-items: center;
-  font-family: var(--font-display);
   font-size: clamp(2.5rem, 1.6rem + 2.6vw, 4rem);   /* 40 → 64px */
-  font-weight: var(--fw-regular);
-  line-height: 1;
-  letter-spacing: var(--ls-tight);
-  color: var(--tbe-action);
-  font-variant-numeric: tabular-nums;
 }
 .cifra-num > * { grid-area: 1 / 1; }
 .cifra-fantoma { visibility: hidden; }

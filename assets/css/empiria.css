@@ -66,7 +66,7 @@
   font-family: var(--font-mono);
   font-size: var(--fs-sm);
   letter-spacing: var(--ls-wide);
-  color: rgba(44, 37, 33, 0.4);   /* charcoal/40, cerut */
+  color: rgba(var(--site-rgb-charcoal), 0.4);   /* charcoal/40, cerut */
 }
 
 /* --- Grila în oglindă ------------------------------------------------------ */
@@ -105,15 +105,10 @@
 }
 
 /* --- Conținutul cardurilor ------------------------------------------------- */
+/* Tipografia din stilul comun (site.css); aici doar dimensiunea. */
 .emp-num {
   display: block;
-  font-family: var(--font-display);
   font-size: clamp(2.5rem, 1.8rem + 2vw, 3.75rem);   /* 40 → 60px */
-  font-weight: var(--fw-regular);
-  line-height: 1;
-  letter-spacing: var(--ls-tight);
-  color: var(--tbe-action);
-  font-variant-numeric: tabular-nums;
   margin-bottom: var(--s-2);
 }
 .emp-card-titlu {

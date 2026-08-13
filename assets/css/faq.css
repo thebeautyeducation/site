@@ -34,14 +34,7 @@
   position: sticky;
   top: calc(var(--site-nav-h) + var(--s-5));
 }
-.faq-marcaj {
-  width: 64px;
-  height: 2px;
-  margin: 0 0 var(--s-3);
-  border: 0;
-  border-radius: var(--r-pill);
-  background: var(--tbe-editorial-line);
-}
+
 .faq-titlu {
   margin: 0 0 var(--s-3);
   font-size: var(--fs-h1);
@@ -70,13 +63,13 @@
 
 .faq-item {
   background: var(--tbe-surface);
-  border: 1px solid rgba(44, 37, 33, 0.10);
+  border: 1px solid rgba(var(--site-rgb-charcoal), 0.10);
   border-radius: var(--tbe-radius-card);
   transition: border-color var(--dur-base) var(--ease-out),
               box-shadow var(--dur-base) var(--ease-out);
 }
 .faq-item.is-open {
-  border-color: rgba(44, 37, 33, 0.16);
+  border-color: rgba(var(--site-rgb-charcoal), 0.16);
   box-shadow: var(--shadow-sm);
 }
 

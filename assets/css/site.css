@@ -29,14 +29,14 @@
   /* --- SHADOW · soft și difuz -------------------------------------------
      Specificația site-ului. Remapăm și tokenii DS (--shadow-*) pentru ca
      nicio componentă moștenită să nu mai poată produce o umbră „hard".     */
-  --site-shadow-card:       0 20px 50px -12px rgba(26, 20, 22, 0.12);
-  --site-shadow-card-hover: 0 28px 60px -12px rgba(26, 20, 22, 0.18);
+  --site-shadow-card:       0 20px 50px -12px rgba(var(--site-rgb-ink), 0.12);
+  --site-shadow-card-hover: 0 28px 60px -12px rgba(var(--site-rgb-ink), 0.18);
 
-  --shadow-xs: 0 4px 12px -6px rgba(26, 20, 22, 0.07);
-  --shadow-sm: 0 10px 28px -14px rgba(26, 20, 22, 0.10);
+  --shadow-xs: 0 4px 12px -6px rgba(var(--site-rgb-ink), 0.07);
+  --shadow-sm: 0 10px 28px -14px rgba(var(--site-rgb-ink), 0.10);
   --shadow-md: var(--site-shadow-card);
   --shadow-lg: var(--site-shadow-card-hover);
-  --shadow-xl: 0 40px 90px -20px rgba(26, 20, 22, 0.22);
+  --shadow-xl: 0 40px 90px -20px rgba(var(--site-rgb-ink), 0.22);
 
   /* --- SPACING · scară pe 8px ------------------------------------------- */
   --s-1:  8px;
@@ -57,6 +57,26 @@
   --container:      1200px;  /* lățime max. conținut, centrat */
   --gutter:         32px;    /* marginile laterale (DS îl citește în .tbe-container) */
 
+  /* --- Triplete RGB pentru transparențe ----------------------------------
+     Regula DS „nici un HEX în cod" permite valori brute DOAR în definiții de
+     tokeni. Scrimurile, umbrele de text și liniile fine au nevoie de rgba()
+     cu alpha variabil — deci culorile de bază stau aici ca triplete, iar
+     componentele scriu rgba(var(--site-rgb-*), alpha). Zero culori brute în
+     afara acestui bloc. Corespondența cu paleta:
+       ink      = #1A1513 (--c-neutral-950)   crem     = #FAF4EF (--c-neutral-50)
+       charcoal = #2C2521 (--c-neutral-900)   mg-light = #E36D9E (--c-magenta-light)
+       mg-adanc = #5A092F (--c-magenta-800)   harta    = #1F4C40 (--c-harta-700)   */
+  --site-rgb-ink:      26, 20, 22;
+  --site-rgb-alb:      255, 255, 255;
+  --site-rgb-crem:     250, 244, 239;
+  --site-rgb-charcoal: 44, 37, 33;
+  --site-rgb-mg-light: 227, 109, 158;
+  --site-rgb-mg-adanc: 90, 9, 47;
+  --site-rgb-harta:    31, 76, 64;
+
+  /* Linia fină charcoal 10% — separatorul dintre statistici și itemii FAQ. */
+  --site-hairline: rgba(var(--site-rgb-charcoal), 0.10);
+
   /* --- Suprafețe permanent închise (footer, hero placeholder) -----------
      Excepție documentată la regula „folosește doar tokeni --tbe-*": site-ul
      e blocat pe tema light, deci tokenii semantici nu se inversează singuri
@@ -66,8 +86,8 @@
   --site-on-dark-muted:  var(--c-neutral-400);   /* text secundar        7.3:1 */
   --site-on-dark-kicker: var(--c-mauve-200);     /* voce editorială      9.6:1 */
   --site-on-dark-action: var(--c-magenta-light); /* hover/acțiune        5.0:1 */
-  --site-on-dark-line:   rgba(250, 244, 239, 0.12);
-  --site-on-dark-fill:   rgba(250, 244, 239, 0.06);
+  --site-on-dark-line:   rgba(var(--site-rgb-crem), 0.12);
+  --site-on-dark-fill:   rgba(var(--site-rgb-crem), 0.06);
 }
 
 @media (max-width: 1024px) {
@@ -88,6 +108,25 @@
 
 /* Butoanele devin pill peste tot — inclusiv cele din design system. */
 .tbe-btn { border-radius: var(--site-radius-btn); }
+
+/* Marcajul de început de secțiune = .tbe-rule.is-short din DS (linia scurtă
+   mauve). DS îi dă margin-block 32px sus și jos; în antetele site-ului stă
+   lipit sus, cu 24px sub el. O singură ajustare aici — înainte erau șapte
+   clase identice (.cm-marcaj, .gal-marcaj, ...), șterse la consolidare. */
+.site-section .tbe-rule.is-short { margin: 0 0 var(--s-3); }
+
+/* Numărul mare editorial — UN singur stil pentru toate secțiunile.
+   (Consolidare: înainte, cinci definiții aproape identice. Fiecare secțiune
+   păstrează doar font-size-ul și marginile ei; CTA-ul rescrie culoarea.)
+   Derivat din .tbe-stat-value (DS), cu letter-spacing-ul strâns al site-ului. */
+.cifra-num, .emp-num, .loy-multiplu, .hc-num, .cta-num {
+  font-family: var(--font-display);
+  font-weight: var(--fw-regular);
+  line-height: 1;
+  letter-spacing: var(--ls-tight);
+  color: var(--tbe-action);
+  font-variant-numeric: tabular-nums;
+}
 
 /* ==========================================================================
    01 · BAZĂ & LAYOUT
@@ -163,7 +202,7 @@ body:not(.site-has-hero) { padding-top: var(--site-nav-h); }
   backdrop-filter: blur(16px) saturate(1.05);
   -webkit-backdrop-filter: blur(16px) saturate(1.05);
   border-bottom-color: var(--tbe-border-subtle);
-  box-shadow: 0 12px 32px -24px rgba(26, 20, 22, 0.35);
+  box-shadow: 0 12px 32px -24px rgba(var(--site-rgb-ink), 0.35);
 }
 
 .site-nav-inner {
@@ -229,7 +268,7 @@ body:not(.site-has-hero) { padding-top: var(--site-nav-h); }
   font-weight: var(--fw-medium);
   letter-spacing: 0.01em;
   line-height: 1;
-  color: rgba(255, 255, 255, 0.92);
+  color: rgba(var(--site-rgb-alb), 0.92);
   background: none;
   border: 0;
   padding: 12px 0;
@@ -238,15 +277,15 @@ body:not(.site-has-hero) { padding-top: var(--site-nav-h); }
   white-space: nowrap;
   transition: color var(--dur-base) var(--ease-out);
 }
-.site-nav-link:hover { color: #fff; }
+.site-nav-link:hover { color: var(--c-neutral-0); }
 
 /* În starea transparentă, navbar-ul stă peste o fotografie cu zone foarte
    luminoase (la noi: vitraliul cupolei, exact sub link-uri). Scrimul de sus
    duce greul; umbra asta acoperă pixelii izolați care îi scapă. Dispare
    complet când navbar-ul devine solid. */
 .site-nav:not(.is-solid) .site-nav-link,
-.site-nav:not(.is-solid) .site-nav-burger { text-shadow: 0 1px 3px rgba(26, 20, 22, 0.5); }
-.site-nav:not(.is-solid) .site-nav-logo.is-white { filter: drop-shadow(0 1px 3px rgba(26, 20, 22, 0.45)); }
+.site-nav:not(.is-solid) .site-nav-burger { text-shadow: 0 1px 3px rgba(var(--site-rgb-ink), 0.5); }
+.site-nav:not(.is-solid) .site-nav-logo.is-white { filter: drop-shadow(0 1px 3px rgba(var(--site-rgb-ink), 0.45)); }
 
 /* Linie fină care crește din centru — semnătura de hover a navbar-ului. */
 .site-nav-link::after {
@@ -359,7 +398,7 @@ body:not(.site-has-hero) { padding-top: var(--site-nav-h); }
   background: none;
   border: 0;
   border-radius: var(--site-radius-btn);
-  color: #fff;
+  color: var(--c-neutral-0);
   cursor: pointer;
   transition: color var(--dur-base) var(--ease-out);
 }
@@ -603,7 +642,7 @@ body.site-drawer-open { overflow: hidden; }
 .site-newsletter-input:focus {
   outline: none;
   border-color: var(--site-on-dark-action);
-  background: rgba(250, 244, 239, 0.09);
+  background: rgba(var(--site-rgb-crem), 0.09);
 }
 .site-newsletter-legal {
   margin: var(--s-1) 0 0;
@@ -636,7 +675,7 @@ body.site-drawer-open { overflow: hidden; }
 }
 .site-social a:hover {
   color: var(--site-on-dark);
-  border-color: rgba(250, 244, 239, 0.32);
+  border-color: rgba(var(--site-rgb-crem), 0.32);
   background: var(--site-on-dark-fill);
 }
 .site-social svg { width: 19px; height: 19px; }
