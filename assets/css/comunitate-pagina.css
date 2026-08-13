@@ -12,9 +12,11 @@
    convenția site-ului e CSS per pagină, iar duplicarea celor ~100 de linii
    e prețul ca empiria-pagina.css să rămână de-atins doar pentru Empiria.
 
-   Ritm de fundal: crem (hero) → bej (cifre) → crem (tur) → bej (activități)
-   → crem (beneficii) → bej (evenimente) → crem (testimoniale) → bej (reels)
-   → crem (drumul) → bej (planuri) → crem (FAQ) → crem (CTA, cmp-divider).
+   Ritm de fundal (revizuit — s-a inserat secțiunea Cursuri după Activități):
+   crem (hero) → bej (cifre) → crem (tur) → bej (activități) → crem (cursuri)
+   → bej (beneficii) → crem (evenimente) → crem (testimoniale, cmp-divider)
+   → bej (reels) → crem (drumul) → bej (planuri) → crem (FAQ)
+   → crem (CTA, cmp-divider).
    ========================================================================== */
 
 /* Granițe între secțiuni de același fundal (echivalentul eph-divider). */
@@ -276,55 +278,130 @@
 .cmp-menu-acces.is-abonament { background: var(--tbe-decor); color: var(--tbe-text-muted); }
 
 /* ==========================================================================
-   3 · ACTIVITĂȚILE SĂPTĂMÂNALE — rânduri, în ritmul unui program
+   3 · ACTIVITĂȚILE SĂPTĂMÂNALE — carduri, nu rânduri
+   Revizuit după feedback („nu îmi place layout"): varianta inițială era o
+   listă de rânduri cu border-bottom — corectă, dar cenușie. Acum: carduri
+   albe pe banda bej (au aer de „program de club"), cu numărul în cerc,
+   ritmul ca pastilă în colț și punctele ca chip magenta solid, jos —
+   punctele SUNT recompensa, meritau greutate vizuală.
    ========================================================================== */
 .cmp-activitati {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-3);
   list-style: none;
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-direction: column;
 }
 .cmp-activitate {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  gap: var(--s-4);
-  align-items: baseline;
-  padding: var(--s-4) 0;
-  border-bottom: 1px solid var(--tbe-border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  background: var(--tbe-surface);
+  border: var(--bw-hair) solid var(--tbe-border-subtle);
+  border-radius: var(--tbe-radius-card);
+  padding: var(--s-5);
 }
-.cmp-activitate:first-child { border-top: 1px solid var(--tbe-border-subtle); }
+.cmp-act-cap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-2);
+}
+.cmp-act-nr {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--tbe-action-soft);
+  color: var(--tbe-action);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+}
+.cmp-act-ritm {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--tbe-text-subtle);
+  background: var(--tbe-decor);
+  padding: 3px 10px;
+  border-radius: var(--r-pill);
+}
 .cmp-act-titlu {
   margin: 0;
   font-family: var(--font-display);
   font-size: var(--fs-h4);
   font-weight: var(--fw-semibold);
 }
-.cmp-act-ritm {
-  display: inline-block;
-  margin-left: var(--s-2);
-  font-family: var(--font-mono);
-  font-size: var(--fs-xs);
-  color: var(--tbe-text-subtle);
-}
 .cmp-act-text {
-  margin: 4px 0 0;
+  margin: 0;
   font-size: var(--fs-sm);
   color: var(--tbe-text-muted);
-  max-width: 56ch;
-}
-.cmp-act-nr {
-  font-family: var(--font-mono);
-  font-size: var(--fs-sm);
-  color: var(--tbe-text-subtle);
-  min-width: 2ch;
+  max-width: none;
 }
 .cmp-act-puncte {
+  margin-top: auto;
+  align-self: flex-start;
+  display: inline-flex;
+  background: var(--tbe-action);
+  color: var(--tbe-text-on-action);
   font-family: var(--font-mono);
   font-size: var(--fs-xs);
   font-weight: var(--fw-medium);
-  color: var(--tbe-action);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  padding: 0.45em 0.9em;
+  border-radius: var(--r-pill);
   white-space: nowrap;
+}
+/* Varianta „fără puncte" (Rubrica de Feedback) — recompensa e feedback-ul,
+   nu punctele, deci chip mauve, nu magenta. */
+.cmp-act-puncte.is-alt {
+  background: var(--tbe-editorial-soft);
+  color: var(--tbe-editorial);
+}
+
+/* ==========================================================================
+   3b · CURSURILE ONLINE — carduri text simple, 5 pe rând (auto-fit)
+   ========================================================================== */
+.cmp-spatiu-sus { margin-top: var(--s-5); }
+.cmp-cursuri {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--s-3);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.cmp-curs {
+  background: var(--tbe-surface);
+  border: var(--bw-hair) solid var(--tbe-border-subtle);
+  border-radius: var(--tbe-radius-card);
+  padding: var(--s-5);
+}
+.cmp-curs-eticheta {
+  display: inline-block;
+  margin-bottom: var(--s-3);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--tbe-editorial);
+  background: var(--tbe-editorial-soft);
+  padding: 2px 8px;
+  border-radius: var(--r-pill);
+}
+.cmp-curs h3 {
+  font-size: var(--fs-h4);
+  margin-bottom: var(--s-2);
+}
+.cmp-curs p {
+  margin: 0;
+  font-size: var(--fs-sm);
+  color: var(--tbe-text-muted);
+  max-width: none;
 }
 
 /* ==========================================================================
@@ -375,6 +452,7 @@
   flex-wrap: wrap;
   margin: var(--s-5) 0 var(--s-6);
 }
+/* Un singur rând, aliniat (feedback) — fără decalajul de masonry. */
 .cmp-galerie {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -394,8 +472,6 @@
   height: 100%;
   object-fit: cover;
 }
-/* Al 2-lea și al 4-lea element coboară puțin — ritm de masonry ușor. */
-.cmp-galerie li:nth-child(even) { transform: translateY(var(--s-5)); }
 
 /* ==========================================================================
    6 · TESTIMONIALE — texte reale de pe pagina veche, tipar transformare
@@ -416,6 +492,20 @@
   border: var(--bw-hair) solid var(--tbe-border-subtle);
   border-radius: var(--tbe-radius-card);
   padding: var(--s-5);
+}
+/* Poza pătrată din card (feedback) — PLACEHOLDER: se înlocuiește cu poza
+   „înainte/după" a membrei, cu acordul ei. */
+.cmp-marturie-foto {
+  display: block;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--r-sm);
+  overflow: hidden;
+  background: var(--tbe-decor);
+}
+.cmp-marturie-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .cmp-marturie blockquote {
   margin: 0;
@@ -744,8 +834,8 @@
 
   .cmp-categorii { grid-template-columns: repeat(2, 1fr); }
   .cmp-tur { grid-template-columns: 1fr; }
+  .cmp-activitati { grid-template-columns: repeat(2, 1fr); }
   .cmp-beneficii { grid-template-columns: 1fr; }
-  .cmp-galerie { grid-template-columns: repeat(2, 1fr); }
   .cmp-marturii { grid-template-columns: 1fr; }
   .cmp-reels { grid-template-columns: repeat(2, 1fr); }
   .cmp-niveluri { grid-template-columns: repeat(2, 1fr); }
@@ -761,9 +851,19 @@
 
   .cmp-categorii { grid-template-columns: 1fr; }
   .cmp-cat-card { aspect-ratio: 16 / 10; }
-  .cmp-activitate { grid-template-columns: auto 1fr; }
-  .cmp-activitate .cmp-act-puncte { grid-column: 2; }
-  .cmp-galerie li:nth-child(even) { transform: none; }
+  .cmp-activitati { grid-template-columns: 1fr; }
+  /* Galeria rămâne „un singur rând" și pe mobil: bandă cu derulare laterală. */
+  .cmp-galerie {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: var(--s-2);
+  }
+  .cmp-galerie li {
+    flex: 0 0 62%;
+    scroll-snap-align: start;
+  }
   .cmp-niveluri { grid-template-columns: 1fr; }
   .cmp-trainer { flex-direction: column; align-items: flex-start; }
 }

@@ -724,6 +724,24 @@ De completat înainte de lansare: validarea testimonialelor cu membrele (+ poze 
 clipurile reels reale, pozele per categorie, link-ul `/abonament` și `/program-loialitate`
 (pagini încă neconstruite).
 
+### Revizuit după primul feedback (comunitate)
+
+1. **Testimoniale cu poză pătrată** — fiecare card are acum o poză 1:1 deasupra citatului
+   (`.cmp-marturie-foto`). Placeholder din poza de eveniment; se înlocuiește cu poza
+   „înainte/după" a membrei, cu acordul ei. Avatarul rămâne cu inițială.
+2. **Mockup-ul meniului**: „Link-uri & aplicații" scos; „Empiria" despărțit în
+   **Empiria Coafuri** și **Empiria Colorimetrie** (cum apar realmente în platformă).
+3. **Activitățile** — layout nou: din listă de rânduri în **carduri** (3+2) pe banda bej,
+   cu numărul în cerc, ritmul ca pastilă și punctele ca chip magenta solid
+   (varianta mauve `is-alt` pentru Rubrica de Feedback, unde recompensa e feedback-ul).
+4. **Secțiune nouă „Cursurile online"** (după Activități): Atelierul de Bucle, Color Mastery,
+   Makeup Essentials, Bazele Coafurilor Texturate, Coafuri Comerciale — 5 carduri text.
+   ⚠ Descrierile ultimelor 3 sunt generice, de validat. Ritmul de fundal s-a reașezat:
+   beneficiile au preluat banda bej, evenimentele au trecut pe crem, testimonialele au
+   primit `cmp-divider`.
+5. **Galeria de la evenimente** — pe un singur rând: decalajul de masonry scos; pe mobil
+   rămâne un singur rând cu derulare laterală (scroll-snap).
+
 ## Ordinea de încărcare, acum că sunt mai multe fișiere
 
 ```html
