@@ -742,6 +742,21 @@ clipurile reels reale, pozele per categorie, link-ul `/abonament` și `/program-
 5. **Galeria de la evenimente** — pe un singur rând: decalajul de masonry scos; pe mobil
    rămâne un singur rând cu derulare laterală (scroll-snap).
 
+### Revizuit după al doilea feedback (comunitate)
+
+1. **Cursurile, restructurate pe două rânduri**: Bazele Coafurilor Texturate și Coafuri
+   Comerciale sunt **cursuri fizice** — carduri late (2 pe rând), cu poză în spate, scrim și
+   text deasupra, pastilă magenta „Curs fizic". Cele 3 online (Atelierul de Bucle, Color
+   Mastery, Makeup Essentials) pe rândul 2, carduri text. **Fiecare card e link** către
+   landing page-ul cursului (rute placeholder: `/cursuri-fizice/…`, `/cursuri-online/…` —
+   paginile nu există încă). Butonul „Vezi toate cursurile online" a fost scos.
+2. **Cifrele de la „Ne vedem și în realitate"** — grid cu 3 coloane egale (flex-ul cu wrap
+   lăsa a 3-a cifră pe rândul 2); pe mobil se stivuiesc.
+3. **Butoane de conversie adăugate**: „Activează abonamentul" sub textul turului platformei
+   (echilibrează coloana cu mockup-ul), sub testimoniale și la capătul „Drumului tău";
+   „Alătură-te comunității" sub „Mai mult decât tutoriale". Toate spre `/abonament` respectiv
+   Circle, cu utm_source.
+
 ## Ordinea de încărcare, acum că sunt mai multe fișiere
 
 ```html

@@ -343,6 +343,10 @@
             Iar totul e și în buzunar: comunitatea are <strong>aplicație de mobil</strong>, deci
             înveți din salon, între cliente — nu doar acasă, la laptop.
           </p>
+          <!-- CTA sub text [feedback] — echilibrează coloana cu mockup-ul din stânga. -->
+          <p class="cmp-spatiu-sus">
+            <a class="tbe-btn is-primary" href="/abonament?utm_source=comunitate_page">Activează abonamentul</a>
+          </p>
         </div>
       </div>
 
@@ -441,45 +445,65 @@
     <div class="tbe-container">
 
       <span class="tbe-kicker">Dincolo de abonament</span>
-      <h2 id="cmp-cursuri-titlu">Cursurile online, în aceeași platformă</h2>
+      <h2 id="cmp-cursuri-titlu">Cursurile The Beauty Education</h2>
       <p class="tbe-lead cmp-lead-spatiat">
-        Pe lângă abonament, în comunitate trăiesc și cursurile online de sine stătătoare — le
-        cumperi o dată și rămân ale tale, cu spațiul lor propriu de chat și feedback.
+        Două cursuri fizice care fac turul țării și trei cursuri online de sine stătătoare — le
+        cumperi o dată și rămân ale tale. Fiecare card duce pe pagina cursului.
       </p>
 
-      <ul class="cmp-cursuri">
-        <li class="cmp-curs">
-          <span class="cmp-curs-eticheta">Curs online</span>
-          <h3>Atelierul de Bucle</h3>
-          <p>22 de tehnici de bucle, pas cu pas — de la clasice la texturi lejere.</p>
+      <!-- Rândul 1 — cursurile FIZICE, late, cu poză în spate [feedback].
+           Pozele sunt placeholder (decupaje din poza de eveniment).
+           Link-urile duc spre landing page-urile cursurilor — pagini încă
+           neconstruite, rute placeholder ca restul site-ului. -->
+      <ul class="cmp-cursuri-fizice">
+        <li>
+          <a class="cmp-curs-fizic" href="/cursuri-fizice/bazele-coafurilor-texturate">
+            <img src="assets/poze/placeholder/card-1.jpg" alt="" loading="lazy" decoding="async">
+            <span class="cmp-curs-fizic-scrim" aria-hidden="true"></span>
+            <span class="cmp-curs-fizic-body">
+              <span class="cmp-curs-eticheta is-fizic">Curs fizic</span>
+              <span class="cmp-curs-fizic-titlu">Bazele Coafurilor Texturate</span>
+              <span class="cmp-curs-fizic-text">Fundamentul oricărei coafuri moderne: textura, de la zero.</span>
+            </span>
+          </a>
         </li>
-        <li class="cmp-curs">
-          <span class="cmp-curs-eticheta">Curs online</span>
-          <h3>Color Mastery</h3>
-          <p>Colorimetrie avansată, cu rubrică proprie de feedback pe lucrările tale.</p>
-        </li>
-        <li class="cmp-curs">
-          <span class="cmp-curs-eticheta">Curs online</span>
-          <h3>Makeup Essentials</h3>
-          <p>Bazele machiajului profesional, cu Cosmina Ducu.</p>
-        </li>
-        <li class="cmp-curs">
-          <span class="cmp-curs-eticheta">Curs online</span>
-          <h3>Bazele Coafurilor Texturate</h3>
-          <p>Fundamentul oricărei coafuri moderne: textura, de la zero.</p>
-        </li>
-        <li class="cmp-curs">
-          <span class="cmp-curs-eticheta">Curs online</span>
-          <h3>Coafuri Comerciale</h3>
-          <p>Coafurile cerute zi de zi în salon, lucrate până devin reflex.</p>
+        <li>
+          <a class="cmp-curs-fizic" href="/cursuri-fizice/coafuri-comerciale">
+            <img src="assets/poze/placeholder/card-7.jpg" alt="" loading="lazy" decoding="async">
+            <span class="cmp-curs-fizic-scrim" aria-hidden="true"></span>
+            <span class="cmp-curs-fizic-body">
+              <span class="cmp-curs-eticheta is-fizic">Curs fizic</span>
+              <span class="cmp-curs-fizic-titlu">Coafuri Comerciale</span>
+              <span class="cmp-curs-fizic-text">Coafurile cerute zi de zi în salon, lucrate până devin reflex.</span>
+            </span>
+          </a>
         </li>
       </ul>
 
-      <p class="cmp-spatiu-sus">
-        <a class="tbe-btn is-link" href="/cursuri-online?utm_source=comunitate_page">
-          Vezi toate cursurile online →
-        </a>
-      </p>
+      <!-- Rândul 2 — cursurile ONLINE, carduri text, fiecare clickabil. -->
+      <ul class="cmp-cursuri">
+        <li>
+          <a class="cmp-curs" href="/cursuri-online/atelierul-de-bucle">
+            <span class="cmp-curs-eticheta">Curs online</span>
+            <h3>Atelierul de Bucle</h3>
+            <p>22 de tehnici de bucle, pas cu pas — de la clasice la texturi lejere.</p>
+          </a>
+        </li>
+        <li>
+          <a class="cmp-curs" href="/cursuri-online/color-mastery">
+            <span class="cmp-curs-eticheta">Curs online</span>
+            <h3>Color Mastery</h3>
+            <p>Colorimetrie avansată, cu rubrică proprie de feedback pe lucrările tale.</p>
+          </a>
+        </li>
+        <li>
+          <a class="cmp-curs" href="/cursuri-online/makeup-essentials">
+            <span class="cmp-curs-eticheta">Curs online</span>
+            <h3>Makeup Essentials</h3>
+            <p>Bazele machiajului profesional, cu Cosmina Ducu.</p>
+          </a>
+        </li>
+      </ul>
 
     </div>
   </section>
@@ -529,6 +553,10 @@
           </p>
         </li>
       </ul>
+
+      <p class="cmp-spatiu-sus">
+        <a class="tbe-btn is-primary" href="https://ro.thebeautyeducation.com">Alătură-te comunității</a>
+      </p>
 
     </div>
   </section>
@@ -647,6 +675,10 @@
           </article>
         </li>
       </ul>
+
+      <p class="cmp-spatiu-sus">
+        <a class="tbe-btn is-primary" href="/abonament?utm_source=comunitate_page">Activează abonamentul</a>
+      </p>
 
     </div>
   </section>
@@ -783,6 +815,11 @@
         </p>
         <span class="cmp-vreau" aria-hidden="true">„VREAU"</span>
       </div>
+
+      <!-- Drumul începe cu abonamentul — CTA la capătul secțiunii [feedback]. -->
+      <p class="cmp-spatiu-sus">
+        <a class="tbe-btn is-primary" href="/abonament?utm_source=comunitate_page">Activează abonamentul</a>
+      </p>
 
     </div>
   </section>

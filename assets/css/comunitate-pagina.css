@@ -364,22 +364,99 @@
 }
 
 /* ==========================================================================
-   3b · CURSURILE ONLINE — carduri text simple, 5 pe rând (auto-fit)
+   3b · CURSURILE TBE — două rânduri [feedback]:
+   rândul 1 = cele 2 cursuri FIZICE, late, cu poză în spate și text deasupra;
+   rândul 2 = cele 3 cursuri online, carduri text.
+   Fiecare card e un LINK către landing page-ul cursului (rute placeholder,
+   paginile nu există încă — ca restul rutelor root-absolute din site).
    ========================================================================== */
 .cmp-spatiu-sus { margin-top: var(--s-5); }
+
+/* --- Rândul 1: cursurile fizice ------------------------------------------ */
+.cmp-cursuri-fizice {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-3);
+  list-style: none;
+  margin: 0 0 var(--s-3);
+  padding: 0;
+}
+.cmp-curs-fizic {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 8;
+  border-radius: var(--tbe-radius-card);
+  overflow: hidden;
+  background: var(--tbe-decor);
+  text-decoration: none;
+  box-shadow: var(--site-shadow-card);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+.cmp-curs-fizic:hover,
+.cmp-curs-fizic:focus-visible {
+  box-shadow: var(--site-shadow-card-hover);
+  transform: translateY(-2px);
+}
+.cmp-curs-fizic img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* Același scrim ca la cardurile foto din site — lizibilitate deja verificată. */
+.cmp-curs-fizic-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(var(--site-rgb-ink), 0.78) 0%, rgba(var(--site-rgb-ink), 0.3) 50%, rgba(var(--site-rgb-ink), 0.05) 75%);
+}
+.cmp-curs-fizic-body {
+  position: absolute;
+  left: var(--s-5);
+  right: var(--s-5);
+  bottom: var(--s-5);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-start;
+}
+.cmp-curs-fizic-titlu {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-semibold);
+  color: rgba(var(--site-rgb-alb), 0.97);
+  line-height: 1.15;
+}
+.cmp-curs-fizic-text {
+  font-size: var(--fs-sm);
+  color: rgba(var(--site-rgb-alb), 0.85);
+}
+
+/* --- Rândul 2: cursurile online ------------------------------------------- */
 .cmp-cursuri {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--s-3);
   list-style: none;
   margin: 0;
   padding: 0;
 }
 .cmp-curs {
+  display: block;
+  height: 100%;
   background: var(--tbe-surface);
   border: var(--bw-hair) solid var(--tbe-border-subtle);
   border-radius: var(--tbe-radius-card);
   padding: var(--s-5);
+  text-decoration: none;
+  color: inherit;
+  transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+.cmp-curs:hover,
+.cmp-curs:focus-visible {
+  border-color: var(--tbe-action);
+  box-shadow: var(--site-shadow-card);
+  transform: translateY(-2px);
 }
 .cmp-curs-eticheta {
   display: inline-block;
@@ -392,6 +469,12 @@
   background: var(--tbe-editorial-soft);
   padding: 2px 8px;
   border-radius: var(--r-pill);
+}
+/* Pe poză, pastila „Curs fizic" are nevoie de fundal plin, nu tentă. */
+.cmp-curs-eticheta.is-fizic {
+  margin-bottom: 0;
+  background: var(--tbe-action);
+  color: var(--tbe-text-on-action);
 }
 .cmp-curs h3 {
   font-size: var(--fs-h4);
@@ -446,10 +529,12 @@
 /* ==========================================================================
    5 · EVENIMENTE — cifre inline + galerie foto de la evenimentele fizice
    ========================================================================== */
+/* Un singur rând, întotdeauna [feedback] — grid cu 3 coloane egale,
+   nu flex cu wrap (care lăsa a 3-a cifră să cadă pe rândul 2). */
 .cmp-ev-cifre {
-  display: flex;
-  gap: var(--s-6);
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-4);
   margin: var(--s-5) 0 var(--s-6);
 }
 /* Un singur rând, aliniat (feedback) — fără decalajul de masonry. */
@@ -835,6 +920,8 @@
   .cmp-categorii { grid-template-columns: repeat(2, 1fr); }
   .cmp-tur { grid-template-columns: 1fr; }
   .cmp-activitati { grid-template-columns: repeat(2, 1fr); }
+  .cmp-cursuri-fizice { grid-template-columns: 1fr; }
+  .cmp-cursuri { grid-template-columns: 1fr; }
   .cmp-beneficii { grid-template-columns: 1fr; }
   .cmp-marturii { grid-template-columns: 1fr; }
   .cmp-reels { grid-template-columns: repeat(2, 1fr); }
@@ -866,4 +953,6 @@
   }
   .cmp-niveluri { grid-template-columns: 1fr; }
   .cmp-trainer { flex-direction: column; align-items: flex-start; }
+  .cmp-ev-cifre { grid-template-columns: 1fr; }
+  .cmp-curs-fizic { aspect-ratio: 16 / 10; }
 }
