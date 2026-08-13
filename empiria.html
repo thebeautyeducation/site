@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<!-- data-theme="light" — la fel ca index.html: DS-ul are dark mode automat,
+     site-ul îl blochează pe light peste tot. -->
+<html lang="ro" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EMPIRIA — programul de certificare The Beauty Education</title>
+  <meta name="description" content="Programul EMPIRIA: 2 specializări, 3 niveluri fiecare, diplome verificate manual de traineri. Singura modalitate de a obține o diplomă oficială The Beauty Education.">
+
+  <link rel="icon" href="assets/logo/tbe-icon-color.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonturi/Jost%5Bwght%5D.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/fonturi/CormorantGaramond%5Bwght%5D.ttf" as="font" type="font/ttf" crossorigin>
+
+  <!-- ORDINEA CONTEAZĂ: tokens → components → site → pagină -->
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="stylesheet" href="assets/css/empiria-pagina.css">
+</head>
+
+<!-- Fără hero → fără clasa site-has-hero. body:not(.site-has-hero) primește
+     automat padding-top cât navbar-ul (regula e deja în site.css). -->
+<body>
+
+<a class="site-skip" href="#continut">Sari la conținut</a>
+
+<!-- NAVBAR — copie din index.html, cu .is-locked (navbar solid din start,
+     pagină fără hero) și itemul „Empiria" marcat aria-current="page". -->
+<header class="site-nav is-locked" data-site-nav>
+  <div class="site-nav-inner tbe-container">
+
+    <a class="site-nav-brand" href="/" aria-label="The Beauty Education — prima pagină">
+      <img class="site-nav-logo is-white" src="assets/logo/tbe-orizontal-alb.svg"
+           alt="The Beauty Education" width="150" height="40">
+      <img class="site-nav-logo is-color" src="assets/logo/tbe-orizontal-color.svg"
+           alt="" aria-hidden="true" width="150" height="40">
+    </a>
+
+    <nav class="site-nav-menu" aria-label="Navigare principală">
+      <ul class="site-nav-list">
+        <li class="site-nav-item">
+          <a class="site-nav-link" href="https://ro.thebeautyeducation.com">Comunitate</a>
+        </li>
+        <li class="site-nav-item">
+          <a class="site-nav-link" href="empiria.html" aria-current="page">Empiria</a>
+        </li>
+
+        <li class="site-nav-item site-nav-has-sub" data-site-dropdown>
+          <button type="button" class="site-nav-link" aria-expanded="false" aria-controls="submeniu-cursuri">
+            Cursuri
+            <svg class="site-nav-caret" viewBox="0 0 12 12" fill="none" stroke="currentColor"
+                 stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M2.5 4.5 6 8l3.5-3.5"/>
+            </svg>
+          </button>
+          <ul class="site-nav-sub" id="submeniu-cursuri">
+            <li><a href="/cursuri-online">Cursuri online</a></li>
+            <li><a href="/cursuri-fizice">Cursuri fizice</a></li>
+          </ul>
+        </li>
+
+        <li class="site-nav-item">
+          <a class="site-nav-link" href="https://harta-coafezelor.ro">Harta Coafezelor</a>
+        </li>
+        <li class="site-nav-item">
+          <a class="site-nav-link" href="https://beautifier.ro">Magazin</a>
+        </li>
+      </ul>
+    </nav>
+
+    <a class="tbe-btn is-primary site-nav-cta" href="https://ro.thebeautyeducation.com">
+      Alătură-te comunității
+    </a>
+
+    <button type="button" class="site-nav-burger" data-site-burger
+            aria-expanded="false" aria-controls="sertar-meniu" aria-label="Deschide meniul">
+      <span class="site-burger-box" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </span>
+    </button>
+
+  </div>
+</header>
+
+<div class="site-drawer" id="sertar-meniu" data-site-drawer aria-hidden="true">
+  <div class="tbe-container">
+    <ul class="site-drawer-list">
+      <li><a class="site-drawer-link" href="https://ro.thebeautyeducation.com">Comunitate</a></li>
+      <li><a class="site-drawer-link" href="empiria.html" aria-current="page">Empiria</a></li>
+      <li>
+        <details class="site-drawer-details">
+          <summary class="site-drawer-sub-toggle">
+            Cursuri
+            <svg class="site-nav-caret" viewBox="0 0 12 12" fill="none" stroke="currentColor"
+                 stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M2.5 4.5 6 8l3.5-3.5"/>
+            </svg>
+          </summary>
+          <ul class="site-drawer-sub">
+            <li><a href="/cursuri-online">Cursuri online</a></li>
+            <li><a href="/cursuri-fizice">Cursuri fizice</a></li>
+          </ul>
+        </details>
+      </li>
+      <li><a class="site-drawer-link" href="https://harta-coafezelor.ro">Harta Coafezelor</a></li>
+      <li><a class="site-drawer-link" href="https://beautifier.ro">Magazin</a></li>
+    </ul>
+    <div class="site-drawer-foot">
+      <a class="tbe-btn is-primary is-lg is-block" href="https://ro.thebeautyeducation.com">
+        Alătură-te comunității
+      </a>
+    </div>
+  </div>
+</div>
+
+<main id="continut">
+
+  <!-- ========================================================================
+       0 · CAP DE PAGINĂ + 1 · CE ESTE EMPIRIA + citat
+       Sursă conținut: dosar p12, secțiunea 08.
+       ======================================================================== -->
+  <section class="site-section eph-header" aria-labelledby="eph-titlu">
+    <div class="tbe-container">
+
+      <nav class="tbe-breadcrumb" aria-label="Locul în site">
+        <ol>
+          <li><a href="/">Acasă</a></li>
+          <li aria-current="page">Empiria</li>
+        </ol>
+      </nav>
+
+      <div class="eph-header-inner">
+        <span class="tbe-kicker is-action">Programul Empiria</span>
+        <h1 class="eph-titlu" id="eph-titlu">EMPIRIA — drumul de la baze la expert</h1>
+        <p class="tbe-lead">
+          Un program educațional secvențial, în două specializări, care te scoate din haosul
+          tutorialelor și te duce, pas cu pas, verificat de traineri, spre măiestrie.
+        </p>
+      </div>
+
+      <div class="eph-header-inner">
+        <hr class="tbe-rule">
+
+        <h2>Iluzia Cunoașterii</h2>
+        <p>
+          Privești zeci de tutoriale. Salvezi sute de poze. Telefonul e plin de capturi de coafuri
+          perfecte. Și totuși, când o clientă cere exact acea coafură, apare un gol în stomac.
+          Acesta e sindromul Iluziei Cunoașterii: crezi că, dacă privești, înveți.
+        </p>
+
+        <figure class="eph-citat-card">
+          <blockquote class="tbe-quote">
+            Măiestria nu se fură. Măiestria se construiește. Nu poți învăța să coafezi doar
+            privind un ecran, la fel cum nu poți învăța să înoți citind o carte.
+            <cite>The Beauty Education</cite>
+          </blockquote>
+        </figure>
+
+        <p>
+          Numele vine din greaca veche și înseamnă „experiență" — ales deliberat, în contrast cu
+          „teoria". Filozofia din spate e empirismul: cunoașterea adevărată vine din observare,
+          experimentare și practică repetată, nu din teorie. EMPIRIA nu e „încă un curs online" —
+          e Harta care te scoate din haosul informațional (cursuri fizice, cursuri online,
+          tutoriale de pe rețele) și te ghidează pas cu pas printr-un sistem de practică verificată.
+        </p>
+        <p>
+          Este disponibilă în <strong>două specializări</strong> — Coafuri și Colorimetrie — și e
+          <strong>singura modalitate</strong> prin care poți obține o diplomă oficială
+          The Beauty Education. Fiecare specializare urmează aceeași structură: trei niveluri,
+          parcurse strict în ordine, fiecare deblocat doar după finalizarea celui anterior.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       2 · SPECIALIZAREA 01 — COAFURI
+       Sursă: dosar p12-13. Conținut detaliat complet în dosar.
+       ======================================================================== -->
+  <section class="site-section eph-divider" aria-labelledby="eph-coafuri-titlu">
+    <div class="tbe-container">
+
+      <header class="eph-specializare-head">
+        <h2 class="eph-specializare-titlu" id="eph-coafuri-titlu">Coafuri</h2>
+        <span class="eph-specializare-nr">01 / 02</span>
+      </header>
+      <p class="tbe-lead eph-lead-spatiat">
+        Trei niveluri, de la teoria de bază până la portofoliul care nu mai lasă loc de îndoială.
+      </p>
+
+      <!-- Progresul — componentă DS (.tbe-path), refolosită ca orientare, nu ca
+           progres personal (pagina e generică, nu ține cont logat). -->
+      <div class="eph-path-wrap">
+        <div class="tbe-path" role="list" aria-label="Traseul Coafuri">
+          <span class="tbe-path-node" role="listitem">Fundamentals</span>
+          <span class="tbe-path-arrow" aria-hidden="true">→</span>
+          <span class="tbe-path-node" role="listitem">Essentials</span>
+          <span class="tbe-path-arrow" aria-hidden="true">→</span>
+          <span class="tbe-path-node" role="listitem">Mastery</span>
+          <span class="tbe-path-arrow" aria-hidden="true">→</span>
+          <span class="tbe-path-node is-done" role="listitem">Diploma EMPIRIA</span>
+        </div>
+      </div>
+
+      <ul class="eph-niveluri">
+        <li>
+          <article class="eph-nivel">
+            <div class="eph-nivel-cap">
+              <span class="eph-nivel-num" aria-hidden="true">1</span>
+              <h3 class="eph-nivel-titlu">Fundamentals</h3>
+            </div>
+            <p class="eph-nivel-scop">
+              Noțiunile de bază care stau la temelia oricărei coafuri, plus bazele de social media.
+            </p>
+            <ul class="eph-nivel-lista">
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.5 3.5L13 4"/></svg> Teoria coafurilor texturate</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.5 3.5L13 4"/></svg> Produsele de styling</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.5 3.5L13 4"/></svg> Pregătirea părului</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.5 3.5L13 4"/></svg> Tipuri de breton</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.5 3.5L13 4"/></svg> Social Media — noțiuni de bază</li>
+            </ul>
+            <ol class="eph-pasi">
+              <li data-pas="1">Vizionezi tutorialele nivelului <span class="tbe-muted">(sau treci direct la test, dacă ai experiență)</span></li>
+              <li data-pas="2">Test grilă — minimum <strong>80%</strong> răspunsuri corecte</li>
+              <li data-pas="3">Realizezi cele <strong>4 coafuri</strong> ale nivelului</li>
+              <li data-pas="4">Încarci pozele în platformă</li>
+              <li data-pas="5">Verificare manuală TBE — <strong>Formă, Linii, Finisaj</strong></li>
+            </ol>
+            <div class="eph-nivel-diploma">
+              <span class="tbe-badge is-action">Diploma Fundamentals</span>
+            </div>
+          </article>
+        </li>
+
+        <li>
+          <article class="eph-nivel">
+            <div class="eph-nivel-cap">
+              <span class="eph-nivel-num" aria-hidden="true">2</span>
+              <h3 class="eph-nivel-titlu">Essentials</h3>
+            </div>
+            <p class="eph-nivel-scop">
+              Tehnici noi peste ce știi deja. Multe coafeze se opresc aici — acoperă majoritatea
+              cerințelor reale ale clientelor.
+            </p>
+            <ul class="eph-nivel-lista">
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.5 3.5L13 4"/></svg> Valuri și coafuri lejere</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.5 3.5L13 4"/></svg> Coafuri pe bază de ondule</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.5 3.5L13 4"/></svg> Textură naturală</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.5 3.5L13 4"/></svg> Toate „punctele sensibile" ale nivelului</li>
+            </ul>
+            <ol class="eph-pasi">
+              <li data-pas="1">Vizionezi tutorialele nivelului</li>
+              <li data-pas="2">Test grilă — minimum <strong>80%</strong></li>
+              <li data-pas="3">Realizezi <strong>8 coafuri</strong>, în 2 colaje a câte 4</li>
+              <li data-pas="4">Încarci colajele în platformă</li>
+              <li data-pas="5">Verificare manuală TBE</li>
+            </ol>
+            <div class="eph-nivel-diploma">
+              <span class="tbe-badge is-action">Diploma Essentials</span>
+            </div>
+          </article>
+        </li>
+
+        <li>
+          <article class="eph-nivel">
+            <div class="eph-nivel-cap">
+              <span class="eph-nivel-num" aria-hidden="true">3</span>
+              <h3 class="eph-nivel-titlu">Mastery</h3>
+            </div>
+            <p class="eph-nivel-scop">
+              Certificarea că nicio coafură comercială nu mai pune probleme. Citești orice coafură
+              dintr-o poză și o reproduci, în stilul tău.
+            </p>
+            <ul class="eph-nivel-lista">
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.5 3.5L13 4"/></svg> Reproducerea oricărei coafuri din fotografie</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.5 3.5L13 4"/></svg> Structură, formă, aspect general</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.5 3.5L13 4"/></svg> Portofoliu gândit și pentru social media</li>
+            </ul>
+            <ol class="eph-pasi">
+              <li data-pas="1">Vizionezi tutorialele nivelului</li>
+              <li data-pas="2">Test grilă — minimum <strong>80%</strong></li>
+              <li data-pas="3">Realizezi <strong>8 coafuri</strong>, în 2 colaje a câte 4</li>
+              <li data-pas="4">Încarci colajele în platformă</li>
+              <li data-pas="5">Verificare manuală TBE</li>
+            </ol>
+            <div class="eph-nivel-diploma">
+              <span class="tbe-badge is-action">Diploma Mastery</span>
+            </div>
+          </article>
+        </li>
+      </ul>
+
+      <div class="eph-suprema">
+        <span class="eph-suprema-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="5"/>
+            <path d="M9 12.5 7 21l5-3 5 3-2-8.5"/>
+          </svg>
+        </span>
+        <div>
+          <p class="eph-suprema-titlu">Diploma EMPIRIA — Coafuri</p>
+          <p class="eph-suprema-text">
+            După cele trei niveluri, primești diploma supremă a specializării — dovada, în fața
+            oricărei cliente, că măiestria ta a fost verificată, nu doar afirmată.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       3 · SPECIALIZAREA 02 — COLORIMETRIE
+       ⚠ DE VALIDAT cu Adriana: dosarul confirmă doar structura pe 3 niveluri
+       (Fundamentals V / Essentials V / Mastery V, dosar p5) — NU detaliază ce
+       tehnici de vopsit se învață la fiecare nivel. Textul de mai jos e o
+       progresie rezonabilă, scrisă ca placeholder editabil, NU conținut oficial
+       confirmat. De rescris cu conținutul tehnic real înainte de lansare.
+       ======================================================================== -->
+  <section class="site-section is-band" aria-labelledby="eph-color-titlu">
+    <div class="tbe-container">
+
+      <header class="eph-specializare-head">
+        <h2 class="eph-specializare-titlu" id="eph-color-titlu">Colorimetrie</h2>
+        <span class="eph-specializare-nr">02 / 02</span>
+      </header>
+      <p class="tbe-lead eph-lead-spatiat">
+        Aceeași logică, aplicată vopsitului: de la teoria culorii până la corecturile pe care
+        nimeni nu le mai poate contesta.
+      </p>
+
+      <div class="eph-path-wrap">
+        <div class="tbe-path" role="list" aria-label="Traseul Colorimetrie">
+          <span class="tbe-path-node" role="listitem">Fundamentals</span>
+          <span class="tbe-path-arrow" aria-hidden="true">→</span>
+          <span class="tbe-path-node" role="listitem">Essentials</span>
+          <span class="tbe-path-arrow" aria-hidden="true">→</span>
+          <span class="tbe-path-node" role="listitem">Mastery</span>
+          <span class="tbe-path-arrow" aria-hidden="true">→</span>
+          <span class="tbe-path-node is-done" role="listitem">Diploma EMPIRIA</span>
+        </div>
+      </div>
+
+      <ul class="eph-niveluri">
+        <li>
+          <article class="eph-nivel">
+            <div class="eph-nivel-cap">
+              <span class="eph-nivel-num" aria-hidden="true">1</span>
+              <h3 class="eph-nivel-titlu">Fundamentals</h3>
+            </div>
+            <p class="eph-nivel-scop">
+              Teoria de bază a culorii și primii pași în pregătirea corectă a firului.
+            </p>
+            <ul class="eph-nivel-lista">
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.5 3.5L13 4"/></svg> Teoria culorii — cerc cromatic, nivele de nuanță</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.5 3.5L13 4"/></svg> Tipuri de vopsea și oxidanți</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.5 3.5L13 4"/></svg> Pregătirea firului</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.5 3.5L13 4"/></svg> Decolorare de bază</li>
+            </ul>
+            <ol class="eph-pasi">
+              <li data-pas="1">Vizionezi tutorialele nivelului</li>
+              <li data-pas="2">Test grilă — minimum <strong>80%</strong></li>
+              <li data-pas="3">Realizezi <strong>4 tehnici</strong> test</li>
+              <li data-pas="4">Încarci pozele în platformă</li>
+              <li data-pas="5">Verificare manuală TBE</li>
+            </ol>
+            <div class="eph-nivel-diploma">
+              <span class="tbe-badge is-action">Diploma Fundamentals</span>
+            </div>
+          </article>
+        </li>
+
+        <li>
+          <article class="eph-nivel">
+            <div class="eph-nivel-cap">
+              <span class="eph-nivel-num" aria-hidden="true">2</span>
+              <h3 class="eph-nivel-titlu">Essentials</h3>
+            </div>
+            <p class="eph-nivel-scop">
+              Corecturile și tehnicile de nuanțare pe care le cer cel mai des clientele.
+            </p>
+            <ul class="eph-nivel-lista">
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.5 3.5L13 4"/></svg> Corecturi de culoare</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.5 3.5L13 4"/></svg> Balayage, ombre, șuvițe</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.5 3.5L13 4"/></svg> 8 tehnici testate</li>
+            </ul>
+            <ol class="eph-pasi">
+              <li data-pas="1">Vizionezi tutorialele nivelului</li>
+              <li data-pas="2">Test grilă — minimum <strong>80%</strong></li>
+              <li data-pas="3">Realizezi <strong>8 tehnici</strong>, în 2 colaje a câte 4</li>
+              <li data-pas="4">Încarci colajele în platformă</li>
+              <li data-pas="5">Verificare manuală TBE</li>
+            </ol>
+            <div class="eph-nivel-diploma">
+              <span class="tbe-badge is-action">Diploma Essentials</span>
+            </div>
+          </article>
+        </li>
+
+        <li>
+          <article class="eph-nivel">
+            <div class="eph-nivel-cap">
+              <span class="eph-nivel-num" aria-hidden="true">3</span>
+              <h3 class="eph-nivel-titlu">Mastery</h3>
+            </div>
+            <p class="eph-nivel-scop">
+              Corecturi complexe și reproducerea oricărei nuanțe cerute, dintr-o simplă poză.
+            </p>
+            <ul class="eph-nivel-lista">
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.5 3.5L13 4"/></svg> Corecturi complexe</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.5 3.5L13 4"/></svg> Decolorări avansate</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.5 3.5L13 4"/></svg> Reproducerea oricărei nuanțe dintr-o poză</li>
+            </ul>
+            <ol class="eph-pasi">
+              <li data-pas="1">Vizionezi tutorialele nivelului</li>
+              <li data-pas="2">Test grilă — minimum <strong>80%</strong></li>
+              <li data-pas="3">Realizezi <strong>8 lucrări</strong> finale</li>
+              <li data-pas="4">Încarci colajele în platformă</li>
+              <li data-pas="5">Verificare manuală TBE</li>
+            </ol>
+            <div class="eph-nivel-diploma">
+              <span class="tbe-badge is-action">Diploma Mastery</span>
+            </div>
+          </article>
+        </li>
+      </ul>
+
+      <div class="eph-suprema">
+        <span class="eph-suprema-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="5"/>
+            <path d="M9 12.5 7 21l5-3 5 3-2-8.5"/>
+          </svg>
+        </span>
+        <div>
+          <p class="eph-suprema-titlu">Diploma EMPIRIA — Colorimetrie</p>
+          <p class="eph-suprema-text">
+            Aceeași dovadă, de data asta pentru vopsit: trei niveluri verificate manual, încheiate
+            cu diploma care confirmă expertiza.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       4 · TRIOUL DE CARACTERISTICI + TABEL DE ACCES
+       Sursă: dosar p12 (tabelul de condiții) + [user] pentru persistența
+       progresului la reactivarea abonamentului.
+       ======================================================================== -->
+  <section class="site-section" aria-labelledby="eph-info-titlu">
+    <div class="tbe-container">
+
+      <h2 id="eph-info-titlu">Ce mai trebuie să știi</h2>
+
+      <ul class="eph-trio">
+        <li class="eph-trio-item">
+          <span class="eph-trio-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/>
+            </svg>
+          </span>
+          <h3 class="eph-trio-titlu">Fără termen-limită</h3>
+          <p class="eph-trio-text">
+            Parcurgi nivelurile în ritmul tău. Nu există un interval în care trebuie să termini —
+            EMPIRIA nu se grăbește, se construiește.
+          </p>
+        </li>
+        <li class="eph-trio-item">
+          <span class="eph-trio-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3l7 3v6c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/>
+            </svg>
+          </span>
+          <h3 class="eph-trio-titlu">Ce ai finalizat rămâne al tău</h3>
+          <p class="eph-trio-text">
+            Dacă îți întrerupi abonamentul, nimic din ce ai obținut nu se pierde. Nivelurile
+            finalizate rămân pe cont — reactivezi exact de unde ai rămas.
+          </p>
+        </li>
+        <li class="eph-trio-item">
+          <span class="eph-trio-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="6" width="18" height="13" rx="2.2"/><path d="M3 10.5h18"/><path d="M7 15h4"/>
+            </svg>
+          </span>
+          <h3 class="eph-trio-titlu">Acces cu abonament activ</h3>
+          <p class="eph-trio-text">
+            Fiecare nivel următor necesită abonament activ, plus finalizarea nivelului anterior.
+            Un singur abonament deschide toată platforma.
+          </p>
+        </li>
+      </ul>
+
+      <table class="tbe-table">
+        <thead>
+          <tr>
+            <th scope="col">Nivel</th>
+            <th scope="col">Condiție de acces</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Fundamentals</td>
+            <td>Abonament activ</td>
+          </tr>
+          <tr>
+            <td>Essentials</td>
+            <td>Abonament activ <span class="tbe-muted">+</span> Fundamentals finalizat</td>
+          </tr>
+          <tr>
+            <td>Mastery</td>
+            <td>Abonament activ <span class="tbe-muted">+</span> Essentials finalizat</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       5 · CIFRE — DEMO, de completat cu date reale
+       ======================================================================== -->
+  <section class="site-section is-band" aria-labelledby="eph-cifre-titlu">
+    <div class="tbe-container">
+
+      <span class="eph-demo-marcaj">Date demo — de înlocuit</span>
+      <h2 id="eph-cifre-titlu">EMPIRIA în cifre</h2>
+      <p class="tbe-lead eph-lead-spatiat">
+        Cifrele de mai jos sunt provizorii. Se înlocuiesc cu numerele reale (din Circle sau
+        aplicația internă) înainte de lansare.
+      </p>
+
+      <div class="tbe-grid is-4">
+        <div class="tbe-stat">
+          <span class="tbe-stat-value">180+</span>
+          <span class="tbe-stat-label">Coafeze au început EMPIRIA</span>
+        </div>
+        <div class="tbe-stat">
+          <span class="tbe-stat-value">95</span>
+          <span class="tbe-stat-label">Diplome emise până acum</span>
+        </div>
+        <div class="tbe-stat">
+          <span class="tbe-stat-value">62%</span>
+          <span class="tbe-stat-label">Rată de finalizare — Fundamentals</span>
+        </div>
+        <div class="tbe-stat">
+          <span class="tbe-stat-value">2</span>
+          <span class="tbe-stat-label">Specializări disponibile</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       6 · PUNCTE DE LOIALITATE
+       Sursă: dosar p15 (tabelul EMPIRIA) + p17 (nivelurile de status, legătura
+       cu Mastery → Diamond, statistica reală „3 traineri juniori").
+       ======================================================================== -->
+  <section class="site-section" aria-labelledby="eph-puncte-titlu">
+    <div class="tbe-container">
+
+      <h2 id="eph-puncte-titlu">Fiecare nivel finalizat, mai multe puncte</h2>
+      <p class="tbe-lead eph-lead-spatiat">
+        Punctele din EMPIRIA se adaugă direct la programul de loialitate — și, prin el, la
+        nivelul tău de status în comunitate.
+      </p>
+
+      <table class="tbe-table">
+        <thead>
+          <tr>
+            <th scope="col">Nivel finalizat</th>
+            <th scope="col" class="is-num">Puncte</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Fundamentals</td><td class="is-num">80</td></tr>
+          <tr><td>Essentials</td><td class="is-num">160</td></tr>
+          <tr><td>Mastery</td><td class="is-num">240</td></tr>
+        </tbody>
+      </table>
+
+      <div class="eph-puncte-total">
+        <span class="eph-num-mare">960</span>
+        <span>puncte posibile dacă finalizezi ambele specializări complet (480 fiecare)</span>
+      </div>
+
+      <p>
+        Finalizarea nivelurilor EMPIRIA e condiția directă pentru trei din cele patru niveluri de
+        status ale comunității: Silver la primul Fundamentals finalizat, Gold la Essentials,
+        Diamond la Mastery. Trei coafeze au ajuns deja Diamond și au fost promovate ca traineri
+        juniori în echipa TBE — dovadă că drumul e real, nu doar promisiune.
+      </p>
+
+      <div class="eph-niveluri-status">
+        <span class="tbe-badge is-silver">Silver — Fundamentals finalizat</span>
+        <span class="tbe-badge is-gold">Gold — Essentials finalizat</span>
+        <span class="tbe-badge is-diamond">Diamond — Mastery finalizat</span>
+      </div>
+
+      <p class="eph-spatiu-sus">
+        <a class="tbe-btn is-link" href="/program-loialitate?utm_source=empiria_page">
+          Vezi tot programul de loialitate →
+        </a>
+      </p>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       7 · CTA FINAL
+       ======================================================================== -->
+  <section class="site-section is-tight eph-divider" aria-labelledby="eph-cta-titlu">
+    <div class="tbe-container">
+      <div class="eph-cta">
+        <h2 id="eph-cta-titlu">Pregătită să începi?</h2>
+        <p class="tbe-lead">
+          Contul e gratuit. Abonamentul îl faci când ești pregătită să treci la Fundamentals.
+        </p>
+        <div class="eph-cta-actions">
+          <a class="tbe-btn is-primary is-lg" href="https://ro.thebeautyeducation.com">Creează cont gratuit</a>
+          <a class="tbe-btn is-secondary is-lg" href="/abonament">Vezi abonamentul</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER — copie identică din index.html. -->
+<footer class="site-footer">
+  <div class="tbe-container">
+    <div class="site-footer-grid">
+
+      <div class="site-footer-col is-brand">
+        <img class="site-footer-logo" src="assets/logo/tbe-orizontal-alb.svg"
+             alt="The Beauty Education" width="142" height="38">
+        <p class="site-footer-about">
+          Cea mai mare comunitate pentru coafeze din România. Educație, comunitate
+          și produse profesionale într-un singur loc.
+        </p>
+        <div class="site-footer-entity">
+          <p class="site-footer-company">Beauty Education Publishing SRL</p>
+          <p class="site-footer-fiscal">
+            CUI: 54823960<br>
+            Reg. Com.: J2026036531002<br>
+            Str. Berzelor 348, Plevna, jud. Călărași
+          </p>
+        </div>
+      </div>
+
+      <nav class="site-footer-col" aria-labelledby="footer-navigare">
+        <h2 class="site-footer-title" id="footer-navigare">Navigare</h2>
+        <ul class="site-footer-list">
+          <li><a href="https://ro.thebeautyeducation.com">Comunitate</a></li>
+          <li><a href="empiria.html" aria-current="page">Empiria</a></li>
+          <li><a href="/cursuri-online">Cursuri online</a></li>
+          <li><a href="/cursuri-fizice">Cursuri fizice</a></li>
+          <li><a href="https://harta-coafezelor.ro">Harta Coafezelor</a></li>
+          <li><a href="https://beautifier.ro">Magazin</a></li>
+        </ul>
+      </nav>
+
+      <nav class="site-footer-col" aria-labelledby="footer-mai-mult">
+        <h2 class="site-footer-title" id="footer-mai-mult">Mai mult</h2>
+        <ul class="site-footer-list">
+          <li><a href="/revista">Revista Coafezelor</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/program-de-loialitate">Program de loialitate</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="site-footer-col">
+        <h2 class="site-footer-title" id="footer-newsletter">Rămâi aproape</h2>
+
+        <div class="site-newsletter">
+          <p class="site-newsletter-note">
+            Noutăți despre cursuri, tutoriale și Revista Coafezelor — o dată pe lună.
+          </p>
+          <form class="site-newsletter-form" action="#" method="post" aria-labelledby="footer-newsletter">
+            <label class="tbe-sr-only" for="newsletter-email">Adresa ta de email</label>
+            <input class="site-newsletter-input" type="email" id="newsletter-email" name="email"
+                   placeholder="adresa@email.ro" autocomplete="email" required>
+            <button class="tbe-btn is-primary is-block" type="submit">Abonează-te</button>
+          </form>
+          <p class="site-newsletter-legal">
+            Prin abonare accepți <a href="/politica-de-confidentialitate">politica de confidențialitate</a>.
+          </p>
+        </div>
+
+        <ul class="site-social">
+          <li>
+            <a href="#" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                   stroke-linecap="round" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="5.5"/>
+                <circle cx="12" cy="12" r="4.1"/>
+                <circle cx="17.3" cy="6.7" r="1.05" fill="currentColor" stroke="none"/>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="#" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M15.6 4.6h-1.8c-1.9 0-2.9 1.2-2.9 3.2V10H8.6v3h2.3v6.4"/>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="#" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M13.9 4.8v9.7a3.5 3.5 0 1 1-3.5-3.5c.3 0 .6 0 .9.1"/>
+                <path d="M13.9 4.8c.3 2.3 2 4 4.3 4.2"/>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="#" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                   stroke-linejoin="round" aria-hidden="true">
+                <rect x="2.5" y="5.5" width="19" height="13" rx="4"/>
+                <path d="M10.4 9.4 15.7 12l-5.3 2.6z" fill="currentColor" stroke="none"/>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="site-footer-bottom">
+    <div class="tbe-container">
+      <div class="site-trust">
+        <p class="site-trust-pay">
+          <span class="site-trust-badge"><img src="assets/logo/stripe.png" alt="Stripe" width="42" height="18"></span>
+          Plăți securizate
+        </p>
+        <ul class="site-trust-legal">
+          <li><a href="https://anpc.ro">ANPC</a></li>
+          <li><a href="https://ec.europa.eu/consumers/odr">Soluționarea online a litigiilor (SOL)</a></li>
+        </ul>
+      </div>
+      <div class="site-footer-bottom-inner">
+        <p class="site-footer-copy">© 2026 The Beauty Education. Toate drepturile rezervate.</p>
+        <ul class="site-footer-legal">
+          <li><a href="/termeni-si-conditii">Termeni și condiții</a></li>
+          <li><a href="/politica-de-confidentialitate">Confidențialitate</a></li>
+          <li><a href="/politica-cookies">Cookies</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/site.js"></script>
+</body>
+</html>

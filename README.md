@@ -33,6 +33,7 @@ Totul e în [`index.html`](index.html) — navbar, hero, „Povestea noastră", 
 | FAQ — antet fix + acordeon, pe alb | ✅ în `index.html` · **răspunsurile sunt placeholder, în `FAQS` (faq.js)** |
 | CTA final — card magenta cu gradient + statistici și discipline | ✅ în `index.html` |
 | Blog — antet pe două coloane + 2 carduri orizontale, pe alb | ✅ în `index.html` · **articole DEMO; în WordPress devine loop peste ultimele postări** |
+| **Pagina EMPIRIA** — pagină dedicată, nu secțiune de homepage | ✅ [`empiria.html`](empiria.html) · **cifre DEMO, conținut Colorimetrie DE VALIDAT** |
 | Footer (4 coloane, date firmă, newsletter, social, plăți, bara legală) | ✅ |
 | Secțiuni următoare | ⬜ |
 
@@ -590,6 +591,53 @@ Auditat contra regulilor DS și consolidat (verificat apoi pe site-ul live):
 **Abateri care rămân, asumate**: radius/umbre/spacing pe 8px (cerute), anii magenta din timeline
 (ceruți), primitivele `--c-*` pe suprafețele permanent închise și pe fotografii (documentate în
 site.css — sigure cât timp tema e blocată pe light; la un eventual dark mode se revizuiesc).
+
+## Pagina EMPIRIA — `empiria.html`
+
+**Pagină proprie, nu secțiune de homepage** — primul fișier al site-ului care nu e o secțiune în
+`index.html`. Construită direct din structura de conținut convenită în
+[`empiria-structura.md`](empiria-structura.md) (document de lucru, cu sursa citată pentru fiecare
+bucată: pagina din dosar, sau `[user]`/`[gol]` unde dosarul nu acoperea cererea).
+
+**Filosofia CSS a paginii:** [`assets/css/empiria-pagina.css`](assets/css/empiria-pagina.css) e
+mic pentru o pagină atât de lungă, pentru că majoritatea componentelor **există deja în DS** și au
+fost refolosite ca atare, fără nicio adaptare:
+
+| Nevoie de conținut | Componentă DS refolosită |
+|---|---|
+| Progresul Fundamentals → Essentials → Mastery | `.tbe-path` / `.tbe-path-node` — există deja în `components.css`, construită exact pentru asta |
+| Citatul „Măiestria nu se fură..." | `.tbe-quote` |
+| Cifrele DEMO | `.tbe-grid.is-4` + `.tbe-stat` / `.tbe-stat-value` / `.tbe-stat-label` |
+| Tabelul de acces și tabelul de puncte | `.tbe-table`, cu `.is-num` pe coloana numerică |
+| Diploma fiecărui nivel | `.tbe-badge.is-action` |
+| Legătura cu nivelurile de status | `.tbe-badge.is-silver/.is-gold/.is-diamond` — badge-urile oficiale de loialitate |
+| Orientare în site | `.tbe-breadcrumb` |
+
+**Componente noi**, care nu există pe homepage și nu aveau echivalent în DS:
+- **`.eph-nivel`** — cardul de nivel EMPIRIA: număr + titlu + scop + listă „ce se învață" (bifă
+  mauve) + pașii de certificare (listă numerotată mică) + badge-ul diplomei. Trei pe rând pe
+  desktop, stivuite sub 1024px.
+- **`.eph-suprema`** — „ribbon"-ul diplomei supreme de la finalul fiecărei specializări. Mauve +
+  accent auriu, **deliberat diferit** de badge-urile Gold/Diamond ale programului de loialitate —
+  sunt concepte diferite (diplomă EMPIRIA ≠ nivel de status), nu trebuiau confundate vizual.
+- **`.eph-trio`** — cele trei caracteristici (fără termen-limită / progresul se păstrează / acces
+  cu abonament), icon + titlu + text, pe fundal `--tbe-bg-alt`.
+
+**Ritmul de fundal**, ales liber pentru că pagina nu urmează secvența homepage-ului: crem → crem
+(cu linie de separare, `.eph-divider`) → bej (Colorimetrie, `is-band`) → crem → bej (Cifre DEMO,
+a doua folosire a `is-band` — alternanță normală, nu greșeală) → crem → crem (CTA, cu linie).
+
+**Navbar:** `.is-locked` pe `<header>` — pagină fără hero, navbar solid din start (mecanismul exista
+deja în `site.js`, verificat înainte de folosire, nu presupus). Itemul „Empiria" din navbar și din
+sertarul mobil are `aria-current="page"` și duce la `empiria.html` (self-referențial); restul
+navbar-ului și footer-ul sunt copiate identic din `index.html`, neatinse — **`index.html` nu a
+fost modificat în acest pas.**
+
+**De completat înainte de lansare** (pe lângă restul listei din capul documentului):
+- Cifrele din secțiunea „EMPIRIA în cifre" sunt DEMO explicit marcate — vezi `.eph-demo-marcaj`
+- Conținutul pe niveluri al specializării **Colorimetrie** e placeholder rezonabil, marcat
+  „DE VALIDAT cu Adriana" în comentariul HTML de deasupra secțiunii — nu conținut oficial confirmat
+- `/program-loialitate`, `/abonament` nu există încă (aceleași rute placeholder ca peste tot în site)
 
 ## Ordinea de încărcare, acum că sunt mai multe fișiere
 

@@ -1,0 +1,362 @@
+/* ==========================================================================
+   THE BEAUTY EDUCATION — PAGINA „EMPIRIA" (empiria.html)
+   Se încarcă după site.css. Prefix propriu `eph-` (Empiria Pagina), ca să nu
+   se ciocnească cu `emp-*` din empiria.css (teaser-ul de pe homepage — alt
+   fișier, altă pagină, layout complet diferit).
+   --------------------------------------------------------------------------
+   FILOSOFIA ACESTUI FIȘIER: pagina asta e în cea mai mare parte componente
+   deja existente în design system, refolosite ca atare — .tbe-path pentru
+   progresul pe niveluri, .tbe-stat pentru cifre, .tbe-table pentru tabele,
+   .tbe-badge pentru nivelurile de loialitate, .tbe-quote și .tbe-card.is-mauve
+   pentru citat, .tbe-breadcrumb pentru orientare. Fișierul de față conține
+   DOAR ce nu exista deja: capul de pagină, cardul de nivel EMPIRIA (cu lista
+   de conținut + pașii de certificare + diploma), trioul de highlight-uri și
+   ritmul de bandă al paginii.
+
+   Ordinea de fundal: crem → crem (Coafuri) → bej (Colorimetrie, is-band) →
+   crem → bej (Cifre, is-band, a doua oară — desemnat, vezi nota din s§6) →
+   crem. Fiecare secțiune „Coafuri"/„Colorimetrie" e o unitate vizuală
+   completă, deci diferența de fundal le separă clar ca blocuri, nu doar
+   tipografic.
+   ========================================================================== */
+
+/* Divizor de secțiune — pentru granițe între secțiuni de ACELAȘI fundal
+   (crem → crem), unde diferența de culoare nu poate marca separarea. */
+.eph-divider { border-top: 1px solid var(--tbe-border-subtle); }
+
+/* Antetul de secțiune (h2 + lead) — spațiere consecventă înainte de conținut. */
+.eph-lead-spatiat { margin-bottom: var(--s-6); }
+/* Element care urmează unui bloc (ex. rândul de badge-uri) — spațiu deasupra. */
+.eph-spatiu-sus { margin-top: var(--s-5); }
+
+/* ==========================================================================
+   0 · CAP DE PAGINĂ
+   Fără fotografie — e o pagină de referință, nu o poartă de intrare. Puțin
+   aer în plus sub navbar (navbar-ul e solid din start, .is-locked).
+   ========================================================================== */
+.eph-header {
+  padding-top: var(--s-8);
+}
+.eph-header .tbe-breadcrumb { margin-bottom: var(--s-5); }
+.eph-header-inner {
+  max-width: 780px;
+}
+.eph-titlu {
+  font-size: var(--fs-display);
+  font-weight: var(--fw-light);
+  letter-spacing: var(--ls-tight);
+  margin-bottom: var(--s-3);
+}
+
+/* ==========================================================================
+   1 · CITATUL — „Măiestria nu se fură"
+   .tbe-card.is-mauve + .tbe-quote, ambele deja din DS. Aici doar geometria:
+   citatul stă ÎN card, nu cu border-left-ul lui implicit (ar dubla accentul).
+   ========================================================================== */
+.eph-citat-card { margin: var(--s-6) 0; }
+.eph-citat-card .tbe-quote {
+  border-left: 0;
+  padding: 0;
+  margin: 0;
+  max-width: none;
+  font-size: var(--fs-h2);
+}
+
+/* ==========================================================================
+   2 · BANDA DE SPECIALIZARE — Coafuri / Colorimetrie
+   Fiecare bloc complet: .tbe-path (progres) + cele 3 carduri de nivel +
+   diploma supremă. `is-band` pe .site-section face diferența de fundal.
+   ========================================================================== */
+.eph-specializare-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s-3);
+  flex-wrap: wrap;
+  margin-bottom: var(--s-5);
+}
+.eph-specializare-titlu {
+  margin: 0;
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-medium);
+}
+/* Numărul de ordine (01 / 02) — reper discret, editorial, nu decorativ gratuit. */
+.eph-specializare-nr {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  color: var(--tbe-text-subtle);
+  letter-spacing: var(--ls-wide);
+}
+
+.eph-path-wrap { margin-bottom: var(--s-7); }
+
+/* --- Cardurile de nivel ------------------------------------------------- */
+.eph-niveluri {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-3);
+  list-style: none;
+  margin: 0 0 var(--s-6);
+  padding: 0;
+}
+
+.eph-nivel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  background: var(--tbe-surface);
+  border: var(--bw-hair) solid var(--tbe-border-subtle);
+  border-radius: var(--tbe-radius-card);
+  padding: var(--s-5);
+}
+
+.eph-nivel-cap { display: flex; align-items: center; gap: var(--s-2); }
+.eph-nivel-num {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--tbe-action-soft);
+  color: var(--tbe-action);
+  font-family: var(--font-display);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-semibold);
+}
+.eph-nivel-titlu {
+  margin: 0;
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-semibold);
+}
+.eph-nivel-scop {
+  margin: 0;
+  font-size: var(--fs-sm);
+  line-height: var(--lh-body);
+  color: var(--tbe-text-muted);
+  max-width: none;
+}
+
+/* Lista „ce se învață" — bifă mauve, nu magenta: e informație, nu acțiune. */
+.eph-nivel-lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.eph-nivel-lista li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: var(--fs-sm);
+  color: var(--tbe-text);
+  line-height: 1.4;
+}
+.eph-nivel-lista svg {
+  flex: none;
+  width: 14px;
+  height: 14px;
+  margin-top: 3px;
+  color: var(--tbe-editorial);
+}
+
+/* Pașii de certificare — listă numerotată mică, sub conținutul nivelului. */
+.eph-pasi {
+  list-style: none;
+  margin: 0;
+  padding-top: var(--s-3);
+  border-top: 1px solid var(--tbe-border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.eph-pasi li {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: var(--fs-xs);
+  color: var(--tbe-text-muted);
+  line-height: 1.5;
+}
+.eph-pasi li::before {
+  content: attr(data-pas) '.';
+  flex: none;
+  font-family: var(--font-mono);
+  color: var(--tbe-text-subtle);
+  min-width: 1.4em;
+}
+.eph-pasi li strong { color: var(--tbe-text); font-weight: var(--fw-medium); }
+
+/* Diploma nivelului — badge cu conținutul componentei DS, nu vopsim din nou. */
+.eph-nivel-diploma { margin-top: auto; padding-top: var(--s-1); }
+
+/* --- Diploma supremă -----------------------------------------------------
+   Componentă nouă, nu există în DS: un „ribbon" discret care marchează
+   finalul specializării. Culoare mauve + accent auriu, INTENȚIONAT diferit
+   de badge-urile Gold/Diamond ale programului de loialitate — sunt concepte
+   diferite (diploma EMPIRIA ≠ nivelul de status), nu trebuie confundate. */
+.eph-suprema {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  padding: var(--s-4) var(--s-5);
+  background: var(--tbe-editorial-soft);
+  border: var(--bw-thin) solid var(--tbe-editorial-line);
+  border-radius: var(--tbe-radius-card);
+}
+.eph-suprema-icon {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--tbe-surface);
+  color: var(--c-gold-vivid);
+}
+.eph-suprema-icon svg { width: 20px; height: 20px; }
+.eph-suprema-titlu {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-h4);
+  font-weight: var(--fw-semibold);
+  color: var(--tbe-text);
+}
+.eph-suprema-text {
+  margin: 2px 0 0;
+  font-size: var(--fs-sm);
+  color: var(--tbe-text-muted);
+  max-width: none;
+}
+
+/* ==========================================================================
+   3 · TRIOUL DE CARACTERISTICI — fără termen, efortul se păstrează, acces
+   ========================================================================== */
+.eph-trio {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-3);
+  margin-block: var(--s-6);
+  list-style: none;
+  padding: 0;
+}
+.eph-trio-item {
+  padding: var(--s-5);
+  background: var(--tbe-bg-alt);
+  border-radius: var(--tbe-radius-card);
+}
+.eph-trio-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin-bottom: var(--s-3);
+  border-radius: 50%;
+  background: var(--tbe-surface);
+  color: var(--tbe-action);
+}
+.eph-trio-icon svg { width: 19px; height: 19px; }
+.eph-trio-titlu {
+  margin: 0 0 var(--s-1);
+  font-family: var(--font-display);
+  font-size: var(--fs-h4);
+  font-weight: var(--fw-semibold);
+}
+.eph-trio-text {
+  margin: 0;
+  font-size: var(--fs-sm);
+  color: var(--tbe-text-muted);
+  max-width: none;
+}
+
+/* ==========================================================================
+   4 · CIFRE DEMO — .tbe-grid.is-4 + .tbe-stat, cu marcaj vizibil de „demo"
+   ========================================================================== */
+.eph-demo-marcaj {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: var(--s-5);
+  padding: 5px 12px;
+  border-radius: var(--r-pill);
+  background: var(--tbe-warning-bg);
+  color: var(--tbe-warning);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-kicker);
+  text-transform: uppercase;
+}
+.eph-demo-marcaj::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--tbe-warning);
+}
+
+/* ==========================================================================
+   5 · PUNCTE DE LOIALITATE — tabel + legătura cu nivelurile de status
+   ========================================================================== */
+.eph-puncte-total {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s-2);
+  margin: var(--s-5) 0;
+  padding: var(--s-4) var(--s-5);
+  background: var(--tbe-action-soft);
+  border-radius: var(--tbe-radius-card);
+}
+.eph-puncte-total .eph-num-mare {
+  font-family: var(--font-display);
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-medium);
+  color: var(--tbe-action);
+  line-height: 1;
+}
+.eph-puncte-total span:last-child {
+  font-size: var(--fs-sm);
+  color: var(--tbe-text);
+}
+
+.eph-niveluri-status {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+  margin-top: var(--s-4);
+}
+
+/* ==========================================================================
+   6 · CTA FINAL — simplu, centrat, fără card magenta plin (acela e semnătura
+   CTA-ului de homepage; aici o variantă mai discretă, altfel diluăm efectul)
+   ========================================================================== */
+.eph-cta {
+  text-align: center;
+  max-width: 640px;
+  margin-inline: auto;
+}
+.eph-cta h2 { margin-bottom: var(--s-3); }
+.eph-cta-actions {
+  display: flex;
+  gap: var(--s-2);
+  justify-content: center;
+  margin-top: var(--s-5);
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .eph-niveluri { grid-template-columns: 1fr; }
+  .eph-trio { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .eph-titlu { font-size: var(--fs-h1); }
+  .eph-suprema { flex-direction: column; align-items: flex-start; }
+  .eph-cta-actions { flex-direction: column; }
+  .eph-cta-actions .tbe-btn { width: 100%; }
+}
