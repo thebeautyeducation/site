@@ -572,6 +572,25 @@ WordPress devine loop peste postările recente. Pe mobil imaginea trece deasupra
 **Articolele sunt DEMO** (titluri, extrase, poze provizorii, autori: Adriana Dobre / Echipa TBE);
 ambele linkuri duc la `/blog`, care nu există încă (dar e deja în footer).
 
+## Conformitatea cu design system-ul (audit + consolidare)
+
+Auditat contra regulilor DS și consolidat (verificat apoi pe site-ul live):
+
+- **Zero culori brute în CSS-ul de site.** Transparențele folosesc triplete-token
+  (`--site-rgb-*`, definite în site.css cu corespondența la paletă) prin `rgba(var(--site-rgb-ink), .5)`;
+  `#fff` → `--c-neutral-0`. Valorile brute există doar în definiții de tokeni — ca în tokens.css.
+- **`.tbe-rule.is-short` din DS** înlocuiește cele 7 clase-marcaj identice. O singură ajustare în
+  site.css (marginea: DS dă 32px sus/jos, în antete stă lipit sus). Atenție: fără ajustare, `<hr>`-ul
+  se **centrează** (margin-inline auto din UA) — de aceea regula e obligatorie.
+- **Un singur stil de număr editorial** (site.css) pentru `.cifra-num`, `.emp-num`, `.loy-multiplu`,
+  `.hc-num`, `.cta-num` — secțiunile păstrează doar dimensiunea; CTA rescrie culoarea.
+- **Font-size-urile pe scara DS**: nimic sub 12px (`--fs-xs`).
+- **`.cta-btn` e variantă `.tbe-btn`** (pattern-ul `--_bg/--_fg` al DS-ului), nu buton paralel.
+
+**Abateri care rămân, asumate**: radius/umbre/spacing pe 8px (cerute), anii magenta din timeline
+(ceruți), primitivele `--c-*` pe suprafețele permanent închise și pe fotografii (documentate în
+site.css — sigure cât timp tema e blocată pe light; la un eventual dark mode se revizuiesc).
+
 ## Ordinea de încărcare, acum că sunt mai multe fișiere
 
 ```html
