@@ -668,6 +668,25 @@ rotunjită + carduri UI flotante peste imagine), adaptată la brand:
   contrapunctul vizual al blocului „Iluzia Cunoașterii": nu e o a doua fotografie, e un moment
   tipografic în registru de dicționar, care rupe monotonia unui text lung fără să adauge încă o poză.
 
+### Revizuit după al treilea feedback
+
+**1 · Cardul de definiție a fost scos complet.** „Nu spune nimic" — era corect din punct de vedere
+al design-ului (contrapunct tipografic), dar fără conținut care să merite atenția vizitatorului. În
+locul lui, secțiunea „Iluzia Cunoașterii" primește un **comparator vizual Iluzia ↔ Empiria**
+(`.eph-vs`): două carduri mici, unul neutru (privești, colecționezi capturi) și unul magenta plin
+(exersezi, primești diploma) — rezumă vizual exact ce spunea proza alăturată, fără fapte noi.
+
+**2 · „EMPIRIA în cifre" s-a mutat imediat după Header.** Motivul ei era să dea greutate/dovadă
+devreme în pagină, nu îngropată spre finalul ei — acum e a doua secțiune, înainte de „Iluzia
+Cunoașterii". Consecință de fundal: cu cifrele mutate, secțiunea de puncte de loialitate ajunge
+crem-lângă-crem cu FAQ-ul de deasupra ei, așa că a primit `.eph-divider` (linie de graniță) ca să
+rămână separată vizual — vezi nota din ordinea de fundal, la începutul `empiria-pagina.css`.
+
+**3 · „Iluzia Cunoașterii" a fost refăcută** — era „plictisitoare", doar text curgător. Structura
+rămâne text stânga / element vizual dreapta (ca înainte), dar dreapta e acum comparatorul de mai
+sus în loc de cardul de definiție. Citatul mare („Măiestria nu se fură…") rămâne neschimbat, la fel
+și tot conținutul de text — nimic din fapte nu s-a schimbat, doar cum arată.
+
 ## Ordinea de încărcare, acum că sunt mai multe fișiere
 
 ```html

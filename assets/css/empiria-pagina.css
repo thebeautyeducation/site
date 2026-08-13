@@ -13,11 +13,13 @@
    de conținut + pașii de certificare + diploma), trioul de highlight-uri și
    ritmul de bandă al paginii.
 
-   Ordinea de fundal: crem → crem (Coafuri) → bej (Colorimetrie, is-band) →
-   crem → bej (Cifre, is-band, a doua oară — desemnat, vezi nota din s§6) →
-   crem. Fiecare secțiune „Coafuri"/„Colorimetrie" e o unitate vizuală
-   completă, deci diferența de fundal le separă clar ca blocuri, nu doar
-   tipografic.
+   Ordinea de fundal (revizuită — Cifre mutată imediat după Header): crem
+   (Header) → bej (Cifre, is-band) → crem (Iluzia Cunoașterii) → crem
+   (Coafuri, eph-divider — aceeași culoare, granița vine din linie) → bej
+   (Colorimetrie, is-band) → crem (FAQ) → crem (Puncte, eph-divider,
+   aceeași culoare ca FAQ) → crem (CTA, eph-divider). Fiecare secțiune
+   „Coafuri"/„Colorimetrie" e o unitate vizuală completă, deci diferența de
+   fundal le separă clar ca blocuri, nu doar tipografic.
    ========================================================================== */
 
 /* Divizor de secțiune — pentru granițe între secțiuni de ACELAȘI fundal
@@ -188,70 +190,79 @@
 }
 
 /* ==========================================================================
-   0b · CARDUL DE DEFINIȚIE — „EMPIRIA, substantiv, greacă veche"
-   Componentă nouă: contrapunctul vizual al blocului de text „Iluzia
-   Cunoașterii”. Nu e o a doua fotografie — e un moment tipografic, în
-   registrul dicționar/glosar, care rupe monotonia unui bloc lung de text
-   fără să adauge încă o poză.
+   0b · ILUZIA ↔ EMPIRIA — comparator vizual
+   Revizuit după feedback: cardul de definiție („Empiria, substantiv, greacă
+   veche…") a fost scos — „nu spune nimic”. În locul lui, un mini-comparator
+   care rezumă vizual exact ce spune proza alăturată (Iluzia = privești și
+   colecționezi capturi / Empiria = exersezi și primești diploma) — nu
+   introduce fapte noi, doar scanabile. Cardul „is-empiria” e singurul loc
+   din pagină, în afara butoanelor, unde fundalul magenta plin apare ca
+   suprafață — folosit intenționat, ca accent, nu ca tipar repetat.
    ========================================================================== */
-.eph-ce-este {
+.eph-iluzie {
   display: grid;
   grid-template-columns: 1.4fr 1fr;
   gap: var(--s-8);
   align-items: start;
-  margin-top: var(--s-9);
 }
-.eph-ce-este-text { min-width: 0; }
+.eph-iluzie-text { min-width: 0; }
 
-.eph-def-card {
-  position: sticky;
-  top: calc(var(--site-nav-h) + var(--s-5));
-  background: var(--tbe-decor);
-  border-radius: var(--tbe-radius-card);
-  padding: var(--s-6);
-}
-.eph-def-cuvant {
-  font-family: var(--font-display);
-  font-size: clamp(2.5rem, 2rem + 2vw, 3.5rem);
-  font-weight: var(--fw-light);
-  line-height: 1;
-  color: var(--tbe-text);
-  margin: 0;
-}
-.eph-def-gramatica {
-  display: block;
-  margin-top: var(--s-2);
-  font-family: var(--font-mono);
-  font-size: var(--fs-xs);
-  letter-spacing: var(--ls-wide);
-  color: var(--tbe-text-subtle);
-}
-.eph-def-sens {
-  margin: var(--s-3) 0 0;
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: var(--fs-h3);
-  color: var(--tbe-action);
-}
-.eph-def-versus {
+.eph-vs {
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: var(--s-2);
-  margin-top: var(--s-5);
-  padding-top: var(--s-5);
-  border-top: 1px solid var(--tbe-editorial-line);
 }
-.eph-def-versus .is-nu {
-  font-size: var(--fs-sm);
-  color: var(--tbe-text-subtle);
-  text-decoration: line-through;
-  text-decoration-color: var(--tbe-text-subtle);
+.eph-vs-card {
+  width: 100%;
+  padding: var(--s-6) var(--s-5);
+  border-radius: var(--tbe-radius-card);
+  text-align: center;
 }
-.eph-def-versus .is-da {
-  font-size: var(--fs-sm);
+.eph-vs-card.is-iluzie {
+  background: var(--tbe-decor);
+  border: var(--bw-hair) solid var(--tbe-border-subtle);
+}
+.eph-vs-card.is-empiria {
+  background: var(--tbe-action);
+  box-shadow: var(--site-shadow-card);
+}
+.eph-vs-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-bottom: var(--s-3);
+}
+.eph-vs-card.is-iluzie .eph-vs-icon { background: var(--tbe-surface); color: var(--tbe-text-subtle); }
+.eph-vs-card.is-empiria .eph-vs-icon { background: rgba(var(--site-rgb-alb), 0.16); color: var(--tbe-text-on-action); }
+.eph-vs-icon svg { width: 20px; height: 20px; }
+
+.eph-vs-titlu {
+  margin: 0 0 4px;
+  font-family: var(--font-display);
+  font-size: var(--fs-h4);
   font-weight: var(--fw-semibold);
-  color: var(--tbe-text);
 }
+.eph-vs-card.is-iluzie .eph-vs-titlu { color: var(--tbe-text); }
+.eph-vs-card.is-empiria .eph-vs-titlu { color: var(--tbe-text-on-action); }
+
+.eph-vs-text {
+  margin: 0;
+  font-size: var(--fs-sm);
+  line-height: var(--lh-body);
+  max-width: none;
+}
+.eph-vs-card.is-iluzie .eph-vs-text { color: var(--tbe-text-muted); }
+.eph-vs-card.is-empiria .eph-vs-text { color: rgba(var(--site-rgb-alb), 0.9); }
+
+.eph-vs-sageata {
+  display: inline-flex;
+  color: var(--tbe-text-subtle);
+}
+.eph-vs-sageata svg { width: 18px; height: 18px; }
 
 /* ==========================================================================
    1 · CITATUL — „Măiestria nu se fură"
@@ -551,8 +562,9 @@
   .eph-hero-visual { order: -1; max-width: 420px; margin-inline: auto; }
   .eph-float-card { max-width: 200px; }
 
-  .eph-ce-este { grid-template-columns: 1fr; }
-  .eph-def-card { position: static; }
+  .eph-iluzie { grid-template-columns: 1fr; }
+  .eph-vs { flex-direction: row; align-items: stretch; }
+  .eph-vs-sageata { transform: rotate(-90deg); }
 }
 @media (max-width: 640px) {
   .eph-titlu { font-size: var(--fs-h1); }
@@ -564,4 +576,7 @@
   .eph-suprema { flex-direction: column; align-items: flex-start; }
   .eph-cta-actions { flex-direction: column; }
   .eph-cta-actions .tbe-btn { width: 100%; }
+
+  .eph-vs { flex-direction: column; }
+  .eph-vs-sageata { transform: none; }
 }

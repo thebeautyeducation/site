@@ -202,14 +202,60 @@
         </div>
       </div>
 
-      <!-- ==========================================================================
-           1 · CE ESTE EMPIRIA — text + cardul de definiție
-           Sursă conținut: dosar p12, secțiunea 08.
-           ========================================================================== -->
-      <div class="eph-ce-este">
-        <div class="eph-ce-este-text">
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       1 · CIFRE — DEMO, de completat cu date reale
+       Mutată imediat după Header (feedback), ca dovadă de amploare înainte
+       de „Iluzia Cunoașterii".
+       ======================================================================== -->
+  <section class="site-section is-band" aria-labelledby="eph-cifre-titlu">
+    <div class="tbe-container">
+
+      <span class="eph-demo-marcaj">Date demo — de înlocuit</span>
+      <h2 id="eph-cifre-titlu">EMPIRIA în cifre</h2>
+      <p class="tbe-lead eph-lead-spatiat">
+        Cifrele de mai jos sunt provizorii. Se înlocuiesc cu numerele reale (din Circle sau
+        aplicația internă) înainte de lansare.
+      </p>
+
+      <div class="tbe-grid is-4">
+        <div class="tbe-stat">
+          <span class="tbe-stat-value">180+</span>
+          <span class="tbe-stat-label">Coafeze au început EMPIRIA</span>
+        </div>
+        <div class="tbe-stat">
+          <span class="tbe-stat-value">95</span>
+          <span class="tbe-stat-label">Diplome emise până acum</span>
+        </div>
+        <div class="tbe-stat">
+          <span class="tbe-stat-value">62%</span>
+          <span class="tbe-stat-label">Rată de finalizare — Fundamentals</span>
+        </div>
+        <div class="tbe-stat">
+          <span class="tbe-stat-value">2</span>
+          <span class="tbe-stat-label">Specializări disponibile</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       2 · CE ESTE EMPIRIA — „Iluzia Cunoașterii”
+       Refăcut după feedback („plictisitor, structura mai interactivă"):
+       cardul de definiție a fost scos (nu spunea nimic vizitatorilor). În
+       locul lui, un comparator vizual Iluzia ↔ Empiria, care rezumă în
+       formă scanabilă exact ce spunea textul în proză — nu adaugă fapte noi.
+       Sursă conținut: dosar p12, secțiunea 08.
+       ======================================================================== -->
+  <section class="site-section" aria-labelledby="eph-iluzie-titlu">
+    <div class="tbe-container">
+      <div class="eph-iluzie">
+        <div class="eph-iluzie-text">
           <hr class="tbe-rule">
-          <h2>Iluzia Cunoașterii</h2>
+          <h2 id="eph-iluzie-titlu">Iluzia Cunoașterii</h2>
           <p>
             Privești zeci de tutoriale. Salvezi sute de poze. Telefonul e plin de capturi de
             coafuri perfecte. Și totuși, când o clientă cere exact acea coafură, apare un gol în
@@ -237,23 +283,31 @@
           </p>
         </div>
 
-        <aside class="eph-def-card" aria-label="Originea numelui EMPIRIA">
-          <p class="eph-def-cuvant">Empiria</p>
-          <span class="eph-def-gramatica">substantiv, greacă veche</span>
-          <p class="eph-def-sens">= experiență</p>
-          <div class="eph-def-versus">
-            <span class="is-nu">teoria</span>
-            <span aria-hidden="true">→</span>
-            <span class="is-da">practică repetată, verificată</span>
+        <div class="eph-vs" role="group" aria-label="Diferența dintre Iluzie și Empiria">
+          <div class="eph-vs-card is-iluzie">
+            <span class="eph-vs-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+            </span>
+            <p class="eph-vs-titlu">Iluzia</p>
+            <p class="eph-vs-text">Privești, salvezi, colecționezi capturi. Informația trece prin tine — nu rămâne.</p>
           </div>
-        </aside>
+          <span class="eph-vs-sageata" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M6 14l6 6 6-6"/></svg>
+          </span>
+          <div class="eph-vs-card is-empiria">
+            <span class="eph-vs-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12.5 7 21l5-3 5 3-2-8.5"/><circle cx="12" cy="8" r="5"/></svg>
+            </span>
+            <p class="eph-vs-titlu">Empiria</p>
+            <p class="eph-vs-text">Exersezi, greșești, corectezi. Primești diploma care dovedește că știi.</p>
+          </div>
+        </div>
       </div>
-
     </div>
   </section>
 
   <!-- ========================================================================
-       2 · SPECIALIZAREA 01 — COAFURI
+       3 · SPECIALIZAREA 01 — COAFURI
        Sursă: dosar p12-13. Conținut detaliat complet în dosar.
        ======================================================================== -->
   <section class="site-section eph-divider" id="coafuri" aria-labelledby="eph-coafuri-titlu">
@@ -389,7 +443,7 @@
   </section>
 
   <!-- ========================================================================
-       3 · SPECIALIZAREA 02 — COLORIMETRIE
+       4 · SPECIALIZAREA 02 — COLORIMETRIE
        ⚠ DE VALIDAT cu Adriana: dosarul confirmă doar structura pe 3 niveluri
        (Fundamentals V / Essentials V / Mastery V, dosar p5) — NU detaliază ce
        tehnici de vopsit se învață la fiecare nivel. Textul de mai jos e o
@@ -524,7 +578,7 @@
   </section>
 
   <!-- ========================================================================
-       4 · FAQ — „Ce mai trebuie să știi"
+       5 · FAQ — „Ce mai trebuie să știi"
        Convertit din trio de carduri în acordeon, ca pe homepage (feedback:
        consecvență). Reutilizează .faq-* din faq.css; conținutul propriu e în
        assets/js/empiria-faq.js (EMPIRIA_FAQS), separat de faq.js — FAQ-ul de
@@ -561,46 +615,13 @@
   </section>
 
   <!-- ========================================================================
-       5 · CIFRE — DEMO, de completat cu date reale
-       ======================================================================== -->
-  <section class="site-section is-band" aria-labelledby="eph-cifre-titlu">
-    <div class="tbe-container">
-
-      <span class="eph-demo-marcaj">Date demo — de înlocuit</span>
-      <h2 id="eph-cifre-titlu">EMPIRIA în cifre</h2>
-      <p class="tbe-lead eph-lead-spatiat">
-        Cifrele de mai jos sunt provizorii. Se înlocuiesc cu numerele reale (din Circle sau
-        aplicația internă) înainte de lansare.
-      </p>
-
-      <div class="tbe-grid is-4">
-        <div class="tbe-stat">
-          <span class="tbe-stat-value">180+</span>
-          <span class="tbe-stat-label">Coafeze au început EMPIRIA</span>
-        </div>
-        <div class="tbe-stat">
-          <span class="tbe-stat-value">95</span>
-          <span class="tbe-stat-label">Diplome emise până acum</span>
-        </div>
-        <div class="tbe-stat">
-          <span class="tbe-stat-value">62%</span>
-          <span class="tbe-stat-label">Rată de finalizare — Fundamentals</span>
-        </div>
-        <div class="tbe-stat">
-          <span class="tbe-stat-value">2</span>
-          <span class="tbe-stat-label">Specializări disponibile</span>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ========================================================================
        6 · PUNCTE DE LOIALITATE
        Sursă: dosar p15 (tabelul EMPIRIA) + p17 (nivelurile de status, legătura
        cu Mastery → Diamond, statistica reală „3 traineri juniori").
+       eph-divider: fundalul crem se repetă din FAQ (secțiunea „Cifre" nu mai
+       stă între ele, a fost mutată sus) — granița redevine necesară.
        ======================================================================== -->
-  <section class="site-section" aria-labelledby="eph-puncte-titlu">
+  <section class="site-section eph-divider" aria-labelledby="eph-puncte-titlu">
     <div class="tbe-container">
 
       <h2 id="eph-puncte-titlu">Fiecare nivel finalizat, mai multe puncte</h2>
@@ -652,6 +673,7 @@
 
   <!-- ========================================================================
        7 · CTA FINAL
+       eph-divider: fundalul crem se repetă din secțiunea de puncte.
        ======================================================================== -->
   <section class="site-section is-tight eph-divider" aria-labelledby="eph-cta-titlu">
     <div class="tbe-container">
