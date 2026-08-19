@@ -82,7 +82,7 @@
             </ul>
             <p class="site-nav-sub-grup" id="grup-nav-online">Cursuri online</p>
             <ul class="site-nav-sub-lista" aria-labelledby="grup-nav-online">
-              <li><a href="/curs/atelierul-de-bucle" aria-current="page">Atelierul de Bucle</a></li>
+              <li><a href="curs-atelierul-de-bucle.html" aria-current="page">Atelierul de Bucle</a></li>
               <li><a href="/curs/color-mastery">Color Mastery</a></li>
               <li><a href="/curs/makeup-essentials">Makeup Essentials</a></li>
             </ul>
@@ -134,7 +134,7 @@
             </ul>
             <p class="site-drawer-sub-grup" id="grup-drawer-online">Cursuri online</p>
             <ul class="site-drawer-sub-lista" aria-labelledby="grup-drawer-online">
-              <li><a href="/curs/atelierul-de-bucle" aria-current="page">Atelierul de Bucle</a></li>
+              <li><a href="curs-atelierul-de-bucle.html" aria-current="page">Atelierul de Bucle</a></li>
               <li><a href="/curs/color-mastery">Color Mastery</a></li>
               <li><a href="/curs/makeup-essentials">Makeup Essentials</a></li>
             </ul>
@@ -155,10 +155,10 @@
 <main id="continut">
 
   <!-- ========================================================================
-       0 · HERO — split text/vizual, cu carduri flotante (pattern din empiria.html)
-       ►► POZA reală de rezultat (bucle before/after) înlocuiește galerie-3.jpg.
+       0 · HERO — abordare de vânzare: cârlig (stânga) + buy-box (dreapta).
+       Layout diferit de Empiria. ►► POZA reală de rezultat înlocuiește galerie-3.jpg.
        ======================================================================== -->
-  <section class="site-section adb-header" aria-labelledby="adb-titlu">
+  <section class="site-section adb-hero" aria-labelledby="adb-titlu">
     <div class="tbe-container">
 
       <nav class="tbe-breadcrumb" aria-label="Locul în site">
@@ -170,74 +170,75 @@
       </nav>
 
       <div class="adb-hero-grid">
-        <div class="adb-hero-text">
+
+        <!-- Stânga: cârligul de vânzare — titlu, argumente, dovadă socială. -->
+        <div class="adb-hero-lead">
           <span class="tbe-kicker">Curs online · Acces pe viață</span>
           <h1 class="adb-titlu" id="adb-titlu">Bucle și valuri care <em>rezistă</em>, pe orice tip de păr.</h1>
           <p class="tbe-lead">
-            22 de tehnici filmate pas cu pas, semnate de Adriana Dobre. Înveți să citești bucla,
-            s-o construiești și s-o fixezi — și s-o transformi în serviciul pe care clientele
-            ți-l cer din nou.
+            22 de tehnici filmate pas cu pas, semnate de Adriana Dobre — și tot ce trebuie ca
+            bucla să devină serviciul pe care clientele ți-l cer din nou.
           </p>
 
-          <div class="adb-hero-price">
-            <span class="adb-price-value">1.500 lei</span>
-            <span class="adb-price-note">plată unică · acces pe viață</span>
-          </div>
+          <ul class="adb-hero-puncte">
+            <li>Citești bucla din orice poză și o reproduci.</li>
+            <li>Fixarea care ține toată ziua — nu doar „mai mult fixativ".</li>
+            <li>Pe orice textură de păr, de la începătoare la avansată.</li>
+          </ul>
 
-          <div class="adb-hero-actions">
-            <a class="tbe-btn is-primary is-lg" href="#oferta">Vreau acces</a>
-            <a class="tbe-btn is-secondary is-lg" href="#continut-curs">Ce conține cursul</a>
-          </div>
-
-          <div class="adb-features">
-            <span class="adb-feature">
-              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3.5" width="12" height="9" rx="1.5"/><path d="m6.5 6.5 3 1.5-3 1.5z" fill="currentColor" stroke="none"/></svg>
-              <span>22 video-uri (~1h40min)</span>
-            </span>
-            <span class="adb-feature">
-              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="6" r="3.5"/><path d="M6 9.5 5 14l3-1.8L11 14l-1-4.5"/></svg>
-              <span>2 diplome</span>
-            </span>
-            <span class="adb-feature">
-              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 1.3"/></svg>
-              <span>Acces pe viață</span>
-            </span>
-          </div>
-
-          <div class="adb-social">
+          <div class="adb-hero-proof">
             <span class="tbe-avatar-group">
               <span class="tbe-avatar is-sm"><img src="assets/poze/placeholder/marturie-1.jpg" alt="" width="64" height="64" loading="lazy" decoding="async"></span>
               <span class="tbe-avatar is-sm"><img src="assets/poze/placeholder/marturie-2.jpg" alt="" width="64" height="64" loading="lazy" decoding="async"></span>
               <span class="tbe-avatar is-sm"><img src="assets/poze/placeholder/marturie-3.jpg" alt="" width="64" height="64" loading="lazy" decoding="async"></span>
             </span>
-            <span class="adb-social-text">
+            <span class="adb-hero-proof-text">
               <strong>Predat de Adriana Dobre</strong>
               <span>3.500+ cursante în 5 ani · fondatoarea The Beauty Education</span>
             </span>
           </div>
         </div>
 
-        <div class="adb-hero-visual">
-          <div class="adb-hero-blob">
+        <!-- Dreapta: cardul de achiziție (buy-box) — abordarea de vânzare. -->
+        <aside class="adb-buybox" aria-labelledby="adb-buybox-titlu">
+          <div class="adb-buybox-media">
             <!-- ►► REZULTAT REAL (bucle/valuri) — înlocuiește placeholder-ul. -->
             <img src="assets/poze/placeholder/galerie-3.jpg" alt="Bucle realizate în cadrul cursului Atelierul de Bucle"
-                 width="900" height="1125" fetchpriority="high" decoding="async">
+                 width="720" height="480" fetchpriority="high" decoding="async">
+            <span class="adb-buybox-flag">Acces pe viață</span>
           </div>
 
-          <div class="adb-float-card is-top" aria-hidden="true">
-            <span class="adb-float-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M9 12.5 7 21l5-3 5 3-2-8.5"/></svg>
-            </span>
-            <span><strong>2 diplome</strong><span>Participare + Expert în Bucle</span></span>
-          </div>
+          <div class="adb-buybox-body">
+            <h2 class="tbe-sr-only" id="adb-buybox-titlu">Înscriere la cursul Atelierul de Bucle</h2>
 
-          <div class="adb-float-card is-bottom" aria-hidden="true">
-            <span class="adb-float-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M5 8c3-2 5 2 7 0s4-2 7 0"/></svg>
-            </span>
-            <span><strong>Acces pe viață</strong><span>revii oricând la lecții</span></span>
+            <div class="adb-buybox-pret">
+              <span class="adb-buybox-eticheta">Curs complet</span>
+              <span class="adb-buybox-val">1.500 lei</span>
+              <span class="adb-buybox-note">plată unică · fără abonament</span>
+            </div>
+
+            <ul class="adb-buybox-includes">
+              <li>22 de video-uri de exercițiu (~1h40min)</li>
+              <li>Două diplome: Participare + Expert în Bucle</li>
+              <li>Tehnica buclelor voluminoase cu bandă invizibilă</li>
+              <li>Ebook rezumat + curs de fotografie mobilă</li>
+              <li>Acces pe viață + suport în comunitatea Circle</li>
+            </ul>
+
+            <a class="tbe-btn is-primary is-lg is-block adb-buybox-cta" href="#" data-checkout>Vreau acces</a>
+
+            <ul class="adb-buybox-reasig">
+              <li>Voucherul nu expiră</li>
+              <li>Diplomă la finalizare</li>
+            </ul>
+
+            <p class="adb-buybox-secure">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="10" height="6.5" rx="1.5"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2"/></svg>
+              Plată securizată prin Stripe
+            </p>
           </div>
-        </div>
+        </aside>
+
       </div>
 
     </div>
@@ -634,7 +635,7 @@
         <ul class="site-footer-list">
           <li><a href="/curs/bazele-coafurilor-texturate">Bazele Coafurilor Texturate</a></li>
           <li><a href="/curs/coafuri-comerciale">Coafuri Comerciale</a></li>
-          <li><a href="/curs/atelierul-de-bucle" aria-current="page">Atelierul de Bucle</a></li>
+          <li><a href="curs-atelierul-de-bucle.html" aria-current="page">Atelierul de Bucle</a></li>
           <li><a href="/curs/color-mastery">Color Mastery</a></li>
           <li><a href="/curs/makeup-essentials">Makeup Essentials</a></li>
         </ul>
