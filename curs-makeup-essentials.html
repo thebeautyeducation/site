@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<!-- data-theme="light" — ca tot site-ul: DS-ul are dark mode automat, aici e blocat pe light. -->
+<html lang="ro" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Makeup Essentials — curs online de machiaj cu Cosmina Ducu | The Beauty Education</title>
+  <meta name="description" content="10 machiaje esențiale, filmate pas cu pas, plus un kit TopFace de 16 produse (valoare 600 lei) livrat la tine. Curs online cu Cosmina Ducu — 1.200 lei, acces nelimitat.">
+  <meta name="theme-color" content="#FAF4EF">
+
+  <!-- Open Graph / Twitter — previzualizarea la partajare (WhatsApp, Instagram, Facebook).
+       og:image e absolut către distribuția curentă (GitHub Pages). La portarea în WordPress,
+       plugin-ul SEO (Yoast/RankMath) preia OG + canonical + og:url cu domeniul de producție.
+       ►► de înlocuit cu o imagine de share proprie cursului (rezultat makeup 1200×630). -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="The Beauty Education">
+  <meta property="og:locale" content="ro_RO">
+  <meta property="og:title" content="Makeup Essentials — curs online de machiaj cu Cosmina Ducu">
+  <meta property="og:description" content="10 machiaje esențiale + kit TopFace de 16 produse (valoare 600 lei) livrat la tine. Acces nelimitat — 1.200 lei.">
+  <meta property="og:image" content="https://thebeautyeducation.github.io/site/assets/poze/hero-comunitate-1600.jpg">
+  <meta property="og:image:width" content="1600">
+  <meta property="og:image:height" content="1067">
+  <meta property="og:image:alt" content="Rezultat din cursul Makeup Essentials">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Makeup Essentials — curs online de machiaj cu Cosmina Ducu">
+  <meta name="twitter:description" content="10 machiaje esențiale + kit TopFace de 16 produse (valoare 600 lei) livrat la tine. Acces nelimitat — 1.200 lei.">
+  <meta name="twitter:image" content="https://thebeautyeducation.github.io/site/assets/poze/hero-comunitate-1600.jpg">
+
+  <link rel="icon" href="assets/logo/tbe-icon-color.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonturi/Jost%5Bwght%5D.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/fonturi/CormorantGaramond%5Bwght%5D.ttf" as="font" type="font/ttf" crossorigin>
+  <!-- Hero-ul paginii (LCP) — cerut din <head>. ►► de înlocuit cu poza reală de rezultat makeup. -->
+  <link rel="preload" as="image" href="assets/poze/placeholder/galerie-2.jpg" fetchpriority="high">
+
+  <!-- ORDINEA CONTEAZĂ: tokens → components → site → faq → pagină -->
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="stylesheet" href="assets/css/faq.css">
+  <link rel="stylesheet" href="assets/css/makeup-essentials.css">
+</head>
+
+<body>
+
+<a class="site-skip" href="#continut">Sari la conținut</a>
+
+<!-- NAVBAR MINIMAL — landing de vânzare (attention ratio 1:1): doar logo + un
+     singur CTA, fără meniu / dropdown / sertar. Linkurile CĂTRE pagină rămân. -->
+<header class="site-nav is-locked mke-nav-min" data-site-nav>
+  <div class="site-nav-inner tbe-container">
+
+    <a class="site-nav-brand" href="index.html" aria-label="The Beauty Education — prima pagină">
+      <img class="site-nav-logo is-white" src="assets/logo/tbe-orizontal-alb.svg"
+           alt="The Beauty Education" width="150" height="40">
+      <img class="site-nav-logo is-color" src="assets/logo/tbe-orizontal-color.svg"
+           alt="" aria-hidden="true" width="150" height="40">
+    </a>
+
+    <a class="tbe-btn is-primary site-nav-cta" href="#oferta">Vreau cursul</a>
+
+  </div>
+</header>
+
+<main id="continut">
+
+  <!-- ========================================================================
+       0 · HERO — cârlig (stânga) + buy-box (dreapta). Landing de vânzare.
+       ►► POZA reală de rezultat (makeup) înlocuiește galerie-2.jpg.
+       ======================================================================== -->
+  <section class="site-section mke-hero" aria-labelledby="mke-titlu">
+    <div class="tbe-container">
+
+      <div class="mke-hero-grid">
+
+        <div class="mke-hero-lead">
+          <span class="tbe-kicker">Curs online de machiaj · Acces nelimitat + kit cadou</span>
+          <h1 class="mke-titlu" id="mke-titlu">10 machiaje esențiale, <em>plus kitul</em> cu care le faci.</h1>
+          <p class="tbe-lead">
+            10 tutoriale profesionale de machiaj, filmate pas cu pas, cu Cosmina Ducu — și un kit
+            complet TopFace, livrat la tine, cu exact produsele folosite în lecții.
+          </p>
+
+          <ul class="mke-hero-puncte">
+            <li>10 look-uri în trend, cu cerere pe piață — de la natural la glam.</li>
+            <li>Kit cadou TopFace: 16 produse, valoare 600 lei, livrate la tine.</li>
+            <li>Le înveți de la zero sau rafinezi ce știi deja, în ritmul tău.</li>
+          </ul>
+
+          <div class="mke-hero-proof">
+            <span class="tbe-avatar-group">
+              <span class="tbe-avatar is-sm"><img src="assets/poze/placeholder/marturie-1.jpg" alt="" width="64" height="64" loading="lazy" decoding="async"></span>
+              <span class="tbe-avatar is-sm"><img src="assets/poze/placeholder/marturie-2.jpg" alt="" width="64" height="64" loading="lazy" decoding="async"></span>
+              <span class="tbe-avatar is-sm"><img src="assets/poze/placeholder/marturie-3.jpg" alt="" width="64" height="64" loading="lazy" decoding="async"></span>
+            </span>
+            <span class="mke-hero-proof-text">
+              <strong>Predat de Cosmina Ducu</strong>
+              <span>makeup artist &amp; trainer · The Beauty Education</span>
+            </span>
+          </div>
+        </div>
+
+        <!-- Buy-box — preț 1.200 lei, cu kitul cadou ca valoare inclusă. -->
+        <aside class="mke-buybox" aria-labelledby="mke-buybox-titlu">
+          <div class="mke-buybox-media">
+            <!-- ►► REZULTAT REAL (makeup) — înlocuiește placeholder-ul. -->
+            <img src="assets/poze/placeholder/galerie-2.jpg" alt="Rezultat de machiaj din cursul Makeup Essentials"
+                 width="720" height="480" fetchpriority="high" decoding="async">
+            <span class="mke-buybox-flag">Kit cadou · 600 lei</span>
+          </div>
+
+          <div class="mke-buybox-body">
+            <h2 class="tbe-sr-only" id="mke-buybox-titlu">Înscriere la cursul Makeup Essentials</h2>
+
+            <div class="mke-buybox-pret">
+              <span class="mke-buybox-eticheta">Curs complet</span>
+              <span class="mke-buybox-val">1.200 lei</span>
+              <span class="mke-buybox-note">plată unică · kit cadou inclus (600 lei)</span>
+            </div>
+
+            <ul class="mke-buybox-includes">
+              <li>10 tutoriale video (10 look-uri diferite)</li>
+              <li>Kit TopFace: 16 produse, valoare 600 lei</li>
+              <li>Kitul livrat fizic la adresa ta</li>
+              <li>Acces nelimitat · revezi de câte ori vrei</li>
+            </ul>
+
+            <a class="tbe-btn is-primary is-lg is-block mke-buybox-cta" href="#oferta">Vreau cursul</a>
+
+            <ul class="mke-buybox-reasig">
+              <li>Acces nelimitat</li>
+              <li>Kit livrat în 1-3 zile</li>
+            </ul>
+
+            <p class="mke-buybox-secure">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="10" height="6.5" rx="1.5"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2"/></svg>
+              Plată securizată prin Stripe
+            </p>
+          </div>
+        </aside>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       0b · BARĂ DE DOVADĂ SOCIALĂ (sub hero) — reducere imediată a riscului.
+       ======================================================================== -->
+  <section class="mke-proofbar" aria-label="Dovadă">
+    <div class="tbe-container mke-proofbar-inner">
+      <div class="mke-proof"><strong>10</strong><span>tutoriale de machiaj</span></div>
+      <div class="mke-proof"><strong>16</strong><span>produse în kitul cadou</span></div>
+      <div class="mke-proof"><strong>600 lei</strong><span>valoarea kitului TopFace</span></div>
+      <div class="mke-proof"><strong>Nelimitat</strong><span>acces · revezi oricând</span></div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       1 · PROBLEMA — charcoal, editorial
+       ======================================================================== -->
+  <section class="site-section mke-problema" aria-labelledby="mke-problema-titlu">
+    <div class="tbe-container">
+      <div class="mke-problema-inner">
+        <span class="tbe-kicker">La început e greu</span>
+        <h2 id="mke-problema-titlu">Să machiezi e mai ușor decât crezi — dacă știi de unde începi.</h2>
+        <p class="mke-problema-lead">
+          La început de drum, blocajul e mereu același: prea multe look-uri, prea multe produse, și
+          nicio ordine.
+        </p>
+        <ul class="mke-problema-lista">
+          <li><strong>Nu știi ce look să alegi.</strong> Fiecare clientă cere altceva, iar tu nu ai un repertoriu clar pe care să-l propui.</li>
+          <li><strong>Nu știi ce produse să folosești.</strong> Cumperi la întâmplare și tot îți lipsește ceva la momentul potrivit.</li>
+          <li><strong>Rezultatul nu ține.</strong> Fardurile se difuzează prost, tenul „cade", iar machiajul nu rezistă până seara.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       1b · PENTRU CINE E — auto-calificare (cele 3 profiluri din pagina reală). Bej.
+       ======================================================================== -->
+  <section class="site-section is-band mke-cine" aria-labelledby="mke-cine-titlu">
+    <div class="tbe-container">
+      <div class="tbe-section-head is-center">
+        <span class="tbe-kicker">Pentru cine e</span>
+        <h2 id="mke-cine-titlu">Vezi dacă e pentru tine</h2>
+      </div>
+
+      <div class="mke-cine-grid">
+        <div class="mke-cine-col is-da">
+          <h3 class="mke-cine-titlu-col">E pentru tine dacă…</h3>
+          <ul class="mke-cine-lista">
+            <li>Ești pasionată de makeup și aștepți o oportunitate să transformi pasiunea în meserie, dar nu știi de unde să începi.</li>
+            <li>Ești la început de drum — ai făcut primii pași, dar încă te simți nesigură și nepregătită.</li>
+            <li>Ești deja makeup artist și vrei să-ți diversifici portofoliul (plus produse de 600 lei).</li>
+          </ul>
+        </div>
+        <div class="mke-cine-col is-nu">
+          <h3 class="mke-cine-titlu-col">NU e pentru tine dacă…</h3>
+          <ul class="mke-cine-lista">
+            <li>Cauți doar produse, nu și tehnica din spatele fiecărui look.</li>
+            <li>Nu ești dispusă să exersezi look-urile pe tine sau pe cliente.</li>
+            <li>Ai deja un repertoriu complet și lucrezi constant toate stilurile.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       2 · PROMISIUNEA — crem
+       ======================================================================== -->
+  <section class="site-section mke-promisiune" aria-labelledby="mke-promisiune-titlu">
+    <div class="tbe-container">
+      <div class="tbe-section-head is-center">
+        <span class="tbe-kicker">Ce se schimbă</span>
+        <h2 id="mke-promisiune-titlu">Nivelul următor ca makeup artist e aici.</h2>
+        <p class="tbe-lead">
+          Informații structurate, un trainer recunoscut care îți arată exact ce să faci, și look-uri
+          în trend, realizate cu produsele pe care le primești în kit. Termini cursul cu un repertoriu
+          clar de 10 machiaje pe care le poți oferi din prima clientelor tale.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       3 · CE ÎNVEȚI — cele 10 tutoriale (look-uri). Bej.
+       ======================================================================== -->
+  <section class="site-section is-band mke-looks" aria-labelledby="mke-looks-titlu">
+    <div class="tbe-container">
+      <div class="tbe-section-head">
+        <span class="tbe-kicker">Ce înveți</span>
+        <h2 id="mke-looks-titlu">10 tutoriale, 10 look-uri diferite</h2>
+        <p class="tbe-lead">Toate în trend și cu cerere pe piață — pentru cele mai întâlnite ocazii. Se urmăresc oricând, în ritmul tău.</p>
+      </div>
+
+      <div class="mke-looks-grid">
+        <div class="mke-look"><span class="mke-look-num">01</span><span class="mke-look-nume">Cat Eye Look</span></div>
+        <div class="mke-look"><span class="mke-look-num">02</span><span class="mke-look-nume">Bronzy Look</span></div>
+        <div class="mke-look"><span class="mke-look-num">03</span><span class="mke-look-nume">Bridal Look</span></div>
+        <div class="mke-look"><span class="mke-look-num">04</span><span class="mke-look-nume">Natural Look</span></div>
+        <div class="mke-look"><span class="mke-look-num">05</span><span class="mke-look-nume">Soft Bridal Look</span></div>
+        <div class="mke-look"><span class="mke-look-num">06</span><span class="mke-look-nume">Pin-Up Look</span></div>
+        <div class="mke-look"><span class="mke-look-num">07</span><span class="mke-look-nume">Colorful Look</span></div>
+        <div class="mke-look"><span class="mke-look-num">08</span><span class="mke-look-nume">Spot-light Look</span></div>
+        <div class="mke-look"><span class="mke-look-num">09</span><span class="mke-look-nume">Smokey Eye Look</span></div>
+        <div class="mke-look"><span class="mke-look-num">10</span><span class="mke-look-nume">Graphic Look</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       4 · KITUL CADOU — cele 16 produse TopFace (valoare 600 lei). Crem.
+       ======================================================================== -->
+  <section class="site-section mke-kit" id="continut-curs" aria-labelledby="mke-kit-titlu">
+    <div class="tbe-container">
+      <div class="tbe-section-head">
+        <span class="tbe-kicker">Kit cadou · valoare 600 lei</span>
+        <h2 id="mke-kit-titlu">Primești și produsele, nu doar tehnica</h2>
+        <p class="tbe-lead">
+          Un kit complet TopFace, livrat la tine acasă — exact produsele folosite în tutoriale, ca să
+          reproduci fiecare look fără să cauți altceva.
+        </p>
+      </div>
+
+      <ul class="mke-kit-grid">
+        <li class="mke-kit-item">Fond de ten super rezistent</li>
+        <li class="mke-kit-item">Contur și Iluminator Instyle</li>
+        <li class="mke-kit-item">Fard de obraz</li>
+        <li class="mke-kit-item">Apă micelară pentru strălucire</li>
+        <li class="mke-kit-item">Contur lichid PROHD, textură fină</li>
+        <li class="mke-kit-item">Fard de obraz PROHD Hypnotic</li>
+        <li class="mke-kit-item">Ser facial cu acid hialuronic</li>
+        <li class="mke-kit-item">Pudră pulbere de față Instyle</li>
+        <li class="mke-kit-item">Spray fixator machiaj mat</li>
+        <li class="mke-kit-item">Creion de ochi rezistent la apă</li>
+        <li class="mke-kit-item">Rimel 3 Dimension Volume</li>
+        <li class="mke-kit-item">Paletă de farduri de pleoape</li>
+        <li class="mke-kit-item">Creion de buze rezistent la apă</li>
+        <li class="mke-kit-item">Ruj lichid Extreme Matte Instyle 12h</li>
+        <li class="mke-kit-item">Ceară pentru aranjarea sprâncenelor</li>
+        <li class="mke-kit-item">Creion de ochi Stylo Kajal rezistent la transfer</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       5 · CUM FUNCȚIONEAZĂ — 4 pași (achiziție → kit livrat). Bej.
+       ======================================================================== -->
+  <section class="site-section is-band mke-pasi-sectiune" aria-labelledby="mke-pasi-titlu">
+    <div class="tbe-container">
+      <div class="tbe-section-head is-center">
+        <span class="tbe-kicker">Cum funcționează</span>
+        <h2 id="mke-pasi-titlu">De la înscriere la kit, în 4 pași</h2>
+      </div>
+
+      <ol class="mke-pasi">
+        <li class="mke-pas">
+          <span class="mke-pas-num">1</span>
+          <p>Achiziționezi cursul și ai acces instant la cele 10 tutoriale.</p>
+        </li>
+        <li class="mke-pas">
+          <span class="mke-pas-num">2</span>
+          <p>Te contactăm pentru adresa de livrare a kitului cadou.</p>
+        </li>
+        <li class="mke-pas">
+          <span class="mke-pas-num">3</span>
+          <p>Îți trimitem kitul TopFace, în valoare de 600 lei, în 1-3 zile lucrătoare.</p>
+        </li>
+        <li class="mke-pas">
+          <span class="mke-pas-num">4</span>
+          <p>Faci unboxing și te bucuri de curs și de comunitatea The Beauty Education.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       6 · TRAINERUL — Cosmina Ducu — crem, split poză + bio (bio real din pagină).
+       ►► POZA reală a Cosminei.
+       ======================================================================== -->
+  <section class="site-section mke-trainer" aria-labelledby="mke-trainer-titlu">
+    <div class="tbe-container">
+      <div class="mke-trainer-grid">
+        <div class="mke-trainer-foto">
+          <!-- ►► POZA reală a Cosminei — înlocuiește placeholder-ul. -->
+          <img src="assets/poze/placeholder/card-4.jpg" alt="Cosmina Ducu, makeup artist și trainer The Beauty Education"
+               width="900" height="1000" loading="lazy" decoding="async">
+        </div>
+        <div class="mke-trainer-text">
+          <span class="tbe-kicker">Cine te învață</span>
+          <h2 id="mke-trainer-titlu">Cosmina Ducu</h2>
+          <p class="tbe-role">Makeup artist &amp; trainer · The Beauty Education</p>
+          <p>
+            Makeup artist și trainer profesionist din România, activă de peste 7-8 ani în industria
+            frumuseții. Specializată pe machiaje de salon, comerciale, de mireasă și stiluri glam,
+            e recunoscută pentru tehnica curată, atenția la detalii și felul în care pune în valoare
+            trăsăturile naturale ale fiecărei persoane.
+          </p>
+          <p>
+            Ca trainer, susține cursuri de perfecționare și masterclass-uri. Cursantele o apreciază
+            pentru modul clar în care explică tehnicile și pentru „tips &amp; tricks"-urile practice —
+            pregătirea tenului, difuzarea fardurilor și rezistența machiajului.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       7 · REZULTATE REALE (before/after makeup) — bej (is-band)
+       ►► GALERIE DEMO — de înlocuit cu rezultate reale.
+       ======================================================================== -->
+  <section class="site-section is-band mke-rezultate" aria-labelledby="mke-rezultate-titlu">
+    <div class="tbe-container">
+      <div class="tbe-section-head">
+        <span class="tbe-kicker">Rezultate reale</span>
+        <h2 id="mke-rezultate-titlu">Look-urile pe care le vei ști să faci</h2>
+        <p class="tbe-lead mke-demo-note">Imagini demonstrative — de înlocuit cu rezultate reale ale cursantelor.</p>
+      </div>
+
+      <ul class="mke-galerie">
+        <li><figure class="mke-rezultat"><img src="assets/poze/placeholder/galerie-1.jpg" alt="" width="800" height="1067" loading="lazy" decoding="async"></figure></li>
+        <li><figure class="mke-rezultat"><img src="assets/poze/placeholder/galerie-3.jpg" alt="" width="800" height="1067" loading="lazy" decoding="async"></figure></li>
+        <li><figure class="mke-rezultat"><img src="assets/poze/placeholder/galerie-5.jpg" alt="" width="800" height="1067" loading="lazy" decoding="async"></figure></li>
+        <li><figure class="mke-rezultat"><img src="assets/poze/placeholder/galerie-8.jpg" alt="" width="800" height="1067" loading="lazy" decoding="async"></figure></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       8 · TESTIMONIALE — crem
+       ►► CITATE REALE — de completat cu textele reale ale cursantelor.
+       ======================================================================== -->
+  <section class="site-section mke-marturii" aria-labelledby="mke-marturii-titlu">
+    <div class="tbe-container">
+      <div class="tbe-section-head">
+        <span class="tbe-kicker">Din comunitate</span>
+        <h2 id="mke-marturii-titlu">Ce spun cursantele</h2>
+        <p class="tbe-lead mke-demo-note">Sloturi pentru citate reale — de completat cu mărturiile cursantelor (cu acordul lor).</p>
+      </div>
+
+      <div class="mke-marturii-grid">
+        <figure class="mke-marturie">
+          <blockquote class="tbe-quote">[Citat real — despre cum a pornit de la zero cu cele 10 look-uri.]</blockquote>
+          <figcaption class="mke-marturie-autor">
+            <span class="tbe-avatar is-sm" aria-hidden="true">C</span>
+            <span><strong>[Nume cursantă]</strong><span>[Oraș]</span></span>
+          </figcaption>
+        </figure>
+        <figure class="mke-marturie">
+          <blockquote class="tbe-quote">[Citat real — despre kitul cadou și cât de mult a contat.]</blockquote>
+          <figcaption class="mke-marturie-autor">
+            <span class="tbe-avatar is-sm" aria-hidden="true">M</span>
+            <span><strong>[Nume cursantă]</strong><span>[Oraș]</span></span>
+          </figcaption>
+        </figure>
+        <figure class="mke-marturie">
+          <blockquote class="tbe-quote">[Citat real — despre cum și-a diversificat portofoliul de cliente.]</blockquote>
+          <figcaption class="mke-marturie-autor">
+            <span class="tbe-avatar is-sm" aria-hidden="true">A</span>
+            <span><strong>[Nume cursantă]</strong><span>[Oraș]</span></span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       9 · OFERTA & PREȚ — card magenta, preț unic 1.200 lei + kit cadou 600 lei.
+       Crem + mke-divider (crem → crem de la Mărturii).
+       ======================================================================== -->
+  <section class="site-section is-tight mke-divider mke-oferta-sectiune" id="oferta" aria-labelledby="mke-oferta-titlu">
+    <div class="tbe-container">
+      <div class="mke-oferta">
+        <div class="mke-oferta-corp">
+          <span class="mke-oferta-kicker">Curs online · acces nelimitat + kit cadou</span>
+          <h2 id="mke-oferta-titlu">Makeup Essentials</h2>
+          <p class="mke-oferta-sub">
+            10 tutoriale, kitul TopFace de 16 produse (valoare 600 lei) livrat la tine, plus acces nelimitat.
+          </p>
+
+          <ul class="mke-oferta-lista">
+            <li>10 tutoriale video (10 look-uri)</li>
+            <li>Kit TopFace: 16 produse, 600 lei</li>
+            <li>Kitul livrat fizic acasă</li>
+            <li>Trainer: Cosmina Ducu</li>
+            <li>Acces nelimitat, revezi oricând</li>
+            <li>Suport în comunitatea Circle</li>
+          </ul>
+        </div>
+
+        <div class="mke-oferta-pret">
+          <span class="mke-oferta-pret-eticheta">Investiția ta</span>
+          <span class="mke-oferta-pret-val">1.200 lei</span>
+          <span class="mke-oferta-pret-note">plată unică · kit inclus (600 lei)</span>
+          <a class="tbe-btn is-lg is-block mke-oferta-cta" href="#" data-checkout>Vreau cursul</a>
+          <ul class="mke-oferta-reasig">
+            <li>Acces nelimitat</li>
+            <li>Kit livrat în 1-3 zile</li>
+            <li>Plată securizată</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       10 · FAQ — bej (is-band). Se umple din makeup-essentials.js (MK_FAQS).
+       ======================================================================== -->
+  <section class="site-section is-band" id="intrebari" aria-labelledby="mke-faq-titlu">
+    <div class="tbe-container">
+      <span class="tbe-kicker">Întrebări frecvente</span>
+      <h2 id="mke-faq-titlu">Ce mai vrei să știi înainte să te înscrii</h2>
+      <p class="tbe-lead mke-faq-lead">Kit, plată, acces — pe scurt.</p>
+
+      <ol class="faq-lista" data-mk-faq></ol>
+
+      <noscript>
+        <dl class="faq-noscript">
+          <dt>Când primesc kitul cadou de 600 lei?</dt>
+          <dd>După achiziție, în 1-3 zile lucrătoare, un membru al echipei te contactează pentru adresa de livrare.</dd>
+          <dt>Cum pot plăti cursul?</dt>
+          <dd>Cu cardul, într-o singură tranșă de 1.200 lei.</dd>
+          <dt>Am nevoie de o aplicație pentru curs?</dt>
+          <dd>Nu neapărat, dar îți recomandăm aplicația de mobil a comunității, ca să înveți mai ușor.</dd>
+          <dt>Cât timp am acces la curs?</dt>
+          <dd>Acces nelimitat — îl revezi de câte ori ai nevoie.</dd>
+        </dl>
+      </noscript>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       11 · CTA FINAL — crem + divizor
+       ======================================================================== -->
+  <section class="site-section is-tight mke-divider mke-cta-final" aria-labelledby="mke-cta-titlu">
+    <div class="tbe-container">
+      <div class="mke-cta-final-inner">
+        <h2 id="mke-cta-titlu">Un repertoriu de 10 look-uri și kitul cu care le faci.</h2>
+        <p class="tbe-lead">Începe azi — acces nelimitat, kit cadou livrat la tine.</p>
+        <a class="tbe-btn is-primary is-lg" href="#oferta">Vreau cursul</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- BARĂ CTA LIPICIOASĂ — apare la scroll, sub hero (JS). -->
+<div class="mke-sticky" data-sticky-cta hidden>
+  <div class="tbe-container mke-sticky-inner">
+    <span class="mke-sticky-info">
+      <strong>Makeup Essentials</strong>
+      <span>1.200 lei · kit cadou inclus</span>
+    </span>
+    <a class="tbe-btn is-primary mke-sticky-cta" href="#oferta">Vreau cursul</a>
+  </div>
+</div>
+
+<!-- FOOTER MINIMAL — landing de vânzare: doar identitate legală + plăți + linkuri legale. -->
+<footer class="site-footer mke-footer-min">
+  <div class="site-footer-bottom">
+    <div class="tbe-container">
+      <div class="mke-footer-brandrow">
+        <img class="site-footer-logo" src="assets/logo/tbe-orizontal-alb.svg"
+             alt="The Beauty Education" width="142" height="38">
+        <p class="site-footer-fiscal">
+          Beauty Education Publishing SRL · CUI: 54823960 · Reg. Com.: J2026036531002 ·
+          Str. Berzelor 348, Plevna, jud. Călărași
+        </p>
+      </div>
+
+      <div class="site-trust">
+        <p class="site-trust-pay">
+          <span class="site-trust-badge"><img src="assets/logo/stripe.png" alt="Stripe" width="42" height="18"></span>
+          Plăți securizate
+        </p>
+        <ul class="site-trust-legal">
+          <li><a href="https://anpc.ro">ANPC</a></li>
+          <li><a href="https://ec.europa.eu/consumers/odr">Soluționarea online a litigiilor (SOL)</a></li>
+        </ul>
+      </div>
+      <div class="site-footer-bottom-inner">
+        <p class="site-footer-copy">© 2026 The Beauty Education. Toate drepturile rezervate.</p>
+        <ul class="site-footer-legal">
+          <li><a href="/termeni-si-conditii">Termeni și condiții</a></li>
+          <li><a href="/politica-de-confidentialitate">Confidențialitate</a></li>
+          <li><a href="/politica-cookies">Cookies</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/site.js"></script>
+<script src="assets/js/makeup-essentials.js"></script>
+</body>
+</html>

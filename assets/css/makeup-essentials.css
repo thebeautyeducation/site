@@ -1,0 +1,1012 @@
+/* ==========================================================================
+   THE BEAUTY EDUCATION — PAGINA CURS „ATELIERUL DE BUCLE"
+   (curs-atelierul-de-bucle.html) · se încarcă după site.css + faq.css.
+   Prefix propriu `mke-`. Mod: Persuade (landing de vânzare).
+   --------------------------------------------------------------------------
+   Reutilizează cât mai mult din DS + site: .tbe-btn, .tbe-badge, .tbe-quote,
+   .tbe-avatar, .tbe-kicker, .tbe-lead, .tbe-section-head, grila de secțiuni și
+   ritmul de bandă (is-band). Aici stă DOAR ce e specific paginii de curs:
+   hero split, stiva de valoare, cardul de ofertă magenta și bara CTA lipicioasă.
+
+   Ritm de fundal (fiecare graniță vizibilă): crem (Hero) → charcoal (Problema)
+   → crem (Promisiune) → bej (Ce vei învăța) → crem (Ce conține) → bej (Rezultate)
+   → crem (Trainer) → bej (Diplome) → crem (Mărturii) → crem (Ofertă, mke-divider)
+   → bej (FAQ) → crem (CTA final, mke-divider).
+   ========================================================================== */
+
+/* Divizor pentru granițe crem → crem, unde culoarea nu marchează separarea. */
+.mke-divider { border-top: 1px solid var(--tbe-border-subtle); }
+
+/* Notă „demo / de completat" — discretă, mono, mauve. */
+.mke-demo-note {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-wide);
+  color: var(--tbe-editorial);
+}
+
+/* ==========================================================================
+   0 · HERO — abordare de vânzare: cârlig (stânga) + card de achiziție (dreapta)
+   Layout DISTINCT de pagina Empiria: fără poză-blob cu carduri flotante, ci un
+   buy-box real (imagine + preț + ce include + CTA + garanții), vizibil din prima
+   vedere — pattern de landing de vânzare.
+   ========================================================================== */
+.mke-hero { padding-top: var(--s-6); }
+.mke-hero .tbe-breadcrumb { margin-bottom: var(--s-5); }
+
+.mke-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 0.82fr;
+  gap: var(--s-8);
+  align-items: center;
+}
+.mke-hero-lead { min-width: 0; }
+
+.mke-titlu {
+  font-size: var(--fs-display);
+  font-weight: var(--fw-light);
+  letter-spacing: var(--ls-tight);
+  margin-bottom: var(--s-3);
+}
+/* Cuvântul-promisiune — italic Cormorant, magenta (deja încărcat de tokens.css). */
+.mke-titlu em { font-style: italic; font-weight: var(--fw-regular); color: var(--tbe-action); }
+
+/* Argumentele de vânzare — listă cu bife magenta. */
+.mke-hero-puncte {
+  list-style: none;
+  margin: var(--s-4) 0 var(--s-5);
+  padding: 0;
+  display: grid;
+  gap: var(--s-2);
+}
+.mke-hero-puncte li {
+  position: relative;
+  padding-left: 30px;
+  color: var(--tbe-text);
+  line-height: var(--lh-normal);
+}
+.mke-hero-puncte li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.05em;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--tbe-action-soft);
+}
+.mke-hero-puncte li::after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 0.5em;
+  width: 8px;
+  height: 5px;
+  border-left: 2px solid var(--tbe-action);
+  border-bottom: 2px solid var(--tbe-action);
+  transform: rotate(-45deg);
+}
+
+/* Dovada socială — track record-ul Adrianei (cifre oficiale, nu ale cursului). */
+.mke-hero-proof {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  padding-top: var(--s-4);
+  border-top: 1px solid var(--tbe-border-subtle);
+}
+.mke-hero-proof-text strong { display: block; font-size: var(--fs-sm); color: var(--tbe-text); }
+.mke-hero-proof-text span { font-size: var(--fs-xs); color: var(--tbe-text-muted); }
+
+/* --- Buy-box: cardul de achiziție ----------------------------------------- */
+.mke-buybox {
+  background: var(--tbe-surface);
+  border: 1px solid var(--tbe-border-subtle);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  box-shadow: var(--site-shadow-card-hover);
+}
+.mke-buybox-media { position: relative; aspect-ratio: 3 / 2; background: var(--tbe-decor); }
+.mke-buybox-media img { width: 100%; height: 100%; object-fit: cover; }
+.mke-buybox-flag {
+  position: absolute;
+  top: var(--s-2);
+  left: var(--s-2);
+  background: var(--tbe-action);
+  color: var(--tbe-text-on-action);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  padding: 0.35em 0.8em;
+  border-radius: var(--r-pill);
+}
+.mke-buybox-body { padding: var(--s-4); }
+
+.mke-buybox-pret { text-align: center; margin-bottom: var(--s-3); }
+.mke-buybox-eticheta {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--tbe-editorial);
+  margin-bottom: 2px;
+}
+.mke-buybox-val {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--fs-display);
+  font-weight: var(--fw-medium);
+  line-height: 1;
+  color: var(--tbe-text);
+  font-variant-numeric: tabular-nums;
+}
+.mke-buybox-note { display: block; font-size: var(--fs-sm); color: var(--tbe-text-muted); margin-top: var(--s-1); }
+
+.mke-buybox-includes {
+  list-style: none;
+  margin: 0 0 var(--s-4);
+  padding: var(--s-3) 0;
+  border-top: 1px solid var(--tbe-border-subtle);
+  border-bottom: 1px solid var(--tbe-border-subtle);
+  display: grid;
+  gap: var(--s-2);
+}
+.mke-buybox-includes li {
+  position: relative;
+  padding-left: 26px;
+  font-size: var(--fs-sm);
+  color: var(--tbe-text-muted);
+  line-height: 1.4;
+}
+.mke-buybox-includes li::before {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 0.35em;
+  width: 12px;
+  height: 7px;
+  border-left: 2px solid var(--tbe-action);
+  border-bottom: 2px solid var(--tbe-action);
+  transform: rotate(-45deg);
+}
+.mke-buybox-cta { margin-bottom: var(--s-3); }
+.mke-buybox-reasig {
+  list-style: none;
+  margin: 0 0 var(--s-3);
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--s-1) var(--s-3);
+}
+.mke-buybox-reasig li { position: relative; padding-left: 15px; font-size: var(--fs-xs); color: var(--tbe-text-muted); }
+.mke-buybox-reasig li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.4em;
+  width: 7px;
+  height: 4px;
+  border-left: 1.5px solid var(--tbe-success);
+  border-bottom: 1.5px solid var(--tbe-success);
+  transform: rotate(-45deg);
+}
+.mke-buybox-secure {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin: 0;
+  font-size: var(--fs-xs);
+  color: var(--tbe-text-muted);
+}
+.mke-buybox-secure svg { width: 14px; height: 14px; color: var(--tbe-text-muted); }
+
+/* ==========================================================================
+   1 · PROBLEMA — charcoal, coloană centrată editorială
+   ========================================================================== */
+.mke-problema { background: var(--tbe-surface-inverse); color: var(--tbe-text-inverse); }
+.mke-problema-inner { max-width: 680px; margin-inline: auto; text-align: center; }
+.mke-problema h2 { color: var(--tbe-text-inverse); }
+.mke-problema .tbe-kicker { color: var(--c-mauve-300); }
+.mke-problema-lead {
+  font-size: var(--fs-lg);
+  color: color-mix(in srgb, var(--tbe-text-inverse) 82%, transparent);
+  margin: 0 auto var(--s-5);
+  max-width: 52ch;
+}
+.mke-problema-lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--s-3);
+  text-align: left;
+  max-width: 620px;
+  margin-inline: auto;
+}
+.mke-problema-lista li {
+  padding-left: var(--s-4);
+  position: relative;
+  color: color-mix(in srgb, var(--tbe-text-inverse) 80%, transparent);
+  line-height: var(--lh-body);
+}
+.mke-problema-lista li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--c-magenta-light);
+}
+.mke-problema-lista strong { color: var(--tbe-text-inverse); font-weight: var(--fw-semibold); }
+
+/* ==========================================================================
+   2 · PROMISIUNEA — crem, antet centrat
+   ========================================================================== */
+.mke-promisiune .tbe-section-head { max-width: 720px; }
+
+/* ==========================================================================
+   3 · CE VEI ÎNVĂȚA — 5 piloni, grilă editorială (fără iconițe-cerc)
+   ========================================================================== */
+.mke-piloni-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-3);
+}
+/* Ultimele două carduri (rândul 2) se întind ca să umple frumos 3+2. */
+.mke-pilon {
+  background: var(--tbe-surface);
+  border: 1px solid var(--tbe-border-subtle);
+  border-radius: var(--tbe-radius-card);
+  padding: var(--s-4);
+}
+/* Accent editorial mauve în capul fiecărui pilon (linia scurtă din DS). */
+.mke-pilon::before {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 2px;
+  border-radius: var(--r-pill);
+  background: var(--tbe-editorial-line);
+  margin-bottom: var(--s-3);
+}
+.mke-pilon-titlu {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-semibold);
+  margin: 0 0 var(--s-1);
+}
+.mke-pilon p { margin: 0; font-size: var(--fs-sm); color: var(--tbe-text-muted); max-width: none; }
+
+/* ==========================================================================
+   4 · CE CONȚINE = stiva de valoare — intro stânga, checklist dreapta
+   ========================================================================== */
+.mke-continut-grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: var(--s-8);
+  align-items: start;
+}
+.mke-continut-intro { position: sticky; top: calc(var(--site-nav-h) + var(--s-3)); }
+.mke-continut-semnatura {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--tbe-editorial);
+  margin: var(--s-3) 0 0;
+}
+.mke-includes { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s-1); }
+.mke-includes li {
+  display: flex;
+  gap: var(--s-3);
+  align-items: flex-start;
+  padding: var(--s-3) 0;
+  border-bottom: 1px solid var(--tbe-border-subtle);
+  line-height: var(--lh-normal);
+}
+.mke-includes li:last-child { border-bottom: 0; }
+.mke-check {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  margin-top: 1px;
+  color: var(--tbe-action);
+}
+.mke-includes strong { font-weight: var(--fw-semibold); color: var(--tbe-text); }
+.mke-includes span { color: var(--tbe-text-muted); font-size: var(--fs-sm); }
+.mke-includes strong + * { color: var(--tbe-text-muted); }
+
+/* ==========================================================================
+   5 · REZULTATE — galerie before/after (placeholder demo)
+   ========================================================================== */
+.mke-galerie {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--s-3);
+}
+.mke-rezultat {
+  margin: 0;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: var(--tbe-radius-media);
+  background: var(--tbe-decor);
+  box-shadow: var(--site-shadow-card);
+}
+.mke-rezultat img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ==========================================================================
+   6 · TRAINERUL — split poză + bio
+   ========================================================================== */
+.mke-trainer-grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: var(--s-8);
+  align-items: center;
+}
+.mke-trainer-foto {
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: var(--tbe-radius-card);
+  box-shadow: var(--site-shadow-card);
+  background: var(--tbe-decor);
+}
+.mke-trainer-foto img { width: 100%; height: 100%; object-fit: cover; }
+.mke-trainer-text p { color: var(--tbe-text-muted); }
+.mke-trainer-stats {
+  list-style: none;
+  margin: var(--s-5) 0 0;
+  padding: 0;
+  display: flex;
+  gap: var(--s-6);
+  flex-wrap: wrap;
+}
+.mke-trainer-stats li { display: flex; flex-direction: column; }
+.mke-stat-num {
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-medium);
+  color: var(--tbe-action);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.mke-stat-label { font-size: var(--fs-xs); color: var(--tbe-text-muted); margin-top: 6px; }
+
+/* ==========================================================================
+   7 · DIPLOMELE — text + machetă de diplomă (până la poza reală)
+   ========================================================================== */
+.mke-diplome-grid {
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  gap: var(--s-8);
+  align-items: center;
+}
+.mke-diplome-lista { list-style: none; margin: var(--s-5) 0 0; padding: 0; display: grid; gap: var(--s-3); }
+.mke-diplome-lista li { display: flex; align-items: center; gap: var(--s-3); }
+.mke-diplome-lista li > span:last-child { color: var(--tbe-text-muted); font-size: var(--fs-sm); }
+
+/* Machetă de diplomă — surogat până la imaginea reală, construită din tokeni. */
+.mke-diploma-mock {
+  aspect-ratio: 297 / 210;
+  background: var(--tbe-surface);
+  border: 1px solid var(--tbe-border);
+  border-radius: var(--tbe-radius-media);
+  box-shadow: var(--site-shadow-card);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-1);
+  text-align: center;
+  padding: var(--s-5);
+  position: relative;
+}
+.mke-diploma-mock::after {
+  content: '';
+  position: absolute;
+  inset: 10px;
+  border: 1px solid var(--tbe-border-subtle);
+  border-radius: calc(var(--tbe-radius-media) - 4px);
+  pointer-events: none;
+}
+.mke-diploma-marca {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-kicker);
+  text-transform: uppercase;
+  color: var(--tbe-editorial);
+}
+.mke-diploma-tip { font-family: var(--font-mono); font-size: var(--fs-xs); letter-spacing: var(--ls-wide); color: var(--tbe-text-muted); }
+.mke-diploma-nume {
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-medium);
+  color: var(--tbe-text);
+}
+.mke-diploma-semnatura {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--tbe-editorial);
+  margin-top: var(--s-2);
+}
+
+/* ==========================================================================
+   8 · MĂRTURII — carduri cu citat editorial
+   ========================================================================== */
+.mke-marturii-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-3);
+}
+.mke-marturie {
+  margin: 0;
+  background: var(--tbe-surface);
+  border: 1px solid var(--tbe-border-subtle);
+  border-radius: var(--tbe-radius-card);
+  padding: var(--s-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+.mke-marturie .tbe-quote {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: var(--fs-h4);
+  color: var(--tbe-text);
+}
+.mke-marturie-autor { display: flex; align-items: center; gap: var(--s-2); }
+.mke-marturie-autor strong { display: block; font-size: var(--fs-sm); color: var(--tbe-text); }
+.mke-marturie-autor > span > span { font-size: var(--fs-xs); color: var(--tbe-text-muted); }
+
+/* ==========================================================================
+   9 · OFERTA — card magenta plin (singura suprafață magenta plină, ca pe homepage)
+   ========================================================================== */
+.mke-oferta {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: var(--s-6);
+  align-items: center;
+  background: linear-gradient(135deg, var(--c-magenta-600), var(--c-magenta-500) 55%, var(--c-magenta-700));
+  border-radius: var(--r-xl);
+  padding: var(--s-7);
+  color: #fff;
+  box-shadow: var(--site-shadow-card-hover);
+  position: relative;
+  overflow: hidden;
+}
+/* Halou moale, ca pe cardul de CTA de pe homepage. */
+.mke-oferta::before {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  top: -40%;
+  right: -10%;
+  width: 55%;
+  height: 160%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.16), transparent 70%);
+  pointer-events: none;
+}
+.mke-oferta-corp, .mke-oferta-pret { position: relative; z-index: 1; }
+.mke-oferta-kicker {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-kicker);
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.82);
+  display: block;
+  margin-bottom: var(--s-2);
+}
+.mke-oferta-corp h2 { color: #fff; margin-bottom: var(--s-2); }
+.mke-oferta-sub { color: rgba(255, 255, 255, 0.9); max-width: 46ch; margin-bottom: var(--s-4); }
+.mke-oferta-lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-1) var(--s-4);
+}
+.mke-oferta-lista li {
+  position: relative;
+  padding-left: 22px;
+  font-size: var(--fs-sm);
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.5;
+}
+.mke-oferta-lista li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  width: 12px;
+  height: 7px;
+  border-left: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transform: rotate(-45deg);
+}
+
+/* Coloana de preț — panou crem înăuntrul cardului magenta. */
+.mke-oferta-pret {
+  background: var(--c-neutral-50);
+  color: var(--tbe-text);
+  border-radius: var(--tbe-radius-card);
+  padding: var(--s-5);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s-1);
+}
+.mke-oferta-pret-eticheta {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--tbe-editorial);
+}
+.mke-oferta-pret-val {
+  font-family: var(--font-display);
+  font-size: var(--fs-display);
+  font-weight: var(--fw-medium);
+  line-height: 1;
+  color: var(--tbe-text);
+  font-variant-numeric: tabular-nums;
+}
+.mke-oferta-pret-note { font-size: var(--fs-sm); color: var(--tbe-text-muted); margin-bottom: var(--s-2); }
+/* CTA crem pe card magenta — inversul butonului primar, ca pe homepage. */
+.mke-oferta-cta {
+  --_bg: var(--tbe-text);
+  --_fg: var(--c-neutral-50);
+  --_bd: var(--tbe-text);
+  margin-top: var(--s-1);
+}
+.mke-oferta-cta:hover { --_bg: var(--c-neutral-900); --_bd: var(--c-neutral-900); box-shadow: var(--shadow-md); }
+.mke-oferta-reasig {
+  list-style: none;
+  margin: var(--s-3) 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--s-1) var(--s-3);
+}
+.mke-oferta-reasig li {
+  position: relative;
+  padding-left: 16px;
+  font-size: var(--fs-xs);
+  color: var(--tbe-text-muted);
+}
+.mke-oferta-reasig li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.4em;
+  width: 8px;
+  height: 5px;
+  border-left: 1.6px solid var(--tbe-success);
+  border-bottom: 1.6px solid var(--tbe-success);
+  transform: rotate(-45deg);
+}
+
+.mke-faq-lead { margin-bottom: var(--s-6); }
+
+/* ==========================================================================
+   11 · CTA FINAL
+   ========================================================================== */
+.mke-cta-final-inner { max-width: 640px; margin-inline: auto; text-align: center; }
+.mke-cta-final-inner .tbe-btn { margin-top: var(--s-2); }
+
+/* ==========================================================================
+   BARĂ CTA LIPICIOASĂ — apare la scroll (JS). Progresivă: fără JS nu apare.
+   ========================================================================== */
+.mke-sticky {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: var(--z-sticky);
+  background: color-mix(in srgb, var(--tbe-surface) 92%, transparent);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid var(--tbe-border-subtle);
+  box-shadow: 0 -8px 30px -12px rgba(var(--site-rgb-ink, 26 20 22), 0.18);
+  transform: translateY(100%);
+  transition: transform var(--dur-slow) var(--ease-out);
+}
+.mke-sticky.is-visible { transform: translateY(0); }
+.mke-sticky-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-3);
+  padding-block: var(--s-2);
+}
+.mke-sticky-info { display: flex; flex-direction: column; line-height: 1.25; min-width: 0; }
+.mke-sticky-info strong { font-family: var(--font-display); font-size: var(--fs-h4); color: var(--tbe-text); }
+.mke-sticky-info span { font-size: var(--fs-xs); color: var(--tbe-text-muted); }
+.mke-sticky-cta { flex: none; }
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .mke-hero-grid,
+  .mke-continut-grid,
+  .mke-trainer-grid,
+  .mke-diplome-grid,
+  .mke-oferta { grid-template-columns: 1fr; }
+
+  /* Buy-box-ul trece sub cârlig, centrat, ca să nu se întindă exagerat. */
+  .mke-buybox { max-width: 460px; margin-inline: auto; width: 100%; }
+
+  .mke-continut-intro { position: static; }
+  .mke-piloni-grid { grid-template-columns: repeat(2, 1fr); }
+  .mke-galerie { grid-template-columns: repeat(2, 1fr); }
+  .mke-marturii-grid { grid-template-columns: 1fr; }
+  .mke-trainer-foto, .mke-diploma-vizual { max-width: 460px; }
+}
+
+@media (max-width: 640px) {
+  .mke-piloni-grid { grid-template-columns: 1fr; }
+  .mke-oferta-lista { grid-template-columns: 1fr; }
+  .mke-trainer-stats { gap: var(--s-4); }
+  .mke-oferta { padding: var(--s-5); }
+  /* Bara lipicioasă își face loc la baza paginii, sub tot. */
+  .mke-sticky-info strong { font-size: var(--fs-sm); }
+}
+
+/* Bara lipicioasă ar acoperi ultimele rânduri pe ecrane mici — lăsăm spațiu. */
+@media (max-width: 1024px) {
+  body { scroll-padding-bottom: 88px; }
+}
+
+/* ==========================================================================
+   LANDING DE VÂNZARE — completări din raportul „Anatomia Landing Page-ului"
+   (attention ratio 1:1, dovadă socială, auto-calificare, risc invers).
+   ========================================================================== */
+
+/* Navbar minim — CTA vizibil la orice lățime (site.css îl ascunde sub 1024px
+   pentru drawer, dar aici nu există drawer). */
+.mke-nav-min .site-nav-cta { display: inline-flex; }
+
+/* --- Bară de dovadă socială (sub hero) ------------------------------------ */
+.mke-proofbar {
+  background: var(--site-band);
+  border-block: 1px solid var(--tbe-border-subtle);
+  padding-block: var(--s-3);
+}
+.mke-proofbar-inner { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--s-3) var(--s-6); }
+.mke-proof { display: flex; align-items: baseline; gap: 8px; }
+.mke-proof strong {
+  font-family: var(--font-display);
+  font-size: var(--fs-h4);
+  font-weight: var(--fw-semibold);
+  color: var(--tbe-action);
+  font-variant-numeric: tabular-nums;
+}
+.mke-proof span { font-size: var(--fs-sm); color: var(--tbe-text-muted); }
+
+/* --- Pentru cine e / NU e (auto-calificare) ------------------------------- */
+.mke-cine-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-4);
+  max-width: 940px;
+  margin-inline: auto;
+}
+.mke-cine-col {
+  background: var(--tbe-surface);
+  border: 1px solid var(--tbe-border-subtle);
+  border-radius: var(--tbe-radius-card);
+  padding: var(--s-5);
+}
+.mke-cine-col.is-da { border-color: color-mix(in srgb, var(--tbe-success) 40%, var(--tbe-border-subtle)); }
+.mke-cine-titlu-col {
+  font-family: var(--font-display);
+  font-size: var(--fs-h4);
+  font-weight: var(--fw-semibold);
+  margin: 0 0 var(--s-3);
+}
+.mke-cine-lista { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s-2); }
+.mke-cine-lista li {
+  position: relative;
+  padding-left: 28px;
+  font-size: var(--fs-sm);
+  color: var(--tbe-text-muted);
+  line-height: 1.5;
+}
+.mke-cine-col.is-da li::before {
+  content: '';
+  position: absolute;
+  left: 3px;
+  top: 0.3em;
+  width: 12px;
+  height: 7px;
+  border-left: 2px solid var(--tbe-success);
+  border-bottom: 2px solid var(--tbe-success);
+  transform: rotate(-45deg);
+}
+.mke-cine-col.is-nu li::before {
+  content: '';
+  position: absolute;
+  left: 3px;
+  top: 0.35em;
+  width: 12px;
+  height: 12px;
+  background:
+    linear-gradient(45deg, transparent 43%, var(--tbe-text-muted) 43%, var(--tbe-text-muted) 57%, transparent 57%),
+    linear-gradient(-45deg, transparent 43%, var(--tbe-text-muted) 43%, var(--tbe-text-muted) 57%, transparent 57%);
+}
+
+/* --- Risc invers (fără money-back: acces pe viață + voucher fără expirare) -- */
+.mke-risc-grid {
+  list-style: none;
+  margin: var(--s-6) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-3);
+}
+.mke-risc-card {
+  background: var(--tbe-surface);
+  border: 1px solid var(--tbe-border-subtle);
+  border-radius: var(--tbe-radius-card);
+  padding: var(--s-5);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.mke-risc-icon {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--tbe-action-soft);
+  color: var(--tbe-action);
+  margin-bottom: var(--s-2);
+}
+.mke-risc-icon svg { width: 22px; height: 22px; }
+.mke-risc-card strong { font-family: var(--font-display); font-size: var(--fs-h4); font-weight: var(--fw-semibold); color: var(--tbe-text); }
+.mke-risc-card > span { font-size: var(--fs-sm); color: var(--tbe-text-muted); }
+
+/* --- Footer minimal -------------------------------------------------------- */
+.mke-footer-min .site-footer-bottom { border-top: 0; }
+.mke-footer-brandrow {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2) var(--s-4);
+  flex-wrap: wrap;
+  padding-bottom: var(--s-4);
+  margin-bottom: var(--s-4);
+  border-bottom: 1px solid color-mix(in srgb, var(--tbe-text-inverse) 14%, transparent);
+}
+.mke-footer-brandrow .site-footer-fiscal { margin: 0; }
+
+@media (max-width: 1024px) {
+  .mke-risc-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .mke-cine-grid { grid-template-columns: 1fr; }
+  .mke-proof { flex-direction: column; align-items: center; gap: 0; text-align: center; }
+}
+
+/* ==========================================================================
+   COLOR MASTERY — completări proprii (module, 3 prețuri, garanție)
+   ========================================================================== */
+
+/* Curriculum: 4 module pe 2 coloane, cu eticheta „Modul N". */
+.mke-piloni-grid.is-modules { grid-template-columns: repeat(2, 1fr); }
+.mke-pilon-eticheta {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--tbe-editorial);
+  margin-bottom: 4px;
+}
+
+/* Ofertă — 3 variante de plată, integrala evidențiată. */
+.mke-pricing {
+  list-style: none;
+  margin: var(--s-6) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-3);
+  align-items: stretch;
+}
+.mke-price-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 4px;
+  background: var(--tbe-surface);
+  border: 1px solid var(--tbe-border-subtle);
+  border-radius: var(--tbe-radius-card);
+  padding: var(--s-5);
+}
+.mke-price-card.is-featured {
+  border: var(--bw-thin) solid var(--tbe-action);
+  box-shadow: var(--site-shadow-card);
+}
+.mke-price-eticheta {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--tbe-text-muted);
+}
+.mke-price-card.is-featured .mke-price-eticheta { color: var(--tbe-action); }
+.mke-price-nume {
+  font-family: var(--font-display);
+  font-size: var(--fs-h4);
+  font-weight: var(--fw-semibold);
+  color: var(--tbe-text);
+}
+.mke-price-val {
+  font-family: var(--font-display);
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-medium);
+  line-height: 1;
+  color: var(--tbe-text);
+  font-variant-numeric: tabular-nums;
+  margin-top: var(--s-1);
+}
+.mke-price-anchor { font-size: var(--fs-sm); color: var(--tbe-text-muted); margin-bottom: var(--s-3); }
+.mke-price-anchor s, .mke-buybox-note s { color: var(--tbe-text-subtle); }
+.mke-price-cta { margin-top: auto; }
+.mke-pricing-note {
+  max-width: 680px;
+  margin: var(--s-4) auto 0;
+  text-align: center;
+  font-size: var(--fs-sm);
+  color: var(--tbe-text-muted);
+}
+.mke-pricing-note strong { color: var(--tbe-text); }
+
+/* Garanție — condiții (bife verzi) + notă de atenție. */
+.mke-garantie-lista {
+  list-style: none;
+  margin: var(--s-5) auto 0;
+  padding: 0;
+  max-width: 560px;
+  display: grid;
+  gap: var(--s-2);
+}
+.mke-garantie-lista li {
+  position: relative;
+  padding-left: 30px;
+  color: var(--tbe-text);
+  line-height: var(--lh-normal);
+}
+.mke-garantie-lista li::before {
+  content: '';
+  position: absolute;
+  left: 3px;
+  top: 0.35em;
+  width: 12px;
+  height: 7px;
+  border-left: 2px solid var(--tbe-success);
+  border-bottom: 2px solid var(--tbe-success);
+  transform: rotate(-45deg);
+}
+.mke-garantie-nota {
+  max-width: 560px;
+  margin: var(--s-4) auto 0;
+  text-align: center;
+  font-size: var(--fs-sm);
+  color: var(--tbe-text-muted);
+}
+
+@media (max-width: 900px) {
+  .mke-pricing { grid-template-columns: 1fr; max-width: 460px; margin-inline: auto; }
+  .mke-price-card.is-featured { order: -1; }  /* integrala urcă prima pe stivă */
+}
+@media (max-width: 640px) {
+  .mke-piloni-grid.is-modules { grid-template-columns: 1fr; }
+}
+
+/* ==========================================================================
+   MAKEUP ESSENTIALS — completări proprii (kit cadou + „Cum funcționează")
+   ========================================================================== */
+
+/* Kitul cadou — grila celor 16 produse TopFace. */
+.mke-kit-grid {
+  list-style: none;
+  margin: var(--s-6) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--s-2);
+}
+.mke-kit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s-2);
+  padding: var(--s-3);
+  background: var(--tbe-surface);
+  border: 1px solid var(--tbe-border-subtle);
+  border-radius: var(--tbe-radius-media);
+  font-size: var(--fs-sm);
+  color: var(--tbe-text);
+  line-height: 1.35;
+}
+.mke-kit-item::before {
+  content: '';
+  flex: none;
+  width: 7px;
+  height: 7px;
+  margin-top: 6px;
+  border-radius: 50%;
+  background: var(--tbe-action);
+}
+
+/* Cele 10 look-uri — nume editoriale, grilă care se împarte frumos. */
+.mke-looks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: var(--s-2);
+  margin-top: var(--s-6);
+}
+.mke-look {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s-2);
+  padding: var(--s-3) var(--s-4);
+  background: var(--tbe-surface);
+  border: 1px solid var(--tbe-border-subtle);
+  border-radius: var(--tbe-radius-media);
+}
+.mke-look-num { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--tbe-editorial); font-variant-numeric: tabular-nums; }
+.mke-look-nume { font-family: var(--font-display); font-size: var(--fs-h4); font-weight: var(--fw-semibold); color: var(--tbe-text); }
+
+/* Cum funcționează — 4 pași, de la achiziție la kit livrat. */
+.mke-pasi {
+  list-style: none;
+  margin: var(--s-6) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--s-4);
+}
+.mke-pas {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s-2);
+}
+.mke-pas-num {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--tbe-action);
+  color: var(--tbe-text-on-action);
+  font-family: var(--font-display);
+  font-size: var(--fs-h4);
+  font-weight: var(--fw-semibold);
+}
+.mke-pas p { margin: 0; font-size: var(--fs-sm); color: var(--tbe-text-muted); max-width: 24ch; }
+
+@media (max-width: 900px) {
+  .mke-kit-grid { grid-template-columns: repeat(2, 1fr); }
+  .mke-pasi { grid-template-columns: repeat(2, 1fr); gap: var(--s-5); }
+}
+@media (max-width: 480px) {
+  .mke-kit-grid { grid-template-columns: 1fr; }
+  .mke-pasi { grid-template-columns: 1fr; }
+}
