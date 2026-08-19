@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<!-- data-theme="light" — ca tot site-ul: DS-ul are dark mode automat, aici e blocat pe light. -->
+<html lang="ro" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Color Mastery — curs online de colorimetrie cu Mihaela Mihăescu | The Beauty Education</title>
+  <meta name="description" content="De la „ghicesc culoarea" la „controlez rezultatul". Curs complet de colorimetrie cu Mihaela Mihăescu — 4 module video, 5 diplome, acces pe viață. De la 1.390 lei.">
+  <meta name="theme-color" content="#FAF4EF">
+
+  <!-- Open Graph / Twitter — previzualizarea la partajare (WhatsApp, Instagram, Facebook).
+       og:image e absolut către distribuția curentă (GitHub Pages). La portarea în WordPress,
+       plugin-ul SEO (Yoast/RankMath) preia OG + canonical + og:url cu domeniul de producție.
+       ►► de înlocuit cu o imagine de share proprie cursului (rezultat colorimetrie 1200×630). -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="The Beauty Education">
+  <meta property="og:locale" content="ro_RO">
+  <meta property="og:title" content="Color Mastery — curs online de colorimetrie cu Mihaela Mihăescu">
+  <meta property="og:description" content="De la „ghicesc culoarea" la „controlez rezultatul". 4 module video, 5 diplome, acces pe viață. De la 1.390 lei.">
+  <meta property="og:image" content="https://thebeautyeducation.github.io/site/assets/poze/hero-comunitate-1600.jpg">
+  <meta property="og:image:width" content="1600">
+  <meta property="og:image:height" content="1067">
+  <meta property="og:image:alt" content="Rezultat din cursul Color Mastery">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Color Mastery — curs online de colorimetrie cu Mihaela Mihăescu">
+  <meta name="twitter:description" content="De la „ghicesc culoarea" la „controlez rezultatul". 4 module video, 5 diplome, acces pe viață. De la 1.390 lei.">
+  <meta name="twitter:image" content="https://thebeautyeducation.github.io/site/assets/poze/hero-comunitate-1600.jpg">
+
+  <link rel="icon" href="assets/logo/tbe-icon-color.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonturi/Jost%5Bwght%5D.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/fonturi/CormorantGaramond%5Bwght%5D.ttf" as="font" type="font/ttf" crossorigin>
+  <!-- Hero-ul paginii (LCP) — cerut din <head>. ►► de înlocuit cu poza reală de rezultat colorimetrie. -->
+  <link rel="preload" as="image" href="assets/poze/placeholder/galerie-5.jpg" fetchpriority="high">
+
+  <!-- ORDINEA CONTEAZĂ: tokens → components → site → faq → pagină -->
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="stylesheet" href="assets/css/faq.css">
+  <link rel="stylesheet" href="assets/css/color-mastery.css">
+</head>
+
+<body>
+
+<a class="site-skip" href="#continut">Sari la conținut</a>
+
+<!-- NAVBAR MINIMAL — landing de vânzare (attention ratio 1:1): doar logo + un
+     singur CTA, fără meniu / dropdown / sertar (raport „Anatomia Landing Page").
+     Linkurile CĂTRE pagină, din restul site-ului, rămân neatinse. -->
+<header class="site-nav is-locked clm-nav-min" data-site-nav>
+  <div class="site-nav-inner tbe-container">
+
+    <a class="site-nav-brand" href="index.html" aria-label="The Beauty Education — prima pagină">
+      <img class="site-nav-logo is-white" src="assets/logo/tbe-orizontal-alb.svg"
+           alt="The Beauty Education" width="150" height="40">
+      <img class="site-nav-logo is-color" src="assets/logo/tbe-orizontal-color.svg"
+           alt="" aria-hidden="true" width="150" height="40">
+    </a>
+
+    <a class="tbe-btn is-primary site-nav-cta" href="#oferta">Mă înscriu</a>
+
+  </div>
+</header>
+
+<main id="continut">
+
+  <!-- ========================================================================
+       0 · HERO — cârlig (stânga) + buy-box (dreapta). Layout de landing de vânzare.
+       ►► POZA reală de rezultat (colorimetrie) înlocuiește galerie-5.jpg.
+       ======================================================================== -->
+  <section class="site-section clm-hero" aria-labelledby="clm-titlu">
+    <div class="tbe-container">
+
+      <div class="clm-hero-grid">
+
+        <div class="clm-hero-lead">
+          <span class="tbe-kicker">Curs online de colorimetrie · Acces pe viață</span>
+          <h1 class="clm-titlu" id="clm-titlu">De la „ghicesc culoarea" la <em>controlez rezultatul</em>.</h1>
+          <p class="tbe-lead">
+            Primul curs de colorimetrie al comunității, cu Mihaela Mihăescu. Baze, decolorări,
+            blond special, corecții și balayage — filmate pas cu pas, ca să lucrezi cu certitudine,
+            nu din intuiție.
+          </p>
+
+          <ul class="clm-hero-puncte">
+            <li>Alegi nuanța și oxidantul cu metodă, nu din ochi.</li>
+            <li>Decolorezi și corectezi controlat — inclusiv din negru și roșu-arămiu.</li>
+            <li>Fiecare modul, o diplomă; certificările, prin mastermind-uri.</li>
+          </ul>
+
+          <div class="clm-hero-proof">
+            <span class="tbe-avatar-group">
+              <span class="tbe-avatar is-sm"><img src="assets/poze/placeholder/marturie-1.jpg" alt="" width="64" height="64" loading="lazy" decoding="async"></span>
+              <span class="tbe-avatar is-sm"><img src="assets/poze/placeholder/marturie-2.jpg" alt="" width="64" height="64" loading="lazy" decoding="async"></span>
+              <span class="tbe-avatar is-sm"><img src="assets/poze/placeholder/marturie-3.jpg" alt="" width="64" height="64" loading="lazy" decoding="async"></span>
+            </span>
+            <span class="clm-hero-proof-text">
+              <strong>Predat de Mihaela Mihăescu</strong>
+              <span>lead trainer colorimetrie · The Beauty Education</span>
+            </span>
+          </div>
+        </div>
+
+        <!-- Dreapta: cardul de achiziție (buy-box). Preț de reper — integral 1.390. -->
+        <aside class="clm-buybox" aria-labelledby="clm-buybox-titlu">
+          <div class="clm-buybox-media">
+            <!-- ►► REZULTAT REAL (colorimetrie) — înlocuiește placeholder-ul. -->
+            <img src="assets/poze/placeholder/galerie-5.jpg" alt="Rezultat de colorimetrie din cursul Color Mastery"
+                 width="720" height="480" fetchpriority="high" decoding="async">
+            <span class="clm-buybox-flag">Acces pe viață</span>
+          </div>
+
+          <div class="clm-buybox-body">
+            <h2 class="tbe-sr-only" id="clm-buybox-titlu">Înscriere la cursul Color Mastery</h2>
+
+            <div class="clm-buybox-pret">
+              <span class="clm-buybox-eticheta">Plată integrală</span>
+              <span class="clm-buybox-val">1.390 lei</span>
+              <span class="clm-buybox-note">de la <s>2.100 lei</s> · economisești 710</span>
+            </div>
+
+            <ul class="clm-buybox-includes">
+              <li>4 module video de colorimetrie</li>
+              <li>5 diplome + 4 certificări</li>
+              <li>Rubrica de Feedback + întâlniri online live</li>
+              <li>The Hair Club + 1.600 puncte de loialitate</li>
+              <li>Acces pe viață + toate update-urile</li>
+            </ul>
+
+            <a class="tbe-btn is-primary is-lg is-block clm-buybox-cta" href="#oferta">Mă înscriu la curs</a>
+
+            <ul class="clm-buybox-reasig">
+              <li>Garanția banilor înapoi</li>
+              <li>−10% cu abonament activ</li>
+            </ul>
+
+            <p class="clm-buybox-secure">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="10" height="6.5" rx="1.5"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2"/></svg>
+              Plată securizată prin Stripe
+            </p>
+          </div>
+        </aside>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       0b · BARĂ DE DOVADĂ SOCIALĂ (sub hero) — reducere imediată a riscului.
+       ►► de adăugat rating / nr. real de cursante Color Mastery când sunt confirmate.
+       ======================================================================== -->
+  <section class="clm-proofbar" aria-label="Dovadă">
+    <div class="tbe-container clm-proofbar-inner">
+      <div class="clm-proof"><strong>4</strong><span>module de colorimetrie</span></div>
+      <div class="clm-proof"><strong>5</strong><span>diplome + 4 certificări</span></div>
+      <div class="clm-proof"><strong>1.600</strong><span>puncte de loialitate</span></div>
+      <div class="clm-proof"><strong>Pe viață</strong><span>acces + toate update-urile</span></div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       1 · PROBLEMA — charcoal, editorial
+       ======================================================================== -->
+  <section class="site-section clm-problema" aria-labelledby="clm-problema-titlu">
+    <div class="tbe-container">
+      <div class="clm-problema-inner">
+        <span class="tbe-kicker">De ce iese altă culoare</span>
+        <h2 id="clm-problema-titlu">Când colorimetria e din intuiție, rezultatul e o loterie.</h2>
+        <p class="clm-problema-lead">
+          Și clienta pleacă cu altă nuanță decât ați stabilit — sau cu părul rupt.
+        </p>
+        <ul class="clm-problema-lista">
+          <li><strong>Baze și oxidanți la aproximație.</strong> Nu știi exact ce fond de decolorare atingi, deci tonul final te surprinde.</li>
+          <li><strong>Fire albe care nu se acoperă.</strong> Alegi baza greșit și, după prima spălare, se văd din nou.</li>
+          <li><strong>Decolorări riscante.</strong> Din negru sau roșu-arămiu ghicești pașii — și rupi părul sau rămâi cu reflexe nedorite.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       1b · PENTRU CINE E / NU E — auto-calificare (Blueprint 2 din raport). Bej.
+       ======================================================================== -->
+  <section class="site-section is-band clm-cine" aria-labelledby="clm-cine-titlu">
+    <div class="tbe-container">
+      <div class="tbe-section-head is-center">
+        <span class="tbe-kicker">Pentru cine e</span>
+        <h2 id="clm-cine-titlu">E cursul potrivit pentru tine?</h2>
+      </div>
+
+      <div class="clm-cine-grid">
+        <div class="clm-cine-col is-da">
+          <h3 class="clm-cine-titlu-col">E pentru tine dacă…</h3>
+          <ul class="clm-cine-lista">
+            <li>Faci culoare în salon, dar rezultatul nu iese constant.</li>
+            <li>Vrei să stăpânești decolorarea, blondul special și corecțiile, nu doar vopsitul simplu.</li>
+            <li>Vrei o metodă clară de citire a fondului de decolorare și a nuanțelor.</li>
+            <li>Vrei diplome și certificări care să te recomande.</li>
+          </ul>
+        </div>
+        <div class="clm-cine-col is-nu">
+          <h3 class="clm-cine-titlu-col">NU e pentru tine dacă…</h3>
+          <ul class="clm-cine-lista">
+            <li>Cauți o rețetă unică, fără să înțelegi de ce funcționează.</li>
+            <li>Nu lucrezi (și nu vrei să lucrezi) cu vopsit sau decolorare.</li>
+            <li>Nu ești dispusă să exersezi pe șuvițe sau pe manechin.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       2 · PROMISIUNEA / TRANSFORMAREA — crem
+       ======================================================================== -->
+  <section class="site-section clm-promisiune" aria-labelledby="clm-promisiune-titlu">
+    <div class="tbe-container">
+      <div class="tbe-section-head is-center">
+        <span class="tbe-kicker">Ce se schimbă</span>
+        <h2 id="clm-promisiune-titlu">De la nesiguranță la autoritate în colorimetrie.</h2>
+        <p class="tbe-lead">
+          După acest curs alegi baza, oxidantul și pașii de decolorare cu metodă. Citești fondul de
+          decolorare, corectezi conștient și livrezi exact nuanța promisă — pe fir alb, pe păr vopsit,
+          din negru sau din roșu. Culoarea devine un serviciu pe care îl controlezi, nu îl ghicești.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       3 · CURRICULUM — cele 4 module (din structura reală a cursului pe Circle). Bej.
+       ======================================================================== -->
+  <section class="site-section is-band clm-piloni" aria-labelledby="clm-piloni-titlu">
+    <div class="tbe-container">
+      <div class="tbe-section-head">
+        <span class="tbe-kicker">Curriculum</span>
+        <h2 id="clm-piloni-titlu">Patru module, colorimetria completă</h2>
+        <p class="tbe-lead">Teorie și exerciții filmate pas cu pas, plus un tabel de colorimetrie ca reper permanent.</p>
+      </div>
+
+      <div class="clm-piloni-grid is-modules">
+        <article class="clm-pilon">
+          <span class="clm-pilon-eticheta">Modul 1</span>
+          <h3 class="clm-pilon-titlu">Baze naturale și oxidative</h3>
+          <p>Baze naturale și oxidative, fire albe, acoperire în bază caldă și rece — teorie plus exerciții.</p>
+        </article>
+        <article class="clm-pilon">
+          <span class="clm-pilon-eticheta">Modul 2</span>
+          <h3 class="clm-pilon-titlu">Decolorări și blond special</h3>
+          <p>Decolorare rădăcină, păr vopsit și natural, fonduri de decolorare, super blond, blond special și corecții.</p>
+        </article>
+        <article class="clm-pilon">
+          <span class="clm-pilon-eticheta">Modul 3</span>
+          <h3 class="clm-pilon-titlu">Decolorare din negru și roșu-arămiu</h3>
+          <p>Cele mai riscante situații — decolorarea din negru și din roșu-arămiu, cu corecții și vopsire, inclusiv practică filmată.</p>
+        </article>
+        <article class="clm-pilon">
+          <span class="clm-pilon-eticheta">Modul 4</span>
+          <h3 class="clm-pilon-titlu">Balayage</h3>
+          <p>Tehnica de balayage și reverse balayage — plasare, ridicare și tonalizare pentru un rezultat natural.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       4 · CE PRIMEȘTI = stiva de valoare — crem
+       ======================================================================== -->
+  <section class="site-section clm-continut" id="continut-curs" aria-labelledby="clm-continut-titlu">
+    <div class="tbe-container">
+      <div class="clm-continut-grid">
+        <div class="clm-continut-intro">
+          <span class="tbe-kicker">Ce primești</span>
+          <h2 id="clm-continut-titlu">Tot ce primești cu Color Mastery</h2>
+          <p class="tbe-lead">
+            Nu doar lecții: cursul complet, suport constant, certificare și recompense — toate rămân
+            ale tale, cu acces pe viață.
+          </p>
+          <p class="clm-continut-semnatura">Predat de Mihaela Mihăescu</p>
+        </div>
+
+        <ul class="clm-includes">
+          <li>
+            <svg class="clm-check" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5 8.5 15 16 5.5"/></svg>
+            <span><strong>4 module video de colorimetrie</strong> — baze, decolorări, blond special, corecții și balayage, filmate pas cu pas.</span>
+          </li>
+          <li>
+            <svg class="clm-check" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5 8.5 15 16 5.5"/></svg>
+            <span><strong>5 diplome + 4 certificări</strong> — câte una pe modul, plus certificarea finală Master Colorist.</span>
+          </li>
+          <li>
+            <svg class="clm-check" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5 8.5 15 16 5.5"/></svg>
+            <span><strong>Rubrica de Feedback pentru colorimetrie</strong> — lucrările tale, evaluate individual, cea mai iubită rubrică a comunității.</span>
+          </li>
+          <li>
+            <svg class="clm-check" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5 8.5 15 16 5.5"/></svg>
+            <span><strong>Întâlniri online live cu Mihaela</strong> — sesiuni de câte o oră și jumătate, suport constant pe tot parcursul.</span>
+          </li>
+          <li>
+            <svg class="clm-check" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5 8.5 15 16 5.5"/></svg>
+            <span><strong>The Hair Club</strong> — workshop cu predare, dezbatere pe subiecte definite, prânz și socializare.</span>
+          </li>
+          <li>
+            <svg class="clm-check" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5 8.5 15 16 5.5"/></svg>
+            <span><strong>1.600 puncte de loialitate</strong> — le folosești în Magazinul de Loialitate, pentru produse și beneficii.</span>
+          </li>
+          <li>
+            <svg class="clm-check" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5 8.5 15 16 5.5"/></svg>
+            <span><strong>Acces pe viață + toate update-urile</strong> — îl cumperi o dată; orice materiale sau rubrici noi adăugăm, ai acces.</span>
+          </li>
+          <li>
+            <svg class="clm-check" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5 8.5 15 16 5.5"/></svg>
+            <span><strong>Tabel de colorimetrie</strong> — reperul tău permanent pentru nuanțe, fonduri și oxidanți.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       5 · REZULTATE REALE (before/after culoare) — bej (is-band)
+       ►► GALERIE DEMO — de înlocuit cu rezultate reale de colorimetrie.
+       ======================================================================== -->
+  <section class="site-section is-band clm-rezultate" aria-labelledby="clm-rezultate-titlu">
+    <div class="tbe-container">
+      <div class="tbe-section-head">
+        <span class="tbe-kicker">Rezultate reale</span>
+        <h2 id="clm-rezultate-titlu">Ce iese, de fapt, după curs</h2>
+        <p class="tbe-lead clm-demo-note">Imagini demonstrative — de înlocuit cu rezultate reale (before/after culoare) ale cursantelor.</p>
+      </div>
+
+      <ul class="clm-galerie">
+        <li><figure class="clm-rezultat"><img src="assets/poze/placeholder/galerie-1.jpg" alt="" width="800" height="1067" loading="lazy" decoding="async"></figure></li>
+        <li><figure class="clm-rezultat"><img src="assets/poze/placeholder/galerie-4.jpg" alt="" width="800" height="1067" loading="lazy" decoding="async"></figure></li>
+        <li><figure class="clm-rezultat"><img src="assets/poze/placeholder/galerie-6.jpg" alt="" width="800" height="1067" loading="lazy" decoding="async"></figure></li>
+        <li><figure class="clm-rezultat"><img src="assets/poze/placeholder/galerie-7.jpg" alt="" width="800" height="1067" loading="lazy" decoding="async"></figure></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       6 · TRAINERUL — Mihaela Mihăescu — crem, split poză + bio
+       ►► BIO de completat (ani experiență, realizări) + POZA reală.
+       ======================================================================== -->
+  <section class="site-section clm-trainer" aria-labelledby="clm-trainer-titlu">
+    <div class="tbe-container">
+      <div class="clm-trainer-grid">
+        <div class="clm-trainer-foto">
+          <!-- ►► POZA reală a Mihaelei — înlocuiește placeholder-ul. -->
+          <img src="assets/poze/placeholder/card-3.jpg" alt="Mihaela Mihăescu, lead trainer colorimetrie The Beauty Education"
+               width="900" height="1000" loading="lazy" decoding="async">
+        </div>
+        <div class="clm-trainer-text">
+          <span class="tbe-kicker">Cine te învață</span>
+          <h2 id="clm-trainer-titlu">Mihaela Mihăescu</h2>
+          <p class="tbe-role">Lead trainer colorimetrie · The Beauty Education</p>
+          <p>
+            Noul trainer al echipei The Beauty Education, specializată pe colorimetrie. Color Mastery
+            e primul curs de colorimetrie al comunității, construit împreună cu ea.
+          </p>
+          <p class="clm-demo-note">
+            ►► De completat: ani de experiență, realizări și ce o recomandă pe Mihaela ca autoritate în colorimetrie.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       7 · DIPLOME & CERTIFICĂRI — bej (is-band). Model nou: diploma vine cu
+       parcurgerea cursului; certificările se obțin prin mastermind-uri de 3-4 săpt.
+       ►► POZA diplomei — de adăugat.
+       ======================================================================== -->
+  <section class="site-section is-band clm-diplome" aria-labelledby="clm-diplome-titlu">
+    <div class="tbe-container">
+      <div class="clm-diplome-grid">
+        <div class="clm-diplome-text">
+          <span class="tbe-kicker">Certificare</span>
+          <h2 id="clm-diplome-titlu">5 diplome, 4 certificări</h2>
+          <p class="tbe-lead">
+            Primești câte o diplomă pentru fiecare modul parcurs — vine cu cursul. Certificările
+            specializate le obții la finalul mastermind-urilor de 3-4 săptămâni pe tema respectivă.
+          </p>
+          <ul class="clm-diplome-lista">
+            <li><span class="tbe-badge is-action">Modul 1</span><span>Color Foundations Specialist</span></li>
+            <li><span class="tbe-badge is-action">Modul 2</span><span>Bleach &amp; Tone Specialist</span></li>
+            <li><span class="tbe-badge is-action">Modul 3</span><span>Senior Colorist</span></li>
+            <li><span class="tbe-badge is-action">Modul 4</span><span>Balayage Artist</span></li>
+            <li><span class="tbe-badge is-solid">Bonus</span><span>Master Colorist — certificarea finală</span></li>
+          </ul>
+        </div>
+
+        <div class="clm-diploma-vizual">
+          <!-- ►► POZA diplomei — de înlocuit cu imaginea reală. Până atunci, o machetă din tokeni. -->
+          <div class="clm-diploma-mock" role="img" aria-label="Machetă diplomă The Beauty Education — Master Colorist">
+            <span class="clm-diploma-marca">The Beauty Education</span>
+            <span class="clm-diploma-tip">Certificare</span>
+            <span class="clm-diploma-nume">Master Colorist</span>
+            <span class="clm-diploma-semnatura">Mihaela Mihăescu</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       8 · TESTIMONIALE — crem
+       ►► CITATE REALE — de completat cu textele reale ale cursantelor Color Mastery.
+       ======================================================================== -->
+  <section class="site-section clm-marturii" aria-labelledby="clm-marturii-titlu">
+    <div class="tbe-container">
+      <div class="tbe-section-head">
+        <span class="tbe-kicker">Din comunitate</span>
+        <h2 id="clm-marturii-titlu">Ce spun cursantele</h2>
+        <p class="tbe-lead clm-demo-note">Sloturi pentru citate reale — de completat cu mărturiile cursantelor (cu acordul lor).</p>
+      </div>
+
+      <div class="clm-marturii-grid">
+        <figure class="clm-marturie">
+          <blockquote class="tbe-quote">[Citat real — despre cum a trecut de la a ghici culoarea la a o controla.]</blockquote>
+          <figcaption class="clm-marturie-autor">
+            <span class="tbe-avatar is-sm" aria-hidden="true">C</span>
+            <span><strong>[Nume cursantă]</strong><span>[Oraș]</span></span>
+          </figcaption>
+        </figure>
+        <figure class="clm-marturie">
+          <blockquote class="tbe-quote">[Citat real — despre decolorările și corecțiile care acum ies constant.]</blockquote>
+          <figcaption class="clm-marturie-autor">
+            <span class="tbe-avatar is-sm" aria-hidden="true">M</span>
+            <span><strong>[Nume cursantă]</strong><span>[Oraș]</span></span>
+          </figcaption>
+        </figure>
+        <figure class="clm-marturie">
+          <blockquote class="tbe-quote">[Citat real — despre încrederea cu care propune acum servicii de culoare.]</blockquote>
+          <figcaption class="clm-marturie-autor">
+            <span class="tbe-avatar is-sm" aria-hidden="true">A</span>
+            <span><strong>[Nume cursantă]</strong><span>[Oraș]</span></span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       9 · OFERTA & PREȚ — 3 variante de plată, ancoră reală de la 2.100 lei.
+       Crem + clm-divider (crem → crem de la Mărturii).
+       ======================================================================== -->
+  <section class="site-section is-tight clm-divider clm-oferta-sectiune" id="oferta" aria-labelledby="clm-oferta-titlu">
+    <div class="tbe-container">
+      <div class="tbe-section-head is-center">
+        <span class="tbe-kicker">Înscriere</span>
+        <h2 id="clm-oferta-titlu">Care e investiția ta</h2>
+        <p class="tbe-lead">
+          Trei variante de plată, ca să nu te oprești din învățat. Toate includ tot cursul, cele 5 diplome,
+          întâlnirile live, The Hair Club și 1.600 de puncte de loialitate.
+        </p>
+      </div>
+
+      <ul class="clm-pricing">
+        <li class="clm-price-card">
+          <span class="clm-price-eticheta">2 luni</span>
+          <span class="clm-price-nume">Plată în 2 rate</span>
+          <span class="clm-price-val">1.680 lei</span>
+          <span class="clm-price-anchor">de la <s>2.100 lei</s></span>
+          <a class="tbe-btn is-secondary is-lg is-block clm-price-cta" href="#" data-checkout>Mă înscriu</a>
+        </li>
+        <li class="clm-price-card is-featured">
+          <span class="clm-price-eticheta">Cea mai bună variantă</span>
+          <span class="clm-price-nume">Plată integrală</span>
+          <span class="clm-price-val">1.390 lei</span>
+          <span class="clm-price-anchor">de la <s>2.100 lei</s> · economisești 710</span>
+          <a class="tbe-btn is-primary is-lg is-block clm-price-cta" href="#" data-checkout>Mă înscriu</a>
+        </li>
+        <li class="clm-price-card">
+          <span class="clm-price-eticheta">3 luni</span>
+          <span class="clm-price-nume">Plată în 3 rate</span>
+          <span class="clm-price-val">1.890 lei</span>
+          <span class="clm-price-anchor">de la <s>2.100 lei</s></span>
+          <a class="tbe-btn is-secondary is-lg is-block clm-price-cta" href="#" data-checkout>Mă înscriu</a>
+        </li>
+      </ul>
+
+      <p class="clm-pricing-note">
+        <strong>−10% în plus cu abonament activ</strong> (cere codul de reducere în privat). La plata în rate,
+        dacă oprești și apoi reiei plățile, se aplică o taxă de reactivare de 300 lei; plățile deja făcute nu se returnează.
+      </p>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       9b · GARANȚIE — money-back REALĂ, condiționată (din pagina de pe Circle).
+       Crem + clm-divider, apoi crem → bej la FAQ.
+       ======================================================================== -->
+  <section class="site-section is-tight clm-divider clm-risc" aria-labelledby="clm-risc-titlu">
+    <div class="tbe-container">
+      <div class="tbe-section-head is-center">
+        <span class="tbe-kicker">Garanție</span>
+        <h2 id="clm-risc-titlu">Dacă tot simți că n-ai învățat nimic, îți dăm banii înapoi</h2>
+        <p class="tbe-lead">
+          Suntem încrezători în ce facem. Dacă ai parcurs cu adevărat primul modul și tot simți că
+          nu ai învățat nimic, îți returnăm <strong>100% banii, fără întrebări</strong>. Condițiile:
+        </p>
+      </div>
+
+      <ul class="clm-garantie-lista">
+        <li>Ai parcurs primul modul</li>
+        <li>Ai făcut toate exercițiile</li>
+        <li>Ai participat la minimum 2 întâlniri online</li>
+        <li>Ai realizat cele 3 lucrări</li>
+        <li>Ai obținut diploma și certificarea Color Foundations Specialist</li>
+      </ul>
+
+      <p class="clm-garantie-nota">
+        ⚠️ Exercitarea acestui drept duce la interdicția de a te mai înscrie la acest curs.
+      </p>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       10 · FAQ — bej (is-band). Se umple din color-mastery.js (CM_FAQS).
+       ======================================================================== -->
+  <section class="site-section is-band" id="intrebari" aria-labelledby="clm-faq-titlu">
+    <div class="tbe-container">
+      <span class="tbe-kicker">Întrebări frecvente</span>
+      <h2 id="clm-faq-titlu">Ce mai vrei să știi înainte să te înscrii</h2>
+      <p class="tbe-lead clm-faq-lead">Acces, diplome, plată și garanție — pe scurt.</p>
+
+      <ol class="faq-lista" data-cm-faq></ol>
+
+      <noscript>
+        <dl class="faq-noscript">
+          <dt>Cât timp am acces la curs?</dt>
+          <dd>Pe viață. Îl cumperi o dată și ai acces la tot, inclusiv la materialele adăugate ulterior.</dd>
+          <dt>Cum obțin diplomele și certificările?</dt>
+          <dd>Diploma vine cu parcurgerea fiecărui modul. Certificările specializate se obțin la finalul mastermind-urilor de 3-4 săptămâni.</dd>
+          <dt>Pot plăti în rate?</dt>
+          <dd>Da — în 2 sau 3 rate. Cu abonament activ ai −10% în plus.</dd>
+          <dt>Există garanție?</dt>
+          <dd>Da — banii înapoi dacă parcurgi primul modul integral (exerciții, 2 întâlniri, 3 lucrări, prima diplomă) și tot simți că n-ai învățat nimic.</dd>
+          <dt>Am nevoie de experiență avansată?</dt>
+          <dd>Nu neapărat — pornim de la baze naturale și oxidative și urcăm treptat.</dd>
+        </dl>
+      </noscript>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       11 · CTA FINAL — crem + divizor
+       ======================================================================== -->
+  <section class="site-section is-tight clm-divider clm-cta-final" aria-labelledby="clm-cta-titlu">
+    <div class="tbe-container">
+      <div class="clm-cta-final-inner">
+        <h2 id="clm-cta-titlu">Controlează culoarea, nu o ghici.</h2>
+        <p class="tbe-lead">Începe azi — acces pe viață, cu garanția banilor înapoi.</p>
+        <a class="tbe-btn is-primary is-lg" href="#oferta">Mă înscriu la curs</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- BARĂ CTA LIPICIOASĂ — apare la scroll, sub hero (JS). -->
+<div class="clm-sticky" data-sticky-cta hidden>
+  <div class="tbe-container clm-sticky-inner">
+    <span class="clm-sticky-info">
+      <strong>Color Mastery</strong>
+      <span>de la 1.390 lei · acces pe viață</span>
+    </span>
+    <a class="tbe-btn is-primary clm-sticky-cta" href="#oferta">Mă înscriu</a>
+  </div>
+</div>
+
+<!-- FOOTER MINIMAL — landing de vânzare: doar identitate legală + plăți + linkuri
+     legale obligatorii. Fără meniu de navigare, newsletter sau social. -->
+<footer class="site-footer clm-footer-min">
+  <div class="site-footer-bottom">
+    <div class="tbe-container">
+      <div class="clm-footer-brandrow">
+        <img class="site-footer-logo" src="assets/logo/tbe-orizontal-alb.svg"
+             alt="The Beauty Education" width="142" height="38">
+        <p class="site-footer-fiscal">
+          Beauty Education Publishing SRL · CUI: 54823960 · Reg. Com.: J2026036531002 ·
+          Str. Berzelor 348, Plevna, jud. Călărași
+        </p>
+      </div>
+
+      <div class="site-trust">
+        <p class="site-trust-pay">
+          <span class="site-trust-badge"><img src="assets/logo/stripe.png" alt="Stripe" width="42" height="18"></span>
+          Plăți securizate
+        </p>
+        <ul class="site-trust-legal">
+          <li><a href="https://anpc.ro">ANPC</a></li>
+          <li><a href="https://ec.europa.eu/consumers/odr">Soluționarea online a litigiilor (SOL)</a></li>
+        </ul>
+      </div>
+      <div class="site-footer-bottom-inner">
+        <p class="site-footer-copy">© 2026 The Beauty Education. Toate drepturile rezervate.</p>
+        <ul class="site-footer-legal">
+          <li><a href="/termeni-si-conditii">Termeni și condiții</a></li>
+          <li><a href="/politica-de-confidentialitate">Confidențialitate</a></li>
+          <li><a href="/politica-cookies">Cookies</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/site.js"></script>
+<script src="assets/js/color-mastery.js"></script>
+</body>
+</html>
