@@ -807,6 +807,31 @@ Pagină simplă, două coloane: **canale** la stânga, **formular** la dreapta.
 
 De completat: adresele reale de social; wiring-ul formularului la un backend real în WordPress.
 
+## Paginile BLOG — `blog.html` + `blog-balayage-par-vopsit.html`
+
+Două pagini: **lista** (`blog.html`) și **articolul** (`blog-balayage-par-vopsit.html`).
+CSS: [`blog-pagina.css`](assets/css/blog-pagina.css) (prefix `bl-`), încărcat DUPĂ `blog.css` —
+cardurile de articol **reutilizează integral componenta `.blog-card` de pe homepage** (orizontală,
+imagine 42% + conținut), cum a cerut Marius. Fără JS propriu.
+
+**Lista:** antet + articol *featured* (mare, imagine + titlu Cormorant + meta + buton) + secțiunea
+„Toate articolele" cu grila de `.blog-card` (6 intrări). Fiecare card are un **chip de categorie**
+nou (`.bl-chip`) deasupra autorului. Categorii folosite: Colorimetrie, Business, Tehnică,
+Comunitate, Poveste.
+
+**Articolul:** antet centrat (chip + titlu + meta autor/dată/timp de citit) → imagine hero →
+coloană de lectură `.bl-prose` (max 680px: H2/H3, paragrafe, listă cu marker magenta, citat cu
+bară magenta) → caseta autorului → „Înapoi la blog" → secțiune „Citește și" (`.blog-card` related).
+
+> ⚠ **Conținut DEMO.** Textul articolului balayage e un exemplu redactat pentru machetă (generic,
+> corect profesional), NU un articol validat — de înlocuit înainte de publicare. La fel, cele 6
+> intrări din listă în afară de featured sunt titluri demo. **În prototip toate cardurile duc la
+> unicul articol construit** (`blog-balayage-par-vopsit.html`); în producție (WordPress) fiecare
+> card e o postare proprie, dintr-un loop peste postările recente.
+
+Legături: `/blog` (footer + „Vezi toate articolele" + cele 2 carduri din secțiunea Blog de pe
+homepage) repoint pe `blog.html`. Blogul rămâne în footer, nu în meniul de sus.
+
 ## Cursurile în navigație — dropdown ca index
 
 Nu există (și nu vor exista) pagini-categorie „cursuri online" / „cursuri fizice": **fiecare curs

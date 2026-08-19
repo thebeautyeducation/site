@@ -1,0 +1,259 @@
+/* ==========================================================================
+   THE BEAUTY EDUCATION — PAGINILE „BLOG" (blog.html + articol)
+   Se încarcă DUPĂ blog.css. Prefix propriu `bl-`.
+   --------------------------------------------------------------------------
+   Cardurile de articol sunt EXACT componenta de pe homepage (.blog-card din
+   blog.css, orizontală: imagine 42% + conținut). Fișierul de față adaugă doar
+   ce nu există: antetul de pagină, articolul „featured", chip-ul de categorie,
+   și tot layout-ul paginii de articol (prose, meta, caseta autorului, related).
+
+   Ritm de fundal: index = crem peste tot (cardurile au fundal alb, ies în
+   evidență). Articol = crem, coloană îngustă de lectură.
+   ========================================================================== */
+
+/* ==========================================================================
+   INDEX — blog.html
+   ========================================================================== */
+.bl-header { padding-top: var(--s-6); }
+.bl-header .tbe-breadcrumb { margin-bottom: var(--s-5); }
+.bl-header .tbe-lead { max-width: 60ch; }
+
+.bl-titlu {
+  font-size: var(--fs-display);
+  font-weight: var(--fw-light);
+  letter-spacing: var(--ls-tight);
+  margin-bottom: var(--s-3);
+  text-wrap: balance;
+}
+
+/* Chip de categorie — pe carduri și pe pagina de articol. */
+.bl-chip {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--tbe-editorial);
+  background: var(--tbe-editorial-soft);
+  padding: 3px 9px;
+  border-radius: var(--r-pill);
+}
+
+/* --- Articolul „featured" — mare, imagine + text ------------------------- */
+.bl-featured {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: var(--s-6);
+  align-items: center;
+  margin: var(--s-7) 0 var(--s-8);
+  padding: var(--s-4);
+  background: var(--tbe-surface);
+  border-radius: var(--tbe-radius-card);
+  box-shadow: var(--site-shadow-card);
+  transition: box-shadow var(--dur-slow) var(--ease-out), transform var(--dur-slow) var(--ease-out);
+}
+.bl-featured:hover { box-shadow: var(--site-shadow-card-hover); transform: translateY(-2px); }
+.bl-featured-media {
+  border-radius: var(--r-md);
+  overflow: hidden;
+  aspect-ratio: 3 / 2;
+  background: var(--tbe-decor);
+}
+.bl-featured-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--dur-slower) var(--ease-out);
+}
+.bl-featured:hover .bl-featured-media img { transform: scale(1.03); }
+.bl-featured-corp { min-width: 0; padding: var(--s-3) var(--s-4); }
+.bl-featured-titlu {
+  margin: var(--s-2) 0 var(--s-3);
+  font-family: var(--font-display);
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-light);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-tight);
+  color: var(--tbe-text);
+  text-wrap: balance;
+}
+.bl-featured-extras {
+  margin: 0 0 var(--s-4);
+  font-size: var(--fs-base);
+  line-height: var(--lh-body);
+  color: var(--tbe-text-muted);
+  max-width: 52ch;
+}
+.bl-featured-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  margin-bottom: var(--s-4);
+  font-size: var(--fs-sm);
+  color: var(--tbe-text-muted);
+}
+.bl-featured-meta .bl-punct { color: var(--tbe-text-subtle); }
+
+/* Chip-ul din interiorul cardurilor de homepage (le lăsăm neatinse acolo,
+   aici doar îl distanțăm de autor). */
+.blog-continut .bl-chip { margin-bottom: var(--s-2); align-self: flex-start; }
+
+/* Titlul secțiunii „toate articolele". */
+.bl-sectiune-titlu {
+  font-size: var(--fs-h3);
+  margin-bottom: var(--s-5);
+  padding-bottom: var(--s-3);
+  border-bottom: 1px solid var(--tbe-border-subtle);
+}
+
+/* ==========================================================================
+   ARTICOL — pagina de post
+   ========================================================================== */
+.bl-article { padding-top: var(--s-6); }
+.bl-article .tbe-breadcrumb { margin-bottom: var(--s-6); }
+
+/* Antetul articolului — îngust, centrat pe coloana de lectură. */
+.bl-article-head { max-width: 720px; margin-inline: auto; text-align: center; }
+.bl-article-titlu {
+  margin: var(--s-3) 0 var(--s-4);
+  font-family: var(--font-display);
+  font-size: var(--fs-display);
+  font-weight: var(--fw-light);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-tight);
+  color: var(--tbe-text);
+  text-wrap: balance;
+}
+.bl-article-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-3);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.bl-article-autor { display: flex; align-items: center; gap: var(--s-2); }
+.bl-article-avatar {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--tbe-decor-strong);
+}
+.bl-article-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.bl-article-autor-nume { font-size: var(--fs-sm); font-weight: var(--fw-medium); color: var(--tbe-text); text-align: left; }
+.bl-article-autor-rol { display: block; font-size: var(--fs-xs); color: var(--tbe-text-muted); }
+.bl-article-detalii { font-size: var(--fs-sm); color: var(--tbe-text-muted); }
+.bl-article-detalii .bl-punct { color: var(--tbe-text-subtle); margin: 0 4px; }
+
+/* Imaginea mare a articolului. */
+.bl-article-hero {
+  max-width: 960px;
+  margin: var(--s-7) auto 0;
+  border-radius: var(--tbe-radius-card);
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  background: var(--tbe-decor);
+}
+.bl-article-hero img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Corpul — coloană de lectură lizibilă. */
+.bl-prose {
+  max-width: 680px;
+  margin: var(--s-8) auto 0;
+  font-size: var(--fs-lg);
+  line-height: var(--lh-relaxed, 1.7);
+  color: var(--tbe-text);
+}
+.bl-prose > * + * { margin-top: var(--s-4); }
+.bl-prose p { max-width: none; }
+.bl-prose h2 {
+  margin-top: var(--s-7);
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-tight);
+  line-height: var(--lh-snug);
+}
+.bl-prose h3 {
+  margin-top: var(--s-6);
+  font-size: var(--fs-h4);
+  font-weight: var(--fw-semibold);
+}
+.bl-prose ul, .bl-prose ol { padding-left: 1.3em; }
+.bl-prose li { margin-top: var(--s-2); }
+.bl-prose li::marker { color: var(--tbe-action); }
+.bl-prose strong { font-weight: var(--fw-semibold); }
+.bl-prose a { color: var(--tbe-action); text-underline-offset: 3px; }
+
+.bl-prose blockquote {
+  margin: var(--s-6) 0;
+  padding-left: var(--s-5);
+  border-left: 3px solid var(--tbe-action);
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-style: italic;
+  font-weight: var(--fw-light);
+  line-height: var(--lh-snug);
+  color: var(--tbe-text);
+}
+.bl-prose figure { margin: var(--s-6) 0; }
+.bl-prose figure img { width: 100%; border-radius: var(--tbe-radius-card); display: block; }
+.bl-prose figcaption {
+  margin-top: var(--s-2);
+  font-size: var(--fs-sm);
+  color: var(--tbe-text-subtle);
+  text-align: center;
+}
+
+/* Caseta autorului, la finalul articolului. */
+.bl-author-box {
+  max-width: 680px;
+  margin: var(--s-8) auto 0;
+  display: flex;
+  gap: var(--s-4);
+  align-items: flex-start;
+  padding: var(--s-5);
+  background: var(--tbe-decor);
+  border-radius: var(--tbe-radius-card);
+}
+.bl-author-box-avatar {
+  flex: none;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--tbe-decor-strong);
+}
+.bl-author-box-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.bl-author-box-nume { font-family: var(--font-display); font-size: var(--fs-h4); font-weight: var(--fw-semibold); }
+.bl-author-box-rol { font-size: var(--fs-xs); color: var(--tbe-text-subtle); text-transform: uppercase; letter-spacing: var(--ls-wide); margin-bottom: var(--s-2); }
+.bl-author-box p { margin: 0; font-size: var(--fs-sm); color: var(--tbe-text-muted); max-width: none; }
+
+/* Înapoi la blog. */
+.bl-inapoi {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: var(--s-7);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--tbe-action);
+  text-decoration: none;
+}
+.bl-inapoi svg { width: 14px; height: 14px; }
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .bl-featured { grid-template-columns: 1fr; }
+  .bl-featured-media { aspect-ratio: 16 / 9; }
+  .bl-featured-corp { padding: var(--s-2); }
+  .bl-featured-titlu { font-size: var(--fs-h2); }
+}
+@media (max-width: 640px) {
+  .bl-article-titlu { font-size: var(--fs-h1); }
+  .bl-prose { font-size: var(--fs-base); }
+  .bl-author-box { flex-direction: column; }
+}
