@@ -1,0 +1,388 @@
+/* ==========================================================================
+   THE BEAUTY EDUCATION — PAGINA „REVISTA COAFEZELOR" (revista.html)
+   Se încarcă după site.css. Prefix propriu `rev-`.
+   --------------------------------------------------------------------------
+   Pagină de PREZENTARE (nu landing page). Inima ei e galeria de coperți, cu
+   lightbox. Revista e beneficiu de abonament — coperta e vitrină, revista
+   completă rămâne în abonament. Structura și sursele: revista-structura.md.
+
+   Ritm de fundal: crem (hero) → bej (ce este, is-band) → crem (highlight-uri)
+   → bej (arhiva, is-band) → crem (colectiv) → crem (CTA, rev-divider).
+   ========================================================================== */
+
+/* Graniță între secțiuni de același fundal. */
+.rev-divider { border-top: 1px solid var(--tbe-border-subtle); }
+.rev-lead-spatiat { margin-bottom: var(--s-6); }
+
+/* ==========================================================================
+   0 · HERO — prezentarea revistei, cu stiva de coperți în dreapta
+   ========================================================================== */
+.rev-header { padding-top: var(--s-6); }
+.rev-header .tbe-breadcrumb { margin-bottom: var(--s-5); }
+
+.rev-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 0.85fr;
+  gap: var(--s-8);
+  align-items: center;
+}
+.rev-hero-text { min-width: 0; }
+
+.rev-titlu {
+  font-size: var(--fs-display);
+  font-weight: var(--fw-light);
+  letter-spacing: var(--ls-tight);
+  margin-bottom: var(--s-3);
+}
+.rev-titlu em {
+  font-style: italic;
+  font-weight: var(--fw-regular);
+  color: var(--tbe-action);
+}
+
+/* Linia de metadate: ISSN · lunar · inclusă în abonament */
+.rev-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2) var(--s-4);
+  margin: var(--s-5) 0 var(--s-6);
+  padding-top: var(--s-5);
+  border-top: 1px solid var(--tbe-border-subtle);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--tbe-text-subtle);
+}
+.rev-meta span { display: inline-flex; align-items: center; gap: 7px; }
+.rev-meta svg { width: 14px; height: 14px; color: var(--tbe-editorial); }
+
+.rev-hero-actions { display: flex; gap: var(--s-2); flex-wrap: wrap; }
+
+/* --- Stiva de coperți --- */
+.rev-hero-covers { position: relative; }
+.rev-stiva {
+  position: relative;
+  width: min(78%, 360px);
+  margin-inline: auto;
+  aspect-ratio: 1200 / 1699;
+}
+.rev-stiva img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 3px;
+  box-shadow: var(--site-shadow-card);
+}
+/* Numărul mai vechi stă în spate, ușor rotit — dă adâncime de „teanc de reviste”. */
+.rev-stiva .is-spate {
+  transform: rotate(-7deg) translate(-14%, 3%);
+  z-index: 0;
+  filter: brightness(0.97);
+}
+.rev-stiva .is-fata { z-index: 1; }
+
+/* ==========================================================================
+   1 · CE ESTE REVISTA — rolul de liant, cu puncte scurte
+   ========================================================================== */
+.rev-despre {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: var(--s-8);
+  align-items: start;
+}
+.rev-despre-text { min-width: 0; }
+.rev-despre-text p { max-width: 60ch; }
+
+.rev-fapte {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+.rev-fapt {
+  display: flex;
+  gap: var(--s-3);
+  align-items: flex-start;
+  background: var(--tbe-surface);
+  border: var(--bw-hair) solid var(--tbe-border-subtle);
+  border-radius: var(--tbe-radius-card);
+  padding: var(--s-4);
+}
+.rev-fapt-icon {
+  flex: none;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--tbe-editorial-soft);
+  color: var(--tbe-editorial);
+}
+.rev-fapt-icon svg { width: 17px; height: 17px; }
+.rev-fapt strong { display: block; font-size: var(--fs-sm); color: var(--tbe-text); }
+.rev-fapt span { font-size: var(--fs-xs); color: var(--tbe-text-muted); }
+
+/* ==========================================================================
+   2 · CE GĂSEȘTI ÎN FIECARE NUMĂR — highlight-uri
+   ========================================================================== */
+.rev-highlights {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-3);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.rev-highlight {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  background: var(--tbe-surface);
+  border: var(--bw-hair) solid var(--tbe-border-subtle);
+  border-radius: var(--tbe-radius-card);
+  padding: var(--s-5);
+}
+.rev-highlight h3 { font-size: var(--fs-h4); margin: 0; }
+.rev-highlight p { margin: 0; font-size: var(--fs-sm); color: var(--tbe-text-muted); max-width: none; }
+/* Eticheta „trimite către …” — reper discret de destinație în ecosistem. */
+.rev-tinta {
+  margin-top: auto;
+  align-self: flex-start;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--tbe-editorial);
+  background: var(--tbe-editorial-soft);
+  padding: 3px 9px;
+  border-radius: var(--r-pill);
+}
+
+/* ==========================================================================
+   3 · ARHIVA — galeria de coperți (deschide lightbox)
+   Flex-wrap centrat: elegant cu puține numere, crește curat la fiecare apariție.
+   ========================================================================== */
+.rev-galerie {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--s-6);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.rev-galerie li { flex: 0 1 260px; max-width: 290px; }
+
+.rev-cover-btn {
+  display: block;
+  width: 100%;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  color: inherit;
+  font: inherit;
+}
+.rev-cover-wrap {
+  position: relative;
+  aspect-ratio: 1200 / 1699;
+  border-radius: 3px;
+  overflow: hidden;
+  background: var(--tbe-decor);
+  box-shadow: var(--site-shadow-card);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.rev-cover-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.rev-cover-btn:hover .rev-cover-wrap,
+.rev-cover-btn:focus-visible .rev-cover-wrap {
+  transform: translateY(-4px);
+  box-shadow: var(--site-shadow-card-hover);
+}
+/* Indiciul de „mărește” — apare la hover peste copertă. */
+.rev-cover-lupa {
+  position: absolute;
+  top: var(--s-3);
+  right: var(--s-3);
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(var(--site-rgb-alb), 0.92);
+  color: var(--tbe-text);
+  opacity: 0;
+  transform: scale(0.85);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.rev-cover-lupa svg { width: 17px; height: 17px; }
+.rev-cover-btn:hover .rev-cover-lupa,
+.rev-cover-btn:focus-visible .rev-cover-lupa { opacity: 1; transform: scale(1); }
+
+.rev-cover-meta { display: block; margin-top: var(--s-3); }
+.rev-cover-meta strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--fs-h4);
+  font-weight: var(--fw-semibold);
+  color: var(--tbe-text);
+}
+.rev-cover-meta span { font-size: var(--fs-sm); color: var(--tbe-text-muted); }
+
+/* Notă discretă sub galerie: „revista completă, în abonament”. */
+.rev-galerie-nota {
+  margin-top: var(--s-6);
+  text-align: center;
+  font-size: var(--fs-sm);
+  color: var(--tbe-text-subtle);
+}
+
+/* ==========================================================================
+   4 · COLECTIVUL EDITORIAL
+   ========================================================================== */
+.rev-colectiv {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--s-3) var(--s-6);
+}
+.rev-membru {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s-3);
+  padding: var(--s-3) 0;
+  border-bottom: 1px solid var(--tbe-border-subtle);
+}
+.rev-membru-nume {
+  font-family: var(--font-display);
+  font-size: var(--fs-h4);
+  font-weight: var(--fw-semibold);
+  color: var(--tbe-text);
+}
+.rev-membru-rol { font-size: var(--fs-sm); color: var(--tbe-text-muted); margin-left: auto; text-align: right; }
+.rev-colaborator {
+  margin-top: var(--s-5);
+  font-size: var(--fs-sm);
+  color: var(--tbe-text-muted);
+}
+.rev-colaborator strong { color: var(--tbe-text); font-weight: var(--fw-medium); }
+
+/* ==========================================================================
+   5 · CTA FINAL — beneficiu de abonament
+   ========================================================================== */
+.rev-cta {
+  text-align: center;
+  max-width: 640px;
+  margin-inline: auto;
+}
+.rev-cta h2 { margin-bottom: var(--s-3); }
+.rev-cta-actiune {
+  display: flex;
+  gap: var(--s-2);
+  justify-content: center;
+  margin-top: var(--s-5);
+  flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   LIGHTBOX — coperta mărită, peste tot ecranul
+   ========================================================================== */
+.rev-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--s-6);
+  background: rgba(var(--site-rgb-ink), 0.9);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s linear;
+}
+.rev-lightbox.is-open { opacity: 1; visibility: visible; }
+body.rev-no-scroll { overflow: hidden; }
+
+.rev-lightbox-fig {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s-3);
+  max-height: 100%;
+}
+.rev-lightbox-fig img {
+  max-height: 82vh;
+  max-width: 100%;
+  width: auto;
+  border-radius: 3px;
+  box-shadow: 0 30px 80px -20px rgba(var(--site-rgb-ink), 0.7);
+  transform: scale(0.97);
+  transition: transform 0.25s ease;
+}
+.rev-lightbox.is-open .rev-lightbox-fig img { transform: scale(1); }
+.rev-lightbox-cap {
+  color: rgba(var(--site-rgb-alb), 0.95);
+  text-align: center;
+  font-family: var(--font-display);
+}
+.rev-lightbox-cap strong { display: block; font-size: var(--fs-h4); font-weight: var(--fw-semibold); }
+.rev-lightbox-cap span { font-size: var(--fs-sm); color: rgba(var(--site-rgb-alb), 0.7); }
+
+/* Butoane — închide + navigare. */
+.rev-lightbox-buton {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(var(--site-rgb-alb), 0.14);
+  color: rgba(var(--site-rgb-alb), 0.95);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.rev-lightbox-buton:hover,
+.rev-lightbox-buton:focus-visible { background: rgba(var(--site-rgb-alb), 0.28); }
+.rev-lightbox-buton svg { width: 22px; height: 22px; }
+.rev-lightbox-inchide { top: var(--s-5); right: var(--s-5); }
+.rev-lightbox-nav { top: 50%; transform: translateY(-50%); }
+.rev-lightbox-nav.is-prev { left: var(--s-5); }
+.rev-lightbox-nav.is-next { right: var(--s-5); }
+.rev-lightbox-nav[hidden] { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .rev-lightbox, .rev-lightbox-fig img { transition: none; }
+  .rev-lightbox-fig img { transform: none; }
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .rev-hero-grid { grid-template-columns: 1fr; }
+  .rev-hero-covers { order: -1; }
+  .rev-stiva { width: min(60%, 300px); }
+  .rev-despre { grid-template-columns: 1fr; }
+  .rev-highlights { grid-template-columns: repeat(2, 1fr); }
+  .rev-colectiv { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .rev-titlu { font-size: var(--fs-h1); }
+  .rev-hero-actions { flex-direction: column; }
+  .rev-hero-actions .tbe-btn { width: 100%; }
+  .rev-highlights { grid-template-columns: 1fr; }
+  .rev-cta-actiune { flex-direction: column; }
+  .rev-cta-actiune .tbe-btn { width: 100%; }
+  .rev-lightbox-nav.is-prev { left: var(--s-3); }
+  .rev-lightbox-nav.is-next { right: var(--s-3); }
+  .rev-lightbox-inchide { top: var(--s-3); right: var(--s-3); }
+}

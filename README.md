@@ -757,6 +757,38 @@ clipurile reels reale, pozele per categorie, link-ul `/abonament` și `/program-
    „Alătură-te comunității" sub „Mai mult decât tutoriale". Toate spre `/abonament` respectiv
    Circle, cu utm_source.
 
+## Pagina REVISTA COAFEZELOR — `revista.html`
+
+Pagină de **prezentare** (nu landing page). Inima ei e **galeria de coperți cu lightbox**.
+Structura, deciziile și sursele: [`revista-structura.md`](revista-structura.md).
+
+Șase secțiuni: hero (cu teancul de coperți) → ce este (rolul de liant, `is-band`) → ce găsești
+înăuntru (6 highlight-uri din cele ~19 rubrici) → **arhiva** (galeria, `is-band`) → colectivul
+editorial → CTA (beneficiu de abonament). Prefix CSS `rev-`.
+
+**Coperțile** sunt extrase din PDF-urile reale din `documente/` (pagina 1 a fiecărui număr),
+randate cu `pdf-to-img` și convertite în JPEG 1200px (`assets/poze/revista/nr-1-august-2026.jpg`,
+`nr-2-septembrie-2026.jpg`). NU imagini de stoc — copertele adevărate.
+
+**Lightbox** ([`assets/js/revista-lightbox.js`](assets/js/revista-lightbox.js)): click pe copertă
+→ overlay cu coperta mare. Accesibil — dialog modal, focus trap, Esc închide, săgeți navighează
+între coperți, click pe fundal închide, focusul revine pe coperta din care s-a deschis.
+`prefers-reduced-motion` respectat. Imaginea din lightbox n-are `src` în HTML (o pune JS-ul la
+deschidere) — de aici un ignore îngust `broken-image` scopat pe `revista.html` în config-ul
+impeccable.
+
+Decizii (confirmate 19 aug 2026): click pe copertă = **lightbox** (revista completă rămâne în
+abonament, nu descărcare gratuită); interior = **câteva highlight-uri**; poziționare = **beneficiu
+de abonament** (CTA → `/abonament`).
+
+Legături: `/revista` (footer pe toate paginile + cardul „Revista Coafezelor" din bento-ul de pe
+homepage) repoint pe `revista.html`. Revista **nu** intră în meniul de sus — rămâne în footer și în
+carduri, ca să nu aglomereze meniul. Galeria e gândită să crească: la fiecare număr nou se adaugă
+un `<li>` în `.rev-galerie`, fără reproiectare.
+
+De completat: la numere noi, extrage coperta (pagina 1 din PDF) în `assets/poze/revista/` și adaugă
+cardul în galerie.
+
 ## Cursurile în navigație — dropdown ca index
 
 Nu există (și nu vor exista) pagini-categorie „cursuri online" / „cursuri fizice": **fiecare curs
