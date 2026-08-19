@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<!-- data-theme="light" — la fel ca restul site-ului. -->
+<html lang="ro" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact — The Beauty Education</title>
+  <meta name="description" content="Ia legătura cu The Beauty Education: scrie-ne pe email, sună-ne sau trimite-ne un mesaj direct din formular. Îți răspundem cât putem de repede.">
+  <meta name="theme-color" content="#FAF4EF">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="The Beauty Education">
+  <meta property="og:locale" content="ro_RO">
+  <meta property="og:title" content="Contact — The Beauty Education">
+  <meta property="og:description" content="Scrie-ne pe email, sună-ne sau trimite-ne un mesaj din formular.">
+  <meta name="twitter:card" content="summary">
+
+  <link rel="icon" href="assets/logo/tbe-icon-color.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonturi/Jost%5Bwght%5D.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/fonturi/CormorantGaramond%5Bwght%5D.ttf" as="font" type="font/ttf" crossorigin>
+
+  <!-- ORDINEA CONTEAZĂ: tokens → components → site → pagină -->
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="stylesheet" href="assets/css/contact-pagina.css">
+</head>
+
+<body>
+
+<a class="site-skip" href="#continut">Sari la conținut</a>
+
+<!-- NAVBAR — copie din revista.html, cu .is-locked. -->
+<header class="site-nav is-locked" data-site-nav>
+  <div class="site-nav-inner tbe-container">
+
+    <a class="site-nav-brand" href="index.html" aria-label="The Beauty Education — prima pagină">
+      <img class="site-nav-logo is-white" src="assets/logo/tbe-orizontal-alb.svg"
+           alt="The Beauty Education" width="150" height="40">
+      <img class="site-nav-logo is-color" src="assets/logo/tbe-orizontal-color.svg"
+           alt="" aria-hidden="true" width="150" height="40">
+    </a>
+
+    <nav class="site-nav-menu" aria-label="Navigare principală">
+      <ul class="site-nav-list">
+        <li class="site-nav-item">
+          <a class="site-nav-link" href="comunitate.html">Comunitate</a>
+        </li>
+        <li class="site-nav-item">
+          <a class="site-nav-link" href="empiria.html">Empiria</a>
+        </li>
+
+        <li class="site-nav-item site-nav-has-sub" data-site-dropdown>
+          <button type="button" class="site-nav-link" aria-expanded="false" aria-controls="submeniu-cursuri">
+            Cursuri
+            <svg class="site-nav-caret" viewBox="0 0 12 12" fill="none" stroke="currentColor"
+                 stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M2.5 4.5 6 8l3.5-3.5"/>
+            </svg>
+          </button>
+          <div class="site-nav-sub is-grupat" id="submeniu-cursuri">
+            <p class="site-nav-sub-grup" id="grup-nav-fizice">Cursuri fizice</p>
+            <ul class="site-nav-sub-lista" aria-labelledby="grup-nav-fizice">
+              <li><a href="/curs/bazele-coafurilor-texturate">Bazele Coafurilor Texturate</a></li>
+              <li><a href="/curs/coafuri-comerciale">Coafuri Comerciale</a></li>
+            </ul>
+            <p class="site-nav-sub-grup" id="grup-nav-online">Cursuri online</p>
+            <ul class="site-nav-sub-lista" aria-labelledby="grup-nav-online">
+              <li><a href="curs-atelierul-de-bucle.html">Atelierul de Bucle</a></li>
+              <li><a href="curs-color-mastery.html">Color Mastery</a></li>
+              <li><a href="curs-makeup-essentials.html">Makeup Essentials</a></li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="site-nav-item">
+          <a class="site-nav-link" href="https://harta-coafezelor.ro">Harta Coafezelor</a>
+        </li>
+        <li class="site-nav-item">
+          <a class="site-nav-link" href="https://beautifier.ro">Magazin</a>
+        </li>
+      </ul>
+    </nav>
+
+    <a class="tbe-btn is-primary site-nav-cta" href="https://ro.thebeautyeducation.com">
+      Alătură-te comunității
+    </a>
+
+    <button type="button" class="site-nav-burger" data-site-burger
+            aria-expanded="false" aria-controls="sertar-meniu" aria-label="Deschide meniul">
+      <span class="site-burger-box" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </span>
+    </button>
+
+  </div>
+</header>
+
+<div class="site-drawer" id="sertar-meniu" data-site-drawer aria-hidden="true">
+  <div class="tbe-container">
+    <ul class="site-drawer-list">
+      <li><a class="site-drawer-link" href="comunitate.html">Comunitate</a></li>
+      <li><a class="site-drawer-link" href="empiria.html">Empiria</a></li>
+      <li>
+        <details class="site-drawer-details">
+          <summary class="site-drawer-sub-toggle">
+            Cursuri
+            <svg class="site-nav-caret" viewBox="0 0 12 12" fill="none" stroke="currentColor"
+                 stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M2.5 4.5 6 8l3.5-3.5"/>
+            </svg>
+          </summary>
+          <div class="site-drawer-sub">
+            <p class="site-drawer-sub-grup" id="grup-drawer-fizice">Cursuri fizice</p>
+            <ul class="site-drawer-sub-lista" aria-labelledby="grup-drawer-fizice">
+              <li><a href="/curs/bazele-coafurilor-texturate">Bazele Coafurilor Texturate</a></li>
+              <li><a href="/curs/coafuri-comerciale">Coafuri Comerciale</a></li>
+            </ul>
+            <p class="site-drawer-sub-grup" id="grup-drawer-online">Cursuri online</p>
+            <ul class="site-drawer-sub-lista" aria-labelledby="grup-drawer-online">
+              <li><a href="curs-atelierul-de-bucle.html">Atelierul de Bucle</a></li>
+              <li><a href="curs-color-mastery.html">Color Mastery</a></li>
+              <li><a href="curs-makeup-essentials.html">Makeup Essentials</a></li>
+            </ul>
+          </div>
+        </details>
+      </li>
+      <li><a class="site-drawer-link" href="https://harta-coafezelor.ro">Harta Coafezelor</a></li>
+      <li><a class="site-drawer-link" href="https://beautifier.ro">Magazin</a></li>
+    </ul>
+    <div class="site-drawer-foot">
+      <a class="tbe-btn is-primary is-lg is-block" href="https://ro.thebeautyeducation.com">
+        Alătură-te comunității
+      </a>
+    </div>
+  </div>
+</div>
+
+<main id="continut">
+
+  <!-- ========================================================================
+       CONTACT — antet + grilă (canale la stânga, formular la dreapta)
+       Canale confirmate: email contact@thebeautyeducation.com,
+       telefon 0725 505 525, rețele sociale.
+       Formularul e vizual (action="#") în prototip; la portarea în WordPress
+       se leagă la un plugin care trimite efectiv mesajul.
+       ======================================================================== -->
+  <section class="site-section ct-header" aria-labelledby="ct-titlu">
+    <div class="tbe-container">
+
+      <nav class="tbe-breadcrumb" aria-label="Locul în site">
+        <ol>
+          <li><a href="index.html">Acasă</a></li>
+          <li aria-current="page">Contact</li>
+        </ol>
+      </nav>
+
+      <span class="tbe-kicker is-action">Contact</span>
+      <h1 class="ct-titlu" id="ct-titlu">Hai să <em>vorbim</em>.</h1>
+      <p class="tbe-lead">
+        Întrebări despre abonament, cursuri, colaborări sau presă? Scrie-ne pe email, sună-ne
+        sau trimite-ne un mesaj direct din formular — îți răspundem cât putem de repede.
+      </p>
+
+      <div class="ct-grid">
+
+        <!-- Canalele -->
+        <div class="ct-coloana">
+          <ul class="ct-canale">
+            <li>
+              <a class="ct-canal" href="mailto:contact@thebeautyeducation.com">
+                <span class="ct-canal-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6 8.5-6"/></svg>
+                </span>
+                <span>
+                  <span class="ct-canal-eticheta">Email</span>
+                  <span class="ct-canal-val">contact@thebeautyeducation.com</span>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a class="ct-canal" href="tel:+40725505525">
+                <span class="ct-canal-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5c0-1 .8-1.8 1.8-1.8h1.7c.5 0 1 .4 1.1.9l.9 3.2c.1.5-.1 1-.5 1.3L8.2 10c1 2 2.7 3.7 4.8 4.8l1.4-1.8c.3-.4.8-.6 1.3-.5l3.2.9c.5.1.9.6.9 1.1v1.7c0 1-.8 1.8-1.8 1.8C10.6 20 4 13.4 4 5z"/></svg>
+                </span>
+                <span>
+                  <span class="ct-canal-eticheta">Telefon</span>
+                  <span class="ct-canal-val">0725 505 525</span>
+                </span>
+              </a>
+            </li>
+          </ul>
+
+          <p class="ct-social-titlu">Ne găsești și pe</p>
+          <ul class="ct-social">
+            <li>
+              <a href="#" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5.5"/><circle cx="12" cy="12" r="4.1"/><circle cx="17.3" cy="6.7" r="1.05" fill="currentColor" stroke="none"/></svg>
+              </a>
+            </li>
+            <li>
+              <a href="#" aria-label="Facebook">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15.6 4.6h-1.8c-1.9 0-2.9 1.2-2.9 3.2V10H8.6v3h2.3v6.4"/></svg>
+              </a>
+            </li>
+            <li>
+              <a href="#" aria-label="TikTok">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.9 4.8v9.7a3.5 3.5 0 1 1-3.5-3.5c.3 0 .6 0 .9.1"/><path d="M13.9 4.8c.3 2.3 2 4 4.3 4.2"/></svg>
+              </a>
+            </li>
+            <li>
+              <a href="#" aria-label="YouTube">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10.4 9.4 15.7 12l-5.3 2.6z" fill="currentColor" stroke="none"/></svg>
+              </a>
+            </li>
+          </ul>
+
+          <div class="ct-firma">
+            <strong>Beauty Education Publishing SRL</strong><br>
+            CUI: 54823960 · Reg. Com.: J2026036531002<br>
+            Str. Berzelor 348, Plevna, jud. Călărași
+          </div>
+        </div>
+
+        <!-- Formularul -->
+        <div class="ct-coloana is-form">
+          <div class="ct-form-card">
+            <h2 class="ct-form-titlu">Trimite-ne un mesaj</h2>
+            <p class="ct-form-intro">Completează câmpurile de mai jos și revenim la tine pe email.</p>
+
+            <form action="#" method="post" aria-labelledby="ct-titlu">
+              <div class="ct-form-rand">
+                <div class="tbe-field">
+                  <label class="tbe-label" for="ct-nume">Nume <span class="tbe-req" aria-hidden="true">*</span></label>
+                  <input class="tbe-input" type="text" id="ct-nume" name="nume" autocomplete="name" required>
+                </div>
+                <div class="tbe-field">
+                  <label class="tbe-label" for="ct-email">Email <span class="tbe-req" aria-hidden="true">*</span></label>
+                  <input class="tbe-input" type="email" id="ct-email" name="email" autocomplete="email" placeholder="adresa@email.ro" required>
+                </div>
+              </div>
+
+              <div class="tbe-field">
+                <label class="tbe-label" for="ct-subiect">Subiect</label>
+                <select class="tbe-select" id="ct-subiect" name="subiect">
+                  <option value="abonament">Abonament &amp; comunitate</option>
+                  <option value="cursuri">Cursuri</option>
+                  <option value="colaborari">Colaborări &amp; parteneriate</option>
+                  <option value="presa">Presă</option>
+                  <option value="altele">Altele</option>
+                </select>
+              </div>
+
+              <div class="tbe-field">
+                <label class="tbe-label" for="ct-mesaj">Mesaj <span class="tbe-req" aria-hidden="true">*</span></label>
+                <textarea class="tbe-textarea" id="ct-mesaj" name="mesaj" rows="5" placeholder="Cu ce te putem ajuta?" required></textarea>
+              </div>
+
+              <label class="tbe-check" for="ct-acord">
+                <input type="checkbox" id="ct-acord" name="acord" required>
+                <span>Sunt de acord cu prelucrarea datelor conform <a href="/politica-de-confidentialitate">politicii de confidențialitate</a>.</span>
+              </label>
+
+              <div class="ct-form-actiune">
+                <button class="tbe-btn is-primary is-lg" type="submit">Trimite mesajul</button>
+              </div>
+              <p class="ct-form-nota">Îți răspundem de obicei în una–două zile lucrătoare.</p>
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER — copie identică, cu „Contact" → pagina asta. -->
+<footer class="site-footer">
+  <div class="tbe-container">
+    <div class="site-footer-grid">
+
+      <div class="site-footer-col is-brand">
+        <img class="site-footer-logo" src="assets/logo/tbe-orizontal-alb.svg"
+             alt="The Beauty Education" width="142" height="38">
+        <p class="site-footer-about">
+          Cea mai mare comunitate pentru coafeze din România. Educație, comunitate
+          și produse profesionale într-un singur loc.
+        </p>
+        <div class="site-footer-entity">
+          <p class="site-footer-company">Beauty Education Publishing SRL</p>
+          <p class="site-footer-fiscal">
+            CUI: 54823960<br>
+            Reg. Com.: J2026036531002<br>
+            Str. Berzelor 348, Plevna, jud. Călărași
+          </p>
+        </div>
+      </div>
+
+      <nav class="site-footer-col" aria-labelledby="footer-navigare">
+        <h2 class="site-footer-title" id="footer-navigare">Navigare</h2>
+        <ul class="site-footer-list">
+          <li><a href="comunitate.html">Comunitate</a></li>
+          <li><a href="empiria.html">Empiria</a></li>
+          <li><a href="https://harta-coafezelor.ro">Harta Coafezelor</a></li>
+          <li><a href="https://beautifier.ro">Magazin</a></li>
+        </ul>
+      </nav>
+
+      <nav class="site-footer-col" aria-labelledby="footer-cursuri">
+        <h2 class="site-footer-title" id="footer-cursuri">Cursuri</h2>
+        <ul class="site-footer-list">
+          <li><a href="/curs/bazele-coafurilor-texturate">Bazele Coafurilor Texturate</a></li>
+          <li><a href="/curs/coafuri-comerciale">Coafuri Comerciale</a></li>
+          <li><a href="curs-atelierul-de-bucle.html">Atelierul de Bucle</a></li>
+          <li><a href="curs-color-mastery.html">Color Mastery</a></li>
+          <li><a href="curs-makeup-essentials.html">Makeup Essentials</a></li>
+        </ul>
+      </nav>
+
+      <nav class="site-footer-col" aria-labelledby="footer-mai-mult">
+        <h2 class="site-footer-title" id="footer-mai-mult">Mai mult</h2>
+        <ul class="site-footer-list">
+          <li><a href="revista.html">Revista Coafezelor</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/program-de-loialitate">Program de loialitate</a></li>
+          <li><a href="contact.html" aria-current="page">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="site-footer-col">
+        <h2 class="site-footer-title" id="footer-newsletter">Rămâi aproape</h2>
+
+        <div class="site-newsletter">
+          <p class="site-newsletter-note">
+            Noutăți despre cursuri, tutoriale și Revista Coafezelor — o dată pe lună.
+          </p>
+          <form class="site-newsletter-form" action="#" method="post" aria-labelledby="footer-newsletter">
+            <label class="tbe-sr-only" for="newsletter-email">Adresa ta de email</label>
+            <input class="site-newsletter-input" type="email" id="newsletter-email" name="email"
+                   placeholder="adresa@email.ro" autocomplete="email" required>
+            <button class="tbe-btn is-primary is-block" type="submit">Abonează-te</button>
+          </form>
+          <p class="site-newsletter-legal">
+            Prin abonare accepți <a href="/politica-de-confidentialitate">politica de confidențialitate</a>.
+          </p>
+        </div>
+
+        <ul class="site-social">
+          <li>
+            <a href="#" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                   stroke-linecap="round" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="5.5"/>
+                <circle cx="12" cy="12" r="4.1"/>
+                <circle cx="17.3" cy="6.7" r="1.05" fill="currentColor" stroke="none"/>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="#" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M15.6 4.6h-1.8c-1.9 0-2.9 1.2-2.9 3.2V10H8.6v3h2.3v6.4"/>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="#" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M13.9 4.8v9.7a3.5 3.5 0 1 1-3.5-3.5c.3 0 .6 0 .9.1"/>
+                <path d="M13.9 4.8c.3 2.3 2 4 4.3 4.2"/>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="#" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                   stroke-linejoin="round" aria-hidden="true">
+                <rect x="2.5" y="5.5" width="19" height="13" rx="4"/>
+                <path d="M10.4 9.4 15.7 12l-5.3 2.6z" fill="currentColor" stroke="none"/>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="site-footer-bottom">
+    <div class="tbe-container">
+      <div class="site-trust">
+        <p class="site-trust-pay">
+          <span class="site-trust-badge"><img src="assets/logo/stripe.png" alt="Stripe" width="42" height="18"></span>
+          Plăți securizate
+        </p>
+        <ul class="site-trust-legal">
+          <li><a href="https://anpc.ro">ANPC</a></li>
+          <li><a href="https://ec.europa.eu/consumers/odr">Soluționarea online a litigiilor (SOL)</a></li>
+        </ul>
+      </div>
+      <div class="site-footer-bottom-inner">
+        <p class="site-footer-copy">© 2026 The Beauty Education. Toate drepturile rezervate.</p>
+        <ul class="site-footer-legal">
+          <li><a href="/termeni-si-conditii">Termeni și condiții</a></li>
+          <li><a href="/politica-de-confidentialitate">Confidențialitate</a></li>
+          <li><a href="/politica-cookies">Cookies</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+/* ==========================================================================
+   THE BEAUTY EDUCATION — PAGINA „CONTACT" (contact.html)
+   Se încarcă după site.css. Prefix propriu `ct-`.
+   --------------------------------------------------------------------------
+   Formularul refolosește componentele DS (.tbe-field / .tbe-label /
+   .tbe-input / .tbe-textarea / .tbe-select / .tbe-check). Fișierul de față
+   conține DOAR layout-ul paginii: grila canale + formular, cardurile de
+   canal, rândul de social și blocul de date firmă.
+   Canale confirmate (19 aug 2026): email contact@thebeautyeducation.com,
+   telefon 0725 505 525, rețele sociale.
+   ========================================================================== */
+
+.ct-header { padding-top: var(--s-6); }
+.ct-header .tbe-breadcrumb { margin-bottom: var(--s-5); }
+
+.ct-titlu {
+  font-size: var(--fs-display);
+  font-weight: var(--fw-light);
+  letter-spacing: var(--ls-tight);
+  margin-bottom: var(--s-3);
+}
+.ct-titlu em {
+  font-style: italic;
+  font-weight: var(--fw-regular);
+  color: var(--tbe-action);
+}
+
+.ct-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: var(--s-8);
+  align-items: start;
+  margin-top: var(--s-7);
+}
+.ct-coloana { min-width: 0; }
+
+/* --- Canalele de contact --------------------------------------------------- */
+.ct-canale {
+  list-style: none;
+  margin: 0 0 var(--s-6);
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+.ct-canal {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  padding: var(--s-4);
+  background: var(--tbe-surface);
+  border: var(--bw-hair) solid var(--tbe-border-subtle);
+  border-radius: var(--tbe-radius-card);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+a.ct-canal:hover,
+a.ct-canal:focus-visible {
+  border-color: var(--tbe-action);
+  box-shadow: var(--site-shadow-card);
+  transform: translateY(-2px);
+}
+.ct-canal-icon {
+  flex: none;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--tbe-action-soft);
+  color: var(--tbe-action);
+}
+.ct-canal-icon svg { width: 20px; height: 20px; }
+.ct-canal-eticheta {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--tbe-text-subtle);
+}
+.ct-canal-val {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--fs-h4);
+  font-weight: var(--fw-semibold);
+  color: var(--tbe-text);
+  line-height: 1.2;
+  overflow-wrap: anywhere; /* emailul lung nu forțează lățimea cardului */
+}
+
+/* --- Rândul de social ------------------------------------------------------ */
+.ct-social-titlu {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--tbe-text-subtle);
+  margin: 0 0 var(--s-2);
+}
+.ct-social {
+  list-style: none;
+  display: flex;
+  gap: var(--s-2);
+  margin: 0 0 var(--s-6);
+  padding: 0;
+}
+.ct-social a {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: var(--bw-hair) solid var(--tbe-border-subtle);
+  color: var(--tbe-text-muted);
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+.ct-social a:hover,
+.ct-social a:focus-visible {
+  color: var(--tbe-action);
+  border-color: var(--tbe-action);
+  background: var(--tbe-action-soft);
+}
+.ct-social svg { width: 20px; height: 20px; }
+
+/* --- Datele firmei (mărunt, sub canale) ------------------------------------ */
+.ct-firma {
+  padding-top: var(--s-5);
+  border-top: 1px solid var(--tbe-border-subtle);
+  font-size: var(--fs-sm);
+  color: var(--tbe-text-muted);
+  line-height: 1.6;
+}
+.ct-firma strong { color: var(--tbe-text); font-weight: var(--fw-medium); }
+
+/* --- Cardul cu formularul -------------------------------------------------- */
+.ct-form-card {
+  background: var(--tbe-surface);
+  border: var(--bw-hair) solid var(--tbe-border-subtle);
+  border-radius: var(--tbe-radius-card);
+  box-shadow: var(--site-shadow-card);
+  padding: var(--s-6);
+}
+.ct-form-titlu { font-size: var(--fs-h3); margin-bottom: var(--s-2); }
+.ct-form-intro { font-size: var(--fs-sm); color: var(--tbe-text-muted); margin-bottom: var(--s-5); }
+
+/* Nume + email pe același rând, pe desktop. */
+.ct-form-rand {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-4);
+}
+/* .tbe-field are deja margin-bottom; în rândul-grid o neutralizăm ca să nu
+   se cumuleze cu gap-ul. */
+.ct-form-rand .tbe-field { margin-bottom: 0; }
+.ct-form-rand + .tbe-field { margin-top: var(--s-4); }
+
+.ct-form-actiune { margin-top: var(--s-4); }
+.ct-form-nota {
+  margin-top: var(--s-3);
+  font-size: var(--fs-xs);
+  color: var(--tbe-text-subtle);
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .ct-grid { grid-template-columns: 1fr; gap: var(--s-7); }
+  /* Formularul primul pe mobil — e acțiunea principală. */
+  .ct-coloana.is-form { order: -1; }
+}
+@media (max-width: 560px) {
+  .ct-form-rand { grid-template-columns: 1fr; gap: 0; }
+  .ct-form-rand .tbe-field { margin-bottom: var(--s-4); }
+  .ct-form-card { padding: var(--s-5); }
+}

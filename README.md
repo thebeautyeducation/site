@@ -789,6 +789,24 @@ un `<li>` în `.rev-galerie`, fără reproiectare.
 De completat: la numere noi, extrage coperta (pagina 1 din PDF) în `assets/poze/revista/` și adaugă
 cardul în galerie.
 
+## Pagina CONTACT — `contact.html`
+
+Pagină simplă, două coloane: **canale** la stânga, **formular** la dreapta.
+
+- **Formularul** refolosește integral componentele de formular din design system
+  (`.tbe-field` / `.tbe-label` / `.tbe-input` / `.tbe-textarea` / `.tbe-select` / `.tbe-check`);
+  [`contact-pagina.css`](assets/css/contact-pagina.css) (prefix `ct-`) conține doar layout-ul.
+  Câmpuri: nume, email, subiect (select), mesaj, consimțământ GDPR. `action="#"` — **vizual în
+  prototip**; la portarea în WordPress se leagă la un plugin (Contact Form 7 / Fluent Forms) care
+  trimite efectiv emailul. Fără JS propriu.
+- **Canale** (confirmate 19 aug 2026): email `contact@thebeautyeducation.com` (`mailto:`), telefon
+  `0725 505 525` (`tel:+40725505525`), rețele sociale (link-uri încă placeholder). Sub ele, datele
+  firmei. **Nu** afișăm comunitatea Circle ca și canal de contact (neselectată).
+- Legături: `/contact` din footer (toate paginile) repoint pe `contact.html`; pagina e în footer,
+  nu în meniul de sus.
+
+De completat: adresele reale de social; wiring-ul formularului la un backend real în WordPress.
+
 ## Cursurile în navigație — dropdown ca index
 
 Nu există (și nu vor exista) pagini-categorie „cursuri online" / „cursuri fizice": **fiecare curs
