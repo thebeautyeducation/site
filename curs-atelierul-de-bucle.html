@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<!-- data-theme="light" — ca tot site-ul: DS-ul are dark mode automat, aici e blocat pe light. -->
+<html lang="ro" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Atelierul de Bucle — curs online cu Adriana Dobre | The Beauty Education</title>
+  <meta name="description" content="Bucle și valuri care rezistă, pe orice tip de păr. 22 de tehnici filmate pas cu pas, acces pe viață, 2 diplome. Curs online semnat de Adriana Dobre — 1.500 lei.">
+  <meta name="theme-color" content="#FAF4EF">
+
+  <!-- Open Graph / Twitter — previzualizarea la partajare (WhatsApp, Instagram, Facebook).
+       og:image e absolut către distribuția curentă (GitHub Pages). La portarea în WordPress,
+       plugin-ul SEO (Yoast/RankMath) preia OG + canonical + og:url cu domeniul de producție.
+       ►► de înlocuit cu o imagine de share proprie cursului (rezultat bucle 1200×630). -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="The Beauty Education">
+  <meta property="og:locale" content="ro_RO">
+  <meta property="og:title" content="Atelierul de Bucle — curs online cu Adriana Dobre">
+  <meta property="og:description" content="Bucle și valuri care rezistă, pe orice tip de păr. 22 de tehnici filmate, acces pe viață, 2 diplome. 1.500 lei.">
+  <meta property="og:image" content="https://thebeautyeducation.github.io/site/assets/poze/hero-comunitate-1600.jpg">
+  <meta property="og:image:width" content="1600">
+  <meta property="og:image:height" content="1067">
+  <meta property="og:image:alt" content="Rezultat din cursul Atelierul de Bucle">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Atelierul de Bucle — curs online cu Adriana Dobre">
+  <meta name="twitter:description" content="Bucle și valuri care rezistă, pe orice tip de păr. 22 de tehnici filmate, acces pe viață, 2 diplome. 1.500 lei.">
+  <meta name="twitter:image" content="https://thebeautyeducation.github.io/site/assets/poze/hero-comunitate-1600.jpg">
+
+  <link rel="icon" href="assets/logo/tbe-icon-color.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonturi/Jost%5Bwght%5D.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/fonturi/CormorantGaramond%5Bwght%5D.ttf" as="font" type="font/ttf" crossorigin>
+  <!-- Hero-ul paginii (LCP) — cerut din <head>. ►► de înlocuit cu poza reală de rezultat. -->
+  <link rel="preload" as="image" href="assets/poze/placeholder/galerie-3.jpg" fetchpriority="high">
+
+  <!-- ORDINEA CONTEAZĂ: tokens → components → site → faq → pagină -->
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="stylesheet" href="assets/css/faq.css">
+  <link rel="stylesheet" href="assets/css/atelierul-de-bucle.css">
+</head>
+
+<!-- Pagină fără hero foto full-bleed → fără .site-has-hero (padding-top automat). -->
+<body>
+
+<a class="site-skip" href="#continut">Sari la conținut</a>
+
+<!-- NAVBAR — copie din empiria.html, cu .is-locked. Itemul „Cursuri" e activ; în
+     dropdown, „Atelierul de Bucle" primește aria-current="page". -->
+<header class="site-nav is-locked" data-site-nav>
+  <div class="site-nav-inner tbe-container">
+
+    <a class="site-nav-brand" href="index.html" aria-label="The Beauty Education — prima pagină">
+      <img class="site-nav-logo is-white" src="assets/logo/tbe-orizontal-alb.svg"
+           alt="The Beauty Education" width="150" height="40">
+      <img class="site-nav-logo is-color" src="assets/logo/tbe-orizontal-color.svg"
+           alt="" aria-hidden="true" width="150" height="40">
+    </a>
+
+    <nav class="site-nav-menu" aria-label="Navigare principală">
+      <ul class="site-nav-list">
+        <li class="site-nav-item">
+          <a class="site-nav-link" href="comunitate.html">Comunitate</a>
+        </li>
+        <li class="site-nav-item">
+          <a class="site-nav-link" href="empiria.html">Empiria</a>
+        </li>
+
+        <li class="site-nav-item site-nav-has-sub" data-site-dropdown>
+          <button type="button" class="site-nav-link" aria-expanded="false" aria-controls="submeniu-cursuri">
+            Cursuri
+            <svg class="site-nav-caret" viewBox="0 0 12 12" fill="none" stroke="currentColor"
+                 stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M2.5 4.5 6 8l3.5-3.5"/>
+            </svg>
+          </button>
+          <div class="site-nav-sub is-grupat" id="submeniu-cursuri">
+            <p class="site-nav-sub-grup" id="grup-nav-fizice">Cursuri fizice</p>
+            <ul class="site-nav-sub-lista" aria-labelledby="grup-nav-fizice">
+              <li><a href="/curs/bazele-coafurilor-texturate">Bazele Coafurilor Texturate</a></li>
+              <li><a href="/curs/coafuri-comerciale">Coafuri Comerciale</a></li>
+            </ul>
+            <p class="site-nav-sub-grup" id="grup-nav-online">Cursuri online</p>
+            <ul class="site-nav-sub-lista" aria-labelledby="grup-nav-online">
+              <li><a href="/curs/atelierul-de-bucle" aria-current="page">Atelierul de Bucle</a></li>
+              <li><a href="/curs/color-mastery">Color Mastery</a></li>
+              <li><a href="/curs/makeup-essentials">Makeup Essentials</a></li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="site-nav-item">
+          <a class="site-nav-link" href="https://harta-coafezelor.ro">Harta Coafezelor</a>
+        </li>
+        <li class="site-nav-item">
+          <a class="site-nav-link" href="https://beautifier.ro">Magazin</a>
+        </li>
+      </ul>
+    </nav>
+
+    <a class="tbe-btn is-primary site-nav-cta" href="#oferta">
+      Vreau acces
+    </a>
+
+    <button type="button" class="site-nav-burger" data-site-burger
+            aria-expanded="false" aria-controls="sertar-meniu" aria-label="Deschide meniul">
+      <span class="site-burger-box" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </span>
+    </button>
+
+  </div>
+</header>
+
+<div class="site-drawer" id="sertar-meniu" data-site-drawer aria-hidden="true">
+  <div class="tbe-container">
+    <ul class="site-drawer-list">
+      <li><a class="site-drawer-link" href="comunitate.html">Comunitate</a></li>
+      <li><a class="site-drawer-link" href="empiria.html">Empiria</a></li>
+      <li>
+        <details class="site-drawer-details" open>
+          <summary class="site-drawer-sub-toggle">
+            Cursuri
+            <svg class="site-nav-caret" viewBox="0 0 12 12" fill="none" stroke="currentColor"
+                 stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M2.5 4.5 6 8l3.5-3.5"/>
+            </svg>
+          </summary>
+          <div class="site-drawer-sub">
+            <p class="site-drawer-sub-grup" id="grup-drawer-fizice">Cursuri fizice</p>
+            <ul class="site-drawer-sub-lista" aria-labelledby="grup-drawer-fizice">
+              <li><a href="/curs/bazele-coafurilor-texturate">Bazele Coafurilor Texturate</a></li>
+              <li><a href="/curs/coafuri-comerciale">Coafuri Comerciale</a></li>
+            </ul>
+            <p class="site-drawer-sub-grup" id="grup-drawer-online">Cursuri online</p>
+            <ul class="site-drawer-sub-lista" aria-labelledby="grup-drawer-online">
+              <li><a href="/curs/atelierul-de-bucle" aria-current="page">Atelierul de Bucle</a></li>
+              <li><a href="/curs/color-mastery">Color Mastery</a></li>
+              <li><a href="/curs/makeup-essentials">Makeup Essentials</a></li>
+            </ul>
+          </div>
+        </details>
+      </li>
+      <li><a class="site-drawer-link" href="https://harta-coafezelor.ro">Harta Coafezelor</a></li>
+      <li><a class="site-drawer-link" href="https://beautifier.ro">Magazin</a></li>
+    </ul>
+    <div class="site-drawer-foot">
+      <a class="tbe-btn is-primary is-lg is-block" href="#oferta">
+        Vreau acces
+      </a>
+    </div>
+  </div>
+</div>
+
+<main id="continut">
+
+  <!-- ========================================================================
+       0 · HERO — split text/vizual, cu carduri flotante (pattern din empiria.html)
+       ►► POZA reală de rezultat (bucle before/after) înlocuiește galerie-3.jpg.
+       ======================================================================== -->
+  <section class="site-section adb-header" aria-labelledby="adb-titlu">
+    <div class="tbe-container">
+
+      <nav class="tbe-breadcrumb" aria-label="Locul în site">
+        <ol>
+          <li><a href="index.html">Acasă</a></li>
+          <li><a href="comunitate.html#cursuri">Cursuri</a></li>
+          <li aria-current="page">Atelierul de Bucle</li>
+        </ol>
+      </nav>
+
+      <div class="adb-hero-grid">
+        <div class="adb-hero-text">
+          <span class="tbe-kicker">Curs online · Acces pe viață</span>
+          <h1 class="adb-titlu" id="adb-titlu">Bucle și valuri care <em>rezistă</em>, pe orice tip de păr.</h1>
+          <p class="tbe-lead">
+            22 de tehnici filmate pas cu pas, semnate de Adriana Dobre. Înveți să citești bucla,
+            s-o construiești și s-o fixezi — și s-o transformi în serviciul pe care clientele
+            ți-l cer din nou.
+          </p>
+
+          <div class="adb-hero-price">
+            <span class="adb-price-value">1.500 lei</span>
+            <span class="adb-price-note">plată unică · acces pe viață</span>
+          </div>
+
+          <div class="adb-hero-actions">
+            <a class="tbe-btn is-primary is-lg" href="#oferta">Vreau acces</a>
+            <a class="tbe-btn is-secondary is-lg" href="#continut-curs">Ce conține cursul</a>
+          </div>
+
+          <div class="adb-features">
+            <span class="adb-feature">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3.5" width="12" height="9" rx="1.5"/><path d="m6.5 6.5 3 1.5-3 1.5z" fill="currentColor" stroke="none"/></svg>
+              <span>22 video-uri (~1h40min)</span>
+            </span>
+            <span class="adb-feature">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="6" r="3.5"/><path d="M6 9.5 5 14l3-1.8L11 14l-1-4.5"/></svg>
+              <span>2 diplome</span>
+            </span>
+            <span class="adb-feature">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 1.3"/></svg>
+              <span>Acces pe viață</span>
+            </span>
+          </div>
+
+          <div class="adb-social">
+            <span class="tbe-avatar-group">
+              <span class="tbe-avatar is-sm"><img src="assets/poze/placeholder/marturie-1.jpg" alt="" width="64" height="64" loading="lazy" decoding="async"></span>
+              <span class="tbe-avatar is-sm"><img src="assets/poze/placeholder/marturie-2.jpg" alt="" width="64" height="64" loading="lazy" decoding="async"></span>
+              <span class="tbe-avatar is-sm"><img src="assets/poze/placeholder/marturie-3.jpg" alt="" width="64" height="64" loading="lazy" decoding="async"></span>
+            </span>
+            <span class="adb-social-text">
+              <strong>Predat de Adriana Dobre</strong>
+              <span>3.500+ cursante în 5 ani · fondatoarea The Beauty Education</span>
+            </span>
+          </div>
+        </div>
+
+        <div class="adb-hero-visual">
+          <div class="adb-hero-blob">
+            <!-- ►► REZULTAT REAL (bucle/valuri) — înlocuiește placeholder-ul. -->
+            <img src="assets/poze/placeholder/galerie-3.jpg" alt="Bucle realizate în cadrul cursului Atelierul de Bucle"
+                 width="900" height="1125" fetchpriority="high" decoding="async">
+          </div>
+
+          <div class="adb-float-card is-top" aria-hidden="true">
+            <span class="adb-float-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M9 12.5 7 21l5-3 5 3-2-8.5"/></svg>
+            </span>
+            <span><strong>2 diplome</strong><span>Participare + Expert în Bucle</span></span>
+          </div>
+
+          <div class="adb-float-card is-bottom" aria-hidden="true">
+            <span class="adb-float-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M5 8c3-2 5 2 7 0s4-2 7 0"/></svg>
+            </span>
+            <span><strong>Acces pe viață</strong><span>revii oricând la lecții</span></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       1 · PROBLEMA — charcoal, editorial (ruptură de ritm, ca pe homepage)
+       ======================================================================== -->
+  <section class="site-section adb-problema" aria-labelledby="adb-problema-titlu">
+    <div class="tbe-container">
+      <div class="adb-problema-inner">
+        <span class="tbe-kicker">De ce cade bucla</span>
+        <h2 id="adb-problema-titlu">Buclele care nu țin până diseară nu sunt ghinion.</h2>
+        <p class="adb-problema-lead">
+          Sunt aproape mereu aceleași trei cauze — și niciuna nu se rezolvă cu „mai mult fixativ".
+        </p>
+        <ul class="adb-problema-lista">
+          <li><strong>Produsul greșit.</strong> Pui spume și spray-uri la întâmplare, iar bucla se lasă în două ore.</li>
+          <li><strong>Tehnica incertă.</strong> Ghicești direcția, mărimea și tensiunea — deci rezultatul iese altfel de fiecare dată.</li>
+          <li><strong>Instrumentul nepotrivit.</strong> Ai aparatele, dar nu știi care buclă cere ce diametru, ce bandă, ce fixare.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       2 · PROMISIUNEA / TRANSFORMAREA — crem
+       ======================================================================== -->
+  <section class="site-section adb-promisiune" aria-labelledby="adb-promisiune-titlu">
+    <div class="tbe-container">
+      <div class="tbe-section-head is-center">
+        <span class="tbe-kicker">Ce se schimbă</span>
+        <h2 id="adb-promisiune-titlu">De la „nu-mi ies de fiecare dată" la „mi le cere toată lumea".</h2>
+        <p class="tbe-lead">
+          După acest curs nu mai improvizezi. Recunoști tipul de buclă din poză, alegi conștient produsul
+          și instrumentul, o construiești pas cu pas și o fixezi ca să reziste — pe orice textură de păr.
+          Bucla devine un serviciu pe care îl vinzi cu încredere, nu o loterie.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       3 · CE VEI ÎNVĂȚA — bej (is-band). Cei 5 piloni, grilă editorială.
+       ======================================================================== -->
+  <section class="site-section is-band adb-piloni" aria-labelledby="adb-piloni-titlu">
+    <div class="tbe-container">
+      <div class="tbe-section-head">
+        <span class="tbe-kicker">Ce vei învăța</span>
+        <h2 id="adb-piloni-titlu">Cinci lucruri pe care le vei ști la sfârșit</h2>
+      </div>
+
+      <div class="adb-piloni-grid">
+        <article class="adb-pilon">
+          <h3 class="adb-pilon-titlu">Tipologia buclelor</h3>
+          <p>Recunoști fiecare tip de buclă și val — ca să știi de la început unde vrei să ajungi.</p>
+        </article>
+        <article class="adb-pilon">
+          <h3 class="adb-pilon-titlu">Metode de aranjare</h3>
+          <p>Tehnicile de realizare, pas cu pas: direcție, tensiune, diametru — cum obții exact forma dorită.</p>
+        </article>
+        <article class="adb-pilon">
+          <h3 class="adb-pilon-titlu">Instrumente și produse</h3>
+          <p>Ce aparat, ce bandă și ce produs alegi pentru fiecare rezultat — și de ce contează ordinea lor.</p>
+        </article>
+        <article class="adb-pilon">
+          <h3 class="adb-pilon-titlu">Integrarea în coafuri</h3>
+          <p>Cum treci de la buclă izolată la coafură completă — bucla ca parte dintr-un look, nu ca truc.</p>
+        </article>
+        <article class="adb-pilon">
+          <h3 class="adb-pilon-titlu">Trucuri și sfaturi exclusive</h3>
+          <p>Fixarea care ține toată ziua, buclele voluminoase cu bandă invizibilă, detaliile care se învață greu singură.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       4 · CE CONȚINE CURSUL = stiva de valoare — crem
+       Justifică cei 1.500 lei prin lista concretă de inclusuri.
+       ======================================================================== -->
+  <section class="site-section adb-continut" id="continut-curs" aria-labelledby="adb-continut-titlu">
+    <div class="tbe-container">
+      <div class="adb-continut-grid">
+        <div class="adb-continut-intro">
+          <span class="tbe-kicker">Ce conține</span>
+          <h2 id="adb-continut-titlu">Tot ce primești cu Atelierul de Bucle</h2>
+          <p class="tbe-lead">
+            Un curs complet, nu o colecție de clipuri: tehnicile filmate, materialele de suport
+            și certificarea — toate rămân ale tale, pentru totdeauna.
+          </p>
+          <p class="adb-continut-semnatura">Semnat de Adriana Dobre</p>
+        </div>
+
+        <ul class="adb-includes">
+          <li>
+            <svg class="adb-check" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5 8.5 15 16 5.5"/></svg>
+            <span><strong>22 de video-uri de exercițiu</strong> — fiecare tehnică filmată individual, ~1h40min de conținut înregistrat.</span>
+          </li>
+          <li>
+            <svg class="adb-check" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5 8.5 15 16 5.5"/></svg>
+            <span><strong>Tehnica buclelor voluminoase cu bandă invizibilă</strong> — metoda exclusivă pentru volum care rezistă.</span>
+          </li>
+          <li>
+            <svg class="adb-check" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5 8.5 15 16 5.5"/></svg>
+            <span><strong>Sesiune de întrebări și răspunsuri</strong> — răspunsuri la situațiile reale din salon.</span>
+          </li>
+          <li>
+            <svg class="adb-check" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5 8.5 15 16 5.5"/></svg>
+            <span><strong>„Citirea" buclelor din imagini</strong> — vezi o poză și știi exact cum se reproduce.</span>
+          </li>
+          <li>
+            <svg class="adb-check" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5 8.5 15 16 5.5"/></svg>
+            <span><strong>Curs de fotografie mobilă</strong> — ca să-ți fotografiezi rezultatele pentru portofoliu.</span>
+          </li>
+          <li>
+            <svg class="adb-check" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5 8.5 15 16 5.5"/></svg>
+            <span><strong>Ebook cu rezumatul cursului</strong> — recapitulare la îndemână, oricând ai nevoie.</span>
+          </li>
+          <li>
+            <svg class="adb-check" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5 8.5 15 16 5.5"/></svg>
+            <span><strong>Două diplome</strong> — Participare și Expert în Bucle, la finalizarea cursului.</span>
+          </li>
+          <li>
+            <svg class="adb-check" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5 8.5 15 16 5.5"/></svg>
+            <span><strong>Acces pe viață + suport în comunitatea Circle</strong> — revii la lecții oricând și întrebi când te blochezi.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       5 · REZULTATE REALE (before/after) — bej (is-band)
+       ►► GALERIE DEMO — de înlocuit cu rezultate reale ale cursantelor.
+       ======================================================================== -->
+  <section class="site-section is-band adb-rezultate" aria-labelledby="adb-rezultate-titlu">
+    <div class="tbe-container">
+      <div class="tbe-section-head">
+        <span class="tbe-kicker">Rezultate reale</span>
+        <h2 id="adb-rezultate-titlu">Ce iese, de fapt, după curs</h2>
+        <p class="tbe-lead adb-demo-note">Imagini demonstrative — de înlocuit cu rezultate reale ale cursantelor.</p>
+      </div>
+
+      <ul class="adb-galerie">
+        <li><figure class="adb-rezultat"><img src="assets/poze/placeholder/galerie-1.jpg" alt="" width="800" height="1067" loading="lazy" decoding="async"></figure></li>
+        <li><figure class="adb-rezultat"><img src="assets/poze/placeholder/galerie-4.jpg" alt="" width="800" height="1067" loading="lazy" decoding="async"></figure></li>
+        <li><figure class="adb-rezultat"><img src="assets/poze/placeholder/galerie-5.jpg" alt="" width="800" height="1067" loading="lazy" decoding="async"></figure></li>
+        <li><figure class="adb-rezultat"><img src="assets/poze/placeholder/galerie-6.jpg" alt="" width="800" height="1067" loading="lazy" decoding="async"></figure></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       6 · TRAINERUL — Adriana Dobre — crem, split poză + bio
+       ======================================================================== -->
+  <section class="site-section adb-trainer" aria-labelledby="adb-trainer-titlu">
+    <div class="tbe-container">
+      <div class="adb-trainer-grid">
+        <div class="adb-trainer-foto">
+          <!-- ►► POZA reală a Adrianei — înlocuiește placeholder-ul. -->
+          <img src="assets/poze/placeholder/card-2.jpg" alt="Adriana Dobre, fondatoarea The Beauty Education"
+               width="900" height="1000" loading="lazy" decoding="async">
+        </div>
+        <div class="adb-trainer-text">
+          <span class="tbe-kicker">Cine te învață</span>
+          <h2 id="adb-trainer-titlu">Adriana Dobre</h2>
+          <p class="tbe-role">Fondatoare &amp; principal trainer The Beauty Education</p>
+          <p>
+            Peste 10 ani în coafor — tuns, culoare, coafat — și peste 20 de cursuri de perfecționare
+            în Rusia și Europa de Vest. A predat celor 3.500+ cursante din ultimii cinci ani și a
+            construit cea mai mare comunitate de coafeze din România.
+          </p>
+          <p>
+            Atelierul de Bucle e cursul ei semnătură pe bucle și valuri: exact metodele pe care le
+            folosește la clientele proprii, filmate ca să le poți repeta pas cu pas.
+          </p>
+
+          <ul class="adb-trainer-stats">
+            <li><span class="adb-stat-num">10+</span><span class="adb-stat-label">ani în coafor</span></li>
+            <li><span class="adb-stat-num">3.500+</span><span class="adb-stat-label">cursante în 5 ani</span></li>
+            <li><span class="adb-stat-num">20+</span><span class="adb-stat-label">cursuri de perfecționare</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       7 · DIPLOMELE — bej (is-band)
+       ►► POZA diplomei — de adăugat în cardul de vizual.
+       ======================================================================== -->
+  <section class="site-section is-band adb-diplome" aria-labelledby="adb-diplome-titlu">
+    <div class="tbe-container">
+      <div class="adb-diplome-grid">
+        <div class="adb-diplome-text">
+          <span class="tbe-kicker">Certificare</span>
+          <h2 id="adb-diplome-titlu">Pleci cu două diplome</h2>
+          <p class="tbe-lead">
+            La finalizarea cursului primești două diplome oficiale The Beauty Education — dovada
+            competenței, pentru profilul tău și pentru clientele care caută o profesionistă certificată.
+          </p>
+          <ul class="adb-diplome-lista">
+            <li>
+              <span class="tbe-badge is-action">Participare</span>
+              <span>Confirmă parcurgerea integrală a cursului.</span>
+            </li>
+            <li>
+              <span class="tbe-badge is-solid">Expert în Bucle</span>
+              <span>Atestă stăpânirea tehnicilor de bucle și valuri.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="adb-diploma-vizual">
+          <!-- ►► POZA diplomei — de înlocuit cu imaginea reală. Până atunci, o machetă din tokeni. -->
+          <div class="adb-diploma-mock" role="img" aria-label="Machetă diplomă The Beauty Education — Expert în Bucle">
+            <span class="adb-diploma-marca">The Beauty Education</span>
+            <span class="adb-diploma-tip">Diplomă</span>
+            <span class="adb-diploma-nume">Expert în Bucle</span>
+            <span class="adb-diploma-semnatura">Adriana Dobre</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       8 · TESTIMONIALE — crem
+       ►► CITATE REALE — de completat cu textele reale ale cursantelor.
+       ======================================================================== -->
+  <section class="site-section adb-marturii" aria-labelledby="adb-marturii-titlu">
+    <div class="tbe-container">
+      <div class="tbe-section-head">
+        <span class="tbe-kicker">Din comunitate</span>
+        <h2 id="adb-marturii-titlu">Ce spun cursantele</h2>
+        <p class="tbe-lead adb-demo-note">Sloturi pentru citate reale — de completat cu mărturiile cursantelor (cu acordul lor).</p>
+      </div>
+
+      <div class="adb-marturii-grid">
+        <figure class="adb-marturie">
+          <blockquote class="tbe-quote">[Citat real de la o cursantă — despre ce a schimbat cursul în munca ei zilnică.]</blockquote>
+          <figcaption class="adb-marturie-autor">
+            <span class="tbe-avatar is-sm" aria-hidden="true">C</span>
+            <span><strong>[Nume cursantă]</strong><span>[Oraș]</span></span>
+          </figcaption>
+        </figure>
+        <figure class="adb-marturie">
+          <blockquote class="tbe-quote">[Citat real de la o cursantă — despre rezultatele care acum rezistă.]</blockquote>
+          <figcaption class="adb-marturie-autor">
+            <span class="tbe-avatar is-sm" aria-hidden="true">M</span>
+            <span><strong>[Nume cursantă]</strong><span>[Oraș]</span></span>
+          </figcaption>
+        </figure>
+        <figure class="adb-marturie">
+          <blockquote class="tbe-quote">[Citat real de la o cursantă — despre cum a devenit un serviciu vandabil.]</blockquote>
+          <figcaption class="adb-marturie-autor">
+            <span class="tbe-avatar is-sm" aria-hidden="true">A</span>
+            <span><strong>[Nume cursantă]</strong><span>[Oraș]</span></span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       9 · OFERTA & PREȚ — blocul de conversie. Card magenta plin (ca CTA-ul
+       de pe homepage). Crem + divizor (crem → crem de la Mărturii).
+       ======================================================================== -->
+  <section class="site-section is-tight adb-divider adb-oferta-sectiune" id="oferta" aria-labelledby="adb-oferta-titlu">
+    <div class="tbe-container">
+      <div class="adb-oferta">
+        <div class="adb-oferta-corp">
+          <span class="adb-oferta-kicker">Curs online · acces pe viață</span>
+          <h2 id="adb-oferta-titlu">Atelierul de Bucle</h2>
+          <p class="adb-oferta-sub">
+            22 de tehnici filmate, materiale de suport, două diplome și acces pe viață — toate ale tale, pentru totdeauna.
+          </p>
+
+          <ul class="adb-oferta-lista">
+            <li>22 video-uri de exercițiu (~1h40min)</li>
+            <li>Tehnica buclelor voluminoase cu bandă invizibilă</li>
+            <li>Sesiune Q&amp;A + curs de fotografie mobilă</li>
+            <li>Ebook cu rezumatul cursului</li>
+            <li>Două diplome: Participare + Expert în Bucle</li>
+            <li>Acces pe viață + suport în comunitatea Circle</li>
+          </ul>
+        </div>
+
+        <div class="adb-oferta-pret">
+          <span class="adb-oferta-pret-eticheta">Investiția ta</span>
+          <span class="adb-oferta-pret-val">1.500 lei</span>
+          <span class="adb-oferta-pret-note">plată unică</span>
+          <a class="tbe-btn is-lg is-block adb-oferta-cta" href="#" data-checkout>Vreau acces</a>
+          <ul class="adb-oferta-reasig">
+            <li>Acces pe viață</li>
+            <li>Voucherul nu expiră</li>
+            <li>Diplomă la finalizare</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       10 · FAQ — bej (is-band). Se umple din atelierul-de-bucle.js (ATELIER_FAQS).
+       ======================================================================== -->
+  <section class="site-section is-band" id="intrebari" aria-labelledby="adb-faq-titlu">
+    <div class="tbe-container">
+      <span class="tbe-kicker">Întrebări frecvente</span>
+      <h2 id="adb-faq-titlu">Ce mai vrei să știi înainte să te înscrii</h2>
+      <p class="tbe-lead adb-faq-lead">Acces, diplome, echipament — pe scurt.</p>
+
+      <ol class="faq-lista" data-atelier-faq></ol>
+
+      <noscript>
+        <dl class="faq-noscript">
+          <dt>Cât timp am acces la curs?</dt>
+          <dd>Pe viață. Cursul rămâne pe contul tău și revii la lecții oricând.</dd>
+          <dt>Voucherul de acces expiră?</dt>
+          <dd>Nu. Îl poți activa oricând, fără termen-limită.</dd>
+          <dt>Când primesc diplomele?</dt>
+          <dd>La finalizarea cursului — Participare și Expert în Bucle.</dd>
+          <dt>Pentru cine e cursul?</dt>
+          <dd>Pentru coafeze, de la începătoare la experimentate, care vor bucle și valuri care rezistă.</dd>
+          <dt>Ce echipament îmi trebuie?</dt>
+          <dd>Instrumentele obișnuite de coafat; în curs înveți exact ce alegi pentru fiecare rezultat.</dd>
+        </dl>
+      </noscript>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       11 · CTA FINAL — crem + divizor
+       ======================================================================== -->
+  <section class="site-section is-tight adb-divider adb-cta-final" aria-labelledby="adb-cta-titlu">
+    <div class="tbe-container">
+      <div class="adb-cta-final-inner">
+        <h2 id="adb-cta-titlu">Bucla poate fi cel mai cerut serviciu al tău.</h2>
+        <p class="tbe-lead">Începe în seara asta — acces pe viață, în ritmul tău.</p>
+        <a class="tbe-btn is-primary is-lg" href="#oferta">Vreau acces la curs</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- BARĂ CTA LIPICIOASĂ — apare la scroll, sub hero. Dovadă de preț + acțiune
+     mereu la îndemână pe o pagină de vânzare. Ascunsă până la scroll (JS). -->
+<div class="adb-sticky" data-sticky-cta hidden>
+  <div class="tbe-container adb-sticky-inner">
+    <span class="adb-sticky-info">
+      <strong>Atelierul de Bucle</strong>
+      <span>1.500 lei · acces pe viață</span>
+    </span>
+    <a class="tbe-btn is-primary adb-sticky-cta" href="#oferta">Vreau acces</a>
+  </div>
+</div>
+
+<!-- FOOTER — copie identică din empiria.html, cu „Atelierul de Bucle" aria-current. -->
+<footer class="site-footer">
+  <div class="tbe-container">
+    <div class="site-footer-grid">
+
+      <div class="site-footer-col is-brand">
+        <img class="site-footer-logo" src="assets/logo/tbe-orizontal-alb.svg"
+             alt="The Beauty Education" width="142" height="38">
+        <p class="site-footer-about">
+          Cea mai mare comunitate pentru coafeze din România. Educație, comunitate
+          și produse profesionale într-un singur loc.
+        </p>
+        <div class="site-footer-entity">
+          <p class="site-footer-company">Beauty Education Publishing SRL</p>
+          <p class="site-footer-fiscal">
+            CUI: 54823960<br>
+            Reg. Com.: J2026036531002<br>
+            Str. Berzelor 348, Plevna, jud. Călărași
+          </p>
+        </div>
+      </div>
+
+      <nav class="site-footer-col" aria-labelledby="footer-navigare">
+        <h2 class="site-footer-title" id="footer-navigare">Navigare</h2>
+        <ul class="site-footer-list">
+          <li><a href="comunitate.html">Comunitate</a></li>
+          <li><a href="empiria.html">Empiria</a></li>
+          <li><a href="https://harta-coafezelor.ro">Harta Coafezelor</a></li>
+          <li><a href="https://beautifier.ro">Magazin</a></li>
+        </ul>
+      </nav>
+
+      <nav class="site-footer-col" aria-labelledby="footer-cursuri">
+        <h2 class="site-footer-title" id="footer-cursuri">Cursuri</h2>
+        <ul class="site-footer-list">
+          <li><a href="/curs/bazele-coafurilor-texturate">Bazele Coafurilor Texturate</a></li>
+          <li><a href="/curs/coafuri-comerciale">Coafuri Comerciale</a></li>
+          <li><a href="/curs/atelierul-de-bucle" aria-current="page">Atelierul de Bucle</a></li>
+          <li><a href="/curs/color-mastery">Color Mastery</a></li>
+          <li><a href="/curs/makeup-essentials">Makeup Essentials</a></li>
+        </ul>
+      </nav>
+
+      <nav class="site-footer-col" aria-labelledby="footer-mai-mult">
+        <h2 class="site-footer-title" id="footer-mai-mult">Mai mult</h2>
+        <ul class="site-footer-list">
+          <li><a href="/revista">Revista Coafezelor</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/program-de-loialitate">Program de loialitate</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="site-footer-col">
+        <h2 class="site-footer-title" id="footer-newsletter">Rămâi aproape</h2>
+
+        <div class="site-newsletter">
+          <p class="site-newsletter-note">
+            Noutăți despre cursuri, tutoriale și Revista Coafezelor — o dată pe lună.
+          </p>
+          <form class="site-newsletter-form" action="#" method="post" aria-labelledby="footer-newsletter">
+            <label class="tbe-sr-only" for="newsletter-email">Adresa ta de email</label>
+            <input class="site-newsletter-input" type="email" id="newsletter-email" name="email"
+                   placeholder="adresa@email.ro" autocomplete="email" required>
+            <button class="tbe-btn is-primary is-block" type="submit">Abonează-te</button>
+          </form>
+          <p class="site-newsletter-legal">
+            Prin abonare accepți <a href="/politica-de-confidentialitate">politica de confidențialitate</a>.
+          </p>
+        </div>
+
+        <ul class="site-social">
+          <li>
+            <a href="#" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                   stroke-linecap="round" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="5.5"/>
+                <circle cx="12" cy="12" r="4.1"/>
+                <circle cx="17.3" cy="6.7" r="1.05" fill="currentColor" stroke="none"/>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="#" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M15.6 4.6h-1.8c-1.9 0-2.9 1.2-2.9 3.2V10H8.6v3h2.3v6.4"/>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="#" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M13.9 4.8v9.7a3.5 3.5 0 1 1-3.5-3.5c.3 0 .6 0 .9.1"/>
+                <path d="M13.9 4.8c.3 2.3 2 4 4.3 4.2"/>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="#" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                   stroke-linejoin="round" aria-hidden="true">
+                <rect x="2.5" y="5.5" width="19" height="13" rx="4"/>
+                <path d="M10.4 9.4 15.7 12l-5.3 2.6z" fill="currentColor" stroke="none"/>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="site-footer-bottom">
+    <div class="tbe-container">
+      <div class="site-trust">
+        <p class="site-trust-pay">
+          <span class="site-trust-badge"><img src="assets/logo/stripe.png" alt="Stripe" width="42" height="18"></span>
+          Plăți securizate
+        </p>
+        <ul class="site-trust-legal">
+          <li><a href="https://anpc.ro">ANPC</a></li>
+          <li><a href="https://ec.europa.eu/consumers/odr">Soluționarea online a litigiilor (SOL)</a></li>
+        </ul>
+      </div>
+      <div class="site-footer-bottom-inner">
+        <p class="site-footer-copy">© 2026 The Beauty Education. Toate drepturile rezervate.</p>
+        <ul class="site-footer-legal">
+          <li><a href="/termeni-si-conditii">Termeni și condiții</a></li>
+          <li><a href="/politica-de-confidentialitate">Confidențialitate</a></li>
+          <li><a href="/politica-cookies">Cookies</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/site.js"></script>
+<script src="assets/js/atelierul-de-bucle.js"></script>
+</body>
+</html>

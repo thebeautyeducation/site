@@ -1,0 +1,612 @@
+/* ==========================================================================
+   THE BEAUTY EDUCATION — PAGINA CURS „ATELIERUL DE BUCLE"
+   (curs-atelierul-de-bucle.html) · se încarcă după site.css + faq.css.
+   Prefix propriu `adb-`. Mod: Persuade (landing de vânzare).
+   --------------------------------------------------------------------------
+   Reutilizează cât mai mult din DS + site: .tbe-btn, .tbe-badge, .tbe-quote,
+   .tbe-avatar, .tbe-kicker, .tbe-lead, .tbe-section-head, grila de secțiuni și
+   ritmul de bandă (is-band). Aici stă DOAR ce e specific paginii de curs:
+   hero split, stiva de valoare, cardul de ofertă magenta și bara CTA lipicioasă.
+
+   Ritm de fundal (fiecare graniță vizibilă): crem (Hero) → charcoal (Problema)
+   → crem (Promisiune) → bej (Ce vei învăța) → crem (Ce conține) → bej (Rezultate)
+   → crem (Trainer) → bej (Diplome) → crem (Mărturii) → crem (Ofertă, adb-divider)
+   → bej (FAQ) → crem (CTA final, adb-divider).
+   ========================================================================== */
+
+/* Divizor pentru granițe crem → crem, unde culoarea nu marchează separarea. */
+.adb-divider { border-top: 1px solid var(--tbe-border-subtle); }
+
+/* Notă „demo / de completat" — discretă, mono, mauve. */
+.adb-demo-note {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-wide);
+  color: var(--tbe-editorial);
+}
+
+/* ==========================================================================
+   0 · HERO — split text/vizual + carduri flotante (pattern din pagina Empiria)
+   ========================================================================== */
+.adb-header { padding-top: var(--s-6); }
+.adb-header .tbe-breadcrumb { margin-bottom: var(--s-5); }
+
+.adb-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 0.85fr;
+  gap: var(--s-8);
+  align-items: center;
+}
+.adb-hero-text { min-width: 0; }
+
+.adb-titlu {
+  font-size: var(--fs-display);
+  font-weight: var(--fw-light);
+  letter-spacing: var(--ls-tight);
+  margin-bottom: var(--s-3);
+}
+/* Cuvântul-promisiune — italic Cormorant, magenta (deja încărcat de tokens.css). */
+.adb-titlu em {
+  font-style: italic;
+  font-weight: var(--fw-regular);
+  color: var(--tbe-action);
+}
+
+/* Preț în hero — ancoră timpurie, nu îngropat. */
+.adb-hero-price {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s-2);
+  margin: var(--s-4) 0 0;
+}
+.adb-price-value {
+  font-family: var(--font-display);
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-medium);
+  color: var(--tbe-text);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.adb-price-note { font-size: var(--fs-sm); color: var(--tbe-text-muted); }
+
+.adb-hero-actions {
+  display: flex;
+  gap: var(--s-2);
+  flex-wrap: wrap;
+  margin: var(--s-5) 0 var(--s-6);
+}
+
+/* Rândul de trei caracteristici — icon + etichetă. */
+.adb-features {
+  display: flex;
+  gap: var(--s-5);
+  flex-wrap: wrap;
+  margin-bottom: var(--s-5);
+  padding-bottom: var(--s-5);
+  border-bottom: 1px solid var(--tbe-border-subtle);
+}
+.adb-feature { display: flex; align-items: center; gap: 8px; }
+.adb-feature svg { flex: none; width: 18px; height: 18px; color: var(--tbe-editorial); }
+.adb-feature span { font-size: var(--fs-xs); font-weight: var(--fw-medium); color: var(--tbe-text-muted); }
+
+/* Dovada socială — track record-ul Adrianei (cifre oficiale, nu ale cursului). */
+.adb-social { display: flex; align-items: center; gap: var(--s-3); }
+.adb-social-text strong { display: block; font-size: var(--fs-sm); color: var(--tbe-text); }
+.adb-social-text span { font-size: var(--fs-xs); color: var(--tbe-text-muted); }
+
+/* --- Vizualul din dreapta -------------------------------------------------- */
+.adb-hero-visual { position: relative; }
+.adb-hero-blob {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: 42% 58% 55% 45% / 52% 45% 55% 48%;
+  overflow: hidden;
+  box-shadow: var(--site-shadow-card);
+  background: var(--tbe-decor);
+}
+.adb-hero-blob img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+/* Pată decorativă în spate — pur CSS, din tokenii de brand. */
+.adb-hero-visual::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: -8%;
+  right: -10%;
+  width: 60%;
+  height: 60%;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--tbe-editorial-soft) 0%, transparent 72%);
+}
+
+.adb-float-card {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: var(--s-2) var(--s-3);
+  background: var(--tbe-surface);
+  border-radius: var(--tbe-radius-card);
+  box-shadow: var(--site-shadow-card-hover);
+  max-width: 232px;
+}
+.adb-float-card.is-top { top: 7%; left: -9%; }
+.adb-float-card.is-bottom { bottom: 9%; right: -7%; }
+.adb-float-icon {
+  flex: none;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--tbe-action-soft);
+  color: var(--tbe-action);
+}
+.adb-float-icon svg { width: 17px; height: 17px; }
+.adb-float-card strong { display: block; font-size: var(--fs-sm); font-weight: var(--fw-semibold); color: var(--tbe-text); line-height: 1.25; }
+.adb-float-card > span > span { font-size: 11px; color: var(--tbe-text-muted); }
+
+/* ==========================================================================
+   1 · PROBLEMA — charcoal, coloană centrată editorială
+   ========================================================================== */
+.adb-problema { background: var(--tbe-surface-inverse); color: var(--tbe-text-inverse); }
+.adb-problema-inner { max-width: 680px; margin-inline: auto; text-align: center; }
+.adb-problema h2 { color: var(--tbe-text-inverse); }
+.adb-problema .tbe-kicker { color: var(--c-mauve-300); }
+.adb-problema-lead {
+  font-size: var(--fs-lg);
+  color: color-mix(in srgb, var(--tbe-text-inverse) 82%, transparent);
+  margin: 0 auto var(--s-5);
+  max-width: 52ch;
+}
+.adb-problema-lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--s-3);
+  text-align: left;
+  max-width: 620px;
+  margin-inline: auto;
+}
+.adb-problema-lista li {
+  padding-left: var(--s-4);
+  position: relative;
+  color: color-mix(in srgb, var(--tbe-text-inverse) 80%, transparent);
+  line-height: var(--lh-body);
+}
+.adb-problema-lista li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--c-magenta-light);
+}
+.adb-problema-lista strong { color: var(--tbe-text-inverse); font-weight: var(--fw-semibold); }
+
+/* ==========================================================================
+   2 · PROMISIUNEA — crem, antet centrat
+   ========================================================================== */
+.adb-promisiune .tbe-section-head { max-width: 720px; }
+
+/* ==========================================================================
+   3 · CE VEI ÎNVĂȚA — 5 piloni, grilă editorială (fără iconițe-cerc)
+   ========================================================================== */
+.adb-piloni-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-3);
+}
+/* Ultimele două carduri (rândul 2) se întind ca să umple frumos 3+2. */
+.adb-pilon {
+  background: var(--tbe-surface);
+  border: 1px solid var(--tbe-border-subtle);
+  border-radius: var(--tbe-radius-card);
+  padding: var(--s-4);
+}
+/* Accent editorial mauve în capul fiecărui pilon (linia scurtă din DS). */
+.adb-pilon::before {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 2px;
+  border-radius: var(--r-pill);
+  background: var(--tbe-editorial-line);
+  margin-bottom: var(--s-3);
+}
+.adb-pilon-titlu {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-semibold);
+  margin: 0 0 var(--s-1);
+}
+.adb-pilon p { margin: 0; font-size: var(--fs-sm); color: var(--tbe-text-muted); max-width: none; }
+
+/* ==========================================================================
+   4 · CE CONȚINE = stiva de valoare — intro stânga, checklist dreapta
+   ========================================================================== */
+.adb-continut-grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: var(--s-8);
+  align-items: start;
+}
+.adb-continut-intro { position: sticky; top: calc(var(--site-nav-h) + var(--s-3)); }
+.adb-continut-semnatura {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--tbe-editorial);
+  margin: var(--s-3) 0 0;
+}
+.adb-includes { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s-1); }
+.adb-includes li {
+  display: flex;
+  gap: var(--s-3);
+  align-items: flex-start;
+  padding: var(--s-3) 0;
+  border-bottom: 1px solid var(--tbe-border-subtle);
+  line-height: var(--lh-normal);
+}
+.adb-includes li:last-child { border-bottom: 0; }
+.adb-check {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  margin-top: 1px;
+  color: var(--tbe-action);
+}
+.adb-includes strong { font-weight: var(--fw-semibold); color: var(--tbe-text); }
+.adb-includes span { color: var(--tbe-text-muted); font-size: var(--fs-sm); }
+.adb-includes strong + * { color: var(--tbe-text-muted); }
+
+/* ==========================================================================
+   5 · REZULTATE — galerie before/after (placeholder demo)
+   ========================================================================== */
+.adb-galerie {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--s-3);
+}
+.adb-rezultat {
+  margin: 0;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: var(--tbe-radius-media);
+  background: var(--tbe-decor);
+  box-shadow: var(--site-shadow-card);
+}
+.adb-rezultat img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ==========================================================================
+   6 · TRAINERUL — split poză + bio
+   ========================================================================== */
+.adb-trainer-grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: var(--s-8);
+  align-items: center;
+}
+.adb-trainer-foto {
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: var(--tbe-radius-card);
+  box-shadow: var(--site-shadow-card);
+  background: var(--tbe-decor);
+}
+.adb-trainer-foto img { width: 100%; height: 100%; object-fit: cover; }
+.adb-trainer-text p { color: var(--tbe-text-muted); }
+.adb-trainer-stats {
+  list-style: none;
+  margin: var(--s-5) 0 0;
+  padding: 0;
+  display: flex;
+  gap: var(--s-6);
+  flex-wrap: wrap;
+}
+.adb-trainer-stats li { display: flex; flex-direction: column; }
+.adb-stat-num {
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-medium);
+  color: var(--tbe-action);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.adb-stat-label { font-size: var(--fs-xs); color: var(--tbe-text-muted); margin-top: 6px; }
+
+/* ==========================================================================
+   7 · DIPLOMELE — text + machetă de diplomă (până la poza reală)
+   ========================================================================== */
+.adb-diplome-grid {
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  gap: var(--s-8);
+  align-items: center;
+}
+.adb-diplome-lista { list-style: none; margin: var(--s-5) 0 0; padding: 0; display: grid; gap: var(--s-3); }
+.adb-diplome-lista li { display: flex; align-items: center; gap: var(--s-3); }
+.adb-diplome-lista li > span:last-child { color: var(--tbe-text-muted); font-size: var(--fs-sm); }
+
+/* Machetă de diplomă — surogat până la imaginea reală, construită din tokeni. */
+.adb-diploma-mock {
+  aspect-ratio: 297 / 210;
+  background: var(--tbe-surface);
+  border: 1px solid var(--tbe-border);
+  border-radius: var(--tbe-radius-media);
+  box-shadow: var(--site-shadow-card);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-1);
+  text-align: center;
+  padding: var(--s-5);
+  position: relative;
+}
+.adb-diploma-mock::after {
+  content: '';
+  position: absolute;
+  inset: 10px;
+  border: 1px solid var(--tbe-border-subtle);
+  border-radius: calc(var(--tbe-radius-media) - 4px);
+  pointer-events: none;
+}
+.adb-diploma-marca {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-kicker);
+  text-transform: uppercase;
+  color: var(--tbe-editorial);
+}
+.adb-diploma-tip { font-family: var(--font-mono); font-size: var(--fs-xs); letter-spacing: var(--ls-wide); color: var(--tbe-text-muted); }
+.adb-diploma-nume {
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-medium);
+  color: var(--tbe-text);
+}
+.adb-diploma-semnatura {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--tbe-editorial);
+  margin-top: var(--s-2);
+}
+
+/* ==========================================================================
+   8 · MĂRTURII — carduri cu citat editorial
+   ========================================================================== */
+.adb-marturii-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-3);
+}
+.adb-marturie {
+  margin: 0;
+  background: var(--tbe-surface);
+  border: 1px solid var(--tbe-border-subtle);
+  border-radius: var(--tbe-radius-card);
+  padding: var(--s-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+.adb-marturie .tbe-quote {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: var(--fs-h4);
+  color: var(--tbe-text);
+}
+.adb-marturie-autor { display: flex; align-items: center; gap: var(--s-2); }
+.adb-marturie-autor strong { display: block; font-size: var(--fs-sm); color: var(--tbe-text); }
+.adb-marturie-autor > span > span { font-size: var(--fs-xs); color: var(--tbe-text-muted); }
+
+/* ==========================================================================
+   9 · OFERTA — card magenta plin (singura suprafață magenta plină, ca pe homepage)
+   ========================================================================== */
+.adb-oferta {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: var(--s-6);
+  align-items: center;
+  background: linear-gradient(135deg, var(--c-magenta-600), var(--c-magenta-500) 55%, var(--c-magenta-700));
+  border-radius: var(--r-xl);
+  padding: var(--s-7);
+  color: #fff;
+  box-shadow: var(--site-shadow-card-hover);
+  position: relative;
+  overflow: hidden;
+}
+/* Halou moale, ca pe cardul de CTA de pe homepage. */
+.adb-oferta::before {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  top: -40%;
+  right: -10%;
+  width: 55%;
+  height: 160%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.16), transparent 70%);
+  pointer-events: none;
+}
+.adb-oferta-corp, .adb-oferta-pret { position: relative; z-index: 1; }
+.adb-oferta-kicker {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-kicker);
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.82);
+  display: block;
+  margin-bottom: var(--s-2);
+}
+.adb-oferta-corp h2 { color: #fff; margin-bottom: var(--s-2); }
+.adb-oferta-sub { color: rgba(255, 255, 255, 0.9); max-width: 46ch; margin-bottom: var(--s-4); }
+.adb-oferta-lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-1) var(--s-4);
+}
+.adb-oferta-lista li {
+  position: relative;
+  padding-left: 22px;
+  font-size: var(--fs-sm);
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.5;
+}
+.adb-oferta-lista li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  width: 12px;
+  height: 7px;
+  border-left: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transform: rotate(-45deg);
+}
+
+/* Coloana de preț — panou crem înăuntrul cardului magenta. */
+.adb-oferta-pret {
+  background: var(--c-neutral-50);
+  color: var(--tbe-text);
+  border-radius: var(--tbe-radius-card);
+  padding: var(--s-5);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s-1);
+}
+.adb-oferta-pret-eticheta {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--tbe-editorial);
+}
+.adb-oferta-pret-val {
+  font-family: var(--font-display);
+  font-size: var(--fs-display);
+  font-weight: var(--fw-medium);
+  line-height: 1;
+  color: var(--tbe-text);
+  font-variant-numeric: tabular-nums;
+}
+.adb-oferta-pret-note { font-size: var(--fs-sm); color: var(--tbe-text-muted); margin-bottom: var(--s-2); }
+/* CTA crem pe card magenta — inversul butonului primar, ca pe homepage. */
+.adb-oferta-cta {
+  --_bg: var(--tbe-text);
+  --_fg: var(--c-neutral-50);
+  --_bd: var(--tbe-text);
+  margin-top: var(--s-1);
+}
+.adb-oferta-cta:hover { --_bg: var(--c-neutral-900); --_bd: var(--c-neutral-900); box-shadow: var(--shadow-md); }
+.adb-oferta-reasig {
+  list-style: none;
+  margin: var(--s-3) 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--s-1) var(--s-3);
+}
+.adb-oferta-reasig li {
+  position: relative;
+  padding-left: 16px;
+  font-size: var(--fs-xs);
+  color: var(--tbe-text-muted);
+}
+.adb-oferta-reasig li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.4em;
+  width: 8px;
+  height: 5px;
+  border-left: 1.6px solid var(--tbe-success);
+  border-bottom: 1.6px solid var(--tbe-success);
+  transform: rotate(-45deg);
+}
+
+.adb-faq-lead { margin-bottom: var(--s-6); }
+
+/* ==========================================================================
+   11 · CTA FINAL
+   ========================================================================== */
+.adb-cta-final-inner { max-width: 640px; margin-inline: auto; text-align: center; }
+.adb-cta-final-inner .tbe-btn { margin-top: var(--s-2); }
+
+/* ==========================================================================
+   BARĂ CTA LIPICIOASĂ — apare la scroll (JS). Progresivă: fără JS nu apare.
+   ========================================================================== */
+.adb-sticky {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: var(--z-sticky);
+  background: color-mix(in srgb, var(--tbe-surface) 92%, transparent);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid var(--tbe-border-subtle);
+  box-shadow: 0 -8px 30px -12px rgba(var(--site-rgb-ink, 26 20 22), 0.18);
+  transform: translateY(100%);
+  transition: transform var(--dur-slow) var(--ease-out);
+}
+.adb-sticky.is-visible { transform: translateY(0); }
+.adb-sticky-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-3);
+  padding-block: var(--s-2);
+}
+.adb-sticky-info { display: flex; flex-direction: column; line-height: 1.25; min-width: 0; }
+.adb-sticky-info strong { font-family: var(--font-display); font-size: var(--fs-h4); color: var(--tbe-text); }
+.adb-sticky-info span { font-size: var(--fs-xs); color: var(--tbe-text-muted); }
+.adb-sticky-cta { flex: none; }
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .adb-hero-grid,
+  .adb-continut-grid,
+  .adb-trainer-grid,
+  .adb-diplome-grid,
+  .adb-oferta { grid-template-columns: 1fr; }
+
+  .adb-hero-visual { order: -1; max-width: 420px; margin-inline: auto; }
+  /* Cardurile flotante se suprapuneau peste textul de dedesubt când hero-ul se
+     stivuiește. Sunt decorative (aria-hidden) și repetă info din rândul de
+     features + ofertă, deci le ascundem sub 1024px. */
+  .adb-float-card { display: none; }
+
+  .adb-continut-intro { position: static; }
+  .adb-piloni-grid { grid-template-columns: repeat(2, 1fr); }
+  .adb-galerie { grid-template-columns: repeat(2, 1fr); }
+  .adb-marturii-grid { grid-template-columns: 1fr; }
+  .adb-trainer-foto, .adb-diploma-vizual { max-width: 460px; }
+}
+
+@media (max-width: 640px) {
+  .adb-piloni-grid { grid-template-columns: 1fr; }
+  .adb-oferta-lista { grid-template-columns: 1fr; }
+  .adb-trainer-stats { gap: var(--s-4); }
+  .adb-oferta { padding: var(--s-5); }
+  /* Bara lipicioasă își face loc la baza paginii, sub tot. */
+  .adb-sticky-info strong { font-size: var(--fs-sm); }
+}
+
+/* Bara lipicioasă ar acoperi ultimele rânduri pe ecrane mici — lăsăm spațiu. */
+@media (max-width: 1024px) {
+  body { scroll-padding-bottom: 88px; }
+}
