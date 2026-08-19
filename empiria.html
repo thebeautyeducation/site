@@ -7,10 +7,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>EMPIRIA — programul de certificare The Beauty Education</title>
   <meta name="description" content="Programul EMPIRIA: 2 specializări, 3 niveluri fiecare, diplome verificate manual de traineri. Singura modalitate de a obține o diplomă oficială The Beauty Education.">
+  <meta name="theme-color" content="#FAF4EF">
+
+  <!-- Open Graph / Twitter — previzualizarea la partajare (WhatsApp, Instagram, Facebook).
+       og:image e absolut către distribuția curentă (GitHub Pages). La portarea în WordPress,
+       plugin-ul SEO (Yoast/RankMath) preia OG + canonical + og:url cu domeniul de producție. -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="The Beauty Education">
+  <meta property="og:locale" content="ro_RO">
+  <meta property="og:title" content="EMPIRIA — programul de certificare The Beauty Education">
+  <meta property="og:description" content="2 specializări, 3 niveluri fiecare, diplome verificate manual de traineri. Singura diplomă oficială TBE.">
+  <meta property="og:image" content="https://thebeautyeducation.github.io/site/assets/poze/hero-comunitate-1600.jpg">
+  <meta property="og:image:width" content="1600">
+  <meta property="og:image:height" content="1067">
+  <meta property="og:image:alt" content="Comunitatea The Beauty Education la un eveniment">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="EMPIRIA — programul de certificare The Beauty Education">
+  <meta name="twitter:description" content="2 specializări, 3 niveluri fiecare, diplome verificate manual de traineri. Singura diplomă oficială TBE.">
+  <meta name="twitter:image" content="https://thebeautyeducation.github.io/site/assets/poze/hero-comunitate-1600.jpg">
 
   <link rel="icon" href="assets/logo/tbe-icon-color.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonturi/Jost%5Bwght%5D.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="preload" href="assets/fonturi/CormorantGaramond%5Bwght%5D.ttf" as="font" type="font/ttf" crossorigin>
+  <!-- Hero-ul paginii (LCP) — cerut din <head> ca să nu aștepte descoperirea în <body>. -->
+  <link rel="preload" as="image" href="assets/poze/placeholder/empiria-hero.jpg" fetchpriority="high">
 
   <!-- ORDINEA CONTEAZĂ: tokens → components → site → pagină -->
   <link rel="stylesheet" href="assets/css/tokens.css">

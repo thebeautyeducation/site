@@ -1,9 +1,7 @@
-﻿/* ==========================================================================
+/* ==========================================================================
    THE BEAUTY EDUCATION — DESIGN TOKENS
-   COPIE pentru site. Sursa: brand/design-system/tokens/tokens.css
-   Singura modificare față de original: căile @font-face (../fonturi/ în loc de ../assets/fonturi/).
-   NU edita aici. Modifici în design system, apoi re-copiezi.
    v1.0 · 2026 · Sursa unică de adevăr pentru culoare, tipografie, spațiere.
+   COPIE din brand/design-system/tokens/tokens.css — NU edita aici. Singura diferență: căile @font-face (../fonturi/).
    --------------------------------------------------------------------------
    Cum se folosește:
      <link rel="stylesheet" href="tokens/tokens.css">
@@ -14,6 +12,10 @@
    - Tokenii PRIMITIVI (--c-magenta-500) = paleta brută. Nu-i folosi direct în UI.
    - Tokenii SEMANTICI (--tbe-action, --tbe-text) = ce folosești efectiv.
      Ei se schimbă singuri în dark mode și pe sub-brand.
+
+   Temă: tokenii semantici folosesc light-dark(valoare_light, valoare_dark) și
+   se rezolvă din `color-scheme`. Fiecare valoare se scrie O SINGURĂ dată — nu
+   mai există un al doilea bloc „dark" de ținut sincron manual.
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
@@ -120,34 +122,35 @@
        *-vivid = glifa (★ ◆ ●) — saturată, „vie", nu trebuie să fie lizibilă ca text
        *-text  = textul badge-ului — închisă, minim 4.5:1
        *-soft  = fundalul badge-ului
+     *-text și *-soft folosesc light-dark(): strălucesc mai tare pe fundal închis.
      Progresia e intenționată: Bronze/Silver sunt calme, Gold și Diamond strălucesc.
      Nivelul se vede de la distanță, ceea ce e tot rostul meritocrației.        */
   --c-bronze:       #B4703E;
   --c-bronze-vivid: #C97F45;
-  --c-bronze-text:  #8A5228;
-  --c-bronze-soft:  #F7EBE1;
+  --c-bronze-text:  light-dark(#8A5228, #D99B6A);
+  --c-bronze-soft:  light-dark(#F7EBE1, rgba(201, 127, 69, 0.16));
 
   --c-silver:       #8A93A3;
   --c-silver-vivid: #9BA5B5;
-  --c-silver-text:  #5D6675;
-  --c-silver-soft:  #EEF1F5;
+  --c-silver-text:  light-dark(#5D6675, #B4BDCC);
+  --c-silver-soft:  light-dark(#EEF1F5, rgba(155, 165, 181, 0.16));
 
   --c-gold:         #D9A520;
   --c-gold-vivid:   #F0B72A;
-  --c-gold-text:    #8A6300;
-  --c-gold-soft:    #FDF3D9;
+  --c-gold-text:    light-dark(#8A6300, #F5C542);
+  --c-gold-soft:    light-dark(#FDF3D9, rgba(240, 183, 42, 0.16));
 
   --c-diamond:       #2E9BC9;
   --c-diamond-vivid: #3FB6E8;
-  --c-diamond-text:  #1A6E92;
-  --c-diamond-soft:  #E2F3FB;
+  --c-diamond-text:  light-dark(#1A6E92, #5FC8F5);
+  --c-diamond-soft:  light-dark(#E2F3FB, rgba(63, 182, 232, 0.16));
 
   /* --- Canale de contact (Harta Coafezelor) ------------------------------
      Excepție documentată de la regula „magenta = acțiune": pe Harta
      Coafezelor, acțiunile de contact folosesc culoarea canalului, pentru că
      utilizatoarea recunoaște instant unde ajunge. Vezi docs/decizii.md.      */
-  --c-contact:       #15803D;  /* verde de contact — 5.0:1 cu alb */
-  --c-contact-hover: #116631;
+  --c-contact:       light-dark(#15803D, #22A85A);  /* verde de contact — 5.0:1 cu alb */
+  --c-contact-hover: light-dark(#116631, #2CBE68);
   --c-facebook:      #1877F2;
   --c-maps:          #EA4335;
 }
@@ -232,13 +235,15 @@
   --bw-thin: 1.5px;
   --bw-thick: 2px;
 
-  /* Umbre calde — niciodată gri rece */
-  --shadow-xs: 0 1px 2px rgba(44, 37, 33, 0.05);
-  --shadow-sm: 0 1px 3px rgba(44, 37, 33, 0.07), 0 1px 2px rgba(44, 37, 33, 0.04);
-  --shadow-md: 0 4px 14px rgba(44, 37, 33, 0.08);
-  --shadow-lg: 0 12px 32px rgba(44, 37, 33, 0.11);
-  --shadow-xl: 0 24px 64px rgba(44, 37, 33, 0.15);
-  --shadow-focus: 0 0 0 3px rgba(167, 18, 87, 0.28);
+  /* Umbre calde — niciodată gri rece. Culoarea se adaptează pe temă cu
+     light-dark(): cald pe fundal deschis, negru mai adânc pe fundal închis. */
+  --shadow-xs: 0 1px 2px light-dark(rgba(44, 37, 33, 0.05), rgba(0, 0, 0, 0.30));
+  --shadow-sm: 0 1px 3px light-dark(rgba(44, 37, 33, 0.07), rgba(0, 0, 0, 0.40)),
+               0 1px 2px light-dark(rgba(44, 37, 33, 0.04), rgba(0, 0, 0, 0));
+  --shadow-md: 0 4px 14px light-dark(rgba(44, 37, 33, 0.08), rgba(0, 0, 0, 0.45));
+  --shadow-lg: 0 12px 32px light-dark(rgba(44, 37, 33, 0.11), rgba(0, 0, 0, 0.50));
+  --shadow-xl: 0 24px 64px light-dark(rgba(44, 37, 33, 0.15), rgba(0, 0, 0, 0.60));
+  --shadow-focus: 0 0 0 3px light-dark(rgba(167, 18, 87, 0.28), rgba(227, 109, 158, 0.35));
 }
 
 /* ==========================================================================
@@ -263,182 +268,82 @@
 }
 
 /* ==========================================================================
-   06 · SEMANTIC — TBE, temă deschisă (implicit)
+   06 · SEMANTIC — TBE
    ACESTEA sunt tokenii pe care îi folosești în UI.
+   Fiecare folosește light-dark(light, dark) și se rezolvă din `color-scheme`:
+     - fără atribut  → urmează preferința sistemului
+     - data-theme="light" / "dark" → forțează tema (vezi mai jos)
    ========================================================================== */
 :root,
-[data-brand="tbe"],
-[data-theme="light"] {
+[data-brand="tbe"] {
+  color-scheme: light dark;
+
   /* Suprafețe */
-  --tbe-bg:            var(--c-neutral-50);   /* fundalul paginii — crem */
-  --tbe-bg-alt:        var(--c-neutral-100);  /* secțiune alternantă */
-  --tbe-surface:       var(--c-neutral-0);    /* carduri, panouri */
-  --tbe-surface-sunk:  var(--c-neutral-100);  /* input-uri, zone „adâncite" */
-  --tbe-surface-inverse: var(--c-neutral-900);
-  --tbe-decor:         var(--c-nude-100);     /* blocuri decorative */
-  --tbe-decor-strong:  var(--c-nude-200);
+  --tbe-bg:            light-dark(var(--c-neutral-50),  var(--c-neutral-950));  /* fundalul paginii */
+  --tbe-bg-alt:        light-dark(var(--c-neutral-100), #211B18);               /* secțiune alternantă */
+  --tbe-surface:       light-dark(var(--c-neutral-0),   #241E1B);               /* carduri, panouri */
+  --tbe-surface-sunk:  light-dark(var(--c-neutral-100), #1F1917);               /* input-uri, zone „adâncite" */
+  --tbe-surface-inverse: light-dark(var(--c-neutral-900), var(--c-neutral-50));
+  --tbe-decor:         light-dark(var(--c-nude-100), #2E2521);                  /* blocuri decorative */
+  --tbe-decor-strong:  light-dark(var(--c-nude-200), #3A2F29);
 
   /* Text */
-  --tbe-text:          var(--c-neutral-900);  /* 15.2:1 — text principal */
-  --tbe-text-muted:    var(--c-neutral-600);  /* 4.8:1 — text secundar */
-  --tbe-text-subtle:   var(--c-neutral-500);  /* 3.1:1 — DOAR text mare/decorativ */
-  --tbe-text-inverse:  var(--c-neutral-50);
-  --tbe-text-on-action: var(--c-neutral-0);
+  --tbe-text:          light-dark(var(--c-neutral-900), var(--c-neutral-50));   /* 15.2:1 light — text principal */
+  --tbe-text-muted:    light-dark(var(--c-neutral-600), #B9A99C);               /* 4.8:1 light — text secundar */
+  --tbe-text-subtle:   light-dark(var(--c-neutral-500), #8B7C71);               /* 3.1:1 — DOAR text mare/decorativ */
+  --tbe-text-inverse:  light-dark(var(--c-neutral-50), var(--c-neutral-900));
+  --tbe-text-on-action: light-dark(var(--c-neutral-0), var(--c-neutral-900));
 
   /* Acțiune (magenta) */
-  --tbe-action:         var(--c-magenta-500);
-  --tbe-action-hover:   var(--c-magenta-600);
-  --tbe-action-active:  var(--c-magenta-700);
-  --tbe-action-soft:    var(--c-magenta-50);
-  --tbe-action-soft-hover: var(--c-magenta-100);
-  --tbe-action-border:  var(--c-magenta-200);
+  --tbe-action:         light-dark(var(--c-magenta-500), var(--c-magenta-light));
+  --tbe-action-hover:   light-dark(var(--c-magenta-600), #EC8CB4);
+  --tbe-action-active:  light-dark(var(--c-magenta-700), #F2A5C6);
+  --tbe-action-soft:    light-dark(var(--c-magenta-50),  rgba(227, 109, 158, 0.14));
+  --tbe-action-soft-hover: light-dark(var(--c-magenta-100), rgba(227, 109, 158, 0.22));
+  --tbe-action-border:  light-dark(var(--c-magenta-200), rgba(227, 109, 158, 0.38));
 
   /* Accent secundar (mauve) */
-  --tbe-accent:        var(--c-mauve-400);
-  --tbe-accent-text:   var(--c-mauve-700);   /* varianta lizibilă */
-  --tbe-accent-soft:   var(--c-mauve-50);
+  --tbe-accent:        light-dark(var(--c-mauve-400), var(--c-mauve-300));
+  --tbe-accent-text:   light-dark(var(--c-mauve-700), var(--c-mauve-200));   /* varianta lizibilă */
+  --tbe-accent-soft:   light-dark(var(--c-mauve-50), rgba(201, 166, 180, 0.14));
 
   /* VOCE EDITORIALĂ (mauve) — rolul principal al mauve-ului în sistem.
      Tot ce e expresiv dar NU se dă click: kickere, citate, atribuiri,
      etichete de tabel, linii decorative, roluri și subtitluri.
      Regula pe care o servește: dacă e magenta, se dă click. Mauve-ul preia
      tot ce înainte era magenta „de decor" și eliberează magenta pentru acțiune. */
-  --tbe-editorial:      var(--c-mauve-700);
-  --tbe-editorial-line: var(--c-mauve-300);
-  --tbe-editorial-soft: var(--c-mauve-50);
+  --tbe-editorial:      light-dark(var(--c-mauve-700), var(--c-mauve-200));
+  --tbe-editorial-line: light-dark(var(--c-mauve-300), var(--c-mauve-600));
+  --tbe-editorial-soft: light-dark(var(--c-mauve-50), rgba(201, 166, 180, 0.10));
 
   /* Linii */
-  --tbe-border:        var(--c-neutral-300);
-  --tbe-border-strong: var(--c-neutral-400);
-  --tbe-border-subtle: var(--c-neutral-200);
-  --tbe-ring:          var(--c-magenta-500);
+  --tbe-border:        light-dark(var(--c-neutral-300), #3C322C);
+  --tbe-border-strong: light-dark(var(--c-neutral-400), #52453D);
+  --tbe-border-subtle: light-dark(var(--c-neutral-200), #2E2621);
+  --tbe-ring:          light-dark(var(--c-magenta-500), var(--c-magenta-light));
 
   /* Semnale */
-  --tbe-success: var(--c-success);  --tbe-success-bg: var(--c-success-soft);
-  --tbe-warning: var(--c-warning);  --tbe-warning-bg: var(--c-warning-soft);
-  --tbe-danger:  var(--c-danger);   --tbe-danger-bg:  var(--c-danger-soft);
-  --tbe-info:    var(--c-info);     --tbe-info-bg:    var(--c-info-soft);
+  --tbe-success: light-dark(var(--c-success), #6FC79C);  --tbe-success-bg: light-dark(var(--c-success-soft), rgba(111, 199, 156, 0.14));
+  --tbe-warning: light-dark(var(--c-warning), #E3A857);  --tbe-warning-bg: light-dark(var(--c-warning-soft), rgba(227, 168, 87, 0.14));
+  --tbe-danger:  light-dark(var(--c-danger), #F08379);   --tbe-danger-bg:  light-dark(var(--c-danger-soft), rgba(240, 131, 121, 0.14));
+  --tbe-info:    light-dark(var(--c-info), #C9A6B4);     --tbe-info-bg:    light-dark(var(--c-info-soft), rgba(201, 166, 180, 0.14));
 
   /* Formă per brand — TBE = editorial, generos */
   --tbe-radius-control: var(--r-sm);
   --tbe-radius-card:    var(--r-lg);
   --tbe-radius-media:   var(--r-md);
-
-  color-scheme: light;
 }
 
 /* ==========================================================================
-   07 · SEMANTIC — TBE, temă închisă
-   Se activează cu <html data-theme="dark"> sau automat din preferința sistemului.
+   07 · COMUTAREA TEMEI
+   Un singur set de tokeni (secțiunea 06) acoperă ambele teme prin light-dark().
+   Aici doar setăm `color-scheme`, care alege ramura folosită:
+     - implicit → preferința sistemului (color-scheme: light dark pe :root)
+     - alegere explicită → forțează tema, indiferent de sistem.
+   Fallback: pe browsere fără light-dark() (pre-2024) se folosește ramura light.
    ========================================================================== */
-[data-theme="dark"] {
-  --tbe-bg:            var(--c-neutral-950);
-  --tbe-bg-alt:        #211B18;
-  --tbe-surface:       #241E1B;
-  --tbe-surface-sunk:  #1F1917;
-  --tbe-surface-inverse: var(--c-neutral-50);
-  --tbe-decor:         #2E2521;
-  --tbe-decor-strong:  #3A2F29;
-
-  --tbe-text:          var(--c-neutral-50);
-  --tbe-text-muted:    #B9A99C;
-  --tbe-text-subtle:   #8B7C71;
-  --tbe-text-inverse:  var(--c-neutral-900);
-  --tbe-text-on-action: var(--c-neutral-900);
-
-  --tbe-action:         var(--c-magenta-light);
-  --tbe-action-hover:   #EC8CB4;
-  --tbe-action-active:  #F2A5C6;
-  --tbe-action-soft:    rgba(227, 109, 158, 0.14);
-  --tbe-action-soft-hover: rgba(227, 109, 158, 0.22);
-  --tbe-action-border:  rgba(227, 109, 158, 0.38);
-
-  --tbe-accent:        var(--c-mauve-300);
-  --tbe-accent-text:   var(--c-mauve-200);
-  --tbe-accent-soft:   rgba(201, 166, 180, 0.14);
-
-  --tbe-editorial:      var(--c-mauve-200);
-  --tbe-editorial-line: var(--c-mauve-600);
-  --tbe-editorial-soft: rgba(201, 166, 180, 0.10);
-
-  --tbe-border:        #3C322C;
-  --tbe-border-strong: #52453D;
-  --tbe-border-subtle: #2E2621;
-  --tbe-ring:          var(--c-magenta-light);
-
-  --tbe-success: #6FC79C;  --tbe-success-bg: rgba(111, 199, 156, 0.14);
-  --tbe-warning: #E3A857;  --tbe-warning-bg: rgba(227, 168, 87, 0.14);
-  --tbe-danger:  #F08379;  --tbe-danger-bg:  rgba(240, 131, 121, 0.14);
-  --tbe-info:    #C9A6B4;  --tbe-info-bg:    rgba(201, 166, 180, 0.14);
-
-  /* Nivelurile strălucesc mai tare pe fundal închis */
-  --c-bronze-text:  #D99B6A;  --c-bronze-soft:  rgba(201, 127, 69, 0.16);
-  --c-silver-text:  #B4BDCC;  --c-silver-soft:  rgba(155, 165, 181, 0.16);
-  --c-gold-text:    #F5C542;  --c-gold-soft:    rgba(240, 183, 42, 0.16);
-  --c-diamond-text: #5FC8F5;  --c-diamond-soft: rgba(63, 182, 232, 0.16);
-
-  --c-contact:       #22A85A;
-  --c-contact-hover: #2CBE68;
-
-  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.3);
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
-  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.45);
-  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.5);
-  --shadow-xl: 0 24px 64px rgba(0, 0, 0, 0.6);
-  --shadow-focus: 0 0 0 3px rgba(227, 109, 158, 0.35);
-
-  color-scheme: dark;
-}
-
-/* Respectă preferința sistemului dacă nu s-a ales manual o temă */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --tbe-bg:            var(--c-neutral-950);
-    --tbe-bg-alt:        #211B18;
-    --tbe-surface:       #241E1B;
-    --tbe-surface-sunk:  #1F1917;
-    --tbe-surface-inverse: var(--c-neutral-50);
-    --tbe-decor:         #2E2521;
-    --tbe-decor-strong:  #3A2F29;
-    --tbe-text:          var(--c-neutral-50);
-    --tbe-text-muted:    #B9A99C;
-    --tbe-text-subtle:   #8B7C71;
-    --tbe-text-inverse:  var(--c-neutral-900);
-    --tbe-text-on-action: var(--c-neutral-900);
-    --tbe-action:         var(--c-magenta-light);
-    --tbe-action-hover:   #EC8CB4;
-    --tbe-action-active:  #F2A5C6;
-    --tbe-action-soft:    rgba(227, 109, 158, 0.14);
-    --tbe-action-soft-hover: rgba(227, 109, 158, 0.22);
-    --tbe-action-border:  rgba(227, 109, 158, 0.38);
-    --tbe-accent:        var(--c-mauve-300);
-    --tbe-accent-text:   var(--c-mauve-200);
-    --tbe-accent-soft:   rgba(201, 166, 180, 0.14);
-    --tbe-editorial:      var(--c-mauve-200);
-    --tbe-editorial-line: var(--c-mauve-600);
-    --tbe-editorial-soft: rgba(201, 166, 180, 0.10);
-    --c-bronze-text:  #D99B6A;  --c-bronze-soft:  rgba(201, 127, 69, 0.16);
-    --c-silver-text:  #B4BDCC;  --c-silver-soft:  rgba(155, 165, 181, 0.16);
-    --c-gold-text:    #F5C542;  --c-gold-soft:    rgba(240, 183, 42, 0.16);
-    --c-diamond-text: #5FC8F5;  --c-diamond-soft: rgba(63, 182, 232, 0.16);
-    --c-contact:       #22A85A;
-    --c-contact-hover: #2CBE68;
-    --tbe-border:        #3C322C;
-    --tbe-border-strong: #52453D;
-    --tbe-border-subtle: #2E2621;
-    --tbe-ring:          var(--c-magenta-light);
-    --tbe-success: #6FC79C;  --tbe-success-bg: rgba(111, 199, 156, 0.14);
-    --tbe-warning: #E3A857;  --tbe-warning-bg: rgba(227, 168, 87, 0.14);
-    --tbe-danger:  #F08379;  --tbe-danger-bg:  rgba(240, 131, 121, 0.14);
-    --tbe-info:    #C9A6B4;  --tbe-info-bg:    rgba(201, 166, 180, 0.14);
-    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
-    --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.45);
-    --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.5);
-    --shadow-xl: 0 24px 64px rgba(0, 0, 0, 0.6);
-    --shadow-focus: 0 0 0 3px rgba(227, 109, 158, 0.35);
-    color-scheme: dark;
-  }
-}
+[data-theme="light"] { color-scheme: light; }
+[data-theme="dark"]  { color-scheme: dark; }
 
 /* ==========================================================================
    08 · SUB-BRAND — HARTA COAFEZELOR
@@ -448,8 +353,8 @@
    Folosire: <body data-brand="harta">
    ========================================================================== */
 [data-brand="harta"] {
-  --tbe-bg:      var(--c-neutral-0);   /* mai alb, mai „utilitar" decât cremul TBE */
-  --tbe-bg-alt:  var(--c-neutral-50);
+  --tbe-bg:      light-dark(var(--c-neutral-0), var(--c-neutral-950));  /* mai alb, mai „utilitar" decât cremul TBE */
+  --tbe-bg-alt:  light-dark(var(--c-neutral-50), #211B18);
   --tbe-decor:   var(--c-neutral-50);
 
   --tbe-radius-control: var(--r-xs);
@@ -457,16 +362,9 @@
   --tbe-radius-media:   var(--r-sm);
 
   /* Semnal propriu: disponibil / verificat / pin pe hartă */
-  --tbe-map:        var(--c-harta-500);
-  --tbe-map-soft:   var(--c-harta-100);
+  --tbe-map:        light-dark(var(--c-harta-500), #6FA595);
+  --tbe-map-soft:   light-dark(var(--c-harta-100), rgba(111, 165, 149, 0.16));
   --tbe-map-strong: var(--c-harta-700);
-}
-
-[data-brand="harta"][data-theme="dark"] {
-  --tbe-bg:     var(--c-neutral-950);
-  --tbe-bg-alt: #211B18;
-  --tbe-map:      #6FA595;
-  --tbe-map-soft: rgba(111, 165, 149, 0.16);
 }
 
 /* ==========================================================================
@@ -478,5 +376,13 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+  /* Excepție: indicatorii de proces continuu rămân animați. Un spinner oprit
+     la jumătate pare rupt, nu „se încarcă" — exact ce reduce-motion nu vrea.
+     Le păstrăm rotindu-se; restul mișcării decorative rămâne oprită. */
+  .tbe-spinner,
+  .tbe-btn.is-busy::after {
+    animation-duration: 0.7s !important;
+    animation-iteration-count: infinite !important;
   }
 }
