@@ -666,3 +666,136 @@
 @media (max-width: 1024px) {
   body { scroll-padding-bottom: 88px; }
 }
+
+/* ==========================================================================
+   LANDING DE VÂNZARE — completări din raportul „Anatomia Landing Page-ului"
+   (attention ratio 1:1, dovadă socială, auto-calificare, risc invers).
+   ========================================================================== */
+
+/* Navbar minim — CTA vizibil la orice lățime (site.css îl ascunde sub 1024px
+   pentru drawer, dar aici nu există drawer). */
+.adb-nav-min .site-nav-cta { display: inline-flex; }
+
+/* --- Bară de dovadă socială (sub hero) ------------------------------------ */
+.adb-proofbar {
+  background: var(--site-band);
+  border-block: 1px solid var(--tbe-border-subtle);
+  padding-block: var(--s-3);
+}
+.adb-proofbar-inner { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--s-3) var(--s-6); }
+.adb-proof { display: flex; align-items: baseline; gap: 8px; }
+.adb-proof strong {
+  font-family: var(--font-display);
+  font-size: var(--fs-h4);
+  font-weight: var(--fw-semibold);
+  color: var(--tbe-action);
+  font-variant-numeric: tabular-nums;
+}
+.adb-proof span { font-size: var(--fs-sm); color: var(--tbe-text-muted); }
+
+/* --- Pentru cine e / NU e (auto-calificare) ------------------------------- */
+.adb-cine-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-4);
+  max-width: 940px;
+  margin-inline: auto;
+}
+.adb-cine-col {
+  background: var(--tbe-surface);
+  border: 1px solid var(--tbe-border-subtle);
+  border-radius: var(--tbe-radius-card);
+  padding: var(--s-5);
+}
+.adb-cine-col.is-da { border-color: color-mix(in srgb, var(--tbe-success) 40%, var(--tbe-border-subtle)); }
+.adb-cine-titlu-col {
+  font-family: var(--font-display);
+  font-size: var(--fs-h4);
+  font-weight: var(--fw-semibold);
+  margin: 0 0 var(--s-3);
+}
+.adb-cine-lista { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s-2); }
+.adb-cine-lista li {
+  position: relative;
+  padding-left: 28px;
+  font-size: var(--fs-sm);
+  color: var(--tbe-text-muted);
+  line-height: 1.5;
+}
+.adb-cine-col.is-da li::before {
+  content: '';
+  position: absolute;
+  left: 3px;
+  top: 0.3em;
+  width: 12px;
+  height: 7px;
+  border-left: 2px solid var(--tbe-success);
+  border-bottom: 2px solid var(--tbe-success);
+  transform: rotate(-45deg);
+}
+.adb-cine-col.is-nu li::before {
+  content: '';
+  position: absolute;
+  left: 3px;
+  top: 0.35em;
+  width: 12px;
+  height: 12px;
+  background:
+    linear-gradient(45deg, transparent 43%, var(--tbe-text-muted) 43%, var(--tbe-text-muted) 57%, transparent 57%),
+    linear-gradient(-45deg, transparent 43%, var(--tbe-text-muted) 43%, var(--tbe-text-muted) 57%, transparent 57%);
+}
+
+/* --- Risc invers (fără money-back: acces pe viață + voucher fără expirare) -- */
+.adb-risc-grid {
+  list-style: none;
+  margin: var(--s-6) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-3);
+}
+.adb-risc-card {
+  background: var(--tbe-surface);
+  border: 1px solid var(--tbe-border-subtle);
+  border-radius: var(--tbe-radius-card);
+  padding: var(--s-5);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.adb-risc-icon {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--tbe-action-soft);
+  color: var(--tbe-action);
+  margin-bottom: var(--s-2);
+}
+.adb-risc-icon svg { width: 22px; height: 22px; }
+.adb-risc-card strong { font-family: var(--font-display); font-size: var(--fs-h4); font-weight: var(--fw-semibold); color: var(--tbe-text); }
+.adb-risc-card > span { font-size: var(--fs-sm); color: var(--tbe-text-muted); }
+
+/* --- Footer minimal -------------------------------------------------------- */
+.adb-footer-min .site-footer-bottom { border-top: 0; }
+.adb-footer-brandrow {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2) var(--s-4);
+  flex-wrap: wrap;
+  padding-bottom: var(--s-4);
+  margin-bottom: var(--s-4);
+  border-bottom: 1px solid color-mix(in srgb, var(--tbe-text-inverse) 14%, transparent);
+}
+.adb-footer-brandrow .site-footer-fiscal { margin: 0; }
+
+@media (max-width: 1024px) {
+  .adb-risc-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .adb-cine-grid { grid-template-columns: 1fr; }
+  .adb-proof { flex-direction: column; align-items: center; gap: 0; text-align: center; }
+}

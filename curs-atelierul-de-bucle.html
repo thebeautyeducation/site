@@ -45,9 +45,12 @@
 
 <a class="site-skip" href="#continut">Sari la conținut</a>
 
-<!-- NAVBAR — copie din empiria.html, cu .is-locked. Itemul „Cursuri" e activ; în
-     dropdown, „Atelierul de Bucle" primește aria-current="page". -->
-<header class="site-nav is-locked" data-site-nav>
+<!-- NAVBAR MINIMAL — landing de vânzare (attention ratio 1:1): doar logo + un
+     singur CTA, fără meniu / dropdown / sertar. Raportul „Anatomia Landing
+     Page-ului de Mare Conversie" cere eliminarea navigației de pe pagină
+     (+16-28% pe trafic din reclame). Linkurile CĂTRE pagină, din restul
+     site-ului, rămân neatinse. -->
+<header class="site-nav is-locked adb-nav-min" data-site-nav>
   <div class="site-nav-inner tbe-container">
 
     <a class="site-nav-brand" href="index.html" aria-label="The Beauty Education — prima pagină">
@@ -57,100 +60,10 @@
            alt="" aria-hidden="true" width="150" height="40">
     </a>
 
-    <nav class="site-nav-menu" aria-label="Navigare principală">
-      <ul class="site-nav-list">
-        <li class="site-nav-item">
-          <a class="site-nav-link" href="comunitate.html">Comunitate</a>
-        </li>
-        <li class="site-nav-item">
-          <a class="site-nav-link" href="empiria.html">Empiria</a>
-        </li>
-
-        <li class="site-nav-item site-nav-has-sub" data-site-dropdown>
-          <button type="button" class="site-nav-link" aria-expanded="false" aria-controls="submeniu-cursuri">
-            Cursuri
-            <svg class="site-nav-caret" viewBox="0 0 12 12" fill="none" stroke="currentColor"
-                 stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M2.5 4.5 6 8l3.5-3.5"/>
-            </svg>
-          </button>
-          <div class="site-nav-sub is-grupat" id="submeniu-cursuri">
-            <p class="site-nav-sub-grup" id="grup-nav-fizice">Cursuri fizice</p>
-            <ul class="site-nav-sub-lista" aria-labelledby="grup-nav-fizice">
-              <li><a href="/curs/bazele-coafurilor-texturate">Bazele Coafurilor Texturate</a></li>
-              <li><a href="/curs/coafuri-comerciale">Coafuri Comerciale</a></li>
-            </ul>
-            <p class="site-nav-sub-grup" id="grup-nav-online">Cursuri online</p>
-            <ul class="site-nav-sub-lista" aria-labelledby="grup-nav-online">
-              <li><a href="curs-atelierul-de-bucle.html" aria-current="page">Atelierul de Bucle</a></li>
-              <li><a href="/curs/color-mastery">Color Mastery</a></li>
-              <li><a href="/curs/makeup-essentials">Makeup Essentials</a></li>
-            </ul>
-          </div>
-        </li>
-
-        <li class="site-nav-item">
-          <a class="site-nav-link" href="https://harta-coafezelor.ro">Harta Coafezelor</a>
-        </li>
-        <li class="site-nav-item">
-          <a class="site-nav-link" href="https://beautifier.ro">Magazin</a>
-        </li>
-      </ul>
-    </nav>
-
-    <a class="tbe-btn is-primary site-nav-cta" href="#oferta">
-      Vreau acces
-    </a>
-
-    <button type="button" class="site-nav-burger" data-site-burger
-            aria-expanded="false" aria-controls="sertar-meniu" aria-label="Deschide meniul">
-      <span class="site-burger-box" aria-hidden="true">
-        <span></span><span></span><span></span>
-      </span>
-    </button>
+    <a class="tbe-btn is-primary site-nav-cta" href="#oferta">Vreau acces</a>
 
   </div>
 </header>
-
-<div class="site-drawer" id="sertar-meniu" data-site-drawer aria-hidden="true">
-  <div class="tbe-container">
-    <ul class="site-drawer-list">
-      <li><a class="site-drawer-link" href="comunitate.html">Comunitate</a></li>
-      <li><a class="site-drawer-link" href="empiria.html">Empiria</a></li>
-      <li>
-        <details class="site-drawer-details" open>
-          <summary class="site-drawer-sub-toggle">
-            Cursuri
-            <svg class="site-nav-caret" viewBox="0 0 12 12" fill="none" stroke="currentColor"
-                 stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M2.5 4.5 6 8l3.5-3.5"/>
-            </svg>
-          </summary>
-          <div class="site-drawer-sub">
-            <p class="site-drawer-sub-grup" id="grup-drawer-fizice">Cursuri fizice</p>
-            <ul class="site-drawer-sub-lista" aria-labelledby="grup-drawer-fizice">
-              <li><a href="/curs/bazele-coafurilor-texturate">Bazele Coafurilor Texturate</a></li>
-              <li><a href="/curs/coafuri-comerciale">Coafuri Comerciale</a></li>
-            </ul>
-            <p class="site-drawer-sub-grup" id="grup-drawer-online">Cursuri online</p>
-            <ul class="site-drawer-sub-lista" aria-labelledby="grup-drawer-online">
-              <li><a href="curs-atelierul-de-bucle.html" aria-current="page">Atelierul de Bucle</a></li>
-              <li><a href="/curs/color-mastery">Color Mastery</a></li>
-              <li><a href="/curs/makeup-essentials">Makeup Essentials</a></li>
-            </ul>
-          </div>
-        </details>
-      </li>
-      <li><a class="site-drawer-link" href="https://harta-coafezelor.ro">Harta Coafezelor</a></li>
-      <li><a class="site-drawer-link" href="https://beautifier.ro">Magazin</a></li>
-    </ul>
-    <div class="site-drawer-foot">
-      <a class="tbe-btn is-primary is-lg is-block" href="#oferta">
-        Vreau acces
-      </a>
-    </div>
-  </div>
-</div>
 
 <main id="continut">
 
@@ -160,14 +73,6 @@
        ======================================================================== -->
   <section class="site-section adb-hero" aria-labelledby="adb-titlu">
     <div class="tbe-container">
-
-      <nav class="tbe-breadcrumb" aria-label="Locul în site">
-        <ol>
-          <li><a href="index.html">Acasă</a></li>
-          <li><a href="comunitate.html#cursuri">Cursuri</a></li>
-          <li aria-current="page">Atelierul de Bucle</li>
-        </ol>
-      </nav>
 
       <div class="adb-hero-grid">
 
@@ -245,6 +150,20 @@
   </section>
 
   <!-- ========================================================================
+       0b · BARĂ DE DOVADĂ SOCIALĂ (sub hero) — reducere imediată a riscului.
+       Cifre oficiale (track record Adriana). ►► de adăugat rating / nr. real de
+       cursante ale ACESTUI curs când sunt confirmate.
+       ======================================================================== -->
+  <section class="adb-proofbar" aria-label="Dovadă">
+    <div class="tbe-container adb-proofbar-inner">
+      <div class="adb-proof"><strong>3.500+</strong><span>cursante formate de Adriana</span></div>
+      <div class="adb-proof"><strong>10+ ani</strong><span>experiență în coafor</span></div>
+      <div class="adb-proof"><strong>22</strong><span>tehnici filmate pas cu pas</span></div>
+      <div class="adb-proof"><strong>Pe viață</strong><span>acces + 2 diplome</span></div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
        1 · PROBLEMA — charcoal, editorial (ruptură de ritm, ca pe homepage)
        ======================================================================== -->
   <section class="site-section adb-problema" aria-labelledby="adb-problema-titlu">
@@ -260,6 +179,39 @@
           <li><strong>Tehnica incertă.</strong> Ghicești direcția, mărimea și tensiunea — deci rezultatul iese altfel de fiecare dată.</li>
           <li><strong>Instrumentul nepotrivit.</strong> Ai aparatele, dar nu știi care buclă cere ce diametru, ce bandă, ce fixare.</li>
         </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       1b · PENTRU CINE E / NU E — auto-calificare (Blueprint 2 din raport).
+       Pe bej: charcoal (Problema) → bej → crem (Promisiune), granițe vizibile.
+       ======================================================================== -->
+  <section class="site-section is-band adb-cine" aria-labelledby="adb-cine-titlu">
+    <div class="tbe-container">
+      <div class="tbe-section-head is-center">
+        <span class="tbe-kicker">Pentru cine e</span>
+        <h2 id="adb-cine-titlu">E cursul potrivit pentru tine?</h2>
+      </div>
+
+      <div class="adb-cine-grid">
+        <div class="adb-cine-col is-da">
+          <h3 class="adb-cine-titlu-col">E pentru tine dacă…</h3>
+          <ul class="adb-cine-lista">
+            <li>Ești la început și vrei să adaugi buclele ca serviciu pe care îl vinzi.</li>
+            <li>Ai experiență, dar buclele nu-ți ies la fel de fiecare dată sau nu rezistă.</li>
+            <li>Lucrezi pe orice tip de păr și vrei o metodă clară, nu improvizație.</li>
+            <li>Vrei să înveți în ritmul tău, cu acces pe viață la lecții.</li>
+          </ul>
+        </div>
+        <div class="adb-cine-col is-nu">
+          <h3 class="adb-cine-titlu-col">NU e pentru tine dacă…</h3>
+          <ul class="adb-cine-lista">
+            <li>Cauți un truc rapid, fără să exersezi pe păr real.</li>
+            <li>Nu lucrezi (și nu vrei să lucrezi) cu coafatul clientelor.</li>
+            <li>Te aștepți la rezultate fără să aplici ce vezi în lecții.</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
@@ -544,6 +496,48 @@
   </section>
 
   <!-- ========================================================================
+       9b · RISC INVERS — fără money-back (decizie confirmată), deci reasigurare
+       prin acces pe viață + voucher fără expirare. Mută riscul „n-am timp acum".
+       Crem + adb-divider (crem → crem de la Ofertă), apoi crem → bej la FAQ.
+       ======================================================================== -->
+  <section class="site-section is-tight adb-divider adb-risc" aria-labelledby="adb-risc-titlu">
+    <div class="tbe-container">
+      <div class="tbe-section-head is-center">
+        <span class="tbe-kicker">Fără presiune</span>
+        <h2 id="adb-risc-titlu">Începi când ești pregătită — și rămâne al tău</h2>
+        <p class="tbe-lead">
+          Nu cumperi un acces care expiră. Cursul e al tău pe viață, iar voucherul nu are termen —
+          începi în seara asta sau peste trei luni, în ritmul tău.
+        </p>
+      </div>
+
+      <ul class="adb-risc-grid">
+        <li class="adb-risc-card">
+          <span class="adb-risc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 12c0-2 1.5-3.5 3.5-3.5S17 15.5 17 15.5c1.5 1.5 3.5 1 3.5-1.5S19 8.5 17 8.5 7.5 15.5 7.5 15.5C6 17 3.5 16.5 3.5 14S5 12 7 12Z"/></svg>
+          </span>
+          <strong>Acces pe viață</strong>
+          <span>Revii la lecții oricând, fără să pierzi vreodată accesul.</span>
+        </li>
+        <li class="adb-risc-card">
+          <span class="adb-risc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 7.5V12l3 2"/></svg>
+          </span>
+          <strong>Voucherul nu expiră</strong>
+          <span>Cumperi acum și activezi cursul exact când ești pregătită.</span>
+        </li>
+        <li class="adb-risc-card">
+          <span class="adb-risc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="5"/><path d="M9 13.5 7 21l5-3 5 3-2-7.5"/></svg>
+          </span>
+          <strong>Diplomă la finalizare</strong>
+          <span>Două diplome oficiale + suport în comunitatea Circle.</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ========================================================================
        10 · FAQ — bej (is-band). Se umple din atelierul-de-bucle.js (ATELIER_FAQS).
        ======================================================================== -->
   <section class="site-section is-band" id="intrebari" aria-labelledby="adb-faq-titlu">
@@ -598,122 +592,22 @@
   </div>
 </div>
 
-<!-- FOOTER — copie identică din empiria.html, cu „Atelierul de Bucle" aria-current. -->
-<footer class="site-footer">
-  <div class="tbe-container">
-    <div class="site-footer-grid">
-
-      <div class="site-footer-col is-brand">
-        <img class="site-footer-logo" src="assets/logo/tbe-orizontal-alb.svg"
-             alt="The Beauty Education" width="142" height="38">
-        <p class="site-footer-about">
-          Cea mai mare comunitate pentru coafeze din România. Educație, comunitate
-          și produse profesionale într-un singur loc.
-        </p>
-        <div class="site-footer-entity">
-          <p class="site-footer-company">Beauty Education Publishing SRL</p>
-          <p class="site-footer-fiscal">
-            CUI: 54823960<br>
-            Reg. Com.: J2026036531002<br>
-            Str. Berzelor 348, Plevna, jud. Călărași
-          </p>
-        </div>
-      </div>
-
-      <nav class="site-footer-col" aria-labelledby="footer-navigare">
-        <h2 class="site-footer-title" id="footer-navigare">Navigare</h2>
-        <ul class="site-footer-list">
-          <li><a href="comunitate.html">Comunitate</a></li>
-          <li><a href="empiria.html">Empiria</a></li>
-          <li><a href="https://harta-coafezelor.ro">Harta Coafezelor</a></li>
-          <li><a href="https://beautifier.ro">Magazin</a></li>
-        </ul>
-      </nav>
-
-      <nav class="site-footer-col" aria-labelledby="footer-cursuri">
-        <h2 class="site-footer-title" id="footer-cursuri">Cursuri</h2>
-        <ul class="site-footer-list">
-          <li><a href="/curs/bazele-coafurilor-texturate">Bazele Coafurilor Texturate</a></li>
-          <li><a href="/curs/coafuri-comerciale">Coafuri Comerciale</a></li>
-          <li><a href="curs-atelierul-de-bucle.html" aria-current="page">Atelierul de Bucle</a></li>
-          <li><a href="/curs/color-mastery">Color Mastery</a></li>
-          <li><a href="/curs/makeup-essentials">Makeup Essentials</a></li>
-        </ul>
-      </nav>
-
-      <nav class="site-footer-col" aria-labelledby="footer-mai-mult">
-        <h2 class="site-footer-title" id="footer-mai-mult">Mai mult</h2>
-        <ul class="site-footer-list">
-          <li><a href="/revista">Revista Coafezelor</a></li>
-          <li><a href="/blog">Blog</a></li>
-          <li><a href="/program-de-loialitate">Program de loialitate</a></li>
-          <li><a href="/contact">Contact</a></li>
-        </ul>
-      </nav>
-
-      <div class="site-footer-col">
-        <h2 class="site-footer-title" id="footer-newsletter">Rămâi aproape</h2>
-
-        <div class="site-newsletter">
-          <p class="site-newsletter-note">
-            Noutăți despre cursuri, tutoriale și Revista Coafezelor — o dată pe lună.
-          </p>
-          <form class="site-newsletter-form" action="#" method="post" aria-labelledby="footer-newsletter">
-            <label class="tbe-sr-only" for="newsletter-email">Adresa ta de email</label>
-            <input class="site-newsletter-input" type="email" id="newsletter-email" name="email"
-                   placeholder="adresa@email.ro" autocomplete="email" required>
-            <button class="tbe-btn is-primary is-block" type="submit">Abonează-te</button>
-          </form>
-          <p class="site-newsletter-legal">
-            Prin abonare accepți <a href="/politica-de-confidentialitate">politica de confidențialitate</a>.
-          </p>
-        </div>
-
-        <ul class="site-social">
-          <li>
-            <a href="#" aria-label="Instagram">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                   stroke-linecap="round" aria-hidden="true">
-                <rect x="3" y="3" width="18" height="18" rx="5.5"/>
-                <circle cx="12" cy="12" r="4.1"/>
-                <circle cx="17.3" cy="6.7" r="1.05" fill="currentColor" stroke="none"/>
-              </svg>
-            </a>
-          </li>
-          <li>
-            <a href="#" aria-label="Facebook">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M15.6 4.6h-1.8c-1.9 0-2.9 1.2-2.9 3.2V10H8.6v3h2.3v6.4"/>
-              </svg>
-            </a>
-          </li>
-          <li>
-            <a href="#" aria-label="TikTok">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M13.9 4.8v9.7a3.5 3.5 0 1 1-3.5-3.5c.3 0 .6 0 .9.1"/>
-                <path d="M13.9 4.8c.3 2.3 2 4 4.3 4.2"/>
-              </svg>
-            </a>
-          </li>
-          <li>
-            <a href="#" aria-label="YouTube">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                   stroke-linejoin="round" aria-hidden="true">
-                <rect x="2.5" y="5.5" width="19" height="13" rx="4"/>
-                <path d="M10.4 9.4 15.7 12l-5.3 2.6z" fill="currentColor" stroke="none"/>
-              </svg>
-            </a>
-          </li>
-        </ul>
-      </div>
-
-    </div>
-  </div>
-
+<!-- FOOTER MINIMAL — landing de vânzare: doar identitatea legală + plăți +
+     linkurile legale obligatorii (ANPC/SOL, T&C, confidențialitate, cookies).
+     Fără meniu de navigare, newsletter sau social — atenția rămâne pe conversie
+     (raport: footer minim, attention ratio 1:1). -->
+<footer class="site-footer adb-footer-min">
   <div class="site-footer-bottom">
     <div class="tbe-container">
+      <div class="adb-footer-brandrow">
+        <img class="site-footer-logo" src="assets/logo/tbe-orizontal-alb.svg"
+             alt="The Beauty Education" width="142" height="38">
+        <p class="site-footer-fiscal">
+          Beauty Education Publishing SRL · CUI: 54823960 · Reg. Com.: J2026036531002 ·
+          Str. Berzelor 348, Plevna, jud. Călărași
+        </p>
+      </div>
+
       <div class="site-trust">
         <p class="site-trust-pay">
           <span class="site-trust-badge"><img src="assets/logo/stripe.png" alt="Stripe" width="42" height="18"></span>
