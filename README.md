@@ -837,10 +837,10 @@ homepage) repoint pe `blog.html`. Blogul rămâne în footer, nu în meniul de s
 Prezentarea echipei. Structură + sursele câmpurilor: [`traineri-structura.md`](traineri-structura.md).
 CSS: [`traineri-pagina.css`](assets/css/traineri-pagina.css) (prefix `trn-`). Fără JS.
 
-Șase traineri (lista dată de Marius): Adriana Dobre, Mihaela Mihăescu, Cosmina Ducu, Larisa Matei,
-Viorica Dima, Alina Ene — grilă 3×2 (foto, nume, titulatură-badge, specializare, localitate, ani,
-descriere, „În comunitate"). Callout „De la cursantă la trainer" (junioarele promovate prin Diamond,
-per CLAUDE.md) → Empiria. CTA final.
+Șapte traineri: Adriana Dobre, Mihaela Mihăescu, Veronica Nistor, Cosmina Ducu, Larisa Matei,
+Viorica Dima, Alina Ene — grilă (foto, nume, titulatură-badge, specializare, localitate, ani,
+descriere, „În comunitate"). Ordine pe rang: lead → senior → trainer → junior. Callout „De la
+cursantă la trainer" (junioarele promovate prin Diamond, per CLAUDE.md) → Empiria. CTA final.
 
 > ⚠ **Foto = PLACEHOLDER cu inițiale.** Marius a ales „crop foto din site", dar singura sursă e o
 > poză de grup (mulțime care aplaudă) — crop-urile individuale ies inutilizabile (mai multe
@@ -851,8 +851,9 @@ per CLAUDE.md) → Empiria. CTA final.
 
 > ⚠ **Date inventate, de validat:** localitățile (București/Cluj/Iași/Brașov/Timișoara) și anii de
 > experiență (în afară de Adriana, 10+), plus descrierile și „În comunitate" — scrise pe baza
-> rolurilor din CLAUDE.md. Dosarul mai are 2 traineri (Veronica Nistor, Răcean Marius Răzvan)
-> care NU sunt în lista dată, deci nu apar — de adăugat dacă se dorește.
+> rolurilor din CLAUDE.md. Veronica Nistor adăugată ulterior (cerut) — „În comunitate" e real
+> (dosar p8). Dosarul mai are 1 colaborator (Răcean Marius Răzvan, colorimetrie extern) care NU
+> apare — de adăugat dacă se dorește.
 
 Footer: **„Traineri" adăugat în coloana Navigare pe toate paginile** (cerut) — mai puțin cele 3
 pagini de curs, care au footer minimal intenționat (attention ratio de landing page).

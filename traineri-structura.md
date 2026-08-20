@@ -19,13 +19,17 @@ cu 6 portrete reale.**
 |---|---|---|---|---|---|---|
 | 1 | Adriana Dobre | Fondatoare & Lead Trainer | Coafuri | București | 10+ | [claude.md] |
 | 2 | Mihaela Mihăescu | Lead Trainer | Colorimetrie | București `[inventat]` | 12+ `[inventat]` | [claude.md] rol |
-| 3 | Cosmina Ducu | Trainer | Makeup | Cluj-Napoca `[inventat]` | 8+ `[inventat]` | [claude.md] rol |
-| 4 | Larisa Matei | Trainer Junior | Coafuri | Iași `[inventat]` | 4+ `[inventat]` | [claude.md] |
-| 5 | Viorica Dima | Trainer Junior | Coafuri | Brașov `[inventat]` | 4+ `[inventat]` | [claude.md] |
-| 6 | Alina Ene | Trainer Junior | Coafuri | Timișoara `[inventat]` | 3+ `[inventat]` | [claude.md] |
+| 3 | Veronica Nistor | Trainer Senior | Coafuri | Constanța `[inventat]` | 7+ `[inventat]` | [claude.md] + dosar p8 |
+| 4 | Cosmina Ducu | Trainer | Makeup | Cluj-Napoca `[inventat]` | 8+ `[inventat]` | [claude.md] rol |
+| 5 | Larisa Matei | Trainer Junior | Coafuri | Iași `[inventat]` | 4+ `[inventat]` | [claude.md] |
+| 6 | Viorica Dima | Trainer Junior | Coafuri | Brașov `[inventat]` | 4+ `[inventat]` | [claude.md] |
+| 7 | Alina Ene | Trainer Junior | Coafuri | Timișoara `[inventat]` | 3+ `[inventat]` | [claude.md] |
 
-Notă: dosarul mai listează **Veronica Nistor** (trainer senior, coafuri) și **Răcean Marius Răzvan**
-(colaborator colorimetrie) — NU sunt în lista dată de Marius, deci nu apar pe pagină. De adăugat dacă se dorește.
+Veronica Nistor: „În comunitate" e REAL (dosar p8 — dă feedback video pentru lucrările de după
+primele 15 din Rubrica de Feedback; primele 15 le ia Adriana). Localitatea și anii sunt inventați.
+
+Notă: dosarul mai listează **Răcean Marius Răzvan** (colaborator colorimetrie, extern) — nu apare
+pe pagină. De adăugat dacă se dorește.
 
 Descrierile și „cu ce se ocupă în comunitate" sunt scrise de mine pe baza rolurilor din CLAUDE.md
 (pentru junioare: povestea reală „cursantă → trainer prin Diamond"). De validat/ajustat.
