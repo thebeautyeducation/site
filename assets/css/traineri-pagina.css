@@ -34,7 +34,12 @@
   margin: var(--s-7) 0 0;
   padding: 0;
 }
+/* Cardurile umplu celula: <li> flex → cardul se întinde pe înălțimea
+   rândului, indiferent de lungimea textului. Spațiul în plus din cardurile
+   mai scurte cade între descriere și „În comunitate" (care e ancorat jos). */
+.trn-grid > li { display: flex; }
 .trn-card {
+  flex: 1 1 auto;
   display: flex;
   flex-direction: column;
   background: var(--tbe-surface);
@@ -92,6 +97,7 @@
 
 /* --- Corpul cardului --- */
 .trn-corp {
+  flex: 1;                 /* umple restul cardului, ca „În comunitate" să stea jos */
   display: flex;
   flex-direction: column;
   gap: var(--s-2);
