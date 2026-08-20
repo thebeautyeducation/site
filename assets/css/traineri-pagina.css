@@ -1,0 +1,199 @@
+/* ==========================================================================
+   THE BEAUTY EDUCATION — PAGINA „TRAINERI" (traineri.html)
+   Se încarcă după site.css. Prefix propriu `trn-`.
+   --------------------------------------------------------------------------
+   Prezentarea echipei de traineri. Fotografia fiecărui trainer e momentan un
+   PLACEHOLDER cu inițiale (.trn-monogram) — sursa reală de portrete lipsește.
+   Ca să pui poza reală: adaugi un <img> în .trn-foto; monogramul e sub el și
+   dispare vizual. De înlocuit cu 6 portrete reale.
+   ========================================================================== */
+
+/* Graniță între secțiuni de același fundal (CTA-ul e crem, ca grila). */
+.trn-divider { border-top: 1px solid var(--tbe-border-subtle); }
+
+.trn-header { padding-top: var(--s-6); }
+.trn-header .tbe-breadcrumb { margin-bottom: var(--s-5); }
+.trn-titlu {
+  font-size: var(--fs-display);
+  font-weight: var(--fw-light);
+  letter-spacing: var(--ls-tight);
+  margin-bottom: var(--s-3);
+  text-wrap: balance;
+}
+.trn-titlu em { font-style: italic; font-weight: var(--fw-regular); color: var(--tbe-action); }
+.trn-header .tbe-lead { max-width: 58ch; }
+
+/* ==========================================================================
+   GRILA DE TRAINERI
+   ========================================================================== */
+.trn-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-4);
+  list-style: none;
+  margin: var(--s-7) 0 0;
+  padding: 0;
+}
+.trn-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--tbe-surface);
+  border: var(--bw-hair) solid var(--tbe-border-subtle);
+  border-radius: var(--tbe-radius-card);
+  overflow: hidden;
+  box-shadow: var(--site-shadow-card);
+  transition: box-shadow var(--dur-slow) var(--ease-out), transform var(--dur-slow) var(--ease-out);
+}
+.trn-card:hover { box-shadow: var(--site-shadow-card-hover); transform: translateY(-3px); }
+
+/* --- Foto / monogram --- */
+.trn-foto {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  /* Fundal cald de brand, pentru placeholder-ul cu inițiale. */
+  background: linear-gradient(150deg, var(--tbe-decor) 0%, var(--tbe-editorial-soft) 100%);
+  overflow: hidden;
+}
+.trn-foto img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* Monogramul stă în spate; când vine <img>, îl acoperă. */
+.trn-monogram {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 2rem + 6vw, 5rem);
+  font-weight: var(--fw-light);
+  color: var(--tbe-editorial);
+  letter-spacing: var(--ls-tight);
+}
+/* Titulatura, ca badge peste foto, jos. */
+.trn-titulatura {
+  position: absolute;
+  left: var(--s-3);
+  bottom: var(--s-3);
+  z-index: 1;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--tbe-text-on-action);
+  background: var(--tbe-action);
+  padding: 4px 10px;
+  border-radius: var(--r-pill);
+}
+.trn-titulatura.is-lead { background: var(--tbe-text); }
+
+/* --- Corpul cardului --- */
+.trn-corp {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  padding: var(--s-5);
+}
+.trn-nume {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-snug);
+  color: var(--tbe-text);
+}
+.trn-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+  font-size: var(--fs-sm);
+  color: var(--tbe-text-muted);
+}
+.trn-spec {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--tbe-editorial);
+}
+.trn-meta .trn-punct { color: var(--tbe-text-subtle); }
+.trn-desc {
+  margin: var(--s-1) 0 0;
+  font-size: var(--fs-sm);
+  line-height: var(--lh-body);
+  color: var(--tbe-text-muted);
+  max-width: none;
+}
+/* „În comunitate" — rând accentuat, jos. */
+.trn-comunitate {
+  margin-top: auto;
+  padding-top: var(--s-4);
+  border-top: 1px solid var(--tbe-border-subtle);
+  font-size: var(--fs-sm);
+  line-height: var(--lh-body);
+  color: var(--tbe-text);
+}
+.trn-comunitate strong {
+  display: block;
+  margin-bottom: 2px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--tbe-text-subtle);
+  font-weight: var(--fw-medium);
+}
+
+/* ==========================================================================
+   CALLOUT — „De la cursantă la trainer"
+   ========================================================================== */
+.trn-callout {
+  display: flex;
+  align-items: center;
+  gap: var(--s-5);
+  padding: var(--s-6);
+  background: var(--tbe-editorial-soft);
+  border: var(--bw-thin) solid var(--tbe-editorial-line);
+  border-radius: var(--tbe-radius-card);
+  flex-wrap: wrap;
+}
+.trn-callout-icon {
+  flex: none;
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--tbe-surface);
+  color: var(--c-gold-vivid);
+}
+.trn-callout-icon svg { width: 24px; height: 24px; }
+.trn-callout-text { flex: 1 1 340px; min-width: 0; }
+.trn-callout-text h2 { font-size: var(--fs-h3); margin-bottom: var(--s-2); }
+.trn-callout-text p { margin: 0; max-width: none; color: var(--tbe-text-muted); }
+.trn-callout-actiune { flex: none; }
+
+/* ==========================================================================
+   CTA FINAL
+   ========================================================================== */
+.trn-cta { text-align: center; max-width: 640px; margin-inline: auto; }
+.trn-cta h2 { margin-bottom: var(--s-3); }
+.trn-cta-actiune { display: flex; gap: var(--s-2); justify-content: center; margin-top: var(--s-5); flex-wrap: wrap; }
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .trn-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .trn-titlu { font-size: var(--fs-h1); }
+  .trn-grid { grid-template-columns: 1fr; }
+  .trn-callout { flex-direction: column; align-items: flex-start; }
+  .trn-cta-actiune { flex-direction: column; }
+  .trn-cta-actiune .tbe-btn { width: 100%; }
+}

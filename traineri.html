@@ -3,27 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Blog — The Beauty Education</title>
-  <meta name="description" content="Tehnici, corecturi și lecții din comunitate — scrise pentru coafeze, nu pentru algoritmi. Articole despre coafuri, colorimetrie, portofoliu și business de salon.">
+  <title>Trainerii — The Beauty Education</title>
+  <meta name="description" content="Echipa de traineri The Beauty Education: coafuri, colorimetrie și makeup. Șase traineri care predau în comunitate — unele au construit-o, altele au crescut în ea până au ajuns să predea.">
   <meta name="theme-color" content="#FAF4EF">
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="The Beauty Education">
   <meta property="og:locale" content="ro_RO">
-  <meta property="og:title" content="Blog — The Beauty Education">
-  <meta property="og:description" content="Tehnici, corecturi și lecții din comunitate — scrise pentru coafeze, nu pentru algoritmi.">
+  <meta property="og:title" content="Trainerii — The Beauty Education">
+  <meta property="og:description" content="Șase traineri, trei specializări — coafuri, colorimetrie și makeup.">
   <meta name="twitter:card" content="summary">
 
   <link rel="icon" href="assets/logo/tbe-icon-color.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonturi/Jost%5Bwght%5D.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="preload" href="assets/fonturi/CormorantGaramond%5Bwght%5D.ttf" as="font" type="font/ttf" crossorigin>
 
-  <!-- ORDINEA CONTEAZĂ: tokens → components → site → blog (componenta card) → pagină -->
+  <!-- ORDINEA CONTEAZĂ: tokens → components → site → pagină -->
   <link rel="stylesheet" href="assets/css/tokens.css">
   <link rel="stylesheet" href="assets/css/components.css">
   <link rel="stylesheet" href="assets/css/site.css">
-  <link rel="stylesheet" href="assets/css/blog.css">
-  <link rel="stylesheet" href="assets/css/blog-pagina.css">
+  <link rel="stylesheet" href="assets/css/traineri-pagina.css">
 </head>
 
 <body>
@@ -124,6 +123,7 @@
           </div>
         </details>
       </li>
+      <li><a class="site-drawer-link" href="traineri.html" aria-current="page">Traineri</a></li>
       <li><a class="site-drawer-link" href="https://harta-coafezelor.ro">Harta Coafezelor</a></li>
       <li><a class="site-drawer-link" href="https://beautifier.ro">Magazin</a></li>
     </ul>
@@ -138,204 +138,263 @@
 <main id="continut">
 
   <!-- ========================================================================
-       BLOG — INDEX
-       Cardurile refolosesc componenta .blog-card de pe homepage (blog.css).
-       DEMO: în prototip toate „Citește articolul" duc la unicul articol
-       construit (blog-balayage-par-vopsit.html). În producție, fiecare card
-       primește postarea lui — în WordPress, un loop peste postările recente.
+       TRAINERI — antet + grilă
+       ⚠ Pozele sunt PLACEHOLDER cu inițiale (.trn-monogram). Sursa reală de
+       portrete lipsește (singura poză e un cadru de grup). Ca să pui poza
+       reală: adaugi <img src alt> în .trn-foto — vezi comentariul din card.
+       Localitățile și anii marcați „inventat" în traineri-structura.md.
        ======================================================================== -->
-  <section class="site-section bl-header" aria-labelledby="bl-titlu">
+  <section class="site-section trn-header" aria-labelledby="trn-titlu">
     <div class="tbe-container">
 
       <nav class="tbe-breadcrumb" aria-label="Locul în site">
         <ol>
           <li><a href="index.html">Acasă</a></li>
-          <li aria-current="page">Blog</li>
+          <li aria-current="page">Traineri</li>
         </ol>
       </nav>
 
-      <span class="tbe-kicker is-action">Blog</span>
-      <h1 class="bl-titlu" id="bl-titlu">Tehnici, corecturi și lecții din comunitate.</h1>
+      <span class="tbe-kicker is-action">Echipa</span>
+      <h1 class="trn-titlu" id="trn-titlu">Trainerii care te <em>ghidează</em>.</h1>
       <p class="tbe-lead">
-        Scrise pentru coafeze, nu pentru algoritmi — despre coafuri, colorimetrie, portofoliu și
-        felul în care îți construiești un salon care crește.
+        Șase traineri, trei specializări — coafuri, colorimetrie și makeup. Unele au construit
+        comunitatea de la zero, altele au crescut în ea până au ajuns să predea.
       </p>
 
-      <!-- Articolul featured -->
-      <article class="bl-featured">
-        <a class="bl-featured-media" href="blog-balayage-par-vopsit.html" aria-label="Balayage pe păr vopsit: unde se greșește cel mai des">
-          <img src="assets/poze/placeholder/galerie-3.jpg" alt=""
-               width="1000" height="667" fetchpriority="high" decoding="async">
-        </a>
-        <div class="bl-featured-corp">
-          <span class="bl-chip">Colorimetrie</span>
-          <h2 class="bl-featured-titlu">
-            <a href="blog-balayage-par-vopsit.html">Balayage pe păr vopsit: unde se greșește cel mai des</a>
-          </h2>
-          <p class="bl-featured-extras">
-            Cele mai frecvente cinci greșeli pe care le vedem în evaluările EMPIRIA — și cum le
-            corectezi înainte să ajungă la clientă.
-          </p>
-          <div class="bl-featured-meta">
-            <span>Adriana Dobre</span>
-            <span class="bl-punct" aria-hidden="true">·</span>
-            <span>8 aug 2026</span>
-            <span class="bl-punct" aria-hidden="true">·</span>
-            <span>6 min de citit</span>
-          </div>
-          <a class="tbe-btn is-primary" href="blog-balayage-par-vopsit.html">Citește articolul</a>
-        </div>
-      </article>
+      <ul class="trn-grid">
 
-      <h2 class="bl-sectiune-titlu">Toate articolele</h2>
+        <!-- 1 · Adriana Dobre -->
+        <li>
+          <article class="trn-card">
+            <div class="trn-foto">
+              <span class="trn-monogram" aria-hidden="true">AD</span>
+              <span class="trn-titulatura is-lead">Fondatoare · Lead Trainer</span>
+              <!-- Poză reală: <img src="assets/poze/traineri/adriana-dobre.jpg" alt="Adriana Dobre"> -->
+            </div>
+            <div class="trn-corp">
+              <h2 class="trn-nume">Adriana Dobre</h2>
+              <div class="trn-meta">
+                <span class="trn-spec">Coafuri</span>
+                <span class="trn-punct" aria-hidden="true">·</span>
+                <span>București</span>
+                <span class="trn-punct" aria-hidden="true">·</span>
+                <span>10+ ani</span>
+              </div>
+              <p class="trn-desc">
+                Fondatoarea The Beauty Education și principalul trainer al comunității. Peste 10 ani
+                în coafor și colorimetrie, 20+ cursuri de perfecționare urmate în Rusia și Europa de
+                Vest și 3.500+ cursanți.
+              </p>
+              <p class="trn-comunitate">
+                <strong>În comunitate</strong>
+                Coordonează evaluările EMPIRIA și oferă feedback video pe primele lucrări din Rubrica
+                de Feedback, plus sesiuni lunare cu membrele Gold și Diamond.
+              </p>
+            </div>
+          </article>
+        </li>
 
-      <ul class="blog-grid">
+        <!-- 2 · Mihaela Mihăescu -->
         <li>
-          <article class="blog-card">
-            <div class="blog-media">
-              <img src="assets/poze/placeholder/galerie-7.jpg" alt="" width="800" height="600" loading="lazy" decoding="async">
+          <article class="trn-card">
+            <div class="trn-foto">
+              <span class="trn-monogram" aria-hidden="true">MM</span>
+              <span class="trn-titulatura is-lead">Lead Trainer</span>
+              <!-- Poză reală: <img src="assets/poze/traineri/mihaela-mihaescu.jpg" alt="Mihaela Mihăescu"> -->
             </div>
-            <div class="blog-continut">
-              <span class="bl-chip">Business</span>
-              <div class="blog-autor">
-                <span class="blog-avatar"><img src="assets/poze/placeholder/marturie-4.jpg" alt="" width="640" height="1115" loading="lazy" decoding="async"></span>
-                <span>
-                  <span class="blog-autor-nume">Echipa TBE</span>
-                  <span class="blog-autor-rol">Editorial</span>
-                </span>
+            <div class="trn-corp">
+              <h2 class="trn-nume">Mihaela Mihăescu</h2>
+              <div class="trn-meta">
+                <span class="trn-spec">Colorimetrie</span>
+                <span class="trn-punct" aria-hidden="true">·</span>
+                <span>București</span>
+                <span class="trn-punct" aria-hidden="true">·</span>
+                <span>12+ ani</span>
               </div>
-              <h3 class="blog-card-titlu">Cum îți construiești portofoliul care aduce cliente</h3>
-              <p class="blog-extras">Ce fotografii aleg clientele de pe Harta Coafezelor — și de ce trei lucrări bune bat treizeci mediocre.</p>
-              <a class="blog-mai" href="blog-balayage-par-vopsit.html">
-                Citește articolul
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 8h11"/><path d="M9 3.5 13.5 8 9 12.5"/></svg>
-              </a>
+              <p class="trn-desc">
+                Lead trainer pe colorimetrie — de la teoria culorii până la corecturile complexe pe
+                care le cer cel mai des clientele. Predă vopsitul ca pe un sistem, nu ca pe o rețetă.
+              </p>
+              <p class="trn-comunitate">
+                <strong>În comunitate</strong>
+                Coordonează zona de Colorimetrie: tutoriale, răspunsuri în chat și feedback pe
+                lucrările de vopsit trimise de membre.
+              </p>
             </div>
           </article>
         </li>
+
+        <!-- 3 · Cosmina Ducu -->
         <li>
-          <article class="blog-card">
-            <div class="blog-media">
-              <img src="assets/poze/placeholder/galerie-2.jpg" alt="" width="800" height="533" loading="lazy" decoding="async">
+          <article class="trn-card">
+            <div class="trn-foto">
+              <span class="trn-monogram" aria-hidden="true">CD</span>
+              <span class="trn-titulatura">Trainer</span>
+              <!-- Poză reală: <img src="assets/poze/traineri/cosmina-ducu.jpg" alt="Cosmina Ducu"> -->
             </div>
-            <div class="blog-continut">
-              <span class="bl-chip">Tehnică</span>
-              <div class="blog-autor">
-                <span class="blog-avatar"><img src="assets/poze/placeholder/marturie-2.jpg" alt="" width="640" height="1115" loading="lazy" decoding="async"></span>
-                <span>
-                  <span class="blog-autor-nume">Adriana Dobre</span>
-                  <span class="blog-autor-rol">Fondatoare</span>
-                </span>
+            <div class="trn-corp">
+              <h2 class="trn-nume">Cosmina Ducu</h2>
+              <div class="trn-meta">
+                <span class="trn-spec">Makeup</span>
+                <span class="trn-punct" aria-hidden="true">·</span>
+                <span>Cluj-Napoca</span>
+                <span class="trn-punct" aria-hidden="true">·</span>
+                <span>8+ ani</span>
               </div>
-              <h3 class="blog-card-titlu">5 greșeli la bucle pe care le fac începătoarele</h3>
-              <p class="blog-extras">De la separarea șuvițelor la fixare — micile detalii care fac diferența dintre o buclă care ține și una care cade în două ore.</p>
-              <a class="blog-mai" href="blog-balayage-par-vopsit.html">
-                Citește articolul
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 8h11"/><path d="M9 3.5 13.5 8 9 12.5"/></svg>
-              </a>
+              <p class="trn-desc">
+                Trainer de makeup, cu accent pe machiajul profesional care rezistă și la lumina
+                reflectoarelor, și în viața de zi cu zi. A construit cursul online Makeup Essentials.
+              </p>
+              <p class="trn-comunitate">
+                <strong>În comunitate</strong>
+                Susține rubrica de makeup și cursul Makeup Essentials, cu demonstrații și feedback
+                pentru membrele care încep.
+              </p>
             </div>
           </article>
         </li>
+
+        <!-- 4 · Larisa Matei -->
         <li>
-          <article class="blog-card">
-            <div class="blog-media">
-              <img src="assets/poze/placeholder/galerie-5.jpg" alt="" width="800" height="600" loading="lazy" decoding="async">
+          <article class="trn-card">
+            <div class="trn-foto">
+              <span class="trn-monogram" aria-hidden="true">LM</span>
+              <span class="trn-titulatura">Trainer Junior</span>
+              <!-- Poză reală: <img src="assets/poze/traineri/larisa-matei.jpg" alt="Larisa Matei"> -->
             </div>
-            <div class="blog-continut">
-              <span class="bl-chip">Colorimetrie</span>
-              <div class="blog-autor">
-                <span class="blog-avatar"><img src="assets/poze/placeholder/marturie-3.jpg" alt="" width="640" height="1115" loading="lazy" decoding="async"></span>
-                <span>
-                  <span class="blog-autor-nume">Mihaela Mihăescu</span>
-                  <span class="blog-autor-rol">Trainer colorimetrie</span>
-                </span>
+            <div class="trn-corp">
+              <h2 class="trn-nume">Larisa Matei</h2>
+              <div class="trn-meta">
+                <span class="trn-spec">Coafuri</span>
+                <span class="trn-punct" aria-hidden="true">·</span>
+                <span>Iași</span>
+                <span class="trn-punct" aria-hidden="true">·</span>
+                <span>4+ ani</span>
               </div>
-              <h3 class="blog-card-titlu">Cum citești corect baza naturală înainte să vopsești</h3>
-              <p class="blog-extras">Nivelul de bază decide totul. Cum îl identifici corect și de ce e primul pas pe care nu ai voie să-l sari.</p>
-              <a class="blog-mai" href="blog-balayage-par-vopsit.html">
-                Citește articolul
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 8h11"/><path d="M9 3.5 13.5 8 9 12.5"/></svg>
-              </a>
+              <p class="trn-desc">
+                A început ca membră a comunității și a urcat până la nivelul Diamond, de unde a fost
+                promovată trainer. Dovada vie că traseul cursantă → trainer e real.
+              </p>
+              <p class="trn-comunitate">
+                <strong>În comunitate</strong>
+                Susține rubricile de practică — Skill Lab și Decode IT — și dă feedback răbdător
+                începătoarelor.
+              </p>
             </div>
           </article>
         </li>
+
+        <!-- 5 · Viorica Dima -->
         <li>
-          <article class="blog-card">
-            <div class="blog-media">
-              <img src="assets/poze/placeholder/galerie-4.jpg" alt="" width="800" height="600" loading="lazy" decoding="async">
+          <article class="trn-card">
+            <div class="trn-foto">
+              <span class="trn-monogram" aria-hidden="true">VD</span>
+              <span class="trn-titulatura">Trainer Junior</span>
+              <!-- Poză reală: <img src="assets/poze/traineri/viorica-dima.jpg" alt="Viorica Dima"> -->
             </div>
-            <div class="blog-continut">
-              <span class="bl-chip">Comunitate</span>
-              <div class="blog-autor">
-                <span class="blog-avatar"><img src="assets/poze/placeholder/marturie-1.jpg" alt="" width="640" height="1115" loading="lazy" decoding="async"></span>
-                <span>
-                  <span class="blog-autor-nume">Miruna Crăciunescu</span>
-                  <span class="blog-autor-rol">Community</span>
-                </span>
+            <div class="trn-corp">
+              <h2 class="trn-nume">Viorica Dima</h2>
+              <div class="trn-meta">
+                <span class="trn-spec">Coafuri</span>
+                <span class="trn-punct" aria-hidden="true">·</span>
+                <span>Brașov</span>
+                <span class="trn-punct" aria-hidden="true">·</span>
+                <span>4+ ani</span>
               </div>
-              <h3 class="blog-card-titlu">Cum ceri (și primești) feedback care chiar te ajută</h3>
-              <p class="blog-extras">Feedback-ul nu se ia personal. Cum îți postezi lucrarea în comunitate ca să crești, nu ca să bifezi.</p>
-              <a class="blog-mai" href="blog-balayage-par-vopsit.html">
-                Citește articolul
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 8h11"/><path d="M9 3.5 13.5 8 9 12.5"/></svg>
-              </a>
+              <p class="trn-desc">
+                Promovată din comunitate prin nivelul Diamond. Specializată pe coafuri texturate și
+                lucrări de eveniment, cu ochi pentru finisaj.
+              </p>
+              <p class="trn-comunitate">
+                <strong>În comunitate</strong>
+                Coordonează provocările din Pinterest 2.0 și Duelul Coafezelor, unde membrele
+                exersează reproducerea coafurilor din poză.
+              </p>
             </div>
           </article>
         </li>
+
+        <!-- 6 · Alina Ene -->
         <li>
-          <article class="blog-card">
-            <div class="blog-media">
-              <img src="assets/poze/placeholder/galerie-8.jpg" alt="" width="800" height="600" loading="lazy" decoding="async">
+          <article class="trn-card">
+            <div class="trn-foto">
+              <span class="trn-monogram" aria-hidden="true">AE</span>
+              <span class="trn-titulatura">Trainer Junior</span>
+              <!-- Poză reală: <img src="assets/poze/traineri/alina-ene.jpg" alt="Alina Ene"> -->
             </div>
-            <div class="blog-continut">
-              <span class="bl-chip">Poveste</span>
-              <div class="blog-autor">
-                <span class="blog-avatar"><img src="assets/poze/placeholder/marturie-4.jpg" alt="" width="640" height="1115" loading="lazy" decoding="async"></span>
-                <span>
-                  <span class="blog-autor-nume">Echipa TBE</span>
-                  <span class="blog-autor-rol">Editorial</span>
-                </span>
+            <div class="trn-corp">
+              <h2 class="trn-nume">Alina Ene</h2>
+              <div class="trn-meta">
+                <span class="trn-spec">Coafuri</span>
+                <span class="trn-punct" aria-hidden="true">·</span>
+                <span>Timișoara</span>
+                <span class="trn-punct" aria-hidden="true">·</span>
+                <span>3+ ani</span>
               </div>
-              <h3 class="blog-card-titlu">De la cursantă la trainer: cum arată drumul complet</h3>
-              <p class="blog-extras">Trei membre au ajuns Diamond și au devenit traineri. Ce au făcut diferit — și ce poți lua de la ele.</p>
-              <a class="blog-mai" href="blog-balayage-par-vopsit.html">
-                Citește articolul
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 8h11"/><path d="M9 3.5 13.5 8 9 12.5"/></svg>
-              </a>
+              <p class="trn-desc">
+                A crescut în comunitate până la Diamond și a devenit trainer junior. Exemplu că
+                perseverența și exercițiul bat talentul lăsat nefolosit.
+              </p>
+              <p class="trn-comunitate">
+                <strong>În comunitate</strong>
+                Ajută la evaluarea lucrărilor și moderează discuțiile din zona de Coafuri, aproape
+                de cele aflate la început.
+              </p>
             </div>
           </article>
         </li>
-        <li>
-          <article class="blog-card">
-            <div class="blog-media">
-              <img src="assets/poze/placeholder/card-4.jpg" alt="" width="800" height="600" loading="lazy" decoding="async">
-            </div>
-            <div class="blog-continut">
-              <span class="bl-chip">Business</span>
-              <div class="blog-autor">
-                <span class="blog-avatar"><img src="assets/poze/placeholder/marturie-5.jpg" alt="" width="640" height="1115" loading="lazy" decoding="async"></span>
-                <span>
-                  <span class="blog-autor-nume">Marius Dobre</span>
-                  <span class="blog-autor-rol">Owner / CEO</span>
-                </span>
-              </div>
-              <h3 class="blog-card-titlu">Prețuri în salon: cum le comunici fără disconfort</h3>
-              <p class="blog-extras">Cum vorbești despre bani cu clienta, fără să te scuzi și fără să pierzi programarea. Un cadru simplu, în trei pași.</p>
-              <a class="blog-mai" href="blog-balayage-par-vopsit.html">
-                Citește articolul
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 8h11"/><path d="M9 3.5 13.5 8 9 12.5"/></svg>
-              </a>
-            </div>
-          </article>
-        </li>
+
       </ul>
 
     </div>
   </section>
 
+  <!-- ========================================================================
+       CALLOUT — „De la cursantă la trainer" [claude.md]
+       ======================================================================== -->
+  <section class="site-section is-band" aria-labelledby="trn-callout-titlu">
+    <div class="tbe-container">
+      <div class="trn-callout">
+        <span class="trn-callout-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 9 9l-7 1 5 5-1.5 7L12 18l6.5 4L17 15l5-5-7-1z"/></svg>
+        </span>
+        <div class="trn-callout-text">
+          <h2 id="trn-callout-titlu">De la cursantă la trainer</h2>
+          <p>
+            Larisa, Viorica și Alina au început exact de unde ești tu acum — membre ale comunității.
+            Au urcat până la nivelul Diamond și au fost promovate în echipa de traineri. Nu e o
+            promisiune de marketing, e un drum deja parcurs.
+          </p>
+        </div>
+        <span class="trn-callout-actiune">
+          <a class="tbe-btn is-primary" href="empiria.html">Vezi cum funcționează EMPIRIA</a>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       CTA FINAL
+       ======================================================================== -->
+  <section class="site-section is-tight trn-divider" aria-labelledby="trn-cta-titlu">
+    <div class="tbe-container">
+      <div class="trn-cta">
+        <h2 id="trn-cta-titlu">Vrei să înveți direct de la ele?</h2>
+        <p class="tbe-lead">
+          Toate trainerele predau în comunitate, în fiecare săptămână — tutoriale, feedback pe
+          lucrările tale și evaluări. Contul e gratuit; abonamentul îl faci când ești pregătită.
+        </p>
+        <div class="trn-cta-actiune">
+          <a class="tbe-btn is-primary is-lg" href="https://ro.thebeautyeducation.com">Alătură-te comunității</a>
+          <a class="tbe-btn is-secondary is-lg" href="/abonament?utm_source=traineri_page">Vezi abonamentul</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </main>
 
-<!-- FOOTER — copie identică, cu „Blog" → pagina asta. -->
+<!-- FOOTER — copie identică, cu „Traineri" adăugat în Navigare (marcat curent). -->
 <footer class="site-footer">
   <div class="tbe-container">
     <div class="site-footer-grid">
@@ -362,7 +421,7 @@
         <ul class="site-footer-list">
           <li><a href="comunitate.html">Comunitate</a></li>
           <li><a href="empiria.html">Empiria</a></li>
-          <li><a href="traineri.html">Traineri</a></li>
+          <li><a href="traineri.html" aria-current="page">Traineri</a></li>
           <li><a href="https://harta-coafezelor.ro">Harta Coafezelor</a></li>
           <li><a href="https://beautifier.ro">Magazin</a></li>
         </ul>
@@ -383,7 +442,7 @@
         <h2 class="site-footer-title" id="footer-mai-mult">Mai mult</h2>
         <ul class="site-footer-list">
           <li><a href="revista.html">Revista Coafezelor</a></li>
-          <li><a href="blog.html" aria-current="page">Blog</a></li>
+          <li><a href="blog.html">Blog</a></li>
           <li><a href="/program-de-loialitate">Program de loialitate</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>

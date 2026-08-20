@@ -832,6 +832,31 @@ bară magenta) → caseta autorului → „Înapoi la blog" → secțiune „Cit
 Legături: `/blog` (footer + „Vezi toate articolele" + cele 2 carduri din secțiunea Blog de pe
 homepage) repoint pe `blog.html`. Blogul rămâne în footer, nu în meniul de sus.
 
+## Pagina TRAINERI — `traineri.html`
+
+Prezentarea echipei. Structură + sursele câmpurilor: [`traineri-structura.md`](traineri-structura.md).
+CSS: [`traineri-pagina.css`](assets/css/traineri-pagina.css) (prefix `trn-`). Fără JS.
+
+Șase traineri (lista dată de Marius): Adriana Dobre, Mihaela Mihăescu, Cosmina Ducu, Larisa Matei,
+Viorica Dima, Alina Ene — grilă 3×2 (foto, nume, titulatură-badge, specializare, localitate, ani,
+descriere, „În comunitate"). Callout „De la cursantă la trainer" (junioarele promovate prin Diamond,
+per CLAUDE.md) → Empiria. CTA final.
+
+> ⚠ **Foto = PLACEHOLDER cu inițiale.** Marius a ales „crop foto din site", dar singura sursă e o
+> poză de grup (mulțime care aplaudă) — crop-urile individuale ies inutilizabile (mai multe
+> persoane / fețe tăiate / unul fără față), și ar pune fețe greșite pe persoane reale, inclusiv
+> fondatoarea. Am construit deci cu **monogram elegant** (`.trn-monogram`, inițiale pe fundal de
+> brand). Fiecare card e gata de portret real: se adaugă `<img>` în `.trn-foto` (comentariu în
+> fiecare card) și monogramul dispare sub el. **De trimis 6 portrete reale.**
+
+> ⚠ **Date inventate, de validat:** localitățile (București/Cluj/Iași/Brașov/Timișoara) și anii de
+> experiență (în afară de Adriana, 10+), plus descrierile și „În comunitate" — scrise pe baza
+> rolurilor din CLAUDE.md. Dosarul mai are 2 traineri (Veronica Nistor, Răcean Marius Răzvan)
+> care NU sunt în lista dată, deci nu apar — de adăugat dacă se dorește.
+
+Footer: **„Traineri" adăugat în coloana Navigare pe toate paginile** (cerut) — mai puțin cele 3
+pagini de curs, care au footer minimal intenționat (attention ratio de landing page).
+
 ## Cursurile în navigație — dropdown ca index
 
 Nu există (și nu vor exista) pagini-categorie „cursuri online" / „cursuri fizice": **fiecare curs
