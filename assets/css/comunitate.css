@@ -330,10 +330,12 @@
   border-bottom: 1px solid var(--tbe-border-subtle);
   text-decoration: none;
   color: inherit;
-  transition: padding-left var(--dur-slow) var(--ease-out),
+  /* Nudge-ul spre dreapta e pe transform (compozitat), nu pe padding — padding-ul
+     animat forțează reflow la fiecare cadru. */
+  transition: transform var(--dur-slow) var(--ease-out),
               border-color var(--dur-base) var(--ease-out);
 }
-.cm-item:hover { padding-left: var(--s-2); border-bottom-color: var(--tbe-action); }
+.cm-item:hover { transform: translateX(var(--s-2)); border-bottom-color: var(--tbe-action); }
 .cm-item:hover .cm-titlu { color: var(--tbe-action); }
 .cm-item:focus-visible { outline: var(--bw-thick) solid var(--tbe-ring); outline-offset: 4px; }
 
@@ -389,11 +391,11 @@
   border-bottom: 1px solid var(--tbe-border-subtle);
   text-decoration: none;
   color: inherit;
-  transition: padding-left var(--dur-slow) var(--ease-out),
+  transition: transform var(--dur-slow) var(--ease-out),
               border-color var(--dur-base) var(--ease-out);
 }
 .cm-stack > li:first-child .cm-rand { padding-top: 0; }
-.cm-rand:hover { padding-left: var(--s-2); border-bottom-color: var(--tbe-action); }
+.cm-rand:hover { transform: translateX(var(--s-2)); border-bottom-color: var(--tbe-action); }
 .cm-rand:hover .cm-titlu { color: var(--tbe-action); }
 .cm-rand:focus-visible { outline: var(--bw-thick) solid var(--tbe-ring); outline-offset: 4px; }
 .cm-rand .cm-titlu { font-size: var(--fs-h3); }
