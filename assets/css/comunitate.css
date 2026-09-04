@@ -160,6 +160,12 @@
 }
 .cm-card.has-photo:hover .cm-card-img { transform: scale(1.045); }
 
+/* Card informativ (nu link) — ex. „Aplicație de mobil": nu promite un click,
+   deci nu se ridică, poza nu face zoom și nu are săgeată. */
+.cm-card.is-static:hover { box-shadow: var(--site-shadow-card); transform: none; }
+.cm-card.is-static.has-photo:hover .cm-card-img { transform: none; }
+.cm-card.is-static .cm-card-arrow { display: none; }
+
 .cm-card-scrim {
   position: absolute;
   inset: 0;

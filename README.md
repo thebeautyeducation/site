@@ -890,6 +890,32 @@ Legături: cele 42 de `href` către `/termeni-si-conditii`, `/politica-de-confid
 consimțământul din formularul de contact și newsletter) repoint-ate pe fișierele `.html`.
 Paginile legale se leagă și între ele („Vezi și").
 
+## Sincronizarea cu repo-ul public (GitHub Pages)
+
+Din commit-ul „Depozitul unic al ecosistemului", `site/` trăiește în monorepo-ul privat
+`thebeautyeducation/the-beauty-education` — dar **GitHub Pages servește din repo-ul public
+`thebeautyeducation/site`** (branch `main`, path `/`, URL `thebeautyeducation.github.io/site/`).
+Cele două au istorice separate; nimic nu le sincronizează automat. **Un push în monorepo NU
+actualizează site-ul live.**
+
+Procedura (fast-forward, fără rescriere de istoric):
+
+```bash
+git clone --depth 1 https://github.com/thebeautyeducation/site.git /tmp/site-public
+cd /tmp/site-public
+find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +   # golește tot, mai puțin .git
+cp -r "/c/Users/adria/The Beauty Education/site"/. .              # copiază site/ curent
+rm -rf .impeccable                                                 # cache local al hook-ului de design — NU se publică
+git add -A && git commit -m "Sync din monorepo @ <sha>" && git push origin main
+```
+
+Repo-ul public are `.impeccable/` în `.gitignore`, dar `cp -r` îl aduce ca fișier nou dacă nu-l
+ștergi înainte de `git add -A` — de aceea pasul `rm -rf .impeccable` e obligatoriu.
+
+Apoi verifică build-ul: `gh api repos/thebeautyeducation/site/pages/builds/latest --jq .status`.
+Regula din CLAUDE.md rămâne valabilă: orice schimbare în `site/` se duce **și** aici, altfel
+versiunea live rămâne în urmă.
+
 ## Cursurile în navigație — dropdown ca index
 
 Nu există (și nu vor exista) pagini-categorie „cursuri online" / „cursuri fizice": **fiecare curs
