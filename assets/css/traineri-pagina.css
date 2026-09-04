@@ -67,7 +67,7 @@
   height: 100%;
   object-fit: cover;
 }
-/* Monogramul stă în spate; când vine <img>, îl acoperă. */
+/* Monogramul stă în spate; fotografia reală, când e adăugată, îl acoperă. */
 .trn-monogram {
   position: absolute;
   inset: 0;

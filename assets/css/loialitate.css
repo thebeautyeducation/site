@@ -69,14 +69,6 @@
   letter-spacing: var(--ls-tight);
   color: var(--tbe-text);
 }
-.loy-card.is-bonus .loy-card-titlu { margin-bottom: var(--s-2); }
-.loy-card-text {
-  margin: 0;
-  font-size: var(--fs-sm);
-  line-height: var(--lh-body);
-  color: var(--tbe-text-muted);
-  max-width: none;
-}
 
 /* Lista „cum câștigi puncte" — marker magenta (accent cerut explicit). */
 .loy-lista {

@@ -943,10 +943,15 @@ cardurile Gold/Diamond de pe Comunitate → scos „sesiuni cu Adriana"/„trans
 Ruta `/program-de-loialitate` (11×) + varianta veche `/program-loialitate` (3×, cu utm) repoint-ate
 pe `program-de-loialitate.html`.
 
-> ⚠ **Rămân de decis (semnalate, neatinse):** (1) cardul „Primele 3 luni, punctele se dublează" de pe
-> homepage — regulă inexistentă în doc; (2) „Cumperi produse pe Beautifier" din lista de pe teaser —
-> Beautifier e acum program separat; (3) documentul canonic `04-loialitate.md` are încă
-> multiplicatorii vechi + sesiunea Adriana + secțiunea Beautifier — ar trebui actualizat la fel.
+Rezolvate (4 sept 2026, runda a doua):
+- Cardul „Primele 3 luni, punctele se dublează" de pe homepage — **scos** (regulă inexistentă în doc).
+- „Cumperi produse pe Beautifier" din teaser — **rămâne** (decizia lui Marius).
+- Documentul canonic `04-loialitate.md` + CLAUDE.md + `business/index.html` — **deja actualizate de
+  Marius** (multiplicatori 1,5/2/3, Beautifier devenit canal de consum, benefits curățate). Verificat.
+- „Cum folosești punctele" pe pagină — **corectat**: docul actualizat listează **două canale** de
+  consum (1 · Beautifier — vouchere/reduceri/transport gratuit; 2 · comunitate — zile gratuite +
+  cursuri cu puncte). Inițial exclusesem Beautifier; „scoate tot ce ține de Beautifier" viza rândurile
+  din tabelul de beneficii (multiplicator comenzi, transport ca beneficiu de nivel), nu canalul de consum.
 
 ## Cursurile în navigație — dropdown ca index
 
