@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="ro" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Program de loialitate — The Beauty Education</title>
+  <meta name="description" content="Cum câștigi puncte în comunitatea The Beauty Education, cum urci în niveluri (Bronze → Diamond) și ce recompense primești. Meritocrație: puncte pentru muncă, nu doar pentru cumpărături.">
+  <meta name="theme-color" content="#FAF4EF">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="The Beauty Education">
+  <meta property="og:locale" content="ro_RO">
+  <meta property="og:title" content="Program de loialitate — The Beauty Education">
+  <meta property="og:description" content="Aduni puncte pentru activitate și educație, urci în niveluri, primești recompense.">
+  <meta name="twitter:card" content="summary">
+
+  <link rel="icon" href="assets/logo/tbe-icon-color.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonturi/Jost%5Bwght%5D.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/fonturi/CormorantGaramond%5Bwght%5D.ttf" as="font" type="font/ttf" crossorigin>
+
+  <!-- ORDINEA CONTEAZĂ: tokens → components → site → pagină -->
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="stylesheet" href="assets/css/loialitate-pagina.css">
+</head>
+
+<body>
+
+<a class="site-skip" href="#continut">Sari la conținut</a>
+
+<header class="site-nav is-locked" data-site-nav>
+  <div class="site-nav-inner tbe-container">
+
+    <a class="site-nav-brand" href="index.html" aria-label="The Beauty Education — prima pagină">
+      <img class="site-nav-logo is-white" src="assets/logo/tbe-orizontal-alb.svg"
+           alt="The Beauty Education" width="150" height="40">
+      <img class="site-nav-logo is-color" src="assets/logo/tbe-orizontal-color.svg"
+           alt="" aria-hidden="true" width="150" height="40">
+    </a>
+
+    <nav class="site-nav-menu" aria-label="Navigare principală">
+      <ul class="site-nav-list">
+        <li class="site-nav-item">
+          <a class="site-nav-link" href="comunitate.html">Comunitate</a>
+        </li>
+        <li class="site-nav-item">
+          <a class="site-nav-link" href="empiria.html">Empiria</a>
+        </li>
+
+        <li class="site-nav-item site-nav-has-sub" data-site-dropdown>
+          <button type="button" class="site-nav-link" aria-expanded="false" aria-controls="submeniu-cursuri">
+            Cursuri
+            <svg class="site-nav-caret" viewBox="0 0 12 12" fill="none" stroke="currentColor"
+                 stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M2.5 4.5 6 8l3.5-3.5"/>
+            </svg>
+          </button>
+          <div class="site-nav-sub is-grupat" id="submeniu-cursuri">
+            <p class="site-nav-sub-grup" id="grup-nav-fizice">Cursuri fizice</p>
+            <ul class="site-nav-sub-lista" aria-labelledby="grup-nav-fizice">
+              <li><a href="/curs/bazele-coafurilor-texturate">Bazele Coafurilor Texturate</a></li>
+              <li><a href="/curs/coafuri-comerciale">Coafuri Comerciale</a></li>
+            </ul>
+            <p class="site-nav-sub-grup" id="grup-nav-online">Cursuri online</p>
+            <ul class="site-nav-sub-lista" aria-labelledby="grup-nav-online">
+              <li><a href="curs-atelierul-de-bucle.html">Atelierul de Bucle</a></li>
+              <li><a href="curs-color-mastery.html">Color Mastery</a></li>
+              <li><a href="curs-makeup-essentials.html">Makeup Essentials</a></li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="site-nav-item">
+          <a class="site-nav-link" href="https://harta-coafezelor.ro">Harta Coafezelor</a>
+        </li>
+        <li class="site-nav-item">
+          <a class="site-nav-link" href="https://beautifier.ro">Magazin</a>
+        </li>
+      </ul>
+    </nav>
+
+    <a class="tbe-btn is-primary site-nav-cta" href="https://ro.thebeautyeducation.com">
+      Alătură-te comunității
+    </a>
+
+    <button type="button" class="site-nav-burger" data-site-burger
+            aria-expanded="false" aria-controls="sertar-meniu" aria-label="Deschide meniul">
+      <span class="site-burger-box" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </span>
+    </button>
+
+  </div>
+</header>
+
+<div class="site-drawer" id="sertar-meniu" data-site-drawer aria-hidden="true">
+  <div class="tbe-container">
+    <ul class="site-drawer-list">
+      <li><a class="site-drawer-link" href="comunitate.html">Comunitate</a></li>
+      <li><a class="site-drawer-link" href="empiria.html">Empiria</a></li>
+      <li>
+        <details class="site-drawer-details">
+          <summary class="site-drawer-sub-toggle">
+            Cursuri
+            <svg class="site-nav-caret" viewBox="0 0 12 12" fill="none" stroke="currentColor"
+                 stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M2.5 4.5 6 8l3.5-3.5"/>
+            </svg>
+          </summary>
+          <div class="site-drawer-sub">
+            <p class="site-drawer-sub-grup" id="grup-drawer-fizice">Cursuri fizice</p>
+            <ul class="site-drawer-sub-lista" aria-labelledby="grup-drawer-fizice">
+              <li><a href="/curs/bazele-coafurilor-texturate">Bazele Coafurilor Texturate</a></li>
+              <li><a href="/curs/coafuri-comerciale">Coafuri Comerciale</a></li>
+            </ul>
+            <p class="site-drawer-sub-grup" id="grup-drawer-online">Cursuri online</p>
+            <ul class="site-drawer-sub-lista" aria-labelledby="grup-drawer-online">
+              <li><a href="curs-atelierul-de-bucle.html">Atelierul de Bucle</a></li>
+              <li><a href="curs-color-mastery.html">Color Mastery</a></li>
+              <li><a href="curs-makeup-essentials.html">Makeup Essentials</a></li>
+            </ul>
+          </div>
+        </details>
+      </li>
+      <li><a class="site-drawer-link" href="traineri.html">Traineri</a></li>
+      <li><a class="site-drawer-link" href="https://harta-coafezelor.ro">Harta Coafezelor</a></li>
+      <li><a class="site-drawer-link" href="https://beautifier.ro">Magazin</a></li>
+    </ul>
+    <div class="site-drawer-foot">
+      <a class="tbe-btn is-primary is-lg is-block" href="https://ro.thebeautyeducation.com">
+        Alătură-te comunității
+      </a>
+    </div>
+  </div>
+</div>
+
+<main id="continut">
+
+  <!-- ========================================================================
+       0 · HERO
+       Cifre: business/docs/04-loialitate.md + decizii Marius 4 sept 2026.
+       Beautifier, ligile, „VREAU", sesiunea cu Adriana și recompensele de
+       onboarding pe plăți NU apar (per decizii). Multiplicatori 1x/1,5x/2x/3x.
+       ======================================================================== -->
+  <section class="site-section lp-header" aria-labelledby="lp-titlu">
+    <div class="tbe-container">
+
+      <nav class="tbe-breadcrumb" aria-label="Locul în site">
+        <ol>
+          <li><a href="index.html">Acasă</a></li>
+          <li aria-current="page">Program de loialitate</li>
+        </ol>
+      </nav>
+
+      <span class="tbe-kicker is-action">Program de loialitate</span>
+      <h1 class="lp-titlu" id="lp-titlu">Ești răsplătită pentru <em>muncă</em>, nu doar pentru cumpărături.</h1>
+      <p class="tbe-lead">
+        Aproape tot ce faci în comunitate aduce puncte: înveți, exersezi, postezi, participi. Punctele
+        te urcă în niveluri, iar nivelurile îți aduc recompense reale. Un singur principiu — meritocrația.
+      </p>
+
+      <div class="lp-hero-actions">
+        <a class="tbe-btn is-primary is-lg" href="#aduni">Vezi cum aduni puncte</a>
+        <a class="tbe-btn is-secondary is-lg" href="#niveluri">Cele 4 niveluri</a>
+      </div>
+
+      <p class="lp-meta">În vigoare din 1 decembrie 2025</p>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       1 · CUM FUNCȚIONEAZĂ — 3 pași
+       ======================================================================== -->
+  <section class="site-section is-band" aria-labelledby="lp-cum-titlu">
+    <div class="tbe-container">
+      <span class="tbe-kicker">Pe scurt</span>
+      <h2 id="lp-cum-titlu">Cum funcționează</h2>
+      <p class="tbe-lead lp-lead-spatiat">Trei pași, aceeași logică pentru toată lumea.</p>
+
+      <ol class="lp-pasi">
+        <li class="lp-pas">
+          <span class="lp-pas-num" aria-hidden="true"></span>
+          <h3>Aduni puncte</h3>
+          <p>Din onboarding, abonament, EMPIRIA, cursuri, rubricile săptămânale, scorul de comunitate și mentorat.</p>
+        </li>
+        <li class="lp-pas">
+          <span class="lp-pas-num" aria-hidden="true"></span>
+          <h3>Urci în niveluri</h3>
+          <p>Punctele acumulate te ridică de la Bronze la Diamond — iar nivelul îți multiplică fiecare punct câștigat.</p>
+        </li>
+        <li class="lp-pas">
+          <span class="lp-pas-num" aria-hidden="true"></span>
+          <h3>Primești recompense</h3>
+          <p>Discounturi, prioritate pe Harta Coafezelor, zile gratuite la abonament și cursuri luate cu puncte.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       2 · CUM ADUNI PUNCTE — grila (valori de bază)
+       ======================================================================== -->
+  <section class="site-section" id="aduni" aria-labelledby="lp-aduni-titlu">
+    <div class="tbe-container">
+      <span class="tbe-kicker">Grila de puncte</span>
+      <h2 id="lp-aduni-titlu">Cum aduni puncte</h2>
+      <p class="tbe-lead lp-lead-spatiat">
+        Valorile de mai jos sunt cele de bază. Nivelul tău le multiplică — vezi secțiunea următoare.
+      </p>
+
+      <ul class="lp-categorii">
+        <li>
+          <article class="lp-cat">
+            <div class="lp-cat-cap">
+              <h3 class="lp-cat-titlu">Onboarding</h3>
+              <span class="lp-cat-sub">până la 250 de puncte</span>
+            </div>
+            <ul class="lp-cat-lista">
+              <li class="lp-rand"><span class="lp-rand-nume">Cont creat</span><span class="lp-pct">100</span></li>
+              <li class="lp-rand"><span class="lp-rand-nume">Profil complet</span><span class="lp-pct">100</span></li>
+              <li class="lp-rand"><span class="lp-rand-nume">Poveste în „Prezintă-te"</span><span class="lp-pct">50</span></li>
+            </ul>
+          </article>
+        </li>
+
+        <li>
+          <article class="lp-cat">
+            <div class="lp-cat-cap">
+              <h3 class="lp-cat-titlu">Abonament</h3>
+              <span class="lp-cat-sub">la fiecare plată</span>
+            </div>
+            <ul class="lp-cat-lista">
+              <li class="lp-rand"><span class="lp-rand-nume">Lunar</span><span class="lp-pct">60</span></li>
+              <li class="lp-rand"><span class="lp-rand-nume">3 luni</span><span class="lp-pct">200</span></li>
+              <li class="lp-rand"><span class="lp-rand-nume">6 luni</span><span class="lp-pct">400</span></li>
+              <li class="lp-rand"><span class="lp-rand-nume">Anual</span><span class="lp-pct">850</span></li>
+            </ul>
+          </article>
+        </li>
+
+        <li>
+          <article class="lp-cat">
+            <div class="lp-cat-cap">
+              <h3 class="lp-cat-titlu">EMPIRIA</h3>
+              <span class="lp-cat-sub">per specializare</span>
+            </div>
+            <ul class="lp-cat-lista">
+              <li class="lp-rand"><span class="lp-rand-nume">Fundamentals</span><span class="lp-pct">100</span></li>
+              <li class="lp-rand"><span class="lp-rand-nume">Essentials</span><span class="lp-pct">200</span></li>
+              <li class="lp-rand"><span class="lp-rand-nume">Mastery</span><span class="lp-pct">300</span></li>
+            </ul>
+            <p class="lp-cat-total">600 pe specializare · 1.200 pentru ambele</p>
+          </article>
+        </li>
+
+        <li>
+          <article class="lp-cat">
+            <div class="lp-cat-cap">
+              <h3 class="lp-cat-titlu">Cursuri online</h3>
+              <span class="lp-cat-sub">la achiziție</span>
+            </div>
+            <ul class="lp-cat-lista">
+              <li class="lp-rand"><span class="lp-rand-nume">Color Mastery</span><span class="lp-pct">500</span></li>
+              <li class="lp-rand"><span class="lp-rand-nume">Makeup Essentials</span><span class="lp-pct">500</span></li>
+            </ul>
+          </article>
+        </li>
+
+        <li>
+          <article class="lp-cat">
+            <div class="lp-cat-cap">
+              <h3 class="lp-cat-titlu">Rubrici &amp; activități</h3>
+              <span class="lp-cat-sub">săptămânal</span>
+            </div>
+            <ul class="lp-cat-lista">
+              <li class="lp-rand"><span class="lp-rand-nume">Decode IT</span><span class="lp-pct">20</span></li>
+              <li class="lp-rand"><span class="lp-rand-nume">Skill Lab</span><span class="lp-pct">25</span></li>
+              <li class="lp-rand"><span class="lp-rand-nume">Pinterest 2.0</span><span class="lp-pct">25</span></li>
+              <li class="lp-rand"><span class="lp-rand-nume">Color IT</span><span class="lp-pct">20</span></li>
+              <li class="lp-rand"><span class="lp-rand-nume">Exercise IT</span><span class="lp-pct">20</span></li>
+              <li class="lp-rand"><span class="lp-rand-nume">Repair IT</span><span class="lp-pct">20</span></li>
+              <li class="lp-rand"><span class="lp-rand-nume">Duelul Coafezelor</span><span class="lp-pct">25 / 50</span></li>
+              <li class="lp-rand"><span class="lp-rand-nume">Coafeza lunii</span><span class="lp-pct">200</span></li>
+            </ul>
+          </article>
+        </li>
+
+        <li>
+          <article class="lp-cat">
+            <div class="lp-cat-cap">
+              <h3 class="lp-cat-titlu">Scor de comunitate</h3>
+              <span class="lp-cat-sub">automat, în fiecare luni</span>
+            </div>
+            <ul class="lp-cat-lista">
+              <li class="lp-rand"><span class="lp-rand-nume">Scor 9,00 – 10,00</span><span class="lp-pct">100</span></li>
+              <li class="lp-rand"><span class="lp-rand-nume">Scor 8,00 – 8,99</span><span class="lp-pct">70</span></li>
+              <li class="lp-rand"><span class="lp-rand-nume">Scor 7,00 – 7,99</span><span class="lp-pct">50</span></li>
+            </ul>
+            <p class="lp-cat-total">Din prezență, implicare și participare, pe ultimele 30 de zile</p>
+          </article>
+        </li>
+
+        <li>
+          <article class="lp-cat">
+            <div class="lp-cat-cap">
+              <h3 class="lp-cat-titlu">Mentorat</h3>
+              <span class="lp-cat-sub">la finalizare</span>
+            </div>
+            <ul class="lp-cat-lista">
+              <li class="lp-rand"><span class="lp-rand-nume">Orice program de mentorat</span><span class="lp-pct">250</span></li>
+            </ul>
+          </article>
+        </li>
+      </ul>
+
+      <p class="lp-nota-baza">
+        <strong>Reține:</strong> cifrele de mai sus sunt valorile de bază (nivel Bronze). Pe măsură ce
+        urci în niveluri, fiecare punct se multiplică.
+      </p>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       3 · MULTIPLICATORUL
+       ======================================================================== -->
+  <section class="site-section is-band" aria-labelledby="lp-mult-titlu">
+    <div class="tbe-container">
+      <div class="lp-mult">
+        <div class="lp-mult-text">
+          <span class="tbe-kicker">Nivelul contează</span>
+          <h2 id="lp-mult-titlu">Nivelul tău îți multiplică punctele</h2>
+          <p>
+            Fiecare punct câștigat din grila de mai sus se înmulțește cu multiplicatorul nivelului
+            tău de comunitate. Cu cât urci mai sus, cu atât aceeași activitate valorează mai mult.
+          </p>
+          <ul class="lp-mult-scara">
+            <li class="lp-mult-treapta"><span class="lp-mult-x">1×</span><span class="lp-mult-nivel">Bronze</span></li>
+            <li class="lp-mult-treapta"><span class="lp-mult-x">1,5×</span><span class="lp-mult-nivel">Silver</span></li>
+            <li class="lp-mult-treapta"><span class="lp-mult-x">2×</span><span class="lp-mult-nivel">Gold</span></li>
+            <li class="lp-mult-treapta is-top"><span class="lp-mult-x">3×</span><span class="lp-mult-nivel">Diamond</span></li>
+          </ul>
+        </div>
+
+        <div class="lp-exemplu">
+          <p class="lp-exemplu-titlu">Exemplu</p>
+          <div class="lp-exemplu-calcul">
+            <span class="lp-exemplu-de">200</span>
+            <span class="lp-exemplu-sageata" aria-hidden="true">→</span>
+            <span class="lp-exemplu-la">600</span>
+          </div>
+          <p>
+            „Coafeza lunii" aduce 200 de puncte de bază. Ca membră Diamond (3×), aceeași realizare
+            îți aduce 600 de puncte.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       4 · NIVELURI + BENEFICII
+       Badge-uri DS oficiale (.tbe-badge). Fără Beautifier, fără sesiune Adriana.
+       ======================================================================== -->
+  <section class="site-section" id="niveluri" aria-labelledby="lp-niv-titlu">
+    <div class="tbe-container">
+      <span class="tbe-kicker">Drumul tău</span>
+      <h2 id="lp-niv-titlu">Cele 4 niveluri</h2>
+      <p class="tbe-lead lp-lead-spatiat">
+        Nivelul se câștigă din puncte și din progresul EMPIRIA. Se acordă retroactiv, pe baza a ce ai deja.
+      </p>
+
+      <ul class="lp-niveluri">
+        <li class="lp-nivel">
+          <span class="tbe-badge is-bronze">Bronze</span>
+          <span class="lp-nivel-puncte">0 <span>puncte</span></span>
+          <p class="lp-nivel-conditie">Nivelul de bază — îl are orice membră.</p>
+        </li>
+        <li class="lp-nivel">
+          <span class="tbe-badge is-silver">Silver</span>
+          <span class="lp-nivel-puncte">500 <span>puncte</span></span>
+          <p class="lp-nivel-conditie">+ Fundamentals finalizat (orice specializare).</p>
+        </li>
+        <li class="lp-nivel">
+          <span class="tbe-badge is-gold">Gold</span>
+          <span class="lp-nivel-puncte">1.500 <span>puncte</span></span>
+          <p class="lp-nivel-conditie">+ Essentials finalizat.</p>
+        </li>
+        <li class="lp-nivel">
+          <span class="tbe-badge is-diamond">Diamond</span>
+          <span class="lp-nivel-puncte">3.000 <span>puncte</span></span>
+          <p class="lp-nivel-conditie">+ Mastery finalizat.</p>
+        </li>
+      </ul>
+
+      <div class="lp-beneficii-wrap">
+        <table class="tbe-table lp-beneficii">
+          <thead>
+            <tr>
+              <th scope="col">Beneficiu</th>
+              <th scope="col">Bronze</th>
+              <th scope="col">Silver</th>
+              <th scope="col">Gold</th>
+              <th scope="col">Diamond</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Multiplicator de puncte</td>
+              <td>1×</td><td>1,5×</td><td>2×</td><td><strong>3×</strong></td>
+            </tr>
+            <tr>
+              <td>Discount cursuri fizice</td>
+              <td class="is-nu">—</td><td class="is-nu">—</td><td>5%</td><td><strong>10%</strong></td>
+            </tr>
+            <tr>
+              <td>Discount cursuri online</td>
+              <td class="is-nu">—</td><td class="is-nu">—</td><td>5%</td><td><strong>10%</strong></td>
+            </tr>
+            <tr>
+              <td>Prioritate afișare Harta Coafezelor</td>
+              <td class="is-nu">—</td><td class="is-nu">—</td><td class="is-da">Da</td><td class="is-da">Da</td>
+            </tr>
+            <tr>
+              <td>Tombolă lunară</td>
+              <td>Generală</td><td>Generală</td><td>Nivel Gold</td><td>Nivel Diamond</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       5 · DIAMOND → TRAINER
+       ======================================================================== -->
+  <section class="site-section is-band" aria-labelledby="lp-trainer-titlu">
+    <div class="tbe-container">
+      <div class="lp-trainer">
+        <span class="lp-trainer-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 9 9l-7 1 5 5-1.5 7L12 18l6.5 4L17 15l5-5-7-1z"/></svg>
+        </span>
+        <div class="lp-trainer-text">
+          <h2 id="lp-trainer-titlu">Vârful drumului: Trainer TBE</h2>
+          <p>
+            De la Diamond poți aplica pentru un loc în echipa de traineri. Trei membre au făcut deja
+            drumul complet — Larisa, Viorica și Alina — și predau azi în comunitate.
+          </p>
+        </div>
+        <span class="lp-trainer-actiune">
+          <a class="tbe-btn is-primary" href="traineri.html">Vezi echipa de traineri</a>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       6 · CUM FOLOSEȘTI PUNCTELE + REGULI
+       Fără „VREAU" (intern în Circle) și fără Beautifier (decizii Marius).
+       ======================================================================== -->
+  <section class="site-section" aria-labelledby="lp-uz-titlu">
+    <div class="tbe-container">
+      <span class="tbe-kicker">Recompensa</span>
+      <h2 id="lp-uz-titlu">Cum folosești punctele</h2>
+      <p class="tbe-lead lp-lead-spatiat">Punctele adunate se transformă în beneficii concrete în comunitate.</p>
+
+      <ul class="lp-folosesti">
+        <li class="lp-uz">
+          <span class="lp-uz-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          </span>
+          <div>
+            <h3>Zile gratuite la abonament</h3>
+            <p>Îți prelungești accesul la comunitate folosind punctele, fără plată suplimentară.</p>
+          </div>
+        </li>
+        <li class="lp-uz">
+          <span class="lp-uz-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H11v16H5.5A1.5 1.5 0 0 1 4 18.5zM20 5.5A1.5 1.5 0 0 0 18.5 4H13v16h5.5a1.5 1.5 0 0 0 1.5-1.5z"/></svg>
+          </span>
+          <div>
+            <h3>Cursuri luate cu puncte</h3>
+            <p>Anumite cursuri se pot debloca direct cu punctele acumulate, fără să scoți banii.</p>
+          </div>
+        </li>
+      </ul>
+
+      <ul class="lp-reguli">
+        <li class="lp-regula">
+          <strong>Acumulate vs. disponibile</strong>
+          Pe profil vezi punctele acumulate (istoric, nu scad) și punctele disponibile (soldul pe care îl poți folosi).
+        </li>
+        <li class="lp-regula">
+          <strong>Expiră în 90 de zile</strong>
+          Dacă închizi abonamentul și nu-l reactivezi în 90 de zile, punctele se șterg și revii la nivelul 0.
+        </li>
+        <li class="lp-regula">
+          <strong>Fără retroactiv</strong>
+          Punctele se acordă doar pentru acțiuni de după lansarea programului (1 decembrie 2025).
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       7 · CTA FINAL
+       ======================================================================== -->
+  <section class="site-section is-tight lp-divider" aria-labelledby="lp-cta-titlu">
+    <div class="tbe-container">
+      <div class="lp-cta">
+        <h2 id="lp-cta-titlu">Începe să aduni puncte din prima zi</h2>
+        <p class="tbe-lead">
+          Contul e gratuit și îți aduce deja primele puncte. Abonamentul deschide tot restul —
+          EMPIRIA, rubricile și drumul spre Diamond.
+        </p>
+        <div class="lp-cta-actiune">
+          <a class="tbe-btn is-primary is-lg" href="/abonament?utm_source=loialitate_page">Vezi abonamentul</a>
+          <a class="tbe-btn is-secondary is-lg" href="comunitate.html">Descoperă comunitatea</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="tbe-container">
+    <div class="site-footer-grid">
+
+      <div class="site-footer-col is-brand">
+        <img class="site-footer-logo" src="assets/logo/tbe-orizontal-alb.svg"
+             alt="The Beauty Education" width="142" height="38">
+        <p class="site-footer-about">
+          Cea mai mare comunitate pentru coafeze din România. Educație, comunitate
+          și produse profesionale într-un singur loc.
+        </p>
+        <div class="site-footer-entity">
+          <p class="site-footer-company">Beauty Education Publishing SRL</p>
+          <p class="site-footer-fiscal">
+            CUI: 54823960<br>
+            Reg. Com.: J2026036531002<br>
+            Str. Berzelor 348, Plevna, jud. Călărași
+          </p>
+        </div>
+      </div>
+
+      <nav class="site-footer-col" aria-labelledby="footer-navigare">
+        <h2 class="site-footer-title" id="footer-navigare">Navigare</h2>
+        <ul class="site-footer-list">
+          <li><a href="comunitate.html">Comunitate</a></li>
+          <li><a href="empiria.html">Empiria</a></li>
+          <li><a href="traineri.html">Traineri</a></li>
+          <li><a href="https://harta-coafezelor.ro">Harta Coafezelor</a></li>
+          <li><a href="https://beautifier.ro">Magazin</a></li>
+        </ul>
+      </nav>
+
+      <nav class="site-footer-col" aria-labelledby="footer-cursuri">
+        <h2 class="site-footer-title" id="footer-cursuri">Cursuri</h2>
+        <ul class="site-footer-list">
+          <li><a href="/curs/bazele-coafurilor-texturate">Bazele Coafurilor Texturate</a></li>
+          <li><a href="/curs/coafuri-comerciale">Coafuri Comerciale</a></li>
+          <li><a href="curs-atelierul-de-bucle.html">Atelierul de Bucle</a></li>
+          <li><a href="curs-color-mastery.html">Color Mastery</a></li>
+          <li><a href="curs-makeup-essentials.html">Makeup Essentials</a></li>
+        </ul>
+      </nav>
+
+      <nav class="site-footer-col" aria-labelledby="footer-mai-mult">
+        <h2 class="site-footer-title" id="footer-mai-mult">Mai mult</h2>
+        <ul class="site-footer-list">
+          <li><a href="revista.html">Revista Coafezelor</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="program-de-loialitate.html" aria-current="page">Program de loialitate</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="site-footer-col">
+        <h2 class="site-footer-title" id="footer-newsletter">Rămâi aproape</h2>
+
+        <div class="site-newsletter">
+          <p class="site-newsletter-note">
+            Noutăți despre cursuri, tutoriale și Revista Coafezelor — o dată pe lună.
+          </p>
+          <form class="site-newsletter-form" action="#" method="post" aria-labelledby="footer-newsletter">
+            <label class="tbe-sr-only" for="newsletter-email">Adresa ta de email</label>
+            <input class="site-newsletter-input" type="email" id="newsletter-email" name="email"
+                   placeholder="adresa@email.ro" autocomplete="email" required>
+            <button class="tbe-btn is-primary is-block" type="submit">Abonează-te</button>
+          </form>
+          <p class="site-newsletter-legal">
+            Prin abonare accepți <a href="politica-de-confidentialitate.html">politica de confidențialitate</a>.
+          </p>
+        </div>
+
+        <ul class="site-social">
+          <li>
+            <a href="#" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                   stroke-linecap="round" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="5.5"/>
+                <circle cx="12" cy="12" r="4.1"/>
+                <circle cx="17.3" cy="6.7" r="1.05" fill="currentColor" stroke="none"/>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="#" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M15.6 4.6h-1.8c-1.9 0-2.9 1.2-2.9 3.2V10H8.6v3h2.3v6.4"/>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="#" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M13.9 4.8v9.7a3.5 3.5 0 1 1-3.5-3.5c.3 0 .6 0 .9.1"/>
+                <path d="M13.9 4.8c.3 2.3 2 4 4.3 4.2"/>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="#" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                   stroke-linejoin="round" aria-hidden="true">
+                <rect x="2.5" y="5.5" width="19" height="13" rx="4"/>
+                <path d="M10.4 9.4 15.7 12l-5.3 2.6z" fill="currentColor" stroke="none"/>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="site-footer-bottom">
+    <div class="tbe-container">
+      <div class="site-trust">
+        <p class="site-trust-pay">
+          <span class="site-trust-badge"><img src="assets/logo/stripe.png" alt="Stripe" width="42" height="18"></span>
+          Plăți securizate
+        </p>
+        <ul class="site-trust-legal">
+          <li><a href="https://anpc.ro">ANPC</a></li>
+          <li><a href="https://ec.europa.eu/consumers/odr">Soluționarea online a litigiilor (SOL)</a></li>
+        </ul>
+      </div>
+      <div class="site-footer-bottom-inner">
+        <p class="site-footer-copy">© 2026 The Beauty Education. Toate drepturile rezervate.</p>
+        <ul class="site-footer-legal">
+          <li><a href="termeni-si-conditii.html">Termeni și condiții</a></li>
+          <li><a href="politica-de-confidentialitate.html">Confidențialitate</a></li>
+          <li><a href="politica-cookies.html">Cookies</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/site.js"></script>
+</body>
+</html>

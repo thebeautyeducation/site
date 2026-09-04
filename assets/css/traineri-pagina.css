@@ -4,8 +4,9 @@
    --------------------------------------------------------------------------
    Prezentarea echipei de traineri. Fotografia fiecărui trainer e momentan un
    PLACEHOLDER cu inițiale (.trn-monogram) — sursa reală de portrete lipsește.
-   Ca să pui poza reală: adaugi un <img> în .trn-foto; monogramul e sub el și
-   dispare vizual. De înlocuit cu 6 portrete reale.
+   Ca să pui poza reală: pui o fotografie de portret în .trn-foto (regula
+   „.trn-foto img" de mai jos o stilizează); monogramul e dedesubt și dispare.
+   De înlocuit cu portrete reale.
    ========================================================================== */
 
 /* Graniță între secțiuni de același fundal (CTA-ul e crem, ca grila). */

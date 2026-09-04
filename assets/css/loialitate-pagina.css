@@ -1,0 +1,372 @@
+/* ==========================================================================
+   THE BEAUTY EDUCATION — PAGINA „PROGRAM DE LOIALITATE" (program-de-loialitate.html)
+   Se încarcă după site.css. Prefix propriu `lp-` (loialitate-pagina), ca să nu
+   se ciocnească cu `loy-` de la teaser-ul de pe homepage.
+   --------------------------------------------------------------------------
+   Sursă cifre: business/docs/04-loialitate.md + deciziile lui Marius (4 sept
+   2026): multiplicatori 1x/1,5x/2x/3x, fără Beautifier, fără sesiune Adriana,
+   fără ligi, fără mecanismul „VREAU". Vezi loialitate-structura.md.
+   Reutilizează din DS: .tbe-table, .tbe-badge (niveluri), .tbe-kicker,
+   .tbe-breadcrumb, .tbe-btn, .tbe-grid. Fișierul de față = doar layout propriu.
+
+   Ritm de fundal: crem (hero) → bej (cum funcționează) → crem (cum aduni) →
+   bej (multiplicator) → crem (niveluri) → bej (trainer) → crem (reguli) →
+   crem (CTA, lp-divider).
+   ========================================================================== */
+
+.lp-divider { border-top: 1px solid var(--tbe-border-subtle); }
+.lp-lead-spatiat { margin-bottom: var(--s-6); }
+
+/* ==========================================================================
+   0 · HERO
+   ========================================================================== */
+.lp-header { padding-top: var(--s-6); }
+.lp-header .tbe-breadcrumb { margin-bottom: var(--s-5); }
+.lp-titlu {
+  font-size: var(--fs-display);
+  font-weight: var(--fw-light);
+  letter-spacing: var(--ls-tight);
+  margin-bottom: var(--s-3);
+  text-wrap: balance;
+}
+.lp-titlu em { font-style: italic; font-weight: var(--fw-regular); color: var(--tbe-action); }
+.lp-header .tbe-lead { max-width: 60ch; }
+.lp-hero-actions { display: flex; gap: var(--s-2); flex-wrap: wrap; margin-top: var(--s-5); }
+.lp-meta {
+  margin-top: var(--s-5);
+  padding-top: var(--s-5);
+  border-top: 1px solid var(--tbe-border-subtle);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--tbe-text-subtle);
+}
+
+/* ==========================================================================
+   1 · CUM FUNCȚIONEAZĂ — 3 pași
+   ========================================================================== */
+.lp-pasi {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-3);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: pas;
+}
+.lp-pas {
+  background: var(--tbe-surface);
+  border: var(--bw-hair) solid var(--tbe-border-subtle);
+  border-radius: var(--tbe-radius-card);
+  padding: var(--s-5);
+}
+.lp-pas-num {
+  counter-increment: pas;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--tbe-action-soft);
+  color: var(--tbe-action);
+  font-family: var(--font-display);
+  font-size: var(--fs-h4);
+  font-weight: var(--fw-semibold);
+  margin-bottom: var(--s-3);
+}
+.lp-pas-num::before { content: counter(pas); }
+.lp-pas h3 { font-size: var(--fs-h4); margin-bottom: var(--s-2); }
+.lp-pas p { margin: 0; font-size: var(--fs-sm); color: var(--tbe-text-muted); max-width: none; }
+
+/* ==========================================================================
+   2 · CUM ADUNI PUNCTE — carduri-categorie cu rânduri (nume · puncte)
+   ========================================================================== */
+.lp-categorii {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-3);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.lp-categorii > li { display: flex; }
+.lp-cat {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  background: var(--tbe-surface);
+  border: var(--bw-hair) solid var(--tbe-border-subtle);
+  border-radius: var(--tbe-radius-card);
+  padding: var(--s-5);
+}
+.lp-cat-cap { margin-bottom: var(--s-3); }
+.lp-cat-titlu {
+  margin: 0;
+  font-size: var(--fs-h4);
+  font-weight: var(--fw-semibold);
+}
+.lp-cat-sub {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--tbe-text-subtle);
+}
+.lp-cat-lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+.lp-rand {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s-3);
+  padding: 8px 0;
+  border-top: 1px solid var(--tbe-border-subtle);
+  font-size: var(--fs-sm);
+}
+.lp-rand:first-child { border-top: 0; }
+.lp-rand-nume { color: var(--tbe-text); min-width: 0; }
+.lp-pct {
+  flex: none;
+  font-family: var(--font-mono);
+  font-weight: var(--fw-semibold);
+  color: var(--tbe-action);
+  white-space: nowrap;
+}
+.lp-cat-total {
+  margin-top: auto;
+  padding-top: var(--s-3);
+  font-size: var(--fs-xs);
+  color: var(--tbe-text-subtle);
+}
+/* Nota „valori de bază, nivelul le multiplică". */
+.lp-nota-baza {
+  margin-top: var(--s-5);
+  padding: var(--s-3) var(--s-4);
+  background: var(--tbe-action-soft);
+  border-radius: var(--tbe-radius-card);
+  font-size: var(--fs-sm);
+  color: var(--tbe-text);
+}
+
+/* ==========================================================================
+   3 · MULTIPLICATORUL
+   ========================================================================== */
+.lp-mult {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-8);
+  align-items: center;
+}
+.lp-mult-text { min-width: 0; }
+.lp-mult-text p { max-width: 52ch; }
+/* Rândul de multiplicatori — 4 „jetoane". */
+.lp-mult-scara {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--s-2);
+  list-style: none;
+  margin: var(--s-4) 0 0;
+  padding: 0;
+}
+.lp-mult-treapta {
+  text-align: center;
+  padding: var(--s-4) var(--s-2);
+  background: var(--tbe-surface);
+  border: var(--bw-hair) solid var(--tbe-border-subtle);
+  border-radius: var(--tbe-radius-card);
+}
+.lp-mult-treapta.is-top { border-color: var(--tbe-action); }
+.lp-mult-x {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-medium);
+  color: var(--tbe-action);
+  line-height: 1;
+}
+.lp-mult-nivel {
+  display: block;
+  margin-top: 4px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--tbe-text-subtle);
+}
+/* Caseta cu exemplul validat. */
+.lp-exemplu {
+  padding: var(--s-5);
+  background: var(--tbe-editorial-soft);
+  border: var(--bw-thin) solid var(--tbe-editorial-line);
+  border-radius: var(--tbe-radius-card);
+}
+.lp-exemplu-titlu {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--tbe-text-subtle);
+  margin-bottom: var(--s-2);
+}
+.lp-exemplu-calcul {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  flex-wrap: wrap;
+  font-family: var(--font-display);
+}
+.lp-exemplu-de { font-size: var(--fs-h3); color: var(--tbe-text-muted); }
+.lp-exemplu-sageata { color: var(--tbe-text-subtle); }
+.lp-exemplu-la { font-size: var(--fs-h1); font-weight: var(--fw-medium); color: var(--tbe-action); }
+.lp-exemplu p { margin: var(--s-3) 0 0; font-size: var(--fs-sm); color: var(--tbe-text-muted); max-width: none; }
+
+/* ==========================================================================
+   4 · NIVELURI + BENEFICII
+   ========================================================================== */
+.lp-niveluri {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--s-3);
+  list-style: none;
+  margin: 0 0 var(--s-6);
+  padding: 0;
+}
+.lp-nivel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  align-items: flex-start;
+  background: var(--tbe-surface);
+  border: var(--bw-hair) solid var(--tbe-border-subtle);
+  border-radius: var(--tbe-radius-card);
+  padding: var(--s-4);
+}
+.lp-nivel-puncte {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-medium);
+  color: var(--tbe-text);
+  line-height: 1;
+}
+.lp-nivel-puncte span { font-size: var(--fs-sm); color: var(--tbe-text-subtle); font-family: var(--font-body); font-weight: var(--fw-regular); }
+.lp-nivel-conditie { margin: 0; font-size: var(--fs-xs); color: var(--tbe-text-muted); }
+
+.lp-beneficii-wrap { overflow-x: auto; }
+.lp-beneficii { min-width: 640px; }
+.lp-beneficii .is-da { color: var(--tbe-action); font-weight: var(--fw-medium); }
+.lp-beneficii .is-nu { color: var(--tbe-text-subtle); }
+
+/* ==========================================================================
+   5 · DIAMOND → TRAINER (callout)
+   ========================================================================== */
+.lp-trainer {
+  display: flex;
+  align-items: center;
+  gap: var(--s-5);
+  padding: var(--s-6);
+  background: var(--tbe-editorial-soft);
+  border: var(--bw-thin) solid var(--tbe-editorial-line);
+  border-radius: var(--tbe-radius-card);
+  flex-wrap: wrap;
+}
+.lp-trainer-icon {
+  flex: none;
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--tbe-surface);
+  color: var(--c-gold-vivid);
+}
+.lp-trainer-icon svg { width: 24px; height: 24px; }
+.lp-trainer-text { flex: 1 1 340px; min-width: 0; }
+.lp-trainer-text h2 { font-size: var(--fs-h3); margin-bottom: var(--s-2); }
+.lp-trainer-text p { margin: 0; max-width: none; color: var(--tbe-text-muted); }
+.lp-trainer-actiune { flex: none; }
+
+/* ==========================================================================
+   6 · CUM FOLOSEȘTI + REGULI
+   ========================================================================== */
+.lp-folosesti {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-3);
+  list-style: none;
+  margin: 0 0 var(--s-6);
+  padding: 0;
+}
+.lp-uz {
+  display: flex;
+  gap: var(--s-3);
+  align-items: flex-start;
+  background: var(--tbe-surface);
+  border: var(--bw-hair) solid var(--tbe-border-subtle);
+  border-radius: var(--tbe-radius-card);
+  padding: var(--s-5);
+}
+.lp-uz-icon {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--tbe-action-soft);
+  color: var(--tbe-action);
+}
+.lp-uz-icon svg { width: 20px; height: 20px; }
+.lp-uz h3 { font-size: var(--fs-h4); margin-bottom: 2px; }
+.lp-uz p { margin: 0; font-size: var(--fs-sm); color: var(--tbe-text-muted); max-width: none; }
+
+.lp-reguli {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-3);
+}
+.lp-regula {
+  padding: var(--s-4);
+  background: var(--tbe-decor);
+  border-radius: var(--tbe-radius-card);
+  font-size: var(--fs-sm);
+  color: var(--tbe-text-muted);
+}
+.lp-regula strong { display: block; color: var(--tbe-text); margin-bottom: 2px; font-family: var(--font-display); font-size: var(--fs-h4); font-weight: var(--fw-semibold); }
+
+/* ==========================================================================
+   7 · CTA FINAL
+   ========================================================================== */
+.lp-cta { text-align: center; max-width: 640px; margin-inline: auto; }
+.lp-cta h2 { margin-bottom: var(--s-3); }
+.lp-cta-actiune { display: flex; gap: var(--s-2); justify-content: center; margin-top: var(--s-5); flex-wrap: wrap; }
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .lp-pasi { grid-template-columns: 1fr; }
+  .lp-categorii { grid-template-columns: repeat(2, 1fr); }
+  .lp-mult { grid-template-columns: 1fr; }
+  .lp-niveluri { grid-template-columns: repeat(2, 1fr); }
+  .lp-reguli { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .lp-titlu { font-size: var(--fs-h1); }
+  .lp-hero-actions { flex-direction: column; }
+  .lp-hero-actions .tbe-btn { width: 100%; }
+  .lp-categorii { grid-template-columns: 1fr; }
+  .lp-folosesti { grid-template-columns: 1fr; }
+  .lp-trainer { flex-direction: column; align-items: flex-start; }
+  .lp-cta-actiune { flex-direction: column; }
+  .lp-cta-actiune .tbe-btn { width: 100%; }
+}

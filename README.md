@@ -916,6 +916,38 @@ Apoi verifică build-ul: `gh api repos/thebeautyeducation/site/pages/builds/late
 Regula din CLAUDE.md rămâne valabilă: orice schimbare în `site/` se duce **și** aici, altfel
 versiunea live rămâne în urmă.
 
+## Pagina PROGRAM DE LOIALITATE — `program-de-loialitate.html`
+
+Pagina-referință a programului. Structură + surse: [`loialitate-structura.md`](loialitate-structura.md).
+CSS: [`loialitate-pagina.css`](assets/css/loialitate-pagina.css) (prefix `lp-`, ca să nu se
+ciocnească cu `loy-` de la teaser-ul de pe homepage). Fără JS.
+
+Opt secțiuni: hero (meritocrația) → cum funcționează (3 pași) → **cum aduni puncte** (grila completă
+în carduri-categorie) → **multiplicatorul** (1×/1,5×/2×/3× + exemplul 200→600) → **cele 4 niveluri**
++ tabelul de beneficii (badge-uri DS) → Diamond → Trainer → cum folosești + reguli → CTA.
+
+**Sursa cifrelor:** `business/docs/04-loialitate.md` + **deciziile lui Marius (4 sept 2026)**, care
+au prioritate peste doc:
+- Multiplicatori **noi**: Bronze 1× · Silver **1,5×** · Gold **2×** · Diamond **3×** (doc-ul avea
+  1,2/1,5/2). Exemplu recalculat: Coafeza lunii 200 → Diamond **600**.
+- **Beautifier scos complet** de pe pagină (câștig, multiplicator comenzi, transport gratuit) — are
+  program propriu (BON Loyalty), nemenționat aici.
+- Scoase din beneficii: **Sesiune lunară cu Adriana**, transport gratuit.
+- „Cum folosești": **fără „VREAU"** (intern în Circle) — doar zile gratuite la abonament + cursuri
+  luate cu puncte.
+- Fără recompensele de onboarding pe plăți consecutive, fără ligi.
+
+**Sincronizat pe restul site-ului** (ca să nu contrazică pagina nouă): multiplicatorii din teaser-ul
+de loialitate de pe homepage (`assets/js/loialitate.js` + paragraful din `index.html`) → 1,5/2/3;
+cardurile Gold/Diamond de pe Comunitate → scos „sesiuni cu Adriana"/„transport gratuit", Diamond 3×.
+Ruta `/program-de-loialitate` (11×) + varianta veche `/program-loialitate` (3×, cu utm) repoint-ate
+pe `program-de-loialitate.html`.
+
+> ⚠ **Rămân de decis (semnalate, neatinse):** (1) cardul „Primele 3 luni, punctele se dublează" de pe
+> homepage — regulă inexistentă în doc; (2) „Cumperi produse pe Beautifier" din lista de pe teaser —
+> Beautifier e acum program separat; (3) documentul canonic `04-loialitate.md` are încă
+> multiplicatorii vechi + sesiunea Adriana + secțiunea Beautifier — ar trebui actualizat la fel.
+
 ## Cursurile în navigație — dropdown ca index
 
 Nu există (și nu vor exista) pagini-categorie „cursuri online" / „cursuri fizice": **fiecare curs

@@ -5,15 +5,15 @@
    Constanta LEVELS e singura sursă pentru rândul de niveluri: nume,
    multiplicator, notă. Cardurile se generează din ea, în ordine — primul
    element e treapta cea mai de jos.
-   Notă: multiplicatorii folosesc virgulă (1,2x), nu punct — site-ul e în
+   Notă: multiplicatorii folosesc virgulă (1,5x), nu punct — site-ul e în
    română. În CLAUDE.md scrie „până la 2x–3x la Diamond"; aici e 2x, cum a
    venit în brief. Dacă 3x e corect, se schimbă doar rândul de mai jos.
    ========================================================================== */
 var LEVELS = [
   { name: 'Bronze',  multiplier: '1x',   note: 'punctul de plecare' },
-  { name: 'Silver',  multiplier: '1,2x', note: 'mai multe puncte' },
-  { name: 'Gold',    multiplier: '1,5x', note: 'și mai multe' },
-  { name: 'Diamond', multiplier: '2x',   note: 'maximum de puncte' }
+  { name: 'Silver',  multiplier: '1,5x', note: 'mai multe puncte' },
+  { name: 'Gold',    multiplier: '2x',   note: 'și mai multe' },
+  { name: 'Diamond', multiplier: '3x',   note: 'maximum de puncte' }
 ];
 /* Numele nivelului devine badge-ul oficial din design system
    (.tbe-badge.is-bronze/.is-silver/.is-gold/.is-diamond, cu glifele ● ◈ ★ ◆).
