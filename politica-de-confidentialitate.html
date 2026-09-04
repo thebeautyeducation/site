@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="ro" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Politica de confidențialitate — The Beauty Education</title>
+  <meta name="description" content="Cum colectăm, folosim și protejăm datele tale personale pe site-ul The Beauty Education, conform GDPR: ce date prelucrăm, în ce scop, cât timp și ce drepturi ai.">
+  <meta name="theme-color" content="#FAF4EF">
+  <meta name="robots" content="noindex, follow">
+
+  <link rel="icon" href="assets/logo/tbe-icon-color.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonturi/Jost%5Bwght%5D.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/fonturi/CormorantGaramond%5Bwght%5D.ttf" as="font" type="font/ttf" crossorigin>
+
+  <!-- ORDINEA CONTEAZĂ: tokens → components → site → pagină -->
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="stylesheet" href="assets/css/legal-pagina.css">
+</head>
+
+<body>
+
+<a class="site-skip" href="#continut">Sari la conținut</a>
+
+<header class="site-nav is-locked" data-site-nav>
+  <div class="site-nav-inner tbe-container">
+
+    <a class="site-nav-brand" href="index.html" aria-label="The Beauty Education — prima pagină">
+      <img class="site-nav-logo is-white" src="assets/logo/tbe-orizontal-alb.svg"
+           alt="The Beauty Education" width="150" height="40">
+      <img class="site-nav-logo is-color" src="assets/logo/tbe-orizontal-color.svg"
+           alt="" aria-hidden="true" width="150" height="40">
+    </a>
+
+    <nav class="site-nav-menu" aria-label="Navigare principală">
+      <ul class="site-nav-list">
+        <li class="site-nav-item">
+          <a class="site-nav-link" href="comunitate.html">Comunitate</a>
+        </li>
+        <li class="site-nav-item">
+          <a class="site-nav-link" href="empiria.html">Empiria</a>
+        </li>
+
+        <li class="site-nav-item site-nav-has-sub" data-site-dropdown>
+          <button type="button" class="site-nav-link" aria-expanded="false" aria-controls="submeniu-cursuri">
+            Cursuri
+            <svg class="site-nav-caret" viewBox="0 0 12 12" fill="none" stroke="currentColor"
+                 stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M2.5 4.5 6 8l3.5-3.5"/>
+            </svg>
+          </button>
+          <div class="site-nav-sub is-grupat" id="submeniu-cursuri">
+            <p class="site-nav-sub-grup" id="grup-nav-fizice">Cursuri fizice</p>
+            <ul class="site-nav-sub-lista" aria-labelledby="grup-nav-fizice">
+              <li><a href="/curs/bazele-coafurilor-texturate">Bazele Coafurilor Texturate</a></li>
+              <li><a href="/curs/coafuri-comerciale">Coafuri Comerciale</a></li>
+            </ul>
+            <p class="site-nav-sub-grup" id="grup-nav-online">Cursuri online</p>
+            <ul class="site-nav-sub-lista" aria-labelledby="grup-nav-online">
+              <li><a href="curs-atelierul-de-bucle.html">Atelierul de Bucle</a></li>
+              <li><a href="curs-color-mastery.html">Color Mastery</a></li>
+              <li><a href="curs-makeup-essentials.html">Makeup Essentials</a></li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="site-nav-item">
+          <a class="site-nav-link" href="https://harta-coafezelor.ro">Harta Coafezelor</a>
+        </li>
+        <li class="site-nav-item">
+          <a class="site-nav-link" href="https://beautifier.ro">Magazin</a>
+        </li>
+      </ul>
+    </nav>
+
+    <a class="tbe-btn is-primary site-nav-cta" href="https://ro.thebeautyeducation.com">
+      Alătură-te comunității
+    </a>
+
+    <button type="button" class="site-nav-burger" data-site-burger
+            aria-expanded="false" aria-controls="sertar-meniu" aria-label="Deschide meniul">
+      <span class="site-burger-box" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </span>
+    </button>
+
+  </div>
+</header>
+
+<div class="site-drawer" id="sertar-meniu" data-site-drawer aria-hidden="true">
+  <div class="tbe-container">
+    <ul class="site-drawer-list">
+      <li><a class="site-drawer-link" href="comunitate.html">Comunitate</a></li>
+      <li><a class="site-drawer-link" href="empiria.html">Empiria</a></li>
+      <li>
+        <details class="site-drawer-details">
+          <summary class="site-drawer-sub-toggle">
+            Cursuri
+            <svg class="site-nav-caret" viewBox="0 0 12 12" fill="none" stroke="currentColor"
+                 stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M2.5 4.5 6 8l3.5-3.5"/>
+            </svg>
+          </summary>
+          <div class="site-drawer-sub">
+            <p class="site-drawer-sub-grup" id="grup-drawer-fizice">Cursuri fizice</p>
+            <ul class="site-drawer-sub-lista" aria-labelledby="grup-drawer-fizice">
+              <li><a href="/curs/bazele-coafurilor-texturate">Bazele Coafurilor Texturate</a></li>
+              <li><a href="/curs/coafuri-comerciale">Coafuri Comerciale</a></li>
+            </ul>
+            <p class="site-drawer-sub-grup" id="grup-drawer-online">Cursuri online</p>
+            <ul class="site-drawer-sub-lista" aria-labelledby="grup-drawer-online">
+              <li><a href="curs-atelierul-de-bucle.html">Atelierul de Bucle</a></li>
+              <li><a href="curs-color-mastery.html">Color Mastery</a></li>
+              <li><a href="curs-makeup-essentials.html">Makeup Essentials</a></li>
+            </ul>
+          </div>
+        </details>
+      </li>
+      <li><a class="site-drawer-link" href="traineri.html">Traineri</a></li>
+      <li><a class="site-drawer-link" href="https://harta-coafezelor.ro">Harta Coafezelor</a></li>
+      <li><a class="site-drawer-link" href="https://beautifier.ro">Magazin</a></li>
+    </ul>
+    <div class="site-drawer-foot">
+      <a class="tbe-btn is-primary is-lg is-block" href="https://ro.thebeautyeducation.com">
+        Alătură-te comunității
+      </a>
+    </div>
+  </div>
+</div>
+
+<main id="continut">
+
+  <!-- ========================================================================
+       POLITICA DE CONFIDENȚIALITATE
+       Text preluat integral de pe thebeautyeducation.com/politica-de-
+       confidentialitate (versiunea 20.02.2024). ⚠ Operatorul a fost ADAPTAT
+       de la THE BEAUTY EDUCATION SRL (J40/14156/2021, CUI 44753671) la
+       Beauty Education Publishing SRL — entitatea din footer / CLAUDE.md.
+       DE VALIDAT JURIDIC înainte de publicare.
+       ======================================================================== -->
+  <section class="site-section lg-header" aria-labelledby="lg-titlu">
+    <div class="tbe-container">
+
+      <nav class="tbe-breadcrumb" aria-label="Locul în site">
+        <ol>
+          <li><a href="index.html">Acasă</a></li>
+          <li aria-current="page">Politica de confidențialitate</li>
+        </ol>
+      </nav>
+
+      <span class="tbe-kicker">Legal</span>
+      <h1 class="lg-titlu" id="lg-titlu">Politica de confidențialitate</h1>
+      <p class="tbe-lead">
+        Ce informații colectăm de la tine când folosești site-ul, în ce scop le folosim, cât timp le
+        păstrăm și ce drepturi ai asupra lor — conform Regulamentului (UE) 2016/679 (GDPR).
+      </p>
+      <div class="lg-meta">
+        <span>Versiune actualizată la 20.02.2024</span>
+        <span>Operator: Beauty Education Publishing SRL</span>
+      </div>
+
+      <div class="lg-grid">
+
+        <nav class="lg-toc" aria-labelledby="lg-toc-titlu">
+          <p class="lg-toc-titlu" id="lg-toc-titlu">Cuprins</p>
+          <ol>
+            <li><a href="#s1">Cine suntem</a></li>
+            <li><a href="#s2">Ce date personale prelucrăm</a></li>
+            <li><a href="#s3">Scopul prelucrării</a></li>
+            <li><a href="#s4">Temeiurile prelucrării</a></li>
+            <li><a href="#s5">Durata de stocare</a></li>
+            <li><a href="#s6">Măsuri de securitate</a></li>
+            <li><a href="#s7">Transmiterea datelor către alte persoane</a></li>
+            <li><a href="#s8">Transferul datelor în afara țării</a></li>
+            <li><a href="#s9">Drepturile tale</a></li>
+            <li><a href="#s10">Date ale minorilor</a></li>
+            <li><a href="#s11">Actualizări ale politicii</a></li>
+          </ol>
+        </nav>
+
+        <div class="lg-prose">
+          <p>Politica de confidențialitate vă informează despre informațiile pe care le colectăm de la dumneavoastră atunci când utilizați site-ul nostru. În colectarea acestor informații, noi acționăm în calitate de operator de date personale și, prin lege, suntem obligați să vă furnizăm informații despre noi, despre scopul și modul în care folosim datele dvs. și despre drepturile pe care le aveți asupra datelor dvs. personale.</p>
+          <p>Societatea Beauty Education Publishing SRL, în calitate de Operator de date cu caracter personal (denumită în continuare „Societatea" sau „Operatorul"), respectă întocmai prevederile legale în vigoare privind protecția persoanelor cu privire la prelucrarea datelor cu caracter personal și libera circulație a acestor date. Ne angajăm să prelucrăm datele dumneavoastră cu caracter personal în concordanță cu Regulamentul (UE) 679/2016 (GDPR), precum și cu orice altă legislație aplicabilă pe teritoriul României.</p>
+          <p>Pentru a înțelege mai bine politica noastră de protecție a datelor, vă invităm să citiți acest material. Ne rezervăm dreptul de a actualiza și modifica periodic această Politică de protecție a datelor cu caracter personal („Politica") fără a vă cere acordul prealabil și fără a fi supuși unei proceduri de notificare individuală ori specială a modificărilor aduse. În cazul oricărei astfel de modificări, vom afișa pe site versiunea actualizată a Politicii, rămânând în sarcina dumneavoastră să verificați conținutul acesteia ori de câte ori accesați site-ul, pentru a vă asigura că sunteți la curent cu ultima versiune.</p>
+          <p>Vă stăm la dispoziție pentru informații și pe e-mail la <a href="mailto:contact@thebeautyeducation.com">contact@thebeautyeducation.com</a>.</p>
+
+          <h2 id="s1">1. Cine suntem?</h2>
+          <p>Calitatea de Operator de Date cu caracter personal o are Beauty Education Publishing SRL, înmatriculată la Oficiul Registrului Comerțului sub nr. J2026036531002, având CUI 54823960, cu sediul în Str. Berzelor 348, Plevna, jud. Călărași.</p>
+
+          <h2 id="s2">2. Ce fel de date personale prelucrăm</h2>
+          <p>Datele personale pe care le prelucrăm sunt: nume, prenume, adresă de e-mail, adresă IP, tipul de browser și versiunea, setările privind locația și fusul orar, plug-in-urile de browser și versiunile acestora, sistemul de operare, platforma de operare și alte tehnologii de pe dispozitivele pe care le folosești pentru a accesa acest site, informații necesare pentru facturare dacă e cazul, informații despre cum utilizezi site-ul nostru, produsele și serviciile, preferințele tale de a primi materiale de marketing din partea noastră și din partea terțelor noastre părți și metodele preferate de comunicare.</p>
+          <p>De asemenea, vă punem la dispoziție pe site o secțiune specială dedicată oferirii de testimoniale, respectiv materiale scrise însoțite sau nu de fotografia pe care o încărcați personal pe site sau prin intermediul site-urilor de socializare afiliate, ori materiale audio sau video în care să expuneți experiența dumneavoastră raportat la serviciile de pe site și care pot fi utilizate de către Operator în scopul serviciilor de reclamă, marketing și publicitate a site-ului, inclusiv prin publicare pe acest site, dar și pe alte canale de promovare.</p>
+          <p>Folosim Google Analytics pentru a ne ajuta să înțelegem cum utilizează clienții noștri site-ul – puteți citi mai multe despre modul în care Google utilizează informațiile dvs. personale aici: <a href="https://www.google.com/intl/ro/policies/privacy/" rel="noopener">google.com/intl/ro/policies/privacy</a>. De asemenea, puteți renunța la Google Analytics aici: <a href="https://tools.google.com/dlpage/gaoptout" rel="noopener">tools.google.com/dlpage/gaoptout</a>.</p>
+          <p>Vă rugăm să consultați și <a href="politica-cookies.html">Politica de cookies</a>.</p>
+          <p>Când trimiteți o solicitare sau un mesaj prin intermediul site-ului nostru, vă solicităm numele și adresa de e-mail. Utilizăm aceste informații pentru a răspunde cererii dvs. Putem să vă trimitem un e-mail de mai multe ori după ce ați făcut o solicitare, pentru a ne asigura că am răspuns la întrebarea dvs. și pentru a îmbunătăți experiența utilizatorilor noștri.</p>
+          <p>Când trimiteți o solicitare de abonare la newsletter-ul nostru, vă solicităm numele, prenumele și adresa de e-mail. Utilizăm aceste informații pentru a vă transmite ultimele știri, proiecte și alte informații de interes. Prin intermediul abonării la newsletter, datele sunt stocate și procesate până la retragerea consimțământului dumneavoastră. Puteți să vă retrageți consimțământul oricând printr-o solicitare transmisă prin adresa de e-mail sau prin efectuarea unui click pe căsuța de dezabonare care se va afla la finalul fiecărui newsletter pe care vi-l trimitem. Datele personale colectate nu se mai divulgă altor persoane.</p>
+          <p>Nu colectăm sau prelucrăm date ale minorilor.</p>
+
+          <h2 id="s3">3. Scopul pentru care prelucrăm date personale</h2>
+          <p>Solicităm și prelucrăm date personale pentru:</p>
+          <ul>
+            <li>a face posibilă funcționarea site-ului;</li>
+            <li>furnizarea serviciilor oferite prin intermediul site-ului;</li>
+            <li>asigurarea plății sumelor aferente serviciilor oferite pe site-ul nostru;</li>
+            <li>transmiterea de materiale legate de serviciile noastre și informații legate de evenimentele sau programele pe care le organizăm ori pe care le promovăm – dacă vă oferiți consimțământul în acest sens;</li>
+            <li>oferirea de răspunsuri la reclamațiile plasate;</li>
+            <li>evaluarea serviciilor oferite pe site;</li>
+            <li>monitorizarea vânzărilor și comportamentul clienților, scopuri administrative, de media și altele asemenea – dacă vă oferiți consimțământul în acest sens;</li>
+            <li>comunicarea de oferte de bunuri și/sau servicii – dacă vă oferiți consimțământul în acest sens;</li>
+            <li>transmiterea de newslettere, materiale legate de serviciile noastre și informații legate de evenimentele sau programele pe care le organizăm ori pe care le promovăm – dacă vă oferiți consimțământul în acest sens.</li>
+          </ul>
+
+          <h2 id="s4">4. Temeiurile prelucrării</h2>
+          <p>Operatorul are dreptul de a prelucra date personale pentru scopurile prezentate mai sus:</p>
+          <ul>
+            <li>pentru că prelucrarea datelor este necesară pentru a face posibilă funcționarea site-ului și accesul la serviciile oferite pe site, realizarea plății costurilor aferente serviciilor prestate și oferirea de răspunsuri la reclamațiile plasate, dacă este cazul;</li>
+            <li>pentru că v-ați dat consimțământul expres în acest sens, prin bifarea căsuțelor aferente.</li>
+          </ul>
+          <p>În cazul în care prelucrarea datelor nu este necesară pentru încheierea și executarea raporturilor noastre juridice, nu vom prelucra date personale pentru niciunul dintre scopurile de mai sus, dacă nu avem consimțământul dumneavoastră în acest sens.</p>
+
+          <h2 id="s5">5. Durata de stocare și prelucrare a datelor personale</h2>
+          <p>Prelucrăm și stocăm datele personale pe durata necesară îndeplinirii scopurilor pentru care datele au fost colectate și, în orice caz, pe perioada impusă de reglementările legale aplicabile.</p>
+          <p>Pentru mesaje, vom păstra datele dumneavoastră cu caracter personal pe o perioadă de șase luni după ce v-am răspuns.</p>
+          <p>Pentru istoricul navigării, datele dumneavoastră cu caracter personal sunt păstrate doar pe durata de viață a cookie-ului. Durata de viață a fiecărui cookie se regăsește în <a href="politica-cookies.html">Politica de cookies</a>.</p>
+          <p>Pentru newsletter, datele dumneavoastră cu caracter personal sunt păstrate pe durata de viață a newsletter-ului sau până când decideți să vă retrageți consimțământul dat.</p>
+          <p>Actualizăm periodic baza noastră de date, astfel încât să nu stocăm date care nu mai sunt necesare scopurilor pentru care au fost colectate.</p>
+
+          <h2 id="s6">6. Măsuri de securitate a datelor</h2>
+          <p>Societatea asigură măsurile tehnice și juridice adecvate pentru a asigura o protecție efectivă a datelor cu caracter personal aparținând persoanelor care ne furnizează astfel de date.</p>
+          <p>Ne angajăm să vă păstrăm datele personale în siguranță și luăm măsurile rezonabile în acest sens, inclusiv împotriva accesului neautorizat, al utilizării neautorizate a datelor, distrugerii, pierderii sau alterării acestora.</p>
+          <p>Ne instruim sistematic angajații legat de importanța protejării datelor cu caracter personal, am instituit proceduri interne în acest sens și, în plus, depunem toate eforturile pentru a ne asigura că și partenerii noștri gestionează măsuri adecvate pentru prelucrarea datelor personale care pot ajunge la ei în cadrul raporturilor noastre contractuale.</p>
+          <p>De asemenea, plățile care se efectuează prin intermediul site-ului nostru, strict pentru achitarea serviciilor pe care noi vi le punem la dispoziție, se realizează în condiții de securitate, conform politicilor de securitate implementate de furnizorii acestui serviciu.</p>
+
+          <h2 id="s7">7. Transmiterea datelor către alte persoane</h2>
+          <p>Este posibil să transmitem datele personale pe care ni le furnizați către companii afiliate și/sau către alți parteneri și colaboratori cu care avem stabilite raporturi contractuale în vederea desfășurării activităților noastre și a îndeplinirii obligațiilor legale care ne revin, cum ar fi: specialiștii care postează materiale pe site, furnizorii de servicii informatice, de servicii de contabilitate, de servicii juridice, de servicii de marketing, de servicii de curierat, de servicii de internet și telefonie mobilă, procesatorii de plăți care sunt autorizați de noi să intermedieze plățile, specialiști în domeniul de activitate în care activăm, pe care îi contractăm pentru a vă oferi o calitate cât mai bună a serviciilor noastre, și alți asemenea furnizori.</p>
+          <p>Transmiterea datelor către terțe persoane are loc sub rezerva asumării de către acestea a clauzelor de confidențialitate pe care le stabilim.</p>
+          <p>De asemenea, putem transmite unele dintre datele personale colectate către autoritățile sau instituțiile publice competente, atunci când legea impune acest lucru, sau către instanțele de judecată atunci când ne apărăm în justiție ori când ni se cere de către instanță acest lucru.</p>
+          <p>Vă rugăm să consultați și <a href="politica-cookies.html">Politica de cookies</a>.</p>
+
+          <h2 id="s8">8. Transferul datelor cu caracter personal în afara țării</h2>
+          <p>Datele dumneavoastră cu caracter personal sunt prelucrate în cadrul companiei Beauty Education Publishing SRL, situată în România, și nu transferăm date în afara spațiului UE. În contextul operațiunilor descrise mai sus, datele dumneavoastră cu caracter personal pot fi transferate în afara țării către state din Uniunea Europeană („UE") sau din Spațiul Economic European („SEE"). Astfel, vă informăm că orice transfer efectuat de către Operator către un stat membru UE sau SEE respectă prevederile legale din Regulamentul General privind protecția datelor nr. 2016/679 adoptat de Parlamentul European („GDPR").</p>
+          <p>Nu avem intenția de a transfera date cu caracter personal către o țară terță din afara UE sau către o organizație internațională. Dacă survine acest lucru, veți fi notificat în acest sens pentru a vă da consimțământul sau pentru a vă indica garanțiile adecvate care asigură același standard de protecție a prelucrării datelor cu caracter personal.</p>
+
+          <h2 id="s9">9. Ce drepturi aveți în legătură cu datele personale pe care ni le furnizați</h2>
+          <p>Ne angajăm să asigurăm securitatea datelor cu caracter personal prin adoptarea de măsuri tehnice și organizatorice adecvate, conform standardelor industriei. În legătură cu datele dumneavoastră, aveți următoarele drepturi:</p>
+          <p><strong>Dreptul la informare / dreptul de acces</strong> – puteți solicita informații și detalii privind activitățile de prelucrare a datelor personale. Vă stăm la dispoziție la adresa de e-mail <a href="mailto:contact@thebeautyeducation.com">contact@thebeautyeducation.com</a>. Suntem atenți la asigurarea dreptului dumneavoastră de a primi informații clare, transparente, ușor de înțeles și accesibile cu privire la modul în care vă prelucrăm datele, inclusiv detalii legate de drepturile pe care le dețineți în acest sens și care sunt prezentate și în acest document.</p>
+          <p><strong>Dreptul la rectificare</strong> – în cazul în care constatați că datele dumneavoastră personale pe care le prelucrăm sunt incorecte, incomplete sau inexacte, le puteți rectifica ori le puteți completa printr-o simplă solicitare de rectificare trimisă la adresa de e-mail <a href="mailto:contact@thebeautyeducation.com">contact@thebeautyeducation.com</a>.</p>
+          <p><strong>Dreptul la ștergerea datelor</strong> („dreptul de a fi uitat") – puteți obține ștergerea datelor, în cazul în care prelucrarea acestora nu a fost legală sau în alte cazuri prevăzute de lege. Ștergerea datelor poate avea loc în oricare dintre situațiile următoare:</p>
+          <ol type="a">
+            <li>nu mai avem nevoie de datele personale pentru îndeplinirea vreunuia dintre scopurile pentru care le-am prelucrat anterior;</li>
+            <li>vă retrageți consimțământul pe baza căruia v-am prelucrat anterior și nu există un alt temei juridic pe care ne putem baza o prelucrare viitoare;</li>
+            <li>vă opuneți prelucrării datelor atunci când prelucrăm datele în scop de marketing direct (inclusiv profilarea în scop de marketing direct);</li>
+            <li>vă opuneți prelucrării datelor bazate pe interesul nostru legitim și nu putem să demonstrăm că avem motive legitime care justifică prelucrarea și care prevalează asupra intereselor, drepturilor și libertăților dumneavoastră;</li>
+            <li>datele personale sunt prelucrate contrar legii;</li>
+            <li>datele personale trebuie șterse pentru a ne conforma obligațiilor noastre legale.</li>
+          </ol>
+          <p>Vă vom putea respinge solicitarea de ștergere a datelor dacă:</p>
+          <ol type="a">
+            <li>trebuie să ne conformăm unor obligații legale de a păstra datele;</li>
+            <li>datele ne sunt necesare pentru constatarea, exercitarea sau apărarea drepturilor noastre în justiție.</li>
+          </ol>
+          <p><strong>Dreptul la portabilitatea datelor</strong> – puteți primi, în anumite condiții, datele personale pe care ni le-ați furnizat, într-un format care poate fi citit automat, sau puteți solicita ca respectivele date să fie transmise altui operator.</p>
+          <p><strong>Dreptul de a depune plângere și/sau de a vă adresa justiției</strong> – puteți depune plângere față de modalitatea de prelucrare a datelor personale la Autoritatea Națională de Supraveghere a Prelucrării Datelor cu Caracter Personal (ANSPDCP). Date de contact și informații legate de ANSPDCP găsiți pe site-ul <a href="https://www.dataprotection.ro/" rel="noopener">dataprotection.ro</a>.</p>
+          <p><strong>Dreptul de retragere a consimțământului</strong> – în cazurile în care prelucrarea se întemeiază pe consimțământul dvs., vi-l puteți retrage oricând. Retragerea consimțământului va avea efecte doar pentru viitor, prelucrarea efectuată anterior retragerii rămânând în continuare valabilă.</p>
+          <p><strong>Dreptul de a nu fi supus unor decizii automate sau profilare suplimentară aferente deciziilor automate</strong> – puteți cere și obține intervenția umană cu privire la respectiva prelucrare sau vă puteți exprima propriul punct de vedere cu privire la acest tip de prelucrare.</p>
+          <p><strong>Dreptul la restricționarea prelucrării</strong> – atunci când prelucrăm datele dumneavoastră pentru a îndeplini sarcinile noastre de interes public sau interesele noastre legitime (sau cele ale unei terțe părți) și există ceva legat de situația dumneavoastră particulară care vă face să obiectați asupra prelucrării. De asemenea, aveți dreptul să ne cereți restricționarea prelucrării atunci când prelucrăm datele dumneavoastră în scopuri de marketing direct.</p>
+          <p><strong>Dreptul de a vă opune prelucrării datelor</strong> – atunci când prelucrăm datele dumneavoastră pentru a ne îndeplini un interes public sau urmărim interesele noastre legitime ori ale unei terțe persoane.</p>
+          <p>Drepturile din prezenta secțiune pot fi exercitate, fie individual, fie cumulat, prin simpla transmitere a unei solicitări pe e-mail la adresa <a href="mailto:contact@thebeautyeducation.com">contact@thebeautyeducation.com</a>, urmând să venim cu un răspuns către dumneavoastră în termen de maximum 30 de zile, conform Regulamentului.</p>
+
+          <h2 id="s10">10. Date ale minorilor</h2>
+          <p>Nu dorim să colectăm sau să prelucrăm date ale minorilor care nu au împlinit vârsta de 18 ani. Vă rugăm să nu ne furnizați nicio informație în cazul în care nu aveți împlinită vârsta de 18 ani.</p>
+
+          <h2 id="s11">11. Actualizări la această politică de confidențialitate</h2>
+          <p>Revizuim regulat și, dacă este cazul, actualizăm periodic această politică de confidențialitate atunci când intervin modificări în urma prestării de servicii. Dacă vrem să folosim datele dvs. personale într-un mod pe care nu l-am identificat anterior, vă vom contacta pentru a vă oferi informații despre acest lucru și, dacă este necesar, pentru a vă solicita acordul.</p>
+          <p>Vom actualiza numărul versiunii și data acestui document de fiecare dată când acesta este modificat.</p>
+          <p><em>Politică de confidențialitate actualizată la data de 20.02.2024.</em></p>
+
+          <p class="lg-inrudite">
+            Vezi și: <a href="termeni-si-conditii.html">Termeni și condiții</a> ·
+            <a href="politica-cookies.html">Politica de cookies</a>
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="tbe-container">
+    <div class="site-footer-grid">
+
+      <div class="site-footer-col is-brand">
+        <img class="site-footer-logo" src="assets/logo/tbe-orizontal-alb.svg"
+             alt="The Beauty Education" width="142" height="38">
+        <p class="site-footer-about">
+          Cea mai mare comunitate pentru coafeze din România. Educație, comunitate
+          și produse profesionale într-un singur loc.
+        </p>
+        <div class="site-footer-entity">
+          <p class="site-footer-company">Beauty Education Publishing SRL</p>
+          <p class="site-footer-fiscal">
+            CUI: 54823960<br>
+            Reg. Com.: J2026036531002<br>
+            Str. Berzelor 348, Plevna, jud. Călărași
+          </p>
+        </div>
+      </div>
+
+      <nav class="site-footer-col" aria-labelledby="footer-navigare">
+        <h2 class="site-footer-title" id="footer-navigare">Navigare</h2>
+        <ul class="site-footer-list">
+          <li><a href="comunitate.html">Comunitate</a></li>
+          <li><a href="empiria.html">Empiria</a></li>
+          <li><a href="traineri.html">Traineri</a></li>
+          <li><a href="https://harta-coafezelor.ro">Harta Coafezelor</a></li>
+          <li><a href="https://beautifier.ro">Magazin</a></li>
+        </ul>
+      </nav>
+
+      <nav class="site-footer-col" aria-labelledby="footer-cursuri">
+        <h2 class="site-footer-title" id="footer-cursuri">Cursuri</h2>
+        <ul class="site-footer-list">
+          <li><a href="/curs/bazele-coafurilor-texturate">Bazele Coafurilor Texturate</a></li>
+          <li><a href="/curs/coafuri-comerciale">Coafuri Comerciale</a></li>
+          <li><a href="curs-atelierul-de-bucle.html">Atelierul de Bucle</a></li>
+          <li><a href="curs-color-mastery.html">Color Mastery</a></li>
+          <li><a href="curs-makeup-essentials.html">Makeup Essentials</a></li>
+        </ul>
+      </nav>
+
+      <nav class="site-footer-col" aria-labelledby="footer-mai-mult">
+        <h2 class="site-footer-title" id="footer-mai-mult">Mai mult</h2>
+        <ul class="site-footer-list">
+          <li><a href="revista.html">Revista Coafezelor</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="/program-de-loialitate">Program de loialitate</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="site-footer-col">
+        <h2 class="site-footer-title" id="footer-newsletter">Rămâi aproape</h2>
+
+        <div class="site-newsletter">
+          <p class="site-newsletter-note">
+            Noutăți despre cursuri, tutoriale și Revista Coafezelor — o dată pe lună.
+          </p>
+          <form class="site-newsletter-form" action="#" method="post" aria-labelledby="footer-newsletter">
+            <label class="tbe-sr-only" for="newsletter-email">Adresa ta de email</label>
+            <input class="site-newsletter-input" type="email" id="newsletter-email" name="email"
+                   placeholder="adresa@email.ro" autocomplete="email" required>
+            <button class="tbe-btn is-primary is-block" type="submit">Abonează-te</button>
+          </form>
+          <p class="site-newsletter-legal">
+            Prin abonare accepți <a href="politica-de-confidentialitate.html">politica de confidențialitate</a>.
+          </p>
+        </div>
+
+        <ul class="site-social">
+          <li>
+            <a href="#" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                   stroke-linecap="round" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="5.5"/>
+                <circle cx="12" cy="12" r="4.1"/>
+                <circle cx="17.3" cy="6.7" r="1.05" fill="currentColor" stroke="none"/>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="#" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M15.6 4.6h-1.8c-1.9 0-2.9 1.2-2.9 3.2V10H8.6v3h2.3v6.4"/>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="#" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M13.9 4.8v9.7a3.5 3.5 0 1 1-3.5-3.5c.3 0 .6 0 .9.1"/>
+                <path d="M13.9 4.8c.3 2.3 2 4 4.3 4.2"/>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="#" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                   stroke-linejoin="round" aria-hidden="true">
+                <rect x="2.5" y="5.5" width="19" height="13" rx="4"/>
+                <path d="M10.4 9.4 15.7 12l-5.3 2.6z" fill="currentColor" stroke="none"/>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="site-footer-bottom">
+    <div class="tbe-container">
+      <div class="site-trust">
+        <p class="site-trust-pay">
+          <span class="site-trust-badge"><img src="assets/logo/stripe.png" alt="Stripe" width="42" height="18"></span>
+          Plăți securizate
+        </p>
+        <ul class="site-trust-legal">
+          <li><a href="https://anpc.ro">ANPC</a></li>
+          <li><a href="https://ec.europa.eu/consumers/odr">Soluționarea online a litigiilor (SOL)</a></li>
+        </ul>
+      </div>
+      <div class="site-footer-bottom-inner">
+        <p class="site-footer-copy">© 2026 The Beauty Education. Toate drepturile rezervate.</p>
+        <ul class="site-footer-legal">
+          <li><a href="termeni-si-conditii.html">Termeni și condiții</a></li>
+          <li><a href="politica-de-confidentialitate.html" aria-current="page">Confidențialitate</a></li>
+          <li><a href="politica-cookies.html">Cookies</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/site.js"></script>
+</body>
+</html>

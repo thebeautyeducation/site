@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="ro" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Termeni și condiții — The Beauty Education</title>
+  <meta name="description" content="Termenii și condițiile de utilizare a site-ului și serviciilor The Beauty Education: înregistrare, comenzi, plăți, retur, proprietate intelectuală, răspundere.">
+  <meta name="theme-color" content="#FAF4EF">
+  <meta name="robots" content="noindex, follow">
+
+  <link rel="icon" href="assets/logo/tbe-icon-color.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonturi/Jost%5Bwght%5D.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/fonturi/CormorantGaramond%5Bwght%5D.ttf" as="font" type="font/ttf" crossorigin>
+
+  <!-- ORDINEA CONTEAZĂ: tokens → components → site → pagină -->
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="stylesheet" href="assets/css/legal-pagina.css">
+</head>
+
+<body>
+
+<a class="site-skip" href="#continut">Sari la conținut</a>
+
+<header class="site-nav is-locked" data-site-nav>
+  <div class="site-nav-inner tbe-container">
+
+    <a class="site-nav-brand" href="index.html" aria-label="The Beauty Education — prima pagină">
+      <img class="site-nav-logo is-white" src="assets/logo/tbe-orizontal-alb.svg"
+           alt="The Beauty Education" width="150" height="40">
+      <img class="site-nav-logo is-color" src="assets/logo/tbe-orizontal-color.svg"
+           alt="" aria-hidden="true" width="150" height="40">
+    </a>
+
+    <nav class="site-nav-menu" aria-label="Navigare principală">
+      <ul class="site-nav-list">
+        <li class="site-nav-item">
+          <a class="site-nav-link" href="comunitate.html">Comunitate</a>
+        </li>
+        <li class="site-nav-item">
+          <a class="site-nav-link" href="empiria.html">Empiria</a>
+        </li>
+
+        <li class="site-nav-item site-nav-has-sub" data-site-dropdown>
+          <button type="button" class="site-nav-link" aria-expanded="false" aria-controls="submeniu-cursuri">
+            Cursuri
+            <svg class="site-nav-caret" viewBox="0 0 12 12" fill="none" stroke="currentColor"
+                 stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M2.5 4.5 6 8l3.5-3.5"/>
+            </svg>
+          </button>
+          <div class="site-nav-sub is-grupat" id="submeniu-cursuri">
+            <p class="site-nav-sub-grup" id="grup-nav-fizice">Cursuri fizice</p>
+            <ul class="site-nav-sub-lista" aria-labelledby="grup-nav-fizice">
+              <li><a href="/curs/bazele-coafurilor-texturate">Bazele Coafurilor Texturate</a></li>
+              <li><a href="/curs/coafuri-comerciale">Coafuri Comerciale</a></li>
+            </ul>
+            <p class="site-nav-sub-grup" id="grup-nav-online">Cursuri online</p>
+            <ul class="site-nav-sub-lista" aria-labelledby="grup-nav-online">
+              <li><a href="curs-atelierul-de-bucle.html">Atelierul de Bucle</a></li>
+              <li><a href="curs-color-mastery.html">Color Mastery</a></li>
+              <li><a href="curs-makeup-essentials.html">Makeup Essentials</a></li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="site-nav-item">
+          <a class="site-nav-link" href="https://harta-coafezelor.ro">Harta Coafezelor</a>
+        </li>
+        <li class="site-nav-item">
+          <a class="site-nav-link" href="https://beautifier.ro">Magazin</a>
+        </li>
+      </ul>
+    </nav>
+
+    <a class="tbe-btn is-primary site-nav-cta" href="https://ro.thebeautyeducation.com">
+      Alătură-te comunității
+    </a>
+
+    <button type="button" class="site-nav-burger" data-site-burger
+            aria-expanded="false" aria-controls="sertar-meniu" aria-label="Deschide meniul">
+      <span class="site-burger-box" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </span>
+    </button>
+
+  </div>
+</header>
+
+<div class="site-drawer" id="sertar-meniu" data-site-drawer aria-hidden="true">
+  <div class="tbe-container">
+    <ul class="site-drawer-list">
+      <li><a class="site-drawer-link" href="comunitate.html">Comunitate</a></li>
+      <li><a class="site-drawer-link" href="empiria.html">Empiria</a></li>
+      <li>
+        <details class="site-drawer-details">
+          <summary class="site-drawer-sub-toggle">
+            Cursuri
+            <svg class="site-nav-caret" viewBox="0 0 12 12" fill="none" stroke="currentColor"
+                 stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M2.5 4.5 6 8l3.5-3.5"/>
+            </svg>
+          </summary>
+          <div class="site-drawer-sub">
+            <p class="site-drawer-sub-grup" id="grup-drawer-fizice">Cursuri fizice</p>
+            <ul class="site-drawer-sub-lista" aria-labelledby="grup-drawer-fizice">
+              <li><a href="/curs/bazele-coafurilor-texturate">Bazele Coafurilor Texturate</a></li>
+              <li><a href="/curs/coafuri-comerciale">Coafuri Comerciale</a></li>
+            </ul>
+            <p class="site-drawer-sub-grup" id="grup-drawer-online">Cursuri online</p>
+            <ul class="site-drawer-sub-lista" aria-labelledby="grup-drawer-online">
+              <li><a href="curs-atelierul-de-bucle.html">Atelierul de Bucle</a></li>
+              <li><a href="curs-color-mastery.html">Color Mastery</a></li>
+              <li><a href="curs-makeup-essentials.html">Makeup Essentials</a></li>
+            </ul>
+          </div>
+        </details>
+      </li>
+      <li><a class="site-drawer-link" href="traineri.html">Traineri</a></li>
+      <li><a class="site-drawer-link" href="https://harta-coafezelor.ro">Harta Coafezelor</a></li>
+      <li><a class="site-drawer-link" href="https://beautifier.ro">Magazin</a></li>
+    </ul>
+    <div class="site-drawer-foot">
+      <a class="tbe-btn is-primary is-lg is-block" href="https://ro.thebeautyeducation.com">
+        Alătură-te comunității
+      </a>
+    </div>
+  </div>
+</div>
+
+<main id="continut">
+
+  <!-- ========================================================================
+       TERMENI ȘI CONDIȚII
+       Text preluat integral de pe thebeautyeducation.com/termeni-si-conditii
+       (versiunea 09.02.2024). ⚠ Entitatea juridică a fost ADAPTATĂ de la
+       THE BEAUTY EDUCATION SRL (J40/14156/2021, CUI 44753671, București) la
+       Beauty Education Publishing SRL — entitatea din footer / CLAUDE.md.
+       DE VALIDAT JURIDIC înainte de publicare (și de datat versiunea nouă).
+       ======================================================================== -->
+  <section class="site-section lg-header" aria-labelledby="lg-titlu">
+    <div class="tbe-container">
+
+      <nav class="tbe-breadcrumb" aria-label="Locul în site">
+        <ol>
+          <li><a href="index.html">Acasă</a></li>
+          <li aria-current="page">Termeni și condiții</li>
+        </ol>
+      </nav>
+
+      <span class="tbe-kicker">Legal</span>
+      <h1 class="lg-titlu" id="lg-titlu">Termeni și condiții</h1>
+      <p class="tbe-lead">
+        Regulile care reglementează relația dintre noi, în calitate de platformă, și tine, în
+        calitate de utilizator sau client. Te rugăm să citești acest document cu atenție înainte
+        de a utiliza serviciile noastre.
+      </p>
+      <div class="lg-meta">
+        <span>Versiune actualizată la 09.02.2024</span>
+        <span>Beauty Education Publishing SRL</span>
+      </div>
+
+      <div class="lg-grid">
+
+        <nav class="lg-toc" aria-labelledby="lg-toc-titlu">
+          <p class="lg-toc-titlu" id="lg-toc-titlu">Cuprins</p>
+          <ol>
+            <li><a href="#s1">Prezentare și definiții</a></li>
+            <li><a href="#s2">Înregistrarea utilizatorilor</a></li>
+            <li><a href="#s3">Confirmarea comenzii</a></li>
+            <li><a href="#s4">Utilizări interzise</a></li>
+            <li><a href="#s5">Plăți, anulări, rambursări și retururi</a></li>
+            <li><a href="#s6">Politica de returnare</a></li>
+            <li><a href="#s7">Marketing afiliat</a></li>
+            <li><a href="#s8">Forță majoră și cazul fortuit</a></li>
+            <li><a href="#s9">Proprietate intelectuală</a></li>
+            <li><a href="#s10">Limitarea răspunderii</a></li>
+            <li><a href="#s11">Notificări</a></li>
+            <li><a href="#s12">Soluționarea reclamațiilor</a></li>
+            <li><a href="#s13">Modificări ale Termenilor</a></li>
+            <li><a href="#s14">Legislația aplicabilă. Litigii</a></li>
+            <li><a href="#s15">Clauze finale</a></li>
+          </ol>
+        </nav>
+
+        <div class="lg-prose">
+          <p class="lg-caps">Te rugăm să citești acest document cu atenție înainte de a utiliza serviciile noastre.</p>
+
+          <h3>Acceptarea Termenilor de Utilizare</h3>
+          <p>Documentul acesta, împreună cu toate celelalte documente la care face referire, reprezintă ceea ce vom denumi generic „Termeni și condiții" sau „Termenii", adică regulile care vor reglementa situația dintre noi, în calitate de platformă web, și tine, în calitate de client care decizi să achiziționezi un bun sau un serviciu de pe site-ul nostru.</p>
+
+          <p>Mai jos găsești și datele noastre de identificare:</p>
+          <div class="lg-identitate">
+            <p><strong>Denumire:</strong> Beauty Education Publishing SRL</p>
+            <p><strong>Sediul social:</strong> Str. Berzelor 348, Plevna, jud. Călărași</p>
+            <p><strong>Număr registrul comerțului:</strong> J2026036531002</p>
+            <p><strong>Cod unic de identificare:</strong> 54823960</p>
+            <p><strong>E-mail:</strong> <a href="mailto:contact@thebeautyeducation.com">contact@thebeautyeducation.com</a></p>
+          </div>
+
+          <p>Vă rugăm să citiți și <a href="politica-de-confidentialitate.html">Politica de Confidențialitate</a> înainte de a naviga, a vă înscrie pe site sau a plasa o comandă. Dacă nu sunteți de acord cu acești Termeni sau cu Politica indicată mai sus, vă rugăm să nu utilizați site-ul.</p>
+          <p>Ne rezervăm dreptul de a modifica oricând și fără notificare prealabilă acești Termeni. Comenzii dumneavoastră i se vor aplica termenii care sunt în vigoare la momentul plasării acesteia. Accesând site-ul nostru veți găsi cea mai recentă versiune a Termenilor și Condițiilor aferente.</p>
+          <p>Dacă aveți întrebări sau neclarități, ne puteți contacta cu încredere la adresa de e-mail de mai sus și o să vă răspundem în cel mai scurt timp. Prin accesarea www.thebeautyeducation.com acceptați în mod expres și neechivoc Termenii și Condițiile site-ului.</p>
+          <p>Site-ul www.thebeautyeducation.com este deținut de către Beauty Education Publishing SRL, denumită în cele ce urmează deținătorul site-ului.</p>
+          <p>Prin utilizarea acestui site, incluzând toate materialele prezentate în interior și toate serviciile online oferite de Beauty Education Publishing SRL, înseamnă că sunteți de acord cu Termenii și Condițiile de utilizare fără modificare și consimțiți că i-ați citit.</p>
+          <p>În cazul în care nu doriți să respectați regulile descrise în acest document, vă rugăm să nu folosiți informațiile sau serviciile puse la dispoziție pe acest site.</p>
+
+          <h2 id="s1">1. Prezentare și definiții</h2>
+          <p>Termenii „noi", „ale noastre", „al nostru", „The Beauty Education" se referă la Beauty Education Publishing SRL. Termenul „site/platformă" se referă la www.thebeautyeducation.com, precum și la toate produsele, serviciile, cursurile, programele etc. conectate cu The Beauty Education.</p>
+          <p>Termenii „utilizator", „tu", „tine", „al tău", „ale tale", „voi", „voștri", „voastre", „dumneavoastră" se referă la vizitatorii site-ului și clienți, precum și la oricare alți/toți utilizatorii site-ului (numiți „Utilizatori" individual și colectiv).</p>
+          <p>Totodată, prin intermediul site-ului se asigură posibilitatea de abonare pentru profesioniștii din zona beauty, posibilitatea de abonare în vederea primirii de informări periodice (newsletter), precum și servicii de înscriere a participanților la diverse evenimente organizate, servicii supuse acestor termeni, în cazul în care nu vor fi stipulate condiții speciale pentru fiecare caz în parte.</p>
+          <p>Următorii termeni vor fi definiți după cum urmează:</p>
+          <ul>
+            <li><strong>Utilizator</strong> – orice persoană care accesează site-ul sau care se va putea înregistra la un moment pe site, fiind interesată de serviciile deținătorului site-ului, se abonează în vederea primirii accesului la materiale și cursuri, se abonează în vederea primirii de informări periodice (newsletter) sau se înscrie ca participant la evenimente organizate și care se obligă implicit să respecte prezentul set de reguli, fiind răspunzător pentru acțiunile sale pe site sau achiziționează un produs online;</li>
+            <li><strong>Serviciu</strong> – furnizarea către Utilizator a accesului la platforma prin intermediul căreia se poate abona sau se poate înscrie ca participant la evenimente organizate de The Beauty Education, se poate abona în vederea primirii de informări periodice (newsletter) sau poate achiziționa un produs online al acesteia.</li>
+          </ul>
+
+          <h2 id="s2">2. Înregistrarea utilizatorilor</h2>
+          <p>Pentru accesarea site-ului, respectiv secțiunile de prezentare, nu este necesară înregistrarea Utilizatorilor.</p>
+          <p>Înregistrarea Utilizatorului este obligatorie numai în cazul în care acesta se înscrie pentru abonament, pentru primirea periodică a unui newsletter, pentru înscrierea în vederea participării la un eveniment sau pentru achiziția unui produs.</p>
+          <p>În cazul în care doriți să beneficiați de eventuale servicii oferite pe site-ul www.thebeautyeducation.com, vă obligați și garantați următoarele:</p>
+          <ol>
+            <li>furnizați date reale, exacte și complete despre Utilizator, astfel cum se solicită prin formularul de înregistrare al site-ului;</li>
+            <li>mențineți sau actualizați datele de înregistrare care au suferit modificări pentru ca acestea să fie conforme realității, exacte și complete.</li>
+          </ol>
+          <p>Deținătorul site-ului își rezervă dreptul (nu și obligația) de a verifica corectitudinea datelor de înregistrare ale Utilizatorilor. În cazul în care se constată că informațiile puse la dispoziție de Utilizator sunt inexacte, deținătorul site-ului își rezervă dreptul de a refuza Utilizatorului accesarea serviciilor oferite pe site, precum și înscrierea și participarea la evenimentele organizate.</p>
+          <p>Prin accesarea site-ului și a Serviciilor puse la dispoziție, Utilizatorul garantează că oferă deținătorului site-ului date corecte, fiind unicul responsabil pentru informațiile furnizate.</p>
+          <p>Pentru a putea accesa anumite abonamente sau produse, este nevoie să aveți cont pe site. Acest cont este creat automat în momentul în care finalizați cumpărarea abonamentului/programului. Aveți obligația de a furniza informațiile care vă sunt solicitate și de a completa toate câmpurile în mod adecvat, complet, corect și real, așa cum acestea apar specificate în cuprinsul documentului de identitate.</p>
+          <p>Contul poate fi accesat pe bază de parolă de acces, pe care o cunoașteți doar dumneavoastră. Sunteți deplin responsabil pentru păstrarea în siguranță a parolei de acces, precum și a oricărei informații privind înregistrarea, autentificarea și contul. Un Cont de Utilizator asigură accesul în program în favoarea unei singure persoane. Aveți obligația de a nu transmite datele dumneavoastră de autentificare în favoarea unei terțe persoane.</p>
+          <p>Poate să își creeze un cont pe site orice persoană fizică, indiferent de naționalitate, cu vârsta minimă de 18 ani împliniți la data creării contului. Nu permitem cu bună știință persoanelor sub vârsta de 18 ani crearea de Conturi care să permită accesul la site. Orice accesare a site-ului de către minori, direct sau prin intermediul tutorilor/reprezentanților legali, se face pe propria răspundere a acestora.</p>
+          <p>Site-ul poate fi utilizat doar pentru vizionare, creare cont, accesare cont personal, accesare servicii existente pe site. Site-ul nu poate fi utilizat pentru a se face vreo plată ilegală, frauduloasă, pentru a se posta sau transmite vreun material cu conținut defăimător, amenințător, obscen, indecent, instigator și altele asemenea. Ne rezervăm dreptul de a nu permite postarea și/sau de a șterge imediat și fără vreo notificare prealabilă orice comentariu de pe site care conține un limbaj nepotrivit, erori grave de scriere sau care ar putea să ne aducă un prejudiciu de imagine și/sau să ne creeze o stare de disconfort, nouă, autorilor materialelor de pe site sau clienților și vizitatorilor. Sunteți pe deplin responsabil pentru orice operațiune și/sau plată efectuată din cont prin utilizarea site-ului.</p>
+          <p>Prin crearea și utilizarea Contului, vă asumați răspunderea pentru menținerea confidențialității datelor de Cont (user și parolă) și pentru gestionarea accesării Contului, fiind responsabil în condițiile legii de activitatea derulată prin intermediul Contului.</p>
+          <p>Prin accesarea site-ului, crearea Contului și utilizarea site-ului acceptați în mod expres și neechivoc Termenii și condițiile site-ului în ultima sa versiune comunicată în cadrul site-ului. Ulterior creării Contului, utilizarea conținutului echivalează cu acceptarea modificărilor intervenite asupra Termenilor și condițiilor site-ului și/sau a versiunilor actualizate ale acestora. Sunteți responsabil pentru verificarea versiunii finale a Termenilor și Condițiilor ori de câte ori utilizați site-ul.</p>
+          <p>Acceptarea Termenilor și condițiilor site-ului se confirmă prin bifarea checkbox-ului corespunzător din site și/sau prin trimiterea Comenzii și/sau prin efectuarea unei plăți online.</p>
+          <p>Societatea nu își asumă răspunderea pentru niciun fel de pierdere (materială, financiară, de date sau informații) care poate să apară direct sau indirect din cauza informațiilor incluse pe site sau a nefuncționării ori funcționării necorespunzătoare a acestui site.</p>
+          <p>Nu putem fi responsabili pentru daune aduse calculatorului dumneavoastră sau viruși care ar putea să vă infecteze calculatorul sau alt echipament ca urmare a accesării, utilizării de către dumneavoastră sau navigării pe site-ul nostru ori a descărcării de către dumneavoastră a vreunui conținut, informație, materiale, date, text, imagini, video sau audio de pe site-ul nostru.</p>
+          <p>Nu suntem responsabili pentru orice prejudiciu, pierdere, revendicare, daune indirecte, incidente sau de consecință de orice tip, care decurge din sau are în vreun fel legătură cu orice utilizare a site-ului nostru sau a conținutului, datelor, materialelor sau informațiilor găsite în acesta, cu orice neîndeplinire sau întârziere (inclusiv, fără limitare, utilizarea sau incapacitatea de a utiliza orice componentă a acestui site pentru achiziționare sau plată), sau executarea ori neexecutarea de către noi sau de către orice furnizor, chiar dacă noi sau furnizorul nostru am fost avizați de posibilitatea de daune aduse acestor părți sau oricărei alte părți.</p>
+          <p>Această exonerare de răspundere se aplică oricăror daune sau prejudicii cauzate de orice lipsă a performanței, eroare, omisiune, întrerupere, eliminare, defect, întârziere în operare sau transmisie, virus de calculator, defecțiune a liniei de comunicare, furt sau distrugere ori acces neautorizat la, modificarea sau utilizarea înregistrării, fie pentru încălcarea contractului, comportament dăunător, neglijență, sau în baza oricărei cauze de acțiune.</p>
+          <p>Utilizatorul acceptă în mod expres că deținătorul site-ului nu este răspunzător pentru daune sau prejudicii directe, indirecte, accidentale, speciale, inclusiv, dar nu limitat la prejudicii prin pierdere de profit, posibilitatea de folosire, date sau alte pierderi intangibile ori incomensurabile, rezultând din:</p>
+          <ul>
+            <li>utilizarea sau imposibilitatea utilizării serviciilor www.thebeautyeducation.com;</li>
+            <li>acces neautorizat la sau deteriorarea transmisiilor ori datelor Utilizatorului;</li>
+            <li>declarații sau acțiuni ale unei terțe părți asupra site-ului;</li>
+            <li>orice altă problemă legată de serviciile site-ului.</li>
+          </ul>
+
+          <h2 id="s3">3. Confirmarea comenzii</h2>
+          <p>Vă vom trimite un e-mail pentru a confirma plasarea comenzii dvs., care să conțină detaliile livrării produsului sau serviciului. În cazul în care există o eroare în procesul de confirmare prin e-mail, este responsabilitatea dvs. să ne informați cât mai curând posibil.</p>
+          <p>Accesul la conținutul abonamentului ales se va realiza după procesarea cu succes a plății cu cardul online prin intermediul partenerilor noștri.</p>
+          <p>Tarifele Cursurilor sunt afișate în lei. Tarifele pot fi actualizate în orice moment, iar o astfel de actualizare va înlocui orice prețuri afișate anterior pentru respectivele cursuri.</p>
+          <p>Respectarea următoarelor reguli de către utilizator este esențială:</p>
+          <ul>
+            <li>Folosirea acestui website se va realiza exclusiv pentru efectuarea comenzilor legitime sau pentru informare;</li>
+            <li>Utilizatorul se abține de la a formula vreo comandă falsă sau frauduloasă, în caz contrar ne rezervăm dreptul de a anula comanda și informa autoritățile competente;</li>
+            <li>Informațiile furnizate vor fi reale, complete și actualizate;</li>
+            <li>Respectarea drepturilor de proprietate intelectuală cu privire la orice element regăsit pe acest website;</li>
+            <li>Desfășurarea oricărei acțiuni care ar putea aduce orice fel de prejudiciu website-ului este interzisă.</li>
+          </ul>
+          <p>Ne rezervăm dreptul de a bloca accesul oricărui utilizator care încalcă regulile de mai sus și de a ne adresa autorităților competente pentru recuperarea prejudiciilor cauzate.</p>
+
+          <h2 id="s4">4. Utilizări interzise</h2>
+          <p>Pe lângă alte interdicții prevăzute în conținutul acestui document, este interzisă utilizarea site-ului sau a conținutului său: (a) pentru orice scop ilegal; (b) solicitarea altor persoane să efectueze sau să participe la orice acte ilegale; (c) încălcarea oricăror reglementări, reguli, legi sau ordonanțe naționale și europene; (d) încălcarea drepturilor noastre de proprietate intelectuală sau a drepturilor de proprietate intelectuală ale altora; (e) hărțuirea, abuzul, insultarea, rănirea, defăimarea, calomnia, intimidarea sau discriminarea pe criterii de gen, orientare sexuală, religie, etnie, rasă, vârstă, origine națională sau handicap; (f) prezentarea de informații false sau înșelătoare; (g) încărcarea sau transmiterea de viruși sau orice alt tip de cod care va fi sau poate fi utilizat în orice mod care să afecteze funcționalitatea sau funcționarea site-ului; (h) colectarea sau urmărirea informațiilor personale ale altora; (i) spam, phishing, pharming, pretexting, spidering, crawling sau scraping; (j) pentru orice scop obscen sau imoral; sau (k) să interfereze ori să eludeze caracteristicile de securitate ale site-ului.</p>
+          <p>Ne rezervăm dreptul de a înceta utilizarea de către dvs. a site-ului pentru apariția oricărui caz de utilizare interzisă.</p>
+
+          <h2 id="s5">5. Plăți, anulări, rambursări și retururi</h2>
+          <p>Toate vânzările de produse digitale care se pot descărca la confirmarea achiziției sunt finale.</p>
+          <p>Pentru plata produselor sau serviciilor din site, plata se poate face prin următoarele modalități: online, cu cardul, prin sistemul Stripe, urmând pașii de plată și instrucțiunile de plată oferite cu ocazia efectuării plății.</p>
+          <p>Nu suntem responsabili pentru procesarea în mod eronat a plății. Nu suntem responsabili pentru erorile înregistrate prin intermediul sistemului de plată, inclusiv, dar fără a se limita la pierderile pe care le-ați suferi utilizând sistemul de plată cu cardul.</p>
+          <p>Beauty Education Publishing SRL va emite Utilizatorului o factură fiscală pentru produsul/programul achiziționat de pe site, scop în care Utilizatorul va furniza societății toate informațiile necesare.</p>
+          <p>Factura fiscală pentru orice comandă (inclusiv pentru plățile recurente) va putea fi regăsită în contul Utilizatorului și descărcată de acolo. Odată emisă, o factură nu poate fi modificată.</p>
+
+          <h2 id="s6">6. Politica de returnare</h2>
+          <p>Conform legislației în vigoare, puteți să returnați serviciul/serviciile achiziționate de dvs. de pe www.thebeautyeducation.com în termen de 14 zile calendaristice de la data încheierii contractului, fără a fi nevoit să justificați decizia de retragere și fără a suporta alte costuri suplimentare.</p>
+          <p>În cazul în care intenționați să returnați un serviciu/servicii, e bine să știți următoarele aspecte:</p>
+          <ol>
+            <li>Intenția de a returna serviciul/serviciile trebuie să fie anunțată în scris, trimițând un e-mail la adresa de contact de mai sus. Vă solicităm să precizați numele pe care a fost plasată comanda și serviciul/serviciile pe care doriți să îl/le returnați. Exercitarea dreptului la retragere încetează obligațiile părților contractuale.</li>
+            <li>Sunt prevăzute excepții de la retragere, în situația în care furnizorul a prestat serviciul/serviciile sau a furnizat conținutul suportului de curs ori conținutul digital, dacă livrarea acestuia a început cu acordul prealabil expres al clientului și după ce acesta a confirmat scris că a luat la cunoștință că-și va pierde dreptul de retragere.</li>
+          </ol>
+          <p>Ca regulă generală, legea prevede o perioadă de retragere de 14 zile de la data încheierii contractului (data confirmării comenzii plasate de dvs.).</p>
+          <p>Cu toate acestea, dreptul de retragere nu este aplicabil în oricare dintre următoarele situații:</p>
+          <ol>
+            <li>După prestarea integrală a Serviciilor;</li>
+            <li>Pentru furnizarea de conținut digital care nu este livrat pe un suport material.</li>
+          </ol>
+          <p>Prin urmare, te poți retrage din contract numai dacă furnizarea Serviciilor nu a început.</p>
+          <p>În cazul de față, de la data încheierii contractului (data la care a fost transmis e-mailul de confirmare a comenzii) și până la data activării contului de client, Clientul se poate retrage din contract în orice moment, din orice motiv.</p>
+          <p>Retragerea din contract nu se poate realiza după efectuarea plății și accesul la conținutul abonamentului, conform Termenilor și condițiilor.</p>
+          <p>După orice plată lunară, dacă vreți să închideți abonamentul și să vi se restituie banii pe ultima plată făcută, aveți termen 3 zile să trimiteți o cerere de rambursare prin e-mail la <a href="mailto:contact@thebeautyeducation.com">contact@thebeautyeducation.com</a>.</p>
+          <p>Furnizarea completă a Serviciilor, respectiv executarea integrală a Contractului de către Furnizor, atrage pierderea dreptului de retragere, respectiv a dreptului de a obține restituirea sumelor achitate conform prezentului contract.</p>
+          <p>Potrivit lit. a) a art. 16 din OUG 34/2014, unde sunt prevăzute excepțiile de la dreptul de retragere: „a) contractele de servicii, după prestarea integrală a serviciilor și, în cazul în care contractul dă naștere unei obligații de plată pentru consumator, dacă executarea a început cu acordul prealabil expres al consumatorului și după ce acesta a confirmat că a luat cunoștință de faptul că își va pierde dreptul de retragere după executarea integrală a contractului de către profesionist."</p>
+          <p>Pentru exercitarea dreptului de retragere, te poți adresa Furnizorului prin e-mail, la adresa de e-mail de contact. Pentru a respecta termenul-limită de retragere este suficient să trimiți comunicarea privind exercitarea dreptului de retragere înainte de expirarea perioadei de retragere. Exercitarea dreptului de retragere pune capăt obligațiilor părților de a executa contractul.</p>
+
+          <h2 id="s7">7. Marketing afiliat</h2>
+          <p>Acest site folosește link-uri de marketing afiliat.</p>
+          <p>Ce este marketingul afiliat? Marketingul afiliat este o formă de marketing online care se bazează pe modele de plată pe performanță și Cost Per Acțiune (CPA). În marketingul afiliat, un comerciant, denumit și advertiser, răsplătește unul sau mai mulți afiliați (publisheri) pentru fiecare acțiune efectuată pe site-ul său.</p>
+
+          <h2 id="s8">8. Forță majoră și cazul fortuit</h2>
+          <p>Nu vom fi trași la răspundere pentru niciun fel de întârzieri sau nereușite în îndeplinirea serviciilor noastre, dacă intervine un caz de forță majoră sau un caz fortuit. Forța majoră și cazul fortuit includ, dar nu se limitează la, schimbări în legi sau reglementări, accidente, boli, embargouri, războaie, acte teroriste, revolte, incendii, cutremure, accidente nucleare, inundații, greve, condiții meteorologice, acte ale hackerilor sau furnizorilor de servicii de internet. Forța majoră sau cazul fortuit vor fi comunicate în cel mai scurt timp Clientului.</p>
+
+          <h2 id="s9">9. Proprietate intelectuală</h2>
+          <p>Site-ul și conținutul cursurilor sunt proprietatea intelectuală a Beauty Education Publishing SRL și, după caz, a autorilor. Site-ul va fi folosit de către utilizatori doar pentru informare, înregistrare, plasare de comenzi și vizitare. Utilizarea site-ului www.thebeautyeducation.com implică acceptarea anumitor termeni și condiții de utilizare, sub forma unui contract legal între utilizator și Beauty Education Publishing SRL, de aceea se recomandă citirea cu atenție a paragrafelor. Vizitarea sau comandarea serviciilor noastre implică în mod automat acceptarea acestor termeni și condiții. De asemenea, folosirea oricăror alte servicii curente sau viitoare furnizate de Beauty Education Publishing SRL implică acceptarea acelorași termeni și condiții.</p>
+          <p>Întregul conținut al site-ului www.thebeautyeducation.com este protejat conform legii dreptului de autor și legilor privind drepturile de proprietate intelectuală. Folosirea, fără acordul scris al Beauty Education Publishing SRL, a oricăror elemente aparținând site-ului www.thebeautyeducation.com se sancționează conform legilor în vigoare.</p>
+          <p>În calitate de utilizator, nu aveți dreptul de a modifica parțial sau integral site-ul web, de a reproduce parțial sau integral site-ul, de a copia, vinde sau exploata site-ul în orice altă manieră fără acordul societății. Vizitatorul/Clientul/Utilizatorul nu va modifica, copia, distribui, transmite, afișa, publica, reproduce, acorda licențe, crea produse derivate, transfera sau vinde orice fel de informație sau servicii obținute de pe sau prin intermediul acestui site web.</p>
+          <p>Conținutul prezentului site, inclusiv, dar fără a se limita la logo, reprezentări stilizate, simboluri, imagini, fotografii, conținut texte și altele asemenea, sunt proprietatea exclusivă a Beauty Education Publishing SRL. Nu este permisă copierea, distribuirea, publicarea, modificarea, completarea, utilizarea, expunerea, includerea, legarea, transmiterea, îndepărtarea însemnelor, fotografiilor, imaginilor, bucăților de text, afișarea, vinderea etc. a conținutului, datelor, informațiilor, fotografiilor sau altor informații găsite pe site ori în cuprinsul cursului, fără permisiunea prealabilă, expresă, acordată în scris de către Beauty Education Publishing SRL.</p>
+          <p>Niciun Client nu dobândește, prin utilizarea și accesarea site-ului, vreun drept sau vreo licență de utilizare a vreuneia dintre informațiile de pe site. Niciun client nu are dreptul de a utiliza un dispozitiv automat sau manual pentru a monitoriza materialele disponibile pe site.</p>
+          <p>Utilizatorul site-ului nu are dreptul de a descărca, modifica parțial sau integral site-ul, reproduce parțial sau integral site-ul, copia, distribui, vinde sau exploata site-ul în orice altă manieră contrară intereselor Beauty Education Publishing SRL, indiferent dacă există sau nu un scop comercial, cu excepția permisiunilor de descărcare generate la anumite documente incluse în cursuri sau materiale incluse în abonament.</p>
+          <p>Toate drepturile de autor asupra materialelor/workshop-urilor aparțin Beauty Education Publishing SRL și, după caz, autorilor. Sub rezerva achitării integrale a prețului contractului, Beauty Education Publishing SRL oferă Clientului/Utilizatorului o singură licență perpetuă, irevocabilă și neexclusivă de a utiliza cursurile și materialele la care are acces prin abonare. În toate cazurile, această utilizare este permisă doar pentru entitatea sau persoana fizică care a achiziționat abonamentul. Orice altă utilizare a cursurilor este interzisă, iar Beauty Education Publishing SRL își rezervă dreptul de a solicita despăgubiri pentru prejudiciul adus ca urmare a oricărei utilizări neautorizate a cursurilor și/sau materialelor, incluzând, dar fără a se limita la reproducere, vânzare, export, împrumut, precum și orice altă transmitere către un terț.</p>
+          <p>Reprezentările stilizate, creația grafică, logo-urile și simbolurile asociate și combinații ale acestora cu oricare cuvânt sau simbol grafic, fotografiile, materialele audio-video, conținutul folosite pe acest site sunt proprietatea exclusivă a deținătorului site-ului sau acesta a dobândit dreptul de a le utiliza. Fac excepție informațiile și elementele grafice înregistrate de utilizatori, precum și semnele grafice aparținând altor entități.</p>
+          <p>Utilizatorii nu pot prelua conținutul site-ului, nu pot interveni, modifica sau șterge conținutul acestuia (textul, imaginile, logo-urile etc.). Orice încălcare a acestei reguli reprezintă o încălcare a drepturilor de autor, de marcă sau a oricărui alt drept de proprietate intelectuală.</p>
+          <p>Nu sunt permise copierea, multiplicarea, distribuirea, arhivarea sau păstrarea, prin orice mijloace, efectuate în scopuri comerciale, a materialelor existente pe site.</p>
+          <p>În cazul în care în cadrul site-ului există secțiuni în care utilizatorii pot insera comentarii și pot exprima opinii personale, imagini sau alte elemente susceptibile a fi protejate de drepturi de proprietate intelectuală, răspunderea privind conținutul acestora le revine în exclusivitate utilizatorilor în cauză.</p>
+          <p>Niciun Utilizator nu dobândește, prin utilizarea și accesarea site-ului, vreun drept sau vreo licență de utilizare a vreuneia dintre informațiile de pe site ori vreun drept de proprietate intelectuală/industrială asupra produselor și/sau serviciilor comandate de pe site. Niciun Utilizator nu are dreptul de a utiliza un dispozitiv automat sau manual pentru a monitoriza materialele disponibile pe site.</p>
+
+          <h2 id="s10">10. Limitarea răspunderii</h2>
+          <p>Beauty Education Publishing SRL, reprezentanții, avocații și consultanții săi, precum și autorul sau autorii de pe platformă nu fac nicio declarație, promisiune sau garanție cu privire la exactitatea, exhaustivitatea sau caracterul adecvat al cursurilor sau materialelor, al șabloanelor ori ghidurilor conținute de acestea, nu își asumă nicio obligație de rezultat sau diligență față de nicio persoană cu privire la materiale, cursuri și/sau conținutul acestora, exclud în mod expres și neagă răspunderea pentru orice cost, pierdere sau daune suferite ca urmare a utilizării template-urilor sau ca așteptare ca aceste documente să satisfacă nevoile personale ori ale organizației dvs., incluzând, dar fără a se limita la erori, denaturări sau omisiuni din conținutul lor.</p>
+          <p>Beauty Education Publishing SRL nu garantează că veți obține vreun rezultat sau veți câștiga bani folosind oricare dintre ideile, instrumentele, strategiile sau recomandările, și nimic din Site și/sau Serviciu nu reprezintă o promisiune sau o garanție pentru câștigurile viitoare.</p>
+          <p>Achiziționând orice produs sau serviciu realizat de Beauty Education Publishing SRL, acceptați, sunteți de acord și înțelegeți că sunteți pe deplin responsabil pentru progresul și rezultatele dvs. din participare și că nu oferim nicio reprezentare, garanții verbale sau scrise cu privire la performanță sau rezultate de orice fel. De asemenea, înțelegeți că orice testimoniale sau recomandări ale clienților ori publicului nostru prezentate, inclusiv, dar fără a se limita pe Site-ul nostru, Serviciile, programele, conținutul, landing page-urile, paginile de vânzare sau oferte, nu au fost evaluate științific de către noi și/sau de orice terțe părți, iar rezultatele experimentate de persoane pot varia semnificativ. Orice declarații prezente pe, inclusiv, fără a se limita la, site-urile noastre web, programe, conținut și oferte sunt pur și simplu opinia noastră și, prin urmare, nu reprezintă garanții sau promisiuni de performanță reală.</p>
+          <p>Materialele din produsele/serviciile noastre și site-ul nostru pot conține informații care includ sau se bazează pe declarații prospective. Declarațiile prospective conțin așteptările noastre cu privire la evenimente viitoare. Puteți identifica aceste afirmații prin faptul că nu se referă strict la fapte istorice sau actuale.</p>
+          <p>Orice declarații prospective de aici sau din oricare dintre materialele noastre de vânzare sunt destinate să ne exprime opinia despre potențialul de câștig. Mulți factori vor fi importanți în obținerea rezultatelor dvs. reale și nu garantăm în vreun fel că veți obține rezultate similare cu ale noastre sau ale nimănui. De fapt, nu oferim garanții că veți obține rezultate din ideile și tehnicile din materialele noastre.</p>
+          <p>Link-urile terților de pe acest site vă pot îndruma către site-uri terțe care nu sunt afiliate cu noi. Nu suntem responsabili pentru examinarea sau evaluarea conținutului ori a acurateței și nu garantăm și nu vom avea nicio responsabilitate sau răspundere pentru materiale ori site-uri terțe sau pentru alte materiale, produse ori servicii ale unor terțe părți. Nu suntem răspunzători pentru niciun fel de daune legate de achiziționarea sau utilizarea bunurilor, serviciilor, resurselor, conținutului sau a oricăror alte tranzacții efectuate în legătură cu site-uri web ale unor terțe părți.</p>
+          <p>Consultați cu atenție politicile și practicile terțelor părți și asigurați-vă că le înțelegeți înainte de a vă angaja în orice tranzacție. Reclamațiile, preocupările sau întrebările referitoare la produsele terțe trebuie direcționate către terțe părți. De asemenea, dacă în viitor vor exista servicii și/sau funcții noi pe site (inclusiv lansarea de noi instrumente și resurse), acestea vor fi, la rândul lor, supuse acestor Termeni și condiții.</p>
+          <p>Nu este permis să utilizați o adresă de e-mail falsă sau să ne înșelați pe noi ori pe terți în legătură cu originea oricăror comentarii. Sunteți singurul responsabil pentru orice comentarii pe care le faceți și pentru acuratețea acestora. Nu ne asumăm responsabilitatea și răspunderea pentru eventualele comentarii postate de dumneavoastră sau de orice terță parte.</p>
+          <p>Nu putem garanta, nu reprezentăm sau garantăm că folosirea serviciului nostru va fi neîntreruptă, în timp util, sigură sau fără erori. Compania care deține website-ul www.thebeautyeducation.com, administratorii, angajații, afiliații, agenții, contractanții, furnizorii, prestatorii de servicii sau furnizorii de licențe nu vor fi răspunzători pentru niciun prejudiciu, pierdere, revendicare directă sau indirectă de orice fel, incluzând, fără a se limita la: profituri pierdute, venituri pierdute, economii pierdute, pierderi de date, costuri de înlocuire sau orice alte prejudicii similare, indiferent dacă se bazează pe răspunderea contractuală sau delictuală.</p>
+
+          <h2 id="s11">11. Notificări</h2>
+          <p>Utilizatorul este de acord ca toate comunicările efectuate în baza prezentului contract să aibă loc prin intermediul poștei electronice la adresa comunicată, <a href="mailto:contact@thebeautyeducation.com">contact@thebeautyeducation.com</a>, consimțind că o astfel de comunicare este validă prin simpla dovadă din partea Beauty Education Publishing SRL privind trimiterea comunicării. Compania are dreptul să folosească și alte metode de transmitere (prin poștă, curier sau prin intermediul executorilor judecătorești) a comunicărilor sale către Utilizator.</p>
+          <p>Acești Termeni constituie acordul integral dintre dumneavoastră și noi în ceea ce privește orice raporturi determinate de utilizarea site-ului sau a cursurilor/materialelor pe care le accesați prin intermediul prezentului website.</p>
+
+          <h2 id="s12">12. Procedura de soluționare a reclamațiilor</h2>
+          <p>Orice nemulțumire legată de accesarea, utilizarea, înregistrarea pe site-ul nostru, efectuarea unei comenzi, aspecte legate de comanda efectuată și alte asemenea ne va fi comunicată direct, prin e-mail, la adresa <a href="mailto:contact@thebeautyeducation.com">contact@thebeautyeducation.com</a>. Nemulțumirea dvs. va fi înregistrată și veți primi un răspuns în scris, pe adresa de e-mail menționată cu ocazia aducerii la cunoștința noastră a nemulțumirii dvs., în termen de cel mult 10 zile lucrătoare.</p>
+          <p>Clientul declară că este de acord să nu facă publice aceste nemulțumiri (pe rețelele de socializare, media, discuții la petreceri private sau în orice altă modalitate), sub rezerva suportării daunelor cauzate pentru prejudiciul de imagine adus societății sau autorilor prin aceste acțiuni.</p>
+
+          <h2 id="s13">13. Modificări ale Termenilor și Condițiilor</h2>
+          <p>Ne rezervăm dreptul de a efectua schimbări în orice moment cu privire la conținutul site-ului www.thebeautyeducation.com, politica, termenii și condițiile de utilizare, fără a fi necesară o notificare prealabilă către utilizatori în acest sens, deși vom fi atenți să anunțăm clienții despre aceste modificări. În cazul în care clientul/utilizatorul/vizitatorul nu este de acord cu modificările aduse de către Beauty Education Publishing SRL, acesta va înceta utilizarea site-ului. Dacă utilizatorul continuă să folosească site-ul, se consideră că este de acord cu modificările efectuate.</p>
+
+          <h2 id="s14">14. Legislația aplicabilă. Litigii</h2>
+          <p>Prezentului acord, precum și oricărei utilizări a site-ului, i se va aplica legea română. Părțile vor încerca soluționarea oricărei neînțelegeri pe cale amiabilă; în caz contrar, litigiile vor fi soluționate de instanțele judecătorești competente.</p>
+
+          <h2 id="s15">15. Clauze finale</h2>
+          <p>Termenii de față reglementează accesul Utilizatorilor pe site-ul www.thebeautyeducation.com. În cazul în care, ulterior lansării site-ului și publicării acestor termeni, vor fi implementate funcții sau servicii suplimentare puse la dispoziție pe site, acestea vor fi supuse acelorași reguli și condiții cuprinse în prezentele clauze, în cazul în care acestea nu vor beneficia de condiții distincte de prezentele.</p>
+          <p>Prin accesarea acestui site acceptați condițiile de mai sus și sunteți de acord că acesta are valoarea unui contract, acceptat în mod tacit, între Utilizator și deținătorul site-ului. În cazul în care nu doriți să respectați regulile descrise mai sus, vă rugăm să nu folosiți informațiile sau serviciile puse la dispoziție pe acest site.</p>
+          <p>Beauty Education Publishing SRL are dreptul de a modifica Termenii și Condițiile oricând, fără o notificare prealabilă, postând varianta actualizată pe site. Aveți obligația de a citi Termenii și Condițiile ori de câte ori accesați site-ul. Aveți obligația de a respecta întocmai Termenii și Condițiile de pe site și nu puteți pretinde necunoașterea Termenilor și Condițiilor de pe site, valabili la data accesării, utilizării și/sau plasării unei comenzi pe site.</p>
+          <p>Deținătorul site-ului își rezervă dreptul de a modifica structura și interfața oricărei pagini sau subpagini a site-ului în orice moment și la orice interval de timp liber ales, având dreptul de a întrerupe temporar, parțial sau în totalitate serviciile puse la dispoziția clienților prin intermediul acestui site, fără vreo notificare prealabilă individuală sau generală.</p>
+          <p>Promoțiile oferite de către Beauty Education Publishing SRL sunt anunțate pe site. Promoțiile își încep valabilitatea în momentul activării acestora pe site și își încetează valabilitatea din momentul inactivării acestora pe site. Promoțiile nu se cumulează între ele sau cu alte reduceri și sunt valabile numai în limitele și cu respectarea condițiilor de pe site.</p>
+          <p>Prezenții Termeni și Condiții se completează cu aspecte/prevederi speciale cuprinse la descrierea abonamentelor/serviciilor disponibile pe site. În cazul în care intervin contradicții între prezenții Termeni și Condiții și prevederile speciale mai sus amintite, au prioritate de aplicare prevederile speciale.</p>
+          <p><em>Versiune actualizată la data de 09.02.2024.</em></p>
+
+          <p class="lg-inrudite">
+            Vezi și: <a href="politica-de-confidentialitate.html">Politica de confidențialitate</a> ·
+            <a href="politica-cookies.html">Politica de cookies</a>
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="tbe-container">
+    <div class="site-footer-grid">
+
+      <div class="site-footer-col is-brand">
+        <img class="site-footer-logo" src="assets/logo/tbe-orizontal-alb.svg"
+             alt="The Beauty Education" width="142" height="38">
+        <p class="site-footer-about">
+          Cea mai mare comunitate pentru coafeze din România. Educație, comunitate
+          și produse profesionale într-un singur loc.
+        </p>
+        <div class="site-footer-entity">
+          <p class="site-footer-company">Beauty Education Publishing SRL</p>
+          <p class="site-footer-fiscal">
+            CUI: 54823960<br>
+            Reg. Com.: J2026036531002<br>
+            Str. Berzelor 348, Plevna, jud. Călărași
+          </p>
+        </div>
+      </div>
+
+      <nav class="site-footer-col" aria-labelledby="footer-navigare">
+        <h2 class="site-footer-title" id="footer-navigare">Navigare</h2>
+        <ul class="site-footer-list">
+          <li><a href="comunitate.html">Comunitate</a></li>
+          <li><a href="empiria.html">Empiria</a></li>
+          <li><a href="traineri.html">Traineri</a></li>
+          <li><a href="https://harta-coafezelor.ro">Harta Coafezelor</a></li>
+          <li><a href="https://beautifier.ro">Magazin</a></li>
+        </ul>
+      </nav>
+
+      <nav class="site-footer-col" aria-labelledby="footer-cursuri">
+        <h2 class="site-footer-title" id="footer-cursuri">Cursuri</h2>
+        <ul class="site-footer-list">
+          <li><a href="/curs/bazele-coafurilor-texturate">Bazele Coafurilor Texturate</a></li>
+          <li><a href="/curs/coafuri-comerciale">Coafuri Comerciale</a></li>
+          <li><a href="curs-atelierul-de-bucle.html">Atelierul de Bucle</a></li>
+          <li><a href="curs-color-mastery.html">Color Mastery</a></li>
+          <li><a href="curs-makeup-essentials.html">Makeup Essentials</a></li>
+        </ul>
+      </nav>
+
+      <nav class="site-footer-col" aria-labelledby="footer-mai-mult">
+        <h2 class="site-footer-title" id="footer-mai-mult">Mai mult</h2>
+        <ul class="site-footer-list">
+          <li><a href="revista.html">Revista Coafezelor</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="/program-de-loialitate">Program de loialitate</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="site-footer-col">
+        <h2 class="site-footer-title" id="footer-newsletter">Rămâi aproape</h2>
+
+        <div class="site-newsletter">
+          <p class="site-newsletter-note">
+            Noutăți despre cursuri, tutoriale și Revista Coafezelor — o dată pe lună.
+          </p>
+          <form class="site-newsletter-form" action="#" method="post" aria-labelledby="footer-newsletter">
+            <label class="tbe-sr-only" for="newsletter-email">Adresa ta de email</label>
+            <input class="site-newsletter-input" type="email" id="newsletter-email" name="email"
+                   placeholder="adresa@email.ro" autocomplete="email" required>
+            <button class="tbe-btn is-primary is-block" type="submit">Abonează-te</button>
+          </form>
+          <p class="site-newsletter-legal">
+            Prin abonare accepți <a href="politica-de-confidentialitate.html">politica de confidențialitate</a>.
+          </p>
+        </div>
+
+        <ul class="site-social">
+          <li>
+            <a href="#" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                   stroke-linecap="round" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="5.5"/>
+                <circle cx="12" cy="12" r="4.1"/>
+                <circle cx="17.3" cy="6.7" r="1.05" fill="currentColor" stroke="none"/>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="#" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M15.6 4.6h-1.8c-1.9 0-2.9 1.2-2.9 3.2V10H8.6v3h2.3v6.4"/>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="#" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M13.9 4.8v9.7a3.5 3.5 0 1 1-3.5-3.5c.3 0 .6 0 .9.1"/>
+                <path d="M13.9 4.8c.3 2.3 2 4 4.3 4.2"/>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="#" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                   stroke-linejoin="round" aria-hidden="true">
+                <rect x="2.5" y="5.5" width="19" height="13" rx="4"/>
+                <path d="M10.4 9.4 15.7 12l-5.3 2.6z" fill="currentColor" stroke="none"/>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="site-footer-bottom">
+    <div class="tbe-container">
+      <div class="site-trust">
+        <p class="site-trust-pay">
+          <span class="site-trust-badge"><img src="assets/logo/stripe.png" alt="Stripe" width="42" height="18"></span>
+          Plăți securizate
+        </p>
+        <ul class="site-trust-legal">
+          <li><a href="https://anpc.ro">ANPC</a></li>
+          <li><a href="https://ec.europa.eu/consumers/odr">Soluționarea online a litigiilor (SOL)</a></li>
+        </ul>
+      </div>
+      <div class="site-footer-bottom-inner">
+        <p class="site-footer-copy">© 2026 The Beauty Education. Toate drepturile rezervate.</p>
+        <ul class="site-footer-legal">
+          <li><a href="termeni-si-conditii.html" aria-current="page">Termeni și condiții</a></li>
+          <li><a href="politica-de-confidentialitate.html">Confidențialitate</a></li>
+          <li><a href="politica-cookies.html">Cookies</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/site.js"></script>
+</body>
+</html>

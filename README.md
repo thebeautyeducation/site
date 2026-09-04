@@ -858,6 +858,38 @@ cursantă la trainer" (junioarele promovate prin Diamond, per CLAUDE.md) → Emp
 Footer: **„Traineri" adăugat în coloana Navigare pe toate paginile** (cerut) — mai puțin cele 3
 pagini de curs, care au footer minimal intenționat (attention ratio de landing page).
 
+## Paginile LEGALE — `termeni-si-conditii.html` · `politica-de-confidentialitate.html` · `politica-cookies.html`
+
+Trei pagini de text lung, cu CSS comun [`legal-pagina.css`](assets/css/legal-pagina.css) (prefix
+`lg-`): antet + cuprins lipicios (desktop) + coloană de lectură. `robots: noindex, follow`. Fără JS.
+
+**Sursa textelor:** site-ul vechi, thebeautyeducation.com — Termenii (15 secțiuni, versiunea
+09.02.2024) și Politica de confidențialitate (11 secțiuni, versiunea 20.02.2024) sunt preluate
+**integral** (extrase din HTML-ul brut, nu rezumate). Site-ul vechi **nu are pagină de cookies** —
+doar bannerul de consimțământ cu 4 categorii (Funcțional / Preferințe / Statistici / Marketing);
+Politica de cookies e scrisă de mine pe baza acelor categorii + Google Analytics (declarat deja în
+Politica de confidențialitate). Versiune: 4 septembrie 2026.
+
+> ⚠ **Entitatea juridică a fost ADAPTATĂ — de validat juridic.** Textele vechi sunt redactate
+> pentru **THE BEAUTY EDUCATION SRL** (J40/14156/2021, CUI RO44753671, Piața Presei Libere 1,
+> București). Noul site — footer + CLAUDE.md, care spune explicit că înlocuiește datele vechi
+> publice — folosește **Beauty Education Publishing SRL** (CUI 54823960, J2026036531002,
+> Str. Berzelor 348, Plevna, jud. Călărași). Am înlocuit entitatea peste tot ca site-ul să fie
+> consecvent, dar decizia (care firmă operează site-ul și contractează) e a lui Marius / unui
+> avocat. La aprobare, se datează versiuni noi.
+>
+> Alte două retușuri: în Termeni §14 am scos „din București" de la instanțele competente (sediul
+> nou e în Călărași — de confirmat formularea); textul original avea o entitate HTML stricată
+> (`&#8222;`) în §6, corectată la „.
+
+**Cookie policy — de completat după WordPress:** lista concretă de cookie-uri (nume, durată)
+depinde de plugin-uri; pagina trimite la „Vizualizați preferințele" din banner pentru lista vie.
+
+Legături: cele 42 de `href` către `/termeni-si-conditii`, `/politica-de-confidentialitate`,
+`/politica-cookies` (footer pe toate paginile, inclusiv cele 3 de curs cu footer minimal, plus
+consimțământul din formularul de contact și newsletter) repoint-ate pe fișierele `.html`.
+Paginile legale se leagă și între ele („Vezi și").
+
 ## Cursurile în navigație — dropdown ca index
 
 Nu există (și nu vor exista) pagini-categorie „cursuri online" / „cursuri fizice": **fiecare curs

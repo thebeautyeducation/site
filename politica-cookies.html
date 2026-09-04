@@ -3,27 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Blog — The Beauty Education</title>
-  <meta name="description" content="Tehnici, corecturi și lecții din comunitate — scrise pentru coafeze, nu pentru algoritmi. Articole despre coafuri, colorimetrie, portofoliu și business de salon.">
+  <title>Politica de cookies — The Beauty Education</title>
+  <meta name="description" content="Ce cookie-uri folosește site-ul The Beauty Education, în ce scop, cât timp sunt păstrate și cum îți poți gestiona consimțământul.">
   <meta name="theme-color" content="#FAF4EF">
-
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="The Beauty Education">
-  <meta property="og:locale" content="ro_RO">
-  <meta property="og:title" content="Blog — The Beauty Education">
-  <meta property="og:description" content="Tehnici, corecturi și lecții din comunitate — scrise pentru coafeze, nu pentru algoritmi.">
-  <meta name="twitter:card" content="summary">
+  <meta name="robots" content="noindex, follow">
 
   <link rel="icon" href="assets/logo/tbe-icon-color.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonturi/Jost%5Bwght%5D.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="preload" href="assets/fonturi/CormorantGaramond%5Bwght%5D.ttf" as="font" type="font/ttf" crossorigin>
 
-  <!-- ORDINEA CONTEAZĂ: tokens → components → site → blog (componenta card) → pagină -->
+  <!-- ORDINEA CONTEAZĂ: tokens → components → site → pagină -->
   <link rel="stylesheet" href="assets/css/tokens.css">
   <link rel="stylesheet" href="assets/css/components.css">
   <link rel="stylesheet" href="assets/css/site.css">
-  <link rel="stylesheet" href="assets/css/blog.css">
-  <link rel="stylesheet" href="assets/css/blog-pagina.css">
+  <link rel="stylesheet" href="assets/css/legal-pagina.css">
 </head>
 
 <body>
@@ -124,6 +117,7 @@
           </div>
         </details>
       </li>
+      <li><a class="site-drawer-link" href="traineri.html">Traineri</a></li>
       <li><a class="site-drawer-link" href="https://harta-coafezelor.ro">Harta Coafezelor</a></li>
       <li><a class="site-drawer-link" href="https://beautifier.ro">Magazin</a></li>
     </ul>
@@ -138,204 +132,129 @@
 <main id="continut">
 
   <!-- ========================================================================
-       BLOG — INDEX
-       Cardurile refolosesc componenta .blog-card de pe homepage (blog.css).
-       DEMO: în prototip toate „Citește articolul" duc la unicul articol
-       construit (blog-balayage-par-vopsit.html). În producție, fiecare card
-       primește postarea lui — în WordPress, un loop peste postările recente.
+       POLITICA DE COOKIES
+       Site-ul vechi NU are o pagină de cookies — doar bannerul de consimțământ
+       cu 4 categorii (Funcțional / Preferințe / Statistici / Marketing).
+       Textul de mai jos e scris de mine pe baza acelor categorii + a ce declară
+       Politica de confidențialitate (Google Analytics). ⚠ DRAFT — de validat
+       juridic; lista de cookie-uri concrete se completează după ce site-ul
+       WordPress e configurat (numele cookie-urilor depind de plugin-uri).
        ======================================================================== -->
-  <section class="site-section bl-header" aria-labelledby="bl-titlu">
+  <section class="site-section lg-header" aria-labelledby="lg-titlu">
     <div class="tbe-container">
 
       <nav class="tbe-breadcrumb" aria-label="Locul în site">
         <ol>
           <li><a href="index.html">Acasă</a></li>
-          <li aria-current="page">Blog</li>
+          <li aria-current="page">Politica de cookies</li>
         </ol>
       </nav>
 
-      <span class="tbe-kicker is-action">Blog</span>
-      <h1 class="bl-titlu" id="bl-titlu">Tehnici, corecturi și lecții din comunitate.</h1>
+      <span class="tbe-kicker">Legal</span>
+      <h1 class="lg-titlu" id="lg-titlu">Politica de cookies</h1>
       <p class="tbe-lead">
-        Scrise pentru coafeze, nu pentru algoritmi — despre coafuri, colorimetrie, portofoliu și
-        felul în care îți construiești un salon care crește.
+        Ce sunt cookie-urile, pe care le folosim, de ce, cât timp rămân pe dispozitivul tău și cum
+        îți poți schimba oricând alegerea.
       </p>
+      <div class="lg-meta">
+        <span>Versiune: 4 septembrie 2026</span>
+        <span>Beauty Education Publishing SRL</span>
+      </div>
 
-      <!-- Articolul featured -->
-      <article class="bl-featured">
-        <a class="bl-featured-media" href="blog-balayage-par-vopsit.html" aria-label="Balayage pe păr vopsit: unde se greșește cel mai des">
-          <img src="assets/poze/placeholder/galerie-3.jpg" alt=""
-               width="1000" height="667" fetchpriority="high" decoding="async">
-        </a>
-        <div class="bl-featured-corp">
-          <span class="bl-chip">Colorimetrie</span>
-          <h2 class="bl-featured-titlu">
-            <a href="blog-balayage-par-vopsit.html">Balayage pe păr vopsit: unde se greșește cel mai des</a>
-          </h2>
-          <p class="bl-featured-extras">
-            Cele mai frecvente cinci greșeli pe care le vedem în evaluările EMPIRIA — și cum le
-            corectezi înainte să ajungă la clientă.
+      <div class="lg-grid">
+
+        <nav class="lg-toc" aria-labelledby="lg-toc-titlu">
+          <p class="lg-toc-titlu" id="lg-toc-titlu">Cuprins</p>
+          <ol>
+            <li><a href="#s1">Ce sunt cookie-urile</a></li>
+            <li><a href="#s2">Ce categorii de cookie-uri folosim</a></li>
+            <li><a href="#s3">Cookie-uri ale terților</a></li>
+            <li><a href="#s4">Cât timp rămân cookie-urile</a></li>
+            <li><a href="#s5">Cum îți gestionezi consimțământul</a></li>
+            <li><a href="#s6">Modificări ale acestei politici</a></li>
+            <li><a href="#s7">Contact</a></li>
+          </ol>
+        </nav>
+
+        <div class="lg-prose">
+          <p>Această politică explică modul în care site-ul www.thebeautyeducation.com, operat de Beauty Education Publishing SRL („noi"), folosește cookie-uri și tehnologii similare. Ea completează <a href="politica-de-confidentialitate.html">Politica de confidențialitate</a>, care descrie cum prelucrăm datele tale personale în general.</p>
+
+          <h2 id="s1">1. Ce sunt cookie-urile</h2>
+          <p>Cookie-urile sunt fișiere text de mici dimensiuni pe care un site le salvează pe dispozitivul tău (calculator, telefon, tabletă) atunci când îl vizitezi. Ele permit site-ului să te recunoască la vizitele următoare, să rețină preferințele tale și să înțeleagă cum este folosit. Tehnologii similare (de exemplu, stocarea locală a browserului sau pixelii de urmărire) sunt tratate la fel în această politică.</p>
+          <p>Cookie-urile pot fi <strong>de sesiune</strong> (șterse automat când închizi browserul) sau <strong>persistente</strong> (rămân pe dispozitiv o perioadă definită sau până le ștergi). Pot fi <strong>proprii</strong> (setate de site-ul nostru) sau <strong>ale terților</strong> (setate de servicii pe care le integrăm, cum ar fi instrumente de analiză sau videoclipuri încorporate).</p>
+
+          <h2 id="s2">2. Ce categorii de cookie-uri folosim</h2>
+          <p>Folosim patru categorii de cookie-uri. Prima este necesară pentru funcționarea site-ului și nu poate fi dezactivată; celelalte trei se activează doar cu consimțământul tău, exprimat prin bannerul de cookie-uri.</p>
+
+          <h3>Funcțional — mereu activ</h3>
+          <p>Stocarea tehnică sau accesul este strict necesară în scopul legitim de a permite utilizarea unui anumit serviciu solicitat în mod explicit de tine, sau în scopul exclusiv de a efectua transmiterea unei comunicări printr-o rețea de comunicații electronice. Aici intră, de exemplu, cookie-urile care rețin alegerea ta din bannerul de consimțământ, cele de securitate și cele care fac posibilă autentificarea sau completarea unui formular. Fără ele, site-ul nu poate funcționa corect.</p>
+
+          <h3>Preferințe</h3>
+          <p>Stocarea tehnică sau accesul este necesară în scopul legitim de a reține preferințe pe care nu le-ai solicitat în mod explicit — de exemplu, limba sau regiunea, ori afișarea personalizată a anumitor elemente ale site-ului.</p>
+
+          <h3>Statistici</h3>
+          <p>Stocarea tehnică sau accesul folosit exclusiv în scopuri statistice, pentru a înțelege cum este utilizat site-ul: ce pagini sunt vizitate, cât timp, de pe ce tip de dispozitiv. Folosim în acest scop <strong>Google Analytics</strong>. Datele sunt agregate; fără date suplimentare de la terți, informațiile stocate în acest scop nu pot fi folosite, de regulă, pentru a te identifica.</p>
+
+          <h3>Marketing</h3>
+          <p>Stocarea tehnică sau accesul necesară pentru a crea profiluri de utilizator, pentru a afișa publicitate relevantă sau pentru a te urmări pe unul sau mai multe site-uri în scopuri de marketing similare. Aceste cookie-uri sunt setate, de regulă, de platforme de publicitate și rețele sociale cu care colaborăm.</p>
+
+          <h2 id="s3">3. Cookie-uri ale terților</h2>
+          <p>Anumite funcții ale site-ului sunt furnizate de servicii externe, care pot seta propriile cookie-uri, în condițiile politicilor lor:</p>
+          <ul>
+            <li><strong>Google Analytics</strong> (statistici) — <a href="https://www.google.com/intl/ro/policies/privacy/" rel="noopener">politica Google de confidențialitate</a>; poți renunța la urmărire prin <a href="https://tools.google.com/dlpage/gaoptout" rel="noopener">extensia Google Analytics Opt-out</a>.</li>
+            <li><strong>Stripe</strong> (plăți) — cookie-uri necesare procesării securizate a plăților cu cardul; se activează doar în paginile de plată.</li>
+            <li><strong>YouTube</strong> (videoclipuri încorporate) — poate seta cookie-uri atunci când redai un videoclip încorporat în site.</li>
+            <li><strong>Rețele sociale</strong> (Instagram, Facebook, TikTok) — butoanele sau conținutul încorporat pot seta cookie-uri de marketing, doar dacă ai consimțit la categoria Marketing.</li>
+          </ul>
+          <p>Nu controlăm cookie-urile setate de terți. Te încurajăm să le citești politicile înainte de a-ți exprima consimțământul.</p>
+
+          <h2 id="s4">4. Cât timp rămân cookie-urile</h2>
+          <p>Durata de viață diferă în funcție de categorie și de furnizor:</p>
+          <table class="tbe-table">
+            <thead>
+              <tr>
+                <th scope="col">Categorie</th>
+                <th scope="col">Durată tipică</th>
+                <th scope="col">Se poate dezactiva?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Funcțional</td><td>sesiune sau până la 12 luni (alegerea de consimțământ)</td><td>Nu — necesare funcționării</td></tr>
+              <tr><td>Preferințe</td><td>până la 12 luni</td><td>Da</td></tr>
+              <tr><td>Statistici</td><td>sesiune până la 24 de luni (Google Analytics)</td><td>Da</td></tr>
+              <tr><td>Marketing</td><td>de la câteva zile până la 24 de luni, după furnizor</td><td>Da</td></tr>
+            </tbody>
+          </table>
+          <p>Lista detaliată a cookie-urilor active, cu numele și durata fiecăruia, este afișată în bannerul de consimțământ, la „Vizualizați preferințele", și se actualizează automat pe măsură ce site-ul evoluează.</p>
+
+          <h2 id="s5">5. Cum îți gestionezi consimțământul</h2>
+          <p>La prima vizită îți cerem acordul prin bannerul de cookie-uri. Poți accepta toate categoriile, poți refuza categoriile opționale sau poți alege individual ce activezi.</p>
+          <p>Îți poți schimba alegerea oricând:</p>
+          <ul>
+            <li>din <strong>bannerul de consimțământ</strong>, accesibil din linkul „Personalizați preferințele de consimțământ" din subsolul site-ului;</li>
+            <li>din <strong>setările browserului</strong>, unde poți șterge cookie-urile existente sau bloca setarea altora — ține cont că blocarea cookie-urilor funcționale poate face ca unele părți ale site-ului să nu mai funcționeze;</li>
+            <li>pentru Google Analytics, prin <a href="https://tools.google.com/dlpage/gaoptout" rel="noopener">extensia de renunțare</a> oferită de Google.</li>
+          </ul>
+          <p>Refuzarea sau retragerea consimțământului nu afectează legalitatea prelucrării efectuate înainte de retragere.</p>
+
+          <h2 id="s6">6. Modificări ale acestei politici</h2>
+          <p>Putem actualiza această politică atunci când adăugăm servicii noi sau când se schimbă cadrul legal. Versiunea curentă, cu data ei, este afișată în partea de sus a paginii. Dacă modificările sunt semnificative, îți vom cere din nou consimțământul prin banner.</p>
+
+          <h2 id="s7">7. Contact</h2>
+          <p>Pentru orice întrebare despre cookie-uri sau despre datele tale, ne poți scrie la <a href="mailto:contact@thebeautyeducation.com">contact@thebeautyeducation.com</a>. Drepturile tale privind datele personale — acces, rectificare, ștergere, opoziție și celelalte — sunt descrise în <a href="politica-de-confidentialitate.html#s9">Politica de confidențialitate</a>.</p>
+
+          <p class="lg-inrudite">
+            Vezi și: <a href="termeni-si-conditii.html">Termeni și condiții</a> ·
+            <a href="politica-de-confidentialitate.html">Politica de confidențialitate</a>
           </p>
-          <div class="bl-featured-meta">
-            <span>Adriana Dobre</span>
-            <span class="bl-punct" aria-hidden="true">·</span>
-            <span>8 aug 2026</span>
-            <span class="bl-punct" aria-hidden="true">·</span>
-            <span>6 min de citit</span>
-          </div>
-          <a class="tbe-btn is-primary" href="blog-balayage-par-vopsit.html">Citește articolul</a>
         </div>
-      </article>
 
-      <h2 class="bl-sectiune-titlu">Toate articolele</h2>
-
-      <ul class="blog-grid">
-        <li>
-          <article class="blog-card">
-            <div class="blog-media">
-              <img src="assets/poze/placeholder/galerie-7.jpg" alt="" width="800" height="600" loading="lazy" decoding="async">
-            </div>
-            <div class="blog-continut">
-              <span class="bl-chip">Business</span>
-              <div class="blog-autor">
-                <span class="blog-avatar"><img src="assets/poze/placeholder/marturie-4.jpg" alt="" width="640" height="1115" loading="lazy" decoding="async"></span>
-                <span>
-                  <span class="blog-autor-nume">Echipa TBE</span>
-                  <span class="blog-autor-rol">Editorial</span>
-                </span>
-              </div>
-              <h3 class="blog-card-titlu">Cum îți construiești portofoliul care aduce cliente</h3>
-              <p class="blog-extras">Ce fotografii aleg clientele de pe Harta Coafezelor — și de ce trei lucrări bune bat treizeci mediocre.</p>
-              <a class="blog-mai" href="blog-balayage-par-vopsit.html">
-                Citește articolul
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 8h11"/><path d="M9 3.5 13.5 8 9 12.5"/></svg>
-              </a>
-            </div>
-          </article>
-        </li>
-        <li>
-          <article class="blog-card">
-            <div class="blog-media">
-              <img src="assets/poze/placeholder/galerie-2.jpg" alt="" width="800" height="533" loading="lazy" decoding="async">
-            </div>
-            <div class="blog-continut">
-              <span class="bl-chip">Tehnică</span>
-              <div class="blog-autor">
-                <span class="blog-avatar"><img src="assets/poze/placeholder/marturie-2.jpg" alt="" width="640" height="1115" loading="lazy" decoding="async"></span>
-                <span>
-                  <span class="blog-autor-nume">Adriana Dobre</span>
-                  <span class="blog-autor-rol">Fondatoare</span>
-                </span>
-              </div>
-              <h3 class="blog-card-titlu">5 greșeli la bucle pe care le fac începătoarele</h3>
-              <p class="blog-extras">De la separarea șuvițelor la fixare — micile detalii care fac diferența dintre o buclă care ține și una care cade în două ore.</p>
-              <a class="blog-mai" href="blog-balayage-par-vopsit.html">
-                Citește articolul
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 8h11"/><path d="M9 3.5 13.5 8 9 12.5"/></svg>
-              </a>
-            </div>
-          </article>
-        </li>
-        <li>
-          <article class="blog-card">
-            <div class="blog-media">
-              <img src="assets/poze/placeholder/galerie-5.jpg" alt="" width="800" height="600" loading="lazy" decoding="async">
-            </div>
-            <div class="blog-continut">
-              <span class="bl-chip">Colorimetrie</span>
-              <div class="blog-autor">
-                <span class="blog-avatar"><img src="assets/poze/placeholder/marturie-3.jpg" alt="" width="640" height="1115" loading="lazy" decoding="async"></span>
-                <span>
-                  <span class="blog-autor-nume">Mihaela Mihăescu</span>
-                  <span class="blog-autor-rol">Trainer colorimetrie</span>
-                </span>
-              </div>
-              <h3 class="blog-card-titlu">Cum citești corect baza naturală înainte să vopsești</h3>
-              <p class="blog-extras">Nivelul de bază decide totul. Cum îl identifici corect și de ce e primul pas pe care nu ai voie să-l sari.</p>
-              <a class="blog-mai" href="blog-balayage-par-vopsit.html">
-                Citește articolul
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 8h11"/><path d="M9 3.5 13.5 8 9 12.5"/></svg>
-              </a>
-            </div>
-          </article>
-        </li>
-        <li>
-          <article class="blog-card">
-            <div class="blog-media">
-              <img src="assets/poze/placeholder/galerie-4.jpg" alt="" width="800" height="600" loading="lazy" decoding="async">
-            </div>
-            <div class="blog-continut">
-              <span class="bl-chip">Comunitate</span>
-              <div class="blog-autor">
-                <span class="blog-avatar"><img src="assets/poze/placeholder/marturie-1.jpg" alt="" width="640" height="1115" loading="lazy" decoding="async"></span>
-                <span>
-                  <span class="blog-autor-nume">Miruna Crăciunescu</span>
-                  <span class="blog-autor-rol">Community</span>
-                </span>
-              </div>
-              <h3 class="blog-card-titlu">Cum ceri (și primești) feedback care chiar te ajută</h3>
-              <p class="blog-extras">Feedback-ul nu se ia personal. Cum îți postezi lucrarea în comunitate ca să crești, nu ca să bifezi.</p>
-              <a class="blog-mai" href="blog-balayage-par-vopsit.html">
-                Citește articolul
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 8h11"/><path d="M9 3.5 13.5 8 9 12.5"/></svg>
-              </a>
-            </div>
-          </article>
-        </li>
-        <li>
-          <article class="blog-card">
-            <div class="blog-media">
-              <img src="assets/poze/placeholder/galerie-8.jpg" alt="" width="800" height="600" loading="lazy" decoding="async">
-            </div>
-            <div class="blog-continut">
-              <span class="bl-chip">Poveste</span>
-              <div class="blog-autor">
-                <span class="blog-avatar"><img src="assets/poze/placeholder/marturie-4.jpg" alt="" width="640" height="1115" loading="lazy" decoding="async"></span>
-                <span>
-                  <span class="blog-autor-nume">Echipa TBE</span>
-                  <span class="blog-autor-rol">Editorial</span>
-                </span>
-              </div>
-              <h3 class="blog-card-titlu">De la cursantă la trainer: cum arată drumul complet</h3>
-              <p class="blog-extras">Trei membre au ajuns Diamond și au devenit traineri. Ce au făcut diferit — și ce poți lua de la ele.</p>
-              <a class="blog-mai" href="blog-balayage-par-vopsit.html">
-                Citește articolul
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 8h11"/><path d="M9 3.5 13.5 8 9 12.5"/></svg>
-              </a>
-            </div>
-          </article>
-        </li>
-        <li>
-          <article class="blog-card">
-            <div class="blog-media">
-              <img src="assets/poze/placeholder/card-4.jpg" alt="" width="800" height="600" loading="lazy" decoding="async">
-            </div>
-            <div class="blog-continut">
-              <span class="bl-chip">Business</span>
-              <div class="blog-autor">
-                <span class="blog-avatar"><img src="assets/poze/placeholder/marturie-5.jpg" alt="" width="640" height="1115" loading="lazy" decoding="async"></span>
-                <span>
-                  <span class="blog-autor-nume">Marius Dobre</span>
-                  <span class="blog-autor-rol">Owner / CEO</span>
-                </span>
-              </div>
-              <h3 class="blog-card-titlu">Prețuri în salon: cum le comunici fără disconfort</h3>
-              <p class="blog-extras">Cum vorbești despre bani cu clienta, fără să te scuzi și fără să pierzi programarea. Un cadru simplu, în trei pași.</p>
-              <a class="blog-mai" href="blog-balayage-par-vopsit.html">
-                Citește articolul
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 8h11"/><path d="M9 3.5 13.5 8 9 12.5"/></svg>
-              </a>
-            </div>
-          </article>
-        </li>
-      </ul>
-
+      </div>
     </div>
   </section>
 
 </main>
 
-<!-- FOOTER — copie identică, cu „Blog" → pagina asta. -->
 <footer class="site-footer">
   <div class="tbe-container">
     <div class="site-footer-grid">
@@ -383,7 +302,7 @@
         <h2 class="site-footer-title" id="footer-mai-mult">Mai mult</h2>
         <ul class="site-footer-list">
           <li><a href="revista.html">Revista Coafezelor</a></li>
-          <li><a href="blog.html" aria-current="page">Blog</a></li>
+          <li><a href="blog.html">Blog</a></li>
           <li><a href="/program-de-loialitate">Program de loialitate</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -467,7 +386,7 @@
         <ul class="site-footer-legal">
           <li><a href="termeni-si-conditii.html">Termeni și condiții</a></li>
           <li><a href="politica-de-confidentialitate.html">Confidențialitate</a></li>
-          <li><a href="politica-cookies.html">Cookies</a></li>
+          <li><a href="politica-cookies.html" aria-current="page">Cookies</a></li>
         </ul>
       </div>
     </div>
