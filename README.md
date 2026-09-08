@@ -953,6 +953,40 @@ Rezolvate (4 sept 2026, runda a doua):
   cursuri cu puncte). Inițial exclusesem Beautifier; „scoate tot ce ține de Beautifier" viza rândurile
   din tabelul de beneficii (multiplicator comenzi, transport ca beneficiu de nivel), nu canalul de consum.
 
+## Pagina ABONAMENT — `abonament.html`
+
+Pagina de preț a ecosistemului. CSS: [`abonament-pagina.css`](assets/css/abonament-pagina.css)
+(prefix `ab-`) · JS: [`abonament.js`](assets/js/abonament.js) (sincronizează textul butonului cu
+perioada aleasă + FAQ din `ABONAMENT_FAQS`; radio-urile merg și fără JS).
+
+**Poziționarea (decizie Marius, 8 sept 2026):** produsul legal e **abonamentul la Revista
+Coafezelor** (publicație periodică, ISSN, TVA 11%), iar accesul la comunitate/tutoriale/EMPIRIA/
+loialitate „vine cu el". De aceea: H1 = „Abonamentul Revistei Coafezelor", coperta Nr. 2 e obiectul
+din spatele panoului de preț, iar linia legală de sub buton spune explicit ce cumperi. Fără să inducă
+în eroare: lead-ul și toate secțiunile de sub hero vorbesc despre comunitate.
+
+Structură: hero (text + panou de preț cu 4 perioade) → **5 specializări** în bento asimetric
+(proporția cardului = cât conținut are: Coafuri 3×2, Colorimetrie 3×1, Tunsoare/Tratamente/Makeup
+1×1) → „Dincolo de tutoriale" (Revista, EMPIRIA, Loialitate, Harta + bandă: aplicație, feedback,
+Rootine Plus „în curând") → transparență (cont gratuit / ce NU include) → FAQ → CTA.
+
+**Cifre (Marius, 8 sept 2026):** 185 / 499 / 925 / 1.850 lei; puncte la plată 60/200/400/850;
+Coafuri 172 tutoriale + chat + **6 activități** (Duelul e pe pauză, dar revine — rămâne listat),
+Colorimetrie 40 + chat + 3 activități, Tunsoare 9, Tratamente 6, Makeup 17 (= 244, + ~20 gratuite
+Paul Mitchell/Milkshake → „250+" rămâne corect peste tot). Tratamente = specializare **nouă**, a 5-a
+(docul avea 4 categorii — actualizat `business/docs/06`). Checkout: `ro.thebeautyeducation.com/checkout/abonament`
+— același link pentru toate perioadele (perioada se alege în Circle; `value`-ul radio-ului e pregătit
+dacă checkout-ul va accepta parametru).
+
+Legat: cele 12 butoane `/abonament` (comunitate ×4, index, empiria, loialitate, traineri, revista,
+hero-variante ×3) → `abonament.html` (utm-urile păstrate); „Abonament" adăugat în footer, coloana
+Navigare, pe toate cele 14 pagini.
+
+**De validat înainte de lansare:** linia legală (revistă + ISSN + „prețurile includ TVA") cu
+contabilul; textul FAQ „Primesc factură?" (facturare pe firmă din profil) cu procesul real din Circle.
+Notă: 6 luni și 12 luni au același preț pe lună (154 lei) — diferența e doar numărul de plăți și
+punctele (400 vs 850); pagina o spune ca atare.
+
 ## Cursurile în navigație — dropdown ca index
 
 Nu există (și nu vor exista) pagini-categorie „cursuri online" / „cursuri fizice": **fiecare curs

@@ -34,7 +34,7 @@ Loialitate). Trei carduri. `[doc]`
 Inima paginii. Toate categoriile din doc, valori **de bază (Bronze)**, grupate:
 | Grup | Conținut |
 |---|---|
-| Onboarding (până la 250) | Cont creat 100 · Profil complet 100 · Poveste în „Prezintă-te" 50 `[doc]` |
+| Onboarding (până la 150) | Cont creat 100 · Poveste în „Prezintă-te" 50 `[doc]` |
 | Abonament | Lunar 60 · 3 luni 200 · 6 luni 400 · Anual 850 `[doc]` |
 | EMPIRIA (600/specializare) | Fundamentals 100 · Essentials 200 · Mastery 300 → 1.200 ambele `[doc]` |
 | Cursuri online | Color Mastery 500 · Makeup Essentials 500 (la achiziție) `[doc]` |
@@ -64,7 +64,7 @@ Alina. `[doc]` Link → pagina Traineri. (Ecou intenționat al callout-ului de p
 ### 6 · CUM FOLOSEȘTI PUNCTELE + regulile
 - Mecanism: scrii **„VREAU"** la produsul dorit din **Magazinul de Loialitate**; sistem automat. `[doc]`
 - Pe profil: **Puncte acumulate** (istoric, nu scad) vs. **Puncte disponibile** (sold). `[claude.md]`
-- Expirare: punctele se șterg după **90 de zile** de la închiderea abonamentului (fără reactivare). `[doc]`
+- Expirare: punctele **disponibile** se șterg după **60 de zile** de la închiderea abonamentului (fără reactivare). Nivelul e permanent; beneficiile se suspendă cât abonamentul e închis. `[doc]`
 - Nu se acordă retroactiv. `[doc]`
 - (Opțional) **Ligile** — Liga Hairstiliștilor / Liga MUA, puncte și pe specializare. `[doc]`
 
@@ -122,8 +122,8 @@ strict internă — nu apare public.
 ## Nepotrivire găsită (de rezolvat separat, nu pe pagina asta)
 Secțiunea de loialitate **de pe homepage** afirmă „**Primele 3 luni, punctele se dublează** — tot ce
 faci în primele 90 de zile îți aduce puncte duble". **Nu există** o astfel de regulă în
-`04-loialitate.md` (bonusul de 90 de zile de acolo e despre *expirare*, nu despre dublare). Pare o
-afirmație veche/demo pe homepage. O semnalez ca s-o corectăm — dar pe pagina nouă nu o pun.
+`04-loialitate.md` (regula de acolo e despre *expirarea* punctelor disponibile, acum 60 de zile, nu despre dublare).
+**Rezolvat:** cardul a fost scos de pe homepage (commit ec617aa, 7 sept. 2026).
 
 ## Fișiere (la design, după aprobare)
 `program-de-loialitate.html` + `assets/css/loialitate-pagina.css` (prefix `lp-`, ca să nu se

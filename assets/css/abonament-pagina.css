@@ -1,0 +1,425 @@
+/* ==========================================================================
+   THE BEAUTY EDUCATION — PAGINA „ABONAMENT" (abonament.html)
+   Se încarcă după site.css (+ faq.css). Prefix propriu `ab-`.
+   --------------------------------------------------------------------------
+   Pagina de preț a ecosistemului. Produsul legal e ABONAMENTUL LA REVISTA
+   COAFEZELOR (publicație periodică, TVA 11%); accesul la comunitate, tutoriale,
+   EMPIRIA și loialitate vine „cu" abonamentul. De aceea revista e OBIECTUL din
+   hero (coperta fizică în spatele panoului de preț), iar restul e „ce vine cu ea".
+   Sursă cifre: business/docs/06-produse-si-preturi.md + decizii Marius
+   (8 sept 2026): 185 / 499 / 925 / 1.850 lei; 5 specializări; 6 activități
+   la Coafuri (Duelul e pe pauză, dar revine); checkout Circle.
+
+   Structură:
+     0 · hero — text + panou de preț peste coperta revistei (crem)
+     1 · cele 5 specializări — bento asimetric (bej)
+     2 · dincolo de tutoriale — 4 carduri + bandă „și încă" (crem)
+     3 · transparență — cont gratuit / ce nu include (bej)
+     4 · FAQ (crem)  ·  5 · CTA (crem, ab-divider)
+   ========================================================================== */
+
+.ab-divider { border-top: 1px solid var(--tbe-border-subtle); }
+.ab-lead-spatiat { margin-bottom: var(--s-6); }
+
+/* ==========================================================================
+   0 · HERO — text stânga, oferta dreapta
+   ========================================================================== */
+.ab-header { padding-top: var(--s-6); overflow: hidden; }
+.ab-header .tbe-breadcrumb { margin-bottom: var(--s-5); }
+
+.ab-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-8);
+  align-items: center;
+}
+.ab-hero-text { min-width: 0; }
+.ab-titlu {
+  font-size: var(--fs-display);
+  font-weight: var(--fw-light);
+  letter-spacing: var(--ls-tight);
+  margin-bottom: var(--s-3);
+  text-wrap: balance;
+}
+.ab-titlu em { font-style: italic; font-weight: var(--fw-regular); color: var(--tbe-action); }
+.ab-hero-text .tbe-lead { max-width: 52ch; }
+
+/* Cele 3 cifre-ancoră sub lead. */
+.ab-cifre {
+  display: flex;
+  gap: var(--s-5);
+  flex-wrap: wrap;
+  list-style: none;
+  margin: var(--s-6) 0 0;
+  padding: var(--s-5) 0 0;
+  border-top: 1px solid var(--tbe-border-subtle);
+}
+.ab-cifra { display: flex; flex-direction: column; gap: 2px; }
+.ab-cifra strong {
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-medium);
+  line-height: 1;
+  color: var(--tbe-text);
+  font-variant-numeric: tabular-nums;
+}
+.ab-cifra span {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--tbe-text-subtle);
+}
+
+/* --- Oferta: coperta în spate, panoul de preț în față ----------------------- */
+.ab-oferta { position: relative; padding: var(--s-6) 0 0 var(--s-8); }
+.ab-coperta {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 42%;
+  aspect-ratio: 1200 / 1699;
+  transform: rotate(-8deg);
+  transform-origin: bottom right;
+  z-index: 0;
+}
+.ab-coperta img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 3px;
+  box-shadow: var(--site-shadow-card);
+}
+
+.ab-panou {
+  position: relative;
+  z-index: 1;
+  background: var(--tbe-surface);
+  border: var(--bw-hair) solid var(--tbe-border-subtle);
+  border-radius: var(--tbe-radius-card);
+  box-shadow: var(--site-shadow-card);
+  padding: var(--s-5);
+}
+.ab-panou-cap { margin-bottom: var(--s-4); }
+.ab-panou-cap h2 { font-size: var(--fs-h3); margin-bottom: 2px; }
+.ab-panou-cap p { margin: 0; font-size: var(--fs-sm); color: var(--tbe-text-muted); max-width: none; }
+
+/* Perioadele — radio-uri native, stilizate ca rânduri selectabile. Funcționează
+   și fără JS (fiecare rând își arată prețul); JS doar sincronizează CTA-ul. */
+.ab-perioade { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--s-2); }
+.ab-perioada { position: relative; }
+.ab-perioada input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+.ab-perioada label {
+  display: grid;
+  grid-template-columns: 22px 1fr auto;
+  gap: var(--s-3);
+  align-items: center;
+  padding: var(--s-3) var(--s-4);
+  border: var(--bw-thin) solid var(--tbe-border-subtle);
+  border-radius: 14px;
+  cursor: pointer;
+  transition: border-color var(--dur-fast) var(--ease-out), background var(--dur-fast) var(--ease-out);
+}
+.ab-perioada label:hover { border-color: var(--tbe-border-strong); }
+.ab-perioada input:checked + label {
+  border-color: var(--tbe-action);
+  background: var(--tbe-action-soft);
+}
+.ab-perioada input:focus-visible + label { outline: 2px solid var(--tbe-ring); outline-offset: 2px; }
+
+.ab-radio {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid var(--tbe-border-strong);
+  display: grid;
+  place-items: center;
+}
+.ab-radio::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--tbe-action);
+  transform: scale(0);
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+.ab-perioada input:checked + label .ab-radio { border-color: var(--tbe-action); }
+.ab-perioada input:checked + label .ab-radio::after { transform: scale(1); }
+
+.ab-perioada-nume { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.ab-perioada-nume strong { font-size: var(--fs-base); font-weight: var(--fw-medium); color: var(--tbe-text); }
+.ab-perioada-nume span { font-size: var(--fs-xs); color: var(--tbe-text-muted); }
+.ab-perioada-nume .is-eco { color: var(--tbe-success); font-weight: var(--fw-medium); }
+
+.ab-perioada-pret { text-align: right; }
+.ab-perioada-pret strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-medium);
+  line-height: 1;
+  color: var(--tbe-text);
+  font-variant-numeric: tabular-nums;
+}
+.ab-perioada-pret span { font-size: var(--fs-xs); color: var(--tbe-text-subtle); }
+
+/* Eticheta „cel mai ales” pe rândul anual. */
+.ab-perioada-tag {
+  position: absolute;
+  top: -9px;
+  right: var(--s-4);
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--tbe-action);
+  color: var(--tbe-text-on-action);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+.ab-panou-actiune { margin-top: var(--s-4); }
+.ab-panou-actiune .tbe-btn { width: 100%; }
+
+/* Garanțiile de sub buton. */
+.ab-garantii {
+  list-style: none;
+  margin: var(--s-3) 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-1) var(--s-3);
+  font-size: var(--fs-xs);
+  color: var(--tbe-text-muted);
+}
+.ab-garantii li { display: inline-flex; align-items: center; gap: 5px; }
+.ab-garantii svg { width: 13px; height: 13px; color: var(--tbe-success); flex: none; }
+
+/* Linia legală — produsul e revista (ISSN). Discret, dar lizibil. */
+.ab-legal {
+  margin: var(--s-3) 0 0;
+  padding-top: var(--s-3);
+  border-top: 1px solid var(--tbe-border-subtle);
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--tbe-text-subtle);
+  max-width: none;
+}
+
+/* ==========================================================================
+   1 · CELE 5 SPECIALIZĂRI — bento asimetric pe 6 coloane
+   Proporția cardului = cât conținut are specializarea. Coafuri 3×2,
+   Colorimetrie 3×1, cele mici 1×1. Cifrele nu au nevoie de explicație.
+   ========================================================================== */
+.ab-bento {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: auto auto;
+  gap: var(--s-3);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.ab-spec {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background: var(--tbe-surface);
+  border: var(--bw-hair) solid var(--tbe-border-subtle);
+  border-radius: var(--tbe-radius-card);
+  padding: var(--s-5);
+}
+.ab-spec.is-coafuri { grid-column: 1 / 4; grid-row: 1 / 3; background: var(--tbe-decor); }
+.ab-spec.is-colorimetrie { grid-column: 4 / 7; grid-row: 1; }
+.ab-spec.is-mic { grid-row: 2; }
+
+.ab-spec-cap { display: flex; align-items: baseline; justify-content: space-between; gap: var(--s-3); }
+.ab-spec-nume {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-kicker);
+  text-transform: uppercase;
+  color: var(--tbe-editorial);
+}
+.ab-spec-num {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: var(--fw-medium);
+  line-height: 0.95;
+  letter-spacing: var(--ls-tight);
+  color: var(--tbe-text);
+  font-variant-numeric: tabular-nums;
+  margin-top: var(--s-3);
+}
+.ab-spec.is-coafuri .ab-spec-num { font-size: var(--fs-display); color: var(--tbe-action); }
+.ab-spec.is-colorimetrie .ab-spec-num { font-size: var(--fs-h1); }
+.ab-spec.is-mic .ab-spec-num { font-size: var(--fs-h2); }
+.ab-spec-unit { display: block; margin-top: 6px; font-size: var(--fs-sm); color: var(--tbe-text-muted); }
+
+.ab-spec-desc { margin: var(--s-3) 0 0; font-size: var(--fs-sm); color: var(--tbe-text-muted); max-width: 44ch; }
+
+/* Rândul chat + activități (doar la Coafuri și Colorimetrie). */
+.ab-spec-extra {
+  margin-top: auto;
+  padding-top: var(--s-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+.ab-spec-rand { display: flex; align-items: flex-start; gap: var(--s-2); font-size: var(--fs-sm); color: var(--tbe-text); }
+.ab-spec-rand svg { width: 16px; height: 16px; flex: none; color: var(--tbe-action); margin-top: 2px; }
+.ab-spec-rand > div { min-width: 0; }
+.ab-spec-rand strong { display: block; font-weight: var(--fw-medium); }
+.ab-activitati { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.ab-activitati span {
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: var(--tbe-surface);
+  border: var(--bw-hair) solid var(--tbe-border-subtle);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--tbe-text-muted);
+}
+.ab-spec.is-colorimetrie .ab-activitati span { background: var(--tbe-decor); }
+
+.ab-bento-nota {
+  margin: var(--s-4) 0 0;
+  font-size: var(--fs-xs);
+  color: var(--tbe-text-subtle);
+  max-width: none;
+}
+
+/* ==========================================================================
+   2 · DINCOLO DE TUTORIALE — 4 carduri + banda „și încă”
+   ========================================================================== */
+.ab-plus {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--s-3);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.ab-plus > li { display: flex; }
+.ab-plus-card {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  background: var(--tbe-surface);
+  border: var(--bw-hair) solid var(--tbe-border-subtle);
+  border-radius: var(--tbe-radius-card);
+  padding: var(--s-5);
+  color: inherit;
+  text-decoration: none;
+  transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out);
+}
+a.ab-plus-card:hover { transform: translateY(-3px); box-shadow: var(--site-shadow-card); }
+a.ab-plus-card:focus-visible { outline: 2px solid var(--tbe-ring); outline-offset: 3px; }
+.ab-plus-icon {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--tbe-action-soft);
+  color: var(--tbe-action);
+  margin-bottom: var(--s-4);
+}
+.ab-plus-icon svg { width: 20px; height: 20px; }
+.ab-plus-card.is-revista .ab-plus-icon { background: var(--tbe-editorial-soft); color: var(--tbe-editorial); }
+.ab-plus-card.is-harta .ab-plus-icon { background: var(--tbe-map-soft); color: var(--tbe-map); }
+.ab-plus-card h3 { font-size: var(--fs-h4); margin-bottom: var(--s-2); }
+.ab-plus-card p { margin: 0; font-size: var(--fs-sm); color: var(--tbe-text-muted); max-width: none; }
+.ab-plus-link {
+  margin-top: auto;
+  padding-top: var(--s-4);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--tbe-action);
+}
+
+.ab-inca {
+  margin-top: var(--s-4);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-3);
+  list-style: none;
+  padding: 0;
+}
+.ab-inca li {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  padding: var(--s-3) var(--s-4);
+  background: var(--tbe-decor);
+  border-radius: var(--tbe-radius-card);
+  font-size: var(--fs-sm);
+  color: var(--tbe-text);
+}
+.ab-inca svg { width: 18px; height: 18px; flex: none; color: var(--tbe-editorial); }
+.ab-inca .tbe-badge { margin-left: auto; flex: none; }
+
+/* ==========================================================================
+   3 · TRANSPARENȚĂ — cont gratuit / ce nu include
+   ========================================================================== */
+.ab-clar {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-3);
+}
+.ab-clar-card {
+  background: var(--tbe-surface);
+  border: var(--bw-hair) solid var(--tbe-border-subtle);
+  border-radius: var(--tbe-radius-card);
+  padding: var(--s-5);
+}
+.ab-clar-card h3 { font-size: var(--fs-h4); margin-bottom: var(--s-2); }
+.ab-clar-card p { font-size: var(--fs-sm); color: var(--tbe-text-muted); max-width: none; }
+.ab-clar-lista { list-style: none; margin: var(--s-3) 0 0; padding: 0; display: flex; flex-direction: column; gap: 6px; font-size: var(--fs-sm); }
+.ab-clar-lista li { display: flex; gap: var(--s-2); align-items: baseline; }
+.ab-clar-lista li::before { content: ''; flex: none; width: 6px; height: 6px; border-radius: 50%; background: var(--tbe-border-strong); transform: translateY(-2px); }
+.ab-clar-lista a { color: var(--tbe-text); }
+.ab-clar-actiune { margin-top: var(--s-4); }
+
+/* ==========================================================================
+   5 · CTA FINAL
+   ========================================================================== */
+.ab-cta { text-align: center; max-width: 640px; margin-inline: auto; }
+.ab-cta h2 { margin-bottom: var(--s-3); }
+.ab-cta-actiune { display: flex; gap: var(--s-2); justify-content: center; margin-top: var(--s-5); flex-wrap: wrap; }
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .ab-hero { grid-template-columns: 1fr; }
+  .ab-oferta { padding-left: 0; padding-top: 0; }
+  .ab-coperta { display: none; }   /* pe o coloană, coperta din spate n-ar mai avea unde sta */
+  .ab-bento { grid-template-columns: repeat(2, 1fr); grid-template-rows: none; }
+  .ab-spec.is-coafuri { grid-column: 1 / 3; grid-row: auto; }
+  .ab-spec.is-colorimetrie { grid-column: 1 / 3; grid-row: auto; }
+  .ab-spec.is-mic { grid-row: auto; }
+  .ab-plus { grid-template-columns: repeat(2, 1fr); }
+  .ab-inca { grid-template-columns: 1fr; }
+  .ab-clar { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .ab-titlu { font-size: var(--fs-h1); }
+  .ab-cifre { gap: var(--s-4); }
+  .ab-perioada label { grid-template-columns: 22px 1fr; }
+  .ab-perioada-pret { grid-column: 2; text-align: left; }
+  .ab-bento { grid-template-columns: 1fr; }
+  .ab-spec.is-coafuri, .ab-spec.is-colorimetrie { grid-column: auto; }
+  .ab-plus { grid-template-columns: 1fr; }
+  .ab-cta-actiune { flex-direction: column; }
+  .ab-cta-actiune .tbe-btn { width: 100%; }
+}
