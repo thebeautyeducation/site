@@ -967,8 +967,13 @@ din spatele panoului de preț, iar linia legală de sub buton spune explicit ce 
 
 Structură: hero (text + panou de preț cu 4 perioade) → **5 specializări** în bento asimetric
 (proporția cardului = cât conținut are: Coafuri 3×2, Colorimetrie 3×1, Tunsoare/Tratamente/Makeup
-1×1) → „Dincolo de tutoriale" (Revista, EMPIRIA, Loialitate, Harta + bandă: aplicație, feedback,
-Rootine Plus „în curând") → transparență (cont gratuit / ce NU include) → FAQ → CTA.
+1×1) → „Dincolo de tutoriale": **EMPIRIA + Harta = carduri mari cu fotografie** și 3 fapte fiecare
+(cerință Marius, 8 sept: să fie mai evidente) → **banda „14 diplome"** pe charcoal (8 EMPIRIA +
+4 mentorat + 2 cursuri online, cu mențiunea onestă că ultimele 2 sunt achiziție separată) → Revista +
+Loialitate (carduri orizontale cu icon) → bandă: aplicație, feedback, Rootine Plus „în curând" →
+transparență (cont gratuit / ce NU include) → FAQ → CTA.
+**Pozele de pe EMPIRIA/Harta sunt placeholder** (aceleași ca pe homepage, `card-2.jpg`/`card-6.jpg`) —
+de înlocuit cu o lucrare EMPIRIA evaluată și un profil real de pe Hartă.
 
 **Cifre (Marius, 8 sept 2026):** 185 / 499 / 925 / 1.850 lei; puncte la plată 60/200/400/850;
 Coafuri 172 tutoriale + chat + **6 activități** (Duelul e pe pauză, dar revine — rămâne listat),

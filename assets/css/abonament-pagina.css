@@ -299,11 +299,148 @@
 }
 
 /* ==========================================================================
-   2 · DINCOLO DE TUTORIALE — 4 carduri + banda „și încă”
+   2 · DINCOLO DE TUTORIALE
+   Ierarhie: EMPIRIA + Harta = carduri MARI cu fotografie (argumentele care
+   schimbă cariera) → banda „14 diplome” (pe charcoal, ca „Problema” de pe
+   homepage) → Revista + Loialitate = carduri orizontale cu icon → „și încă”.
    ========================================================================== */
+.ab-mari {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-3);
+  list-style: none;
+  margin: 0 0 var(--s-3);
+  padding: 0;
+}
+.ab-mari > li { display: flex; }
+.ab-mare {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  background: var(--tbe-surface);
+  border: var(--bw-hair) solid var(--tbe-border-subtle);
+  border-radius: var(--tbe-radius-card);
+  overflow: hidden;
+  color: inherit;
+  text-decoration: none;
+  transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out);
+}
+.ab-mare:hover { transform: translateY(-3px); box-shadow: var(--site-shadow-card-hover); }
+.ab-mare:focus-visible { outline: 2px solid var(--tbe-ring); outline-offset: 3px; }
+.ab-mare-media {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 9;
+  background: var(--c-neutral-900);
+  overflow: hidden;
+}
+.ab-mare-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--dur-slower) var(--ease-out);
+}
+.ab-mare:hover .ab-mare-media img { transform: scale(1.04); }
+.ab-mare-eticheta {
+  position: absolute;
+  top: var(--s-3);
+  left: var(--s-3);
+  padding: 5px 11px;
+  border-radius: 999px;
+  background: rgba(var(--site-rgb-crem), 0.92);
+  color: var(--tbe-text);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+.ab-mare-body { display: flex; flex-direction: column; flex: 1; padding: var(--s-5); }
+.ab-mare-body .tbe-kicker { margin-bottom: var(--s-2); }
+.ab-mare-body h3 { font-size: var(--fs-h3); margin-bottom: var(--s-2); }
+.ab-mare-body p { margin: 0; font-size: var(--fs-sm); color: var(--tbe-text-muted); max-width: none; }
+.ab-mare-fapte {
+  list-style: none;
+  margin: var(--s-4) 0 0;
+  padding: var(--s-4) 0 0;
+  border-top: 1px solid var(--tbe-border-subtle);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-3);
+}
+.ab-mare-fapte li { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.ab-mare-fapte strong {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-medium);
+  line-height: 1;
+  color: var(--tbe-action);
+  font-variant-numeric: tabular-nums;
+}
+.ab-mare.is-harta .ab-mare-fapte strong { color: var(--tbe-map); }
+.ab-mare-fapte span { font-size: var(--fs-xs); color: var(--tbe-text-subtle); }
+.ab-mare-link { margin-top: auto; padding-top: var(--s-4); font-size: var(--fs-sm); font-weight: var(--fw-medium); color: var(--tbe-action); }
+
+/* --- Banda „14 diplome” — charcoal, cifra mare + descompunerea ------------- */
+.ab-diplome {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--s-6) var(--s-8);
+  align-items: center;
+  margin-bottom: var(--s-3);
+  padding: var(--s-6);
+  border-radius: var(--tbe-radius-card);
+  background: rgb(var(--site-rgb-charcoal));
+  color: var(--site-on-dark);
+}
+.ab-diplome-cifra { display: flex; flex-direction: column; align-items: flex-start; }
+.ab-diplome-cifra strong {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 3rem + 5vw, 7rem);
+  font-weight: var(--fw-light);
+  line-height: 0.9;
+  letter-spacing: var(--ls-tight);
+  color: var(--site-on-dark-action);
+  font-variant-numeric: tabular-nums;
+}
+.ab-diplome-cifra span {
+  margin-top: var(--s-2);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--site-on-dark-kicker);
+}
+.ab-diplome-lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-4);
+}
+.ab-diplome-lista li {
+  display: flex;
+  gap: var(--s-3);
+  align-items: flex-start;
+  padding-left: var(--s-4);
+  border-left: 1px solid var(--site-on-dark-line);
+}
+.ab-diplome-lista strong {
+  font-family: var(--font-display);
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-light);
+  line-height: 1;
+  color: var(--site-on-dark);
+  font-variant-numeric: tabular-nums;
+}
+.ab-diplome-lista b { display: block; font-weight: var(--fw-medium); color: var(--site-on-dark); margin-bottom: 2px; }
+.ab-diplome-lista span { display: block; font-size: var(--fs-xs); line-height: 1.5; color: var(--site-on-dark-muted); }
+
+/* --- Revista + Loialitate: orizontale, icon stânga ---------------------------- */
 .ab-plus {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 1fr 1fr;
   gap: var(--s-3);
   list-style: none;
   margin: 0;
@@ -313,7 +450,8 @@
 .ab-plus-card {
   flex: 1 1 auto;
   display: flex;
-  flex-direction: column;
+  gap: var(--s-4);
+  align-items: flex-start;
   background: var(--tbe-surface);
   border: var(--bw-hair) solid var(--tbe-border-subtle);
   border-radius: var(--tbe-radius-card);
@@ -324,7 +462,9 @@
 }
 a.ab-plus-card:hover { transform: translateY(-3px); box-shadow: var(--site-shadow-card); }
 a.ab-plus-card:focus-visible { outline: 2px solid var(--tbe-ring); outline-offset: 3px; }
+.ab-plus-card > div { display: flex; flex-direction: column; flex: 1; min-width: 0; }
 .ab-plus-icon {
+  flex: none;
   width: 42px;
   height: 42px;
   display: grid;
@@ -332,11 +472,9 @@ a.ab-plus-card:focus-visible { outline: 2px solid var(--tbe-ring); outline-offse
   border-radius: 50%;
   background: var(--tbe-action-soft);
   color: var(--tbe-action);
-  margin-bottom: var(--s-4);
 }
 .ab-plus-icon svg { width: 20px; height: 20px; }
 .ab-plus-card.is-revista .ab-plus-icon { background: var(--tbe-editorial-soft); color: var(--tbe-editorial); }
-.ab-plus-card.is-harta .ab-plus-icon { background: var(--tbe-map-soft); color: var(--tbe-map); }
 .ab-plus-card h3 { font-size: var(--fs-h4); margin-bottom: var(--s-2); }
 .ab-plus-card p { margin: 0; font-size: var(--fs-sm); color: var(--tbe-text-muted); max-width: none; }
 .ab-plus-link {
@@ -408,7 +546,9 @@ a.ab-plus-card:focus-visible { outline: 2px solid var(--tbe-ring); outline-offse
   .ab-spec.is-coafuri { grid-column: 1 / 3; grid-row: auto; }
   .ab-spec.is-colorimetrie { grid-column: 1 / 3; grid-row: auto; }
   .ab-spec.is-mic { grid-row: auto; }
-  .ab-plus { grid-template-columns: repeat(2, 1fr); }
+  .ab-mari { grid-template-columns: 1fr; }
+  .ab-diplome { grid-template-columns: 1fr; gap: var(--s-5); }
+  .ab-diplome-lista { grid-template-columns: 1fr; }
   .ab-inca { grid-template-columns: 1fr; }
   .ab-clar { grid-template-columns: 1fr; }
 }
@@ -420,6 +560,8 @@ a.ab-plus-card:focus-visible { outline: 2px solid var(--tbe-ring); outline-offse
   .ab-bento { grid-template-columns: 1fr; }
   .ab-spec.is-coafuri, .ab-spec.is-colorimetrie { grid-column: auto; }
   .ab-plus { grid-template-columns: 1fr; }
+  .ab-plus-card { flex-direction: column; }
+  .ab-mare-fapte { grid-template-columns: repeat(3, auto); justify-content: start; gap: var(--s-4); }
   .ab-cta-actiune { flex-direction: column; }
   .ab-cta-actiune .tbe-btn { width: 100%; }
 }
