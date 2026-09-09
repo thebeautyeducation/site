@@ -8,6 +8,11 @@ Se deschide cu dublu-click pe `index.html`. Fără build, fără server, fără 
 · publicare: push pe `main` → GitHub Pages reconstruiește în ~1 minut.
 Pe preview, linkurile interne (`/empiria`, `/blog`, logo-ul → `/`) dau 404 — paginile nu există încă.
 
+**Pentru replicarea în WordPress → [`HANDOFF-SPEC.md`](HANDOFF-SPEC.md).** Toate valorile rezolvate (HEX, alpha,
+pixeli): fonturi și umbre pe fiecare tip de buton și casetă, raze, formulare, navbar (efectul „glass"), footer.
+Atenție: umbrele de aici **diferă** de cele din design system-ul de referință — site-ul le rescrie în `site.css`;
+pentru WordPress se folosesc valorile din spec.
+
 **Pasul 1 (acesta):** design system global + navbar + footer + hero gol.
 Nu există încă nicio secțiune de conținut — asta e intenționat.
 
