@@ -56,21 +56,30 @@ kicker `#DFC8D1` · acțiune/hover `#E36D9E` · linie fină `rgba(250,244,239,0.
 
 | Rol | Font | Mărime | Greutate | Line-height | Letter-spacing |
 |---|---|---|---|---|---|
-| Display (hero) | Cormorant Garamond | **40 → 72px** (fluid) | 300 | 1.08 | −0.02em |
-| H1 | Cormorant Garamond | **32 → 48px** (fluid) | 500 | 1.25 | −0.02em |
-| H2 | Cormorant Garamond | **26 → 34px** (fluid) | 500 | 1.25 | −0.02em |
-| H3 | Cormorant Garamond | **22px** | 600 | 1.25 | 0 |
-| H4 | Cormorant Garamond | **18px** | 600 | 1.25 | 0 |
-| Lead (intro) | Jost | **18px** | 300 | 1.8 | 0 |
-| Corp | Jost | **16px** | 400 | 1.65 | 0 |
-| Mic (UI, carduri, butoane) | Jost | **14px** | 400/500 | 1.5 | 0 |
+| Display (hero) | Fraunces | **40 → 72px** (fluid) | 300 | 1.08 | −0.02em |
+| H1 | Fraunces | **32 → 48px** (fluid) | 500 | 1.25 | −0.02em |
+| H2 | Fraunces | **26 → 34px** (fluid) | 500 | 1.25 | −0.02em |
+| H3 | Fraunces | **22px** | 600 | 1.25 | 0 |
+| H4 | Fraunces | **18px** | 600 | 1.25 | 0 |
+| Lead (intro) | Inter | **18px** | 300 | 1.8 | 0 |
+| Corp | Inter | **16px** | 400 | 1.65 | 0 |
+| Mic (UI, carduri, butoane) | Inter | **14px** | 400/500 | 1.5 | 0 |
 | Caption / kicker / etichete | Source Code Pro | **12px** | 500 | 1.5 | 0.14em (kicker) · 0.04em (badge) |
-| Citat editorial | Cormorant Garamond italic | **22px** | 400 | 1.5 | 0 |
+| Citat editorial | Fraunces italic | **22px** | 400 | 1.5 | 0 |
 
 „Fluid" = `clamp()` — crește cu lățimea ecranului între cele două valori; pe desktop vezi valoarea mare, pe mobil pe cea mică.
-Fonturile sunt variable (.ttf) în `assets/fonturi/`, licență OFL. Fallback: Georgia / Futura / Consolas.
 
-Cuvântul accentuat din titluri (`<em>`): Cormorant **italic**, greutate 400, culoare magenta `#A71257`.
+**Fonturi (din octombrie 2026):** **Fraunces** (titluri) + **Inter** (text, UI, butoane) + **Source Code Pro** (kickere). Au înlocuit Cormorant Garamond + Jost.
+Ambele familii principale au **toate grosimile 100–900**, roman și italic. Fișierele: `assets/fonturi/` în `.woff2`, câte două subseturi
+(`latin` + `latin-ext`, cel din urmă are ă, ș, ț); licență OFL. Sunt și în Google Fonts, dacă tema le ia de acolo.
+Fallback: Georgia (titluri) / system-ui, Segoe UI, Arial (text) / Consolas (mono).
+
+**Grosimi suplimentare** (bold real, nou): `700` bold — `<b>`, `<strong>`, accente în text; `800` extrabold și `900` black — doar în bannere, pe 1–3 cuvinte.
+
+**Cifre:** aliniate pe rând peste tot (`font-variant-numeric: lining-nums`, pe `body`). Prețuri, statistici, tabele: și lățime egală
+(`lining-nums tabular-nums`).
+
+Cuvântul accentuat din titluri (`<em>`): Fraunces **italic**, greutate 400, culoare magenta `#A71257`.
 
 ### 1.3 Spațiere (scară pe 8px)
 
@@ -126,7 +135,7 @@ Cu `prefers-reduced-motion`: toate animațiile decorative se opresc; spinnerele 
 
 | Proprietate | Valoare |
 |---|---|
-| Font | Jost, **14px**, greutate **500**, line-height 1, letter-spacing 0.04em |
+| Font | Inter, **14px**, greutate **500**, line-height 1, letter-spacing 0.04em |
 | Padding | 0.85em × 1.6em = **≈12px sus/jos · ≈22px stânga/dreapta** |
 | Înălțime minimă | **44px** |
 | Rază | **999px** (pill) |
@@ -192,11 +201,11 @@ Regulă: **un singur buton primar per ecran/secțiune.** Butonul busy (`.is-busy
 | Element | Valoare |
 |---|---|
 | Media (`.tbe-card-media`) | ies din padding (margine −24px), raport 4:3, colțuri de sus 20px, fundal `#F4E9E1`, imagine `object-fit: cover` |
-| Titlu (`.tbe-card-title`) | Cormorant **22px**, 600, margine jos 8px |
-| Corp (`.tbe-card-body`) | Jost **14px**, `#7A6A5E`, margine jos 16px |
+| Titlu (`.tbe-card-title`) | Fraunces **22px**, 600, margine jos 8px |
+| Corp (`.tbe-card-body`) | Inter **14px**, `#7A6A5E`, margine jos 16px |
 | Subsol (`.tbe-card-foot`) | flex space-between, padding sus 16px, linie sus 1px `#EDDDD3` |
 
-**Card de statistică (`.tbe-stat`):** ca baza (alb, bordură `#EDDDD3`, 20px, padding 24). Valoarea: Cormorant **32→48px**, 500,
+**Card de statistică (`.tbe-stat`):** ca baza (alb, bordură `#EDDDD3`, 20px, padding 24). Valoarea: Fraunces **32→48px**, 500,
 **magenta `#A71257`**, cifre tabulare. Eticheta: Source Code Pro **12px** majuscule, spațiere 0.14em, mauve `#6E5361`.
 
 **Casete specifice paginilor de curs** (Atelierul de Bucle / Color Mastery / Makeup Essentials):
@@ -215,12 +224,12 @@ Regulă: **un singur buton primar per ecran/secțiune.** Butonul busy (`.is-busy
 
 | Element | Valori |
 |---|---|
-| **Input / select / textarea** | Jost **16px**, `#2C2521`, fundal `#FFFFFF`, bordură 1px `#DCCFC4`, rază **12px**, padding 12px × 16px, înălțime min. **48px**; textarea min. 120px |
+| **Input / select / textarea** | Inter **16px**, `#2C2521`, fundal `#FFFFFF`, bordură 1px `#DCCFC4`, rază **12px**, padding 12px × 16px, înălțime min. **48px**; textarea min. 120px |
 | Placeholder | `#7A6A5E` |
 | **Focus** | bordură `#A71257` + inel **`0 0 0 3px rgba(167,18,87,0.28)`** (fără outline) |
 | Dezactivat | fundal `#F2E9E2`, text `#9E9086` |
 | Invalid | bordură `#B3261E` |
-| Etichetă (`.tbe-label`) | Jost 14px, 500, `#2C2521`; asterisc obligatoriu `#B3261E` |
+| Etichetă (`.tbe-label`) | Inter 14px, 500, `#2C2521`; asterisc obligatoriu `#B3261E` |
 | Text ajutător | 12px, `#7A6A5E` · Eroare: 12px, 500, `#B3261E` |
 | Select | săgeată desenată din CSS, 6px, padding dreapta 2.75em |
 | Checkbox / radio | 20 × 20px, `accent-color: #A71257` |
@@ -246,9 +255,9 @@ Regulă: **un singur buton primar per ecran/secțiune.** Butonul busy (`.is-busy
 | · Gold ★ | glifă `#F0B72A` · text `#8A6300` · fundal `#FDF3D9` · bordură `rgba(240,183,42,0.55)` · luciu interior `inset 0 1px 0 rgba(255,255,255,0.5)` |
 | · Diamond ◆ | glifă `#3FB6E8` · text `#1A6E92` · fundal `#E2F3FB` · bordură `rgba(63,182,232,0.55)` · luciu interior `inset 0 1px 0 rgba(255,255,255,0.55)` |
 | · varianta plină `.is-tier-solid` | gradient 135° din glifă → bază, text alb (Gold: text `#4A3400`) |
-| **Chip** (`.tbe-chip`, clicabil) | Jost 14px, padding 6px × 13px, pill, fundal `#FFFFFF`, bordură 1px `#DCCFC4`, text `#2C2521`; hover: bordură + text `#A71257`; activ: fundal `#A71257`, text alb |
+| **Chip** (`.tbe-chip`, clicabil) | Inter 14px, padding 6px × 13px, pill, fundal `#FFFFFF`, bordură 1px `#DCCFC4`, text `#2C2521`; hover: bordură + text `#A71257`; activ: fundal `#A71257`, text alb |
 | **Tag** (`.tbe-tag`, NEclicabil) | 14px, `#7A6A5E`, fundal `#FFFFFF`, bordură 1px `#DCCFC4`, pill, padding 5px × 13px |
-| **Avatar** | 44px (`.is-sm` 32 · `.is-lg` 64 · `.is-xl` 96), cerc, fundal `#DCC4B4`, inițială Cormorant 600; `.is-ring`: inel 2px alb + 4px magenta; grup: suprapunere −12px, contur 2px alb |
+| **Avatar** | 44px (`.is-sm` 32 · `.is-lg` 64 · `.is-xl` 96), cerc, fundal `#DCC4B4`, inițială Fraunces 600; `.is-ring`: inel 2px alb + 4px magenta; grup: suprapunere −12px, contur 2px alb |
 | Flag pe buy-box („Acces pe viață" / „Kit cadou") | fundal `#A71257`, text `#FFFFFF`, mono 12px majuscule, pill, poziționat 16px de la colțul stânga-sus al imaginii |
 
 ---
@@ -279,7 +288,7 @@ Are **două stări**:
 | **Transparentă** | peste hero, la începutul paginii | transparent | `rgba(255,255,255,0.92)`, hover `#FFFFFF` | text: `0 1px 3px rgba(26,20,22,0.50)` · logo: `drop-shadow(0 1px 3px rgba(26,20,22,0.45))` |
 | **Solidă („glass")** | după 24px de scroll, sau din start pe paginile fără hero | **`rgba(250,244,239,0.94)` + `backdrop-filter: blur(16px) saturate(1.05)`** | `#2C2521`, hover/activ `#A71257` | bordură jos 1px `#EDDDD3` · **`0 12px 32px -24px rgba(26,20,22,0.35)`** |
 
-Linkurile: Jost **14px**, 500, spațiere 0.01em, padding 12px sus/jos. Sub link, o linie de 1px (`currentColor`, opacitate 0.75) care crește din centru la hover, 320ms.
+Linkurile: Inter **14px**, 500, spațiere 0.01em, padding 12px sus/jos. Sub link, o linie de 1px (`currentColor`, opacitate 0.75) care crește din centru la hover, 320ms.
 Butonul CTA din navbar = **buton primar normal** (pill magenta, 14px, 44px) — **butonul în sine NU are efect glass**; sticla e bara din spatele lui.
 Hamburger: 44 × 44px, trei linii de 1.5px, alb pe transparent / `#2C2521` pe solid. Apare sub 1024px (meniul și CTA-ul se ascund).
 
@@ -292,7 +301,7 @@ Etichetă de grup („Cursuri fizice / online"): mono 12px majuscule, spațiere 
 
 ### 7.3 Sertar mobil
 
-Fundal `#FAF4EF`, ocupă ecranul sub navbar, padding 24px sus / 64px jos. Linkuri: Cormorant **22px**, 500, spațiere −0.02em, `#2C2521`, padding 16px, linie jos 1px `#EDDDD3`; hover `#A71257`. Sub-linkuri: 16px, `#7A6A5E`. CTA mare (pill, block) împins în josul sertarului.
+Fundal `#FAF4EF`, ocupă ecranul sub navbar, padding 24px sus / 64px jos. Linkuri: Fraunces **22px**, 500, spațiere −0.02em, `#2C2521`, padding 16px, linie jos 1px `#EDDDD3`; hover `#A71257`. Sub-linkuri: 16px, `#7A6A5E`. CTA mare (pill, block) împins în josul sertarului.
 
 ### 7.4 Breadcrumb · Taburi · Paginare
 
@@ -306,7 +315,7 @@ Fundal `#FAF4EF`, ocupă ecranul sub navbar, padding 24px sus / 64px jos. Linkur
 
 Fixată jos, apare după ce treci de hero, dispare când blocul de ofertă e pe ecran.
 Fundal **`rgba(255,255,255,0.92)` + `backdrop-filter: blur(12px)`**, bordură sus 1px `#EDDDD3`, umbră în sus **`0 -8px 30px -12px rgba(26,20,22,0.18)`**, padding 16px sus/jos.
-Titlu Cormorant 18px `#2C2521` · subtitlu 12px `#7A6A5E` · buton primar normal (pill magenta).
+Titlu Fraunces 18px `#2C2521` · subtitlu 12px `#7A6A5E` · buton primar normal (pill magenta).
 Intră glisând de jos, 320ms.
 
 ### 7.6 Skip link („Sari la conținut")
@@ -342,7 +351,7 @@ Font 14px. **Antet:** Source Code Pro 12px majuscule, spațiere 0.14em, `#7A6A5E
 | Fundal modal (backdrop) — **al treilea element „glass"** | `rgba(44,37,33,0.55)` + `backdrop-filter: blur(3px)` |
 | **Toast** | fundal `#2C2521`, text `#FAF4EF`, 14px, padding 16px × 24px, rază 12px, lățime max. 420px, umbră `0 28px 60px -12px rgba(26,20,22,0.18)` |
 | **Tooltip** | fundal `#2C2521`, text `#FAF4EF`, **12px**, padding 8px × 12px, rază 4px, la 8px deasupra; apare la hover/focus (200ms) |
-| **Acordeon** (`.tbe-accordion`) | rezumat Cormorant **18px** 600, padding 16px sus/jos, linie jos 1px `#EDDDD3`, semn „+" magenta (rotește 45° la deschidere); corp 14px `#7A6A5E` |
+| **Acordeon** (`.tbe-accordion`) | rezumat Fraunces **18px** 600, padding 16px sus/jos, linie jos 1px `#EDDDD3`, semn „+" magenta (rotește 45° la deschidere); corp 14px `#7A6A5E` |
 | **FAQ de pe site** (`.faq-*`) | item cu chevron magenta care se rotește 180°; deschidere animată cu `grid-template-rows 0fr → 1fr`; un singur item deschis odată |
 | Stare goală | text centrat `#7A6A5E`, padding 64px × 24px, iconiță 40px la 35% opacitate |
 
@@ -364,10 +373,10 @@ Font 14px. **Antet:** Source Code Pro 12px majuscule, spațiere 0.14em, `#7A6A5E
 | Element | Valori |
 |---|---|
 | **Bandă de progres EMPIRIA** (`.tbe-path-node`) | mono 12px majuscule, padding 6px × 14px, pill; **neatins:** fundal `#F2E9E2`, text `#7A6A5E`, bordură `#EDDDD3`; **făcut:** fundal `#FBF0F5`, text `#A71257`, bordură `#E9B6CC`; **curent:** fundal `#A71257`, text alb; **blocat:** + lacăt |
-| **Card de coafeză** (Harta, `.tbe-salon`) | lățime max. 360px, fundal `#FFFFFF`, bordură 1px `#EDDDD3`, rază 20px, umbră `0 10px 28px -14px rgba(26,20,22,0.10)` → **hover `0 28px 60px -12px rgba(26,20,22,0.18)`** + `translateY(-2px)`; foto 1:1; nume Cormorant 22px 600; rol Cormorant italic 16px mauve; adresă 14px **magenta** cu pin; tag-uri de servicii pill; buton contact verde + cercuri social 44px în culorile platformelor |
-| Scor de comunitate | valoare Cormorant 22px 600 `#2C2521` · maxim 14px `#7A6A5E` |
-| Bară de dovadă socială (paginile de curs) | fundal `#EDDDD3`, linii sus/jos 1px `#EDDDD3`, padding 24px; cifră Cormorant 18px 600 **magenta**, etichetă 14px `#7A6A5E` |
-| Citat editorial (`.tbe-quote`) | Cormorant italic 22px 400, linie stânga 2px `#C9A6B4`, padding 8px 0 8px 24px; atribuire Jost 14px mauve `#6E5361` |
+| **Card de coafeză** (Harta, `.tbe-salon`) | lățime max. 360px, fundal `#FFFFFF`, bordură 1px `#EDDDD3`, rază 20px, umbră `0 10px 28px -14px rgba(26,20,22,0.10)` → **hover `0 28px 60px -12px rgba(26,20,22,0.18)`** + `translateY(-2px)`; foto 1:1; nume Fraunces 22px 600; rol Fraunces italic 16px mauve; adresă 14px **magenta** cu pin; tag-uri de servicii pill; buton contact verde + cercuri social 44px în culorile platformelor |
+| Scor de comunitate | valoare Fraunces 22px 600 `#2C2521` · maxim 14px `#7A6A5E` |
+| Bară de dovadă socială (paginile de curs) | fundal `#EDDDD3`, linii sus/jos 1px `#EDDDD3`, padding 24px; cifră Fraunces 18px 600 **magenta**, etichetă 14px `#7A6A5E` |
+| Citat editorial (`.tbe-quote`) | Fraunces italic 22px 400, linie stânga 2px `#C9A6B4`, padding 8px 0 8px 24px; atribuire Inter 14px mauve `#6E5361` |
 | Linie decorativă (`.tbe-rule`) | 1px `#C9A6B4` la 50% opacitate; scurtă: 64 × 2px pill, 100% |
 | Kicker (supratitlu) | Source Code Pro 12px 500 majuscule, spațiere 0.14em, mauve `#6E5361` (magenta doar când precede o acțiune) |
 

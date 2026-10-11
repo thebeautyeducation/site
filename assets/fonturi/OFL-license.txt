@@ -1,8 +1,10 @@
-Copyright 2020 The Jost Project Authors (https://github.com/indestructible-type)
+Fraunces — Copyright 2018 The Fraunces Project Authors (https://github.com/undercasetype/Fraunces)
+Inter — Copyright 2020 The Inter Project Authors (https://github.com/rsms/inter)
+Source Code Pro — Copyright 2010, 2012 Adobe Systems Incorporated (http://www.adobe.com/), with Reserved Font Name 'Source'. All Rights Reserved. Source is a trademark of Adobe Systems Incorporated in the United States and/or other countries.
 
 This Font Software is licensed under the SIL Open Font License, Version 1.1.
 This license is copied below, and is also available with a FAQ at:
-http://scripts.sil.org/OFL
+https://scripts.sil.org/OFL
 
 
 -----------------------------------------------------------

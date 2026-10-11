@@ -48,7 +48,7 @@
   letter-spacing: var(--ls-tight);
   margin-bottom: var(--s-3);
 }
-/* Cuvântul-promisiune — italic Cormorant, magenta (deja încărcat de tokens.css). */
+/* Cuvântul-promisiune — italic Fraunces, magenta (deja încărcat de tokens.css). */
 .mke-titlu em { font-style: italic; font-weight: var(--fw-regular); color: var(--tbe-action); }
 
 /* Argumentele de vânzare — listă cu bife magenta. */

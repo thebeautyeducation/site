@@ -19,29 +19,78 @@
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   00 · FONTURI (fișiere locale din brand/fonturi/)
-   Dacă muți design system-ul, ajustează calea sau folosește Google Fonts.
+   00 · FONTURI — Fraunces (titluri) + Inter (text & UI) + Source Code Pro (kickere)
+   Fișiere woff2 locale, variabile 100–900, împărțite pe două subseturi:
+     latin      → literele de bază (inclusiv â, î)
+     latin-ext  → ă, ș, ț (virguliță) și restul diacriticelor europene
+   Browserul descarcă un subset doar când pagina conține caractere din el.
+   Aceleași fonturi, în .ttf pentru instalare (Canva, Figma, print): brand/fonturi/.
+   Dacă muți design system-ul, ajustează calea sau folosește Google Fonts
+   (vezi docs/instalare.md).
    -------------------------------------------------------------------------- */
 @font-face {
-  font-family: 'Cormorant Garamond';
-  src: url('../fonturi/CormorantGaramond%5Bwght%5D.ttf') format('truetype-variations');
-  font-weight: 300 700;
+  font-family: 'Fraunces';
+  src: url('../fonturi/Fraunces-latin.woff2') format('woff2');
+  font-weight: 100 900;
   font-style: normal;
   font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 @font-face {
-  font-family: 'Cormorant Garamond';
-  src: url('../fonturi/CormorantGaramond-Italic%5Bwght%5D.ttf') format('truetype-variations');
-  font-weight: 300 700;
+  font-family: 'Fraunces';
+  src: url('../fonturi/Fraunces-latin-ext.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Fraunces';
+  src: url('../fonturi/Fraunces-Italic-latin.woff2') format('woff2');
+  font-weight: 100 900;
   font-style: italic;
   font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 @font-face {
-  font-family: 'Jost';
-  src: url('../fonturi/Jost%5Bwght%5D.ttf') format('truetype-variations');
-  font-weight: 200 900;
+  font-family: 'Fraunces';
+  src: url('../fonturi/Fraunces-Italic-latin-ext.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('../fonturi/Inter-latin.woff2') format('woff2');
+  font-weight: 100 900;
   font-style: normal;
   font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('../fonturi/Inter-latin-ext.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('../fonturi/Inter-Italic-latin.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('../fonturi/Inter-Italic-latin-ext.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 @font-face {
   font-family: 'Source Code Pro';
@@ -159,8 +208,11 @@
    02 · TIPOGRAFIE
    ========================================================================== */
 :root {
-  --font-display: 'Cormorant Garamond', 'Georgia', 'Times New Roman', serif;
-  --font-body:    'Jost', 'Futura', 'Century Gothic', -apple-system, 'Segoe UI', sans-serif;
+  /* Fraunces = serif editorial, cu ax optic (opsz): la mărimi mari devine fin și
+     contrastat, la mărimi mici se îngroașă singur ca să rămână lizibil.
+     Inter = sans neutru, gândit pentru ecran, cu cifre aliniate și 9 grosimi. */
+  --font-display: 'Fraunces', 'Georgia', 'Times New Roman', serif;
+  --font-body:    'Inter', -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   --font-mono:    'Source Code Pro', 'SFMono-Regular', Consolas, monospace;
 
   /* Scară fluidă — se adaptează singură între mobil și desktop */
@@ -175,10 +227,19 @@
   --fs-xs:      0.75rem;    /* 12px — caption */
   --fs-kicker:  0.75rem;    /* 12px — supratitlu mono */
 
+  /* Ambele familii au toate grosimile 100–900. Scara folosită în sistem: */
   --fw-light:     300;
   --fw-regular:   400;
   --fw-medium:    500;
   --fw-semibold:  600;
+  --fw-bold:      700;
+  --fw-extrabold: 800;
+  --fw-black:     900;
+
+  /* Cifre: aliniate pe rând (lining) peste tot. Tabular = lățime egală,
+     pentru coloane, prețuri și statistici care se aliniază vertical. */
+  --num-default: lining-nums proportional-nums;
+  --num-tabular: lining-nums tabular-nums;
 
   --lh-tight:   1.08;  /* display */
   --lh-snug:    1.25;  /* titluri */

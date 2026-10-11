@@ -22,12 +22,15 @@ body {
   font-size: var(--fs-base);
   font-weight: var(--fw-regular);
   line-height: var(--lh-body);
+  font-variant-numeric: var(--num-default);  /* cifre aliniate pe rând, peste tot */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: background var(--dur-base) var(--ease-out), color var(--dur-base) var(--ease-out);
 }
 
 img, svg, video { max-width: 100%; height: auto; display: block; }
+
+b, strong { font-weight: var(--fw-bold); }
 
 ::selection { background: var(--tbe-action); color: var(--tbe-text-on-action); }
 
@@ -56,6 +59,11 @@ h1, h2, h3, h4 {
 .tbe-h2, h2  { font-size: var(--fs-h2); }
 .tbe-h3, h3  { font-size: var(--fs-h3); font-weight: var(--fw-semibold); letter-spacing: var(--ls-normal); }
 .tbe-h4, h4  { font-size: var(--fs-h4); font-weight: var(--fw-semibold); letter-spacing: var(--ls-normal); }
+
+/* Cuvântul accentuat dintr-un titlu: Fraunces italic, mai subțire decât titlul.
+   Culoarea rămâne a titlului; site-ul TBE îl face magenta. */
+.tbe-display em, .tbe-h1 em, .tbe-h2 em, .tbe-h3 em, .tbe-h4 em,
+h1 em, h2 em, h3 em, h4 em { font-style: italic; font-weight: var(--fw-regular); }
 
 /* Kicker / supratitlu — semnătura tipografică a brandului.
    MAUVE, nu magenta: un kicker nu se dă click. Magenta rămâne al acțiunii. */
@@ -393,7 +401,7 @@ code, .tbe-code {
 
 /* Card de statistică / KPI */
 .tbe-stat { background: var(--tbe-surface); border: var(--bw-hair) solid var(--tbe-border-subtle); border-radius: var(--tbe-radius-card); padding: var(--sp-5); }
-.tbe-stat-value { font-family: var(--font-display); font-size: var(--fs-h1); font-weight: var(--fw-medium); line-height: 1; color: var(--tbe-action); font-variant-numeric: tabular-nums; }
+.tbe-stat-value { font-family: var(--font-display); font-size: var(--fs-h1); font-weight: var(--fw-medium); line-height: 1; color: var(--tbe-action); font-variant-numeric: var(--num-tabular); }
 .tbe-stat-label { font-family: var(--font-mono); font-size: var(--fs-xs); letter-spacing: var(--ls-kicker); text-transform: uppercase; color: var(--tbe-editorial); margin-top: var(--sp-3); }
 
 /* Card cu suprafață mauve — bloc editorial, citate, „despre noi" */
@@ -608,7 +616,7 @@ code, .tbe-code {
 }
 .tbe-table td { padding: var(--sp-4); border-bottom: 1px solid var(--tbe-border-subtle); }
 .tbe-table tbody tr:hover { background: var(--tbe-surface-sunk); }
-.tbe-table .is-num { text-align: right; font-variant-numeric: tabular-nums; }
+.tbe-table .is-num { text-align: right; font-variant-numeric: var(--num-tabular); }
 
 /* ==========================================================================
    OVERLAY-URI
@@ -824,7 +832,7 @@ code, .tbe-code {
 }
 
 .tbe-score { display: inline-flex; align-items: baseline; gap: var(--sp-1); font-family: var(--font-display); }
-.tbe-score-value { font-size: var(--fs-h3); font-weight: var(--fw-semibold); color: var(--tbe-text); font-variant-numeric: tabular-nums; }
+.tbe-score-value { font-size: var(--fs-h3); font-weight: var(--fw-semibold); color: var(--tbe-text); font-variant-numeric: var(--num-tabular); }
 .tbe-score-max { font-size: var(--fs-sm); color: var(--tbe-text-muted); font-family: var(--font-body); }
 
 /* ==========================================================================
@@ -839,4 +847,4 @@ code, .tbe-code {
 .tbe-measure-narrow { max-width: var(--measure-narrow); }
 .tbe-mt-0 { margin-top: 0; } .tbe-mb-0 { margin-bottom: 0; }
 .tbe-nowrap { white-space: nowrap; }
-.tbe-tabular { font-variant-numeric: tabular-nums; }
+.tbe-tabular { font-variant-numeric: var(--num-tabular); }

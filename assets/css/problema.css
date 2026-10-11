@@ -32,7 +32,7 @@
 .problema .tbe-kicker { color: var(--site-on-dark-kicker); }
 
 /* --- Citatul ---------------------------------------------------------------
-   Piesa centrală. Cormorant italic, mare, alb — nu are ghilimele desenate:
+   Piesa centrală. Fraunces italic, mare, alb — nu are ghilimele desenate:
    la dimensiunea asta, italicul + semnătura spun singure „citat".            */
 .problema-quote {
   margin: 0 0 var(--s-6);

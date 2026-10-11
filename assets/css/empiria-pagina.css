@@ -61,7 +61,7 @@
   letter-spacing: var(--ls-tight);
   margin-bottom: var(--s-3);
 }
-/* Cuvântul accentuat — italic Cormorant, magenta. Cormorant Italic e deja
+/* Cuvântul accentuat — italic Fraunces, magenta. Fraunces Italic e deja
    încărcat de tokens.css, deci fără cost suplimentar de font. */
 .eph-titlu em {
   font-style: italic;

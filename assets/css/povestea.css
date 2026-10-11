@@ -19,15 +19,15 @@
    ANTET
    ========================================================================== */
 /* Lățimea e în px, nu în ch. Greșeala inițială: `max-width: 42ch` pe antet —
-   dar `ch` se calculează în fontul ELEMENTULUI, iar antetul moștenește Jost 16px,
+   dar `ch` se calculează în fontul ELEMENTULUI, iar antetul moștenește Inter 16px (la măsurare: Jost),
    unde 1ch = 9,60px. Deci 42ch ieșeau 403px, nu ~700 cum intenționam. De aici
    titlul rupt în 3 rânduri și leadul în 4, cu mult gol în dreapta.
 
    720px, măsurat pe metricile reale ale fonturilor:
-   - titlul „De la un curs online la un ecosistem" = 631px la 48px Cormorant
+   - titlul „De la un curs online la un ecosistem" = 710px la 48px Fraunces 300 (remăsurat oct. 2026; cu Cormorant era 631px). Încape pe un rând, dar la limită: un titlu mai lung de ~37 caractere trece pe două
      → un singur rând, cu 89px de rezervă (destul și pentru variații de weight)
    - leadul = 1083px pe un rând → două rânduri (703 + 375)
-   - 720px la 18px Jost ≈ 67 caractere, adică exact --measure din design system */
+   - 720px la 18px Inter ≈ 65 caractere (cu Jost era 67), adică exact --measure din design system */
 .povestea-head {
   max-width: 720px;
   margin-bottom: var(--s-10);

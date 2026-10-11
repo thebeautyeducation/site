@@ -298,10 +298,10 @@ Toate trei au aceleași badge-uri de discipline („Coafuri", „+ Makeup", „+
 ca să se vadă curriculumul crescând. La rail, scroll-ul e nativ — funcționează și cu JS oprit.
 
 **Antetul, reparat.** Titlul ieșea pe 3 rânduri și leadul pe 4 din cauza unei greșeli: `max-width: 42ch`
-pe antet, dar `ch` se calculează în fontul elementului, iar antetul moștenește Jost 16px, unde
+pe antet, dar `ch` se calculează în fontul elementului, iar antetul moștenea Jost 16px (fontul de atunci; acum Inter), unde
 1ch = 9,60px — deci 403px, nu ~700 cum intenționam. Măsurat pe metricile reale ale fonturilor (parsate
 din `hmtx`/`cmap`), la 720px titlul are 631px, adică **un rând**, iar leadul **două** (703 + 375px).
-720px la 18px Jost ≈ 67 caractere, exact `--measure` din design system.
+720px la 18px Jost ≈ 67 caractere, exact `--measure` din design system. *(Remăsurat oct. 2026, cu Fraunces + Inter: titlul are 710px la 48px — tot un rând, dar la limită; 720px la 18px Inter ≈ 65 caractere.)*
 
 **Ierarhia de culoare:** anii și titlurile charcoal (informație), accentul „acum" și etichetele mauve
 (voce editorială), iar **magenta doar pe cifrele mari** — singurul moment de impact, și singura folosire
@@ -328,7 +328,7 @@ De decis care set e corect și de aliniat celălalt document.
 Charcoal plin ([`assets/css/problema.css`](assets/css/problema.css)), **centrat**, coloană de 680px pe
 axul paginii (prima versiune era aliniată stânga, dar golul din dreapta domina — schimbat la cerere).
 Ruptura de ritm față de bento-ul de deasupra **e** designul: fără fotografii, fără carduri, doar text.
-Citatul („Talentul nu e de-ajuns...") e piesa centrală — Cormorant italic 28→44px, semnat
+Citatul („Talentul nu e de-ajuns...") e piesa centrală — Fraunces italic 28→44px, semnat
 „Adriana Dobre · Fondatoare". Prima frază a confesiunii e mai deschisă la culoare (schimbarea de voce),
 concluzia e `<strong>` alb, CTA-ul duce la `ro.thebeautyeducation.com`, ca peste tot.
 Culorile vin din tokenii `--site-on-dark-*` (muted 7,2:1 pe charcoal).
@@ -453,7 +453,7 @@ plate — charcoal sau nude), funcționează fără modificări.
 
 **Două decizii de conținut, de confirmat:**
 - „EMPIRIA — certificarea nivelului profesional" a fost despicat în etichetă mono **Empiria** +
-  titlu **„Certificarea nivelului profesional"**. Cu `EMPIRIA` în majuscule în titlul Cormorant arăta
+  titlu **„Certificarea nivelului profesional"**. Cu `EMPIRIA` în majuscule în titlul serif arăta
   ca un acronim tehnic, nu ca un nume de program.
 - Punctul 5 avea două titluri („Aplicație de mobil / Educația ta, mereu la tine"): primul a devenit
   etichetă, al doilea titlu.
@@ -513,7 +513,7 @@ CTA „Vreau pe hartă" → harta-coafezelor.ro.
 
 CSS: [`assets/css/marturii.css`](assets/css/marturii.css) · JS: [`assets/js/marturii.js`](assets/js/marturii.js).
 Pe crem, după Harta (bej → crem = graniță vizibilă). Referința: cardurile Circle.so — portret cu citat
-peste gradient jos, adaptate editorial: citatul e **Cormorant italic**, ca toate citatele din brand.
+peste gradient jos, adaptate editorial: citatul e **Fraunces italic**, ca toate citatele din brand.
 
 **Bandă full-bleed derulabilă**: cardurile ies din container până la marginea ecranului (padding
 calculat cu `--mt-pad`), snap nativ CSS — merge fără JS. JS-ul adaugă doar butoanele înainte/înapoi și
@@ -571,7 +571,7 @@ CTA-ului → alb); alb → footer charcoal = 11,4:1. Referința: antet pe două 
 descriere + link dreapta) și **carduri orizontale** — imagine 42% stânga, conținut dreapta cu autor
 (avatar + nume + rol), titlu, extras și „Citește articolul →".
 
-Adaptări față de referință: titlurile articolelor în **Cormorant** (nu sans bold), linkul de articol
+Adaptări față de referință: titlurile articolelor în **Fraunces** (nu sans bold), linkul de articol
 magenta, iar **punctele de carusel au fost scoase** — secțiunea arată ultimele 2 articole; în
 WordPress devine loop peste postările recente. Pe mobil imaginea trece deasupra conținutului.
 
@@ -819,7 +819,7 @@ CSS: [`blog-pagina.css`](assets/css/blog-pagina.css) (prefix `bl-`), încărcat 
 cardurile de articol **reutilizează integral componenta `.blog-card` de pe homepage** (orizontală,
 imagine 42% + conținut), cum a cerut Marius. Fără JS propriu.
 
-**Lista:** antet + articol *featured* (mare, imagine + titlu Cormorant + meta + buton) + secțiunea
+**Lista:** antet + articol *featured* (mare, imagine + titlu Fraunces + meta + buton) + secțiunea
 „Toate articolele" cu grila de `.blog-card` (6 intrări). Fiecare card are un **chip de categorie**
 nou (`.bl-chip`) deasupra autorului. Categorii folosite: Colorimetrie, Business, Tehnică,
 Comunitate, Poveste.
