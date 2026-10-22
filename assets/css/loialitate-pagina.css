@@ -29,7 +29,7 @@
   margin-bottom: var(--s-3);
   text-wrap: balance;
 }
-.lp-titlu em { font-style: italic; font-weight: var(--fw-regular); color: var(--tbe-action); }
+.lp-titlu em { font-style: italic; font-weight: var(--fw-regular); color: var(--tbe-editorial); }
 .lp-header .tbe-lead { max-width: 60ch; }
 .lp-hero-actions { display: flex; gap: var(--s-2); flex-wrap: wrap; margin-top: var(--s-5); }
 .lp-meta {

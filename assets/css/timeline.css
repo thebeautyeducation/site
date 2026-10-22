@@ -104,20 +104,21 @@
 }
 .tl-card .tl-badges { margin-top: auto; padding-top: var(--s-2); }
 
-/* Cardul prezentului: charcoal. Un singur bloc închis în toată secțiunea —
+/* Cardul prezentului: negru-prună. Un singur bloc închis în toată secțiunea —
    ochiul îl găsește instant, fără să fie nevoie de vreo linie care să explice
    unde s-a ajuns. */
-.tl-card.is-acum { background: var(--c-neutral-900); }
+.tl-card.is-acum { background: var(--c-pruna-900); }
 .tl-card.is-acum .tl-titlu { color: var(--c-neutral-50); }
-/* Pe charcoal, magenta-500 nu se citește (2,1:1) — varianta luminoasă dă 5,0:1. */
-.tl-card.is-acum .tl-an { color: var(--c-magenta-light); }
+/* Pe negru-prună, magenta-500 nu se citește (2,3:1). Anul e accent, nu acțiune:
+   Magenta 200, 9,8:1. */
+.tl-card.is-acum .tl-an { color: var(--c-magenta-200); }
 .tl-card.is-acum .tl-badge {
   color: var(--c-neutral-50);
   background: rgba(var(--site-rgb-crem), 0.08);
   border-color: rgba(var(--site-rgb-crem), 0.22);
 }
-.tl-card.is-acum .tl-acum { color: var(--c-magenta-light); }
-.tl-card.is-acum .tl-acum::before { background: var(--c-magenta-light); }
+.tl-card.is-acum .tl-acum { color: var(--c-magenta-200); }
+.tl-card.is-acum .tl-acum::before { background: var(--c-magenta-200); }
 
 .tl-card-cap {
   display: flex;

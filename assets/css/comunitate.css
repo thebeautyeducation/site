@@ -96,7 +96,7 @@
    A · BENTO
    Grilă asimetrică 7/5 · 5/7 · 4/4/4. Trei suprafețe, ca ritmul să nu fie o
    galerie de carduri identice:
-     charcoal — comunitatea (miezul emoțional, cardul cel mai mare)
+     negru-prună — comunitatea (miezul emoțional, cardul cel mai mare)
      nude     — educația (250+ tutoriale)
      alb      — restul
    ========================================================================== */
@@ -145,7 +145,7 @@
   justify-content: flex-end;   /* textul se așază jos, peste partea opacă */
   padding: 0;
   min-height: 300px;
-  background: var(--c-neutral-900);   /* ce se vede până se încarcă poza */
+  background: var(--c-pruna-900);   /* ce se vede până se încarcă poza */
   isolation: isolate;
 }
 
@@ -249,10 +249,10 @@
 .cm-card.has-photo:focus-visible { outline-color: var(--c-nude-200); }
 
 /* Suprafață închisă */
-.cm-card.is-dark { background: var(--c-neutral-900); }
+.cm-card.is-dark { background: var(--c-pruna-900); }
 .cm-card.is-dark .cm-titlu { color: var(--c-neutral-50); }
-.cm-card.is-dark .cm-desc { color: var(--c-neutral-400); }
-.cm-card.is-dark .cm-eticheta { color: var(--c-mauve-200); }
+.cm-card.is-dark .cm-desc { color: var(--c-pruna-200); }
+.cm-card.is-dark .cm-eticheta { color: var(--c-magenta-200); }
 
 /* Suprafață nude — decor din design system, fără umbră: e un bloc, nu un card */
 .cm-card.is-decor {

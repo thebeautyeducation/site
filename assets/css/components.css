@@ -60,13 +60,13 @@ h1, h2, h3, h4 {
 .tbe-h3, h3  { font-size: var(--fs-h3); font-weight: var(--fw-semibold); letter-spacing: var(--ls-normal); }
 .tbe-h4, h4  { font-size: var(--fs-h4); font-weight: var(--fw-semibold); letter-spacing: var(--ls-normal); }
 
-/* Cuvântul accentuat dintr-un titlu: Fraunces italic, mai subțire decât titlul.
-   Culoarea rămâne a titlului; site-ul TBE îl face magenta. */
+/* Cuvântul accentuat dintr-un titlu: Fraunces italic, mai subțire decât titlul,
+   în prună (voce editorială). Nu magenta: magenta înseamnă „se dă click". */
 .tbe-display em, .tbe-h1 em, .tbe-h2 em, .tbe-h3 em, .tbe-h4 em,
-h1 em, h2 em, h3 em, h4 em { font-style: italic; font-weight: var(--fw-regular); }
+h1 em, h2 em, h3 em, h4 em { font-style: italic; font-weight: var(--fw-regular); color: var(--tbe-editorial); }
 
 /* Kicker / supratitlu — semnătura tipografică a brandului.
-   MAUVE, nu magenta: un kicker nu se dă click. Magenta rămâne al acțiunii. */
+   PRUNĂ, nu magenta: un kicker nu se dă click. Magenta rămâne al acțiunii. */
 .tbe-kicker {
   font-family: var(--font-mono);
   font-size: var(--fs-kicker);
@@ -80,7 +80,7 @@ h1 em, h2 em, h3 em, h4 em { font-style: italic; font-weight: var(--fw-regular);
 .tbe-kicker.is-action { color: var(--tbe-action); }  /* doar când chiar precede o acțiune */
 .tbe-kicker.is-muted  { color: var(--tbe-text-muted); }
 
-/* Rol / subtitlu editorial — serif italic, mauve. „Profesionist independent". */
+/* Rol / subtitlu editorial — serif italic, prună. „Profesionist independent". */
 .tbe-role {
   font-family: var(--font-display);
   font-style: italic;
@@ -89,7 +89,7 @@ h1 em, h2 em, h3 em, h4 em { font-style: italic; font-weight: var(--fw-regular);
   margin: 0 0 var(--sp-3);
 }
 
-/* Linie decorativă mauve — separă fără să taie */
+/* Linie decorativă prună — separă fără să taie */
 .tbe-rule {
   border: 0; height: 1px; background: var(--tbe-editorial-line);
   opacity: 0.5; margin-block: var(--sp-6);
@@ -173,6 +173,12 @@ code, .tbe-code {
 .tbe-section.is-inverse { background: var(--tbe-surface-inverse); color: var(--tbe-text-inverse); }
 .tbe-section.is-inverse h1, .tbe-section.is-inverse h2,
 .tbe-section.is-inverse h3, .tbe-section.is-inverse h4 { color: var(--tbe-text-inverse); }
+/* Pe blocul închis (negru-prună), vocea editorială trece pe Magenta 200
+   și textul secundar pe Prună 200 — altfel prună 700 dispare pe fundal. */
+.tbe-section.is-inverse :is(h1, h2, h3, h4, .tbe-display) em,
+.tbe-section.is-inverse :is(.tbe-kicker, .tbe-role, .tbe-stat-label),
+.tbe-section.is-inverse .tbe-quote cite { color: var(--tbe-editorial-on-inverse); }
+.tbe-section.is-inverse :is(.tbe-muted, .tbe-lead, .tbe-caption) { color: var(--tbe-text-muted-on-inverse); }
 
 .tbe-stack   { display: flex; flex-direction: column; gap: var(--sp-4); }
 .tbe-stack.is-tight { gap: var(--sp-2); }
@@ -404,7 +410,9 @@ code, .tbe-code {
 .tbe-stat-value { font-family: var(--font-display); font-size: var(--fs-h1); font-weight: var(--fw-medium); line-height: 1; color: var(--tbe-action); font-variant-numeric: var(--num-tabular); }
 .tbe-stat-label { font-family: var(--font-mono); font-size: var(--fs-xs); letter-spacing: var(--ls-kicker); text-transform: uppercase; color: var(--tbe-editorial); margin-top: var(--sp-3); }
 
-/* Card cu suprafață mauve — bloc editorial, citate, „despre noi" */
+/* Card editorial — prună foarte diluat. Bloc editorial, citate, „despre noi".
+   .is-mauve rămâne ca nume vechi, ca să nu se strice paginile existente. */
+.tbe-card.is-editorial,
 .tbe-card.is-mauve {
   background: var(--tbe-editorial-soft);
   border-color: var(--tbe-editorial-line);
@@ -583,12 +591,12 @@ code, .tbe-code {
 .tbe-progress-bar { height: 100%; background: var(--tbe-action); border-radius: var(--r-pill); transition: width var(--dur-slower) var(--ease-out); }
 
 .tbe-steps { display: flex; align-items: center; gap: var(--sp-2); }
-.tbe-step-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--tbe-border-strong); }
+.tbe-step-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--tbe-text-subtle); }  /* 3.1:1 — pasul viitor trebuie să se vadă */
 .tbe-step-dot.is-active { background: var(--tbe-action); width: 24px; border-radius: var(--r-pill); }
 .tbe-step-dot.is-done { background: var(--tbe-action); }
 
 .tbe-rating { display: inline-flex; gap: 2px; color: var(--tbe-action); font-size: var(--fs-base); letter-spacing: 1px; }
-.tbe-rating .is-empty { color: var(--tbe-border-strong); }
+.tbe-rating .is-empty { color: var(--tbe-text-subtle); }
 
 .tbe-skeleton {
   background: linear-gradient(90deg, var(--tbe-surface-sunk) 25%, var(--tbe-decor) 50%, var(--tbe-surface-sunk) 75%);
@@ -622,7 +630,7 @@ code, .tbe-code {
    OVERLAY-URI
    ========================================================================== */
 .tbe-modal { border: 0; padding: 0; background: transparent; max-width: 520px; width: calc(100% - 2rem); }
-.tbe-modal::backdrop { background: rgba(44, 37, 33, 0.55); backdrop-filter: blur(3px); }
+.tbe-modal::backdrop { background: rgba(42, 21, 32, 0.55); backdrop-filter: blur(3px); }  /* negru-prună 55% */
 .tbe-modal-inner { background: var(--tbe-surface); border-radius: var(--tbe-radius-card); padding: var(--sp-6); box-shadow: var(--shadow-xl); }
 
 .tbe-toast {
@@ -687,7 +695,7 @@ code, .tbe-code {
 }
 .tbe-photo-scrim::after {
   content: ''; position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(44,37,33,0.72) 0%, rgba(44,37,33,0.28) 45%, rgba(44,37,33,0) 75%);
+  background: linear-gradient(to top, rgba(42,21,32,0.72) 0%, rgba(42,21,32,0.28) 45%, rgba(42,21,32,0) 75%);
 }
 .tbe-photo-scrim > .tbe-photo-content { position: absolute; inset: auto 0 0 0; z-index: 2; padding: var(--sp-5); color: #fff; }
 .tbe-photo-scrim > .tbe-photo-content * { color: #fff; }

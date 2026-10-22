@@ -68,7 +68,7 @@
   aspect-ratio: 10 / 16;
   border-radius: var(--tbe-radius-card);
   overflow: hidden;
-  background: var(--c-neutral-900);
+  background: var(--c-pruna-900);
   box-shadow: var(--site-shadow-card);
   isolation: isolate;
   transition: box-shadow var(--dur-slow) var(--ease-out),

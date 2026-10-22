@@ -47,7 +47,7 @@
 .cmp-titlu em {
   font-style: italic;
   font-weight: var(--fw-regular);
-  color: var(--tbe-action);
+  color: var(--tbe-editorial);
 }
 
 .cmp-hero-actions {

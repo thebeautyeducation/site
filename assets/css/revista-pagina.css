@@ -37,7 +37,7 @@
 .rev-titlu em {
   font-style: italic;
   font-weight: var(--fw-regular);
-  color: var(--tbe-action);
+  color: var(--tbe-editorial);
 }
 
 /* Linia de metadate: ISSN · lunar · inclusă în abonament */

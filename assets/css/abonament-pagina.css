@@ -41,7 +41,7 @@
   margin-bottom: var(--s-3);
   text-wrap: balance;
 }
-.ab-titlu em { font-style: italic; font-weight: var(--fw-regular); color: var(--tbe-action); }
+.ab-titlu em { font-style: italic; font-weight: var(--fw-regular); color: var(--tbe-editorial); }
 .ab-hero-text .tbe-lead { max-width: 52ch; }
 
 /* Cele 3 cifre-ancoră sub lead. */
@@ -301,7 +301,7 @@
 /* ==========================================================================
    2 · DINCOLO DE TUTORIALE
    Ierarhie: EMPIRIA + Harta = carduri MARI cu fotografie (argumentele care
-   schimbă cariera) → banda „14 diplome” (pe charcoal, ca „Problema” de pe
+   schimbă cariera) → banda „14 diplome” (pe negru-prună, ca „Problema” de pe
    homepage) → Revista + Loialitate = carduri orizontale cu icon → „și încă”.
    ========================================================================== */
 .ab-mari {
@@ -331,7 +331,7 @@
   position: relative;
   display: block;
   aspect-ratio: 16 / 9;
-  background: var(--c-neutral-900);
+  background: var(--c-pruna-900);
   overflow: hidden;
 }
 .ab-mare-media img {
@@ -381,7 +381,7 @@
 .ab-mare-fapte span { font-size: var(--fs-xs); color: var(--tbe-text-subtle); }
 .ab-mare-link { margin-top: auto; padding-top: var(--s-4); font-size: var(--fs-sm); font-weight: var(--fw-medium); color: var(--tbe-action); }
 
-/* --- Banda „14 diplome” — charcoal, cifra mare + descompunerea ------------- */
+/* --- Banda „14 diplome” — negru-prună, cifra mare + descompunerea ------------- */
 .ab-diplome {
   display: grid;
   grid-template-columns: auto 1fr;
@@ -390,7 +390,7 @@
   margin-bottom: var(--s-3);
   padding: var(--s-6);
   border-radius: var(--tbe-radius-card);
-  background: rgb(var(--site-rgb-charcoal));
+  background: var(--c-pruna-900);
   color: var(--site-on-dark);
 }
 .ab-diplome-cifra { display: flex; flex-direction: column; align-items: flex-start; }

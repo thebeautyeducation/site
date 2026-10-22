@@ -21,7 +21,7 @@
   margin-bottom: var(--s-3);
   text-wrap: balance;
 }
-.trn-titlu em { font-style: italic; font-weight: var(--fw-regular); color: var(--tbe-action); }
+.trn-titlu em { font-style: italic; font-weight: var(--fw-regular); color: var(--tbe-editorial); }
 .trn-header .tbe-lead { max-width: 58ch; }
 
 /* ==========================================================================

@@ -4,19 +4,19 @@
    --------------------------------------------------------------------------
    Rolul secțiunii: moment de reflecție care rupe densitatea vizuală de
    dinainte (bento cu 7 fotografii). De aici toate deciziile:
-   - charcoal plin, fără fotografie, fără carduri — singura secțiune „goală"
+   - negru-prună plin, fără fotografie, fără carduri — singura secțiune „goală"
    - CENTRAT (inițial era stânga, dar lăsa golul din dreapta să domine):
      coloana stă pe axul paginii, ca o dedicație pe o pagină de gardă
    - o singură coloană îngustă (680px), mult aer sus și jos
 
    Culorile vin din tokenii --site-on-dark-* (definite în site.css pentru
    suprafețele permanent închise): text 14,6:1 · muted 7,2:1 · kicker 9,6:1.
-   Ordinea benzilor din pagină: crem → bej → CHARCOAL → (urmează FAQ, fundal
+   Ordinea benzilor din pagină: crem → bej → NEGRU-PRUNĂ → (urmează FAQ, fundal
    diferit) → footer. Secțiunea NU e lipită de footer.
    ========================================================================== */
 
 .problema {
-  background: var(--c-neutral-900);
+  background: var(--c-pruna-900);
   color: var(--site-on-dark);
 }
 

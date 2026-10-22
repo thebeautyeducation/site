@@ -63,10 +63,10 @@
      cu alpha variabil — deci culorile de bază stau aici ca triplete, iar
      componentele scriu rgba(var(--site-rgb-*), alpha). Zero culori brute în
      afara acestui bloc. Corespondența cu paleta:
-       ink      = #1A1513 (--c-neutral-950)   crem     = #FAF4EF (--c-neutral-50)
+       ink      = #211018 (--c-pruna-950)     crem     = #FAF4EF (--c-neutral-50)
        charcoal = #2C2521 (--c-neutral-900)   mg-light = #E36D9E (--c-magenta-light)
        mg-adanc = #5A092F (--c-magenta-800)   harta    = #1F4C40 (--c-harta-700)   */
-  --site-rgb-ink:      26, 20, 22;
+  --site-rgb-ink:      33, 16, 24;   /* scrimuri și umbre: negru-prună, aceeași nuanță ca brandul */
   --site-rgb-alb:      255, 255, 255;
   --site-rgb-crem:     250, 244, 239;
   --site-rgb-charcoal: 44, 37, 33;
@@ -82,10 +82,10 @@
      e blocat pe tema light, deci tokenii semantici nu se inversează singuri
      pe o suprafață care e închisă TOT TIMPUL. Definim tokeni proprii, ca să
      nu apară hex-uri în componente.                                        */
-  --site-on-dark:        var(--c-neutral-50);    /* text principal      14.6:1 pe charcoal */
-  --site-on-dark-muted:  var(--c-neutral-400);   /* text secundar        7.3:1 */
-  --site-on-dark-kicker: var(--c-mauve-200);     /* voce editorială      9.6:1 */
-  --site-on-dark-action: var(--c-magenta-light); /* hover/acțiune        5.0:1 */
+  --site-on-dark:        var(--c-neutral-50);    /* text principal      15.7:1 pe negru-prună */
+  --site-on-dark-muted:  var(--c-pruna-200);     /* text secundar       10.2:1 */
+  --site-on-dark-kicker: var(--c-magenta-200);   /* voce editorială      9.8:1 */
+  --site-on-dark-action: var(--c-magenta-light); /* hover/acțiune        5.7:1 */
   --site-on-dark-line:   rgba(var(--site-rgb-crem), 0.12);
   --site-on-dark-fill:   rgba(var(--site-rgb-crem), 0.06);
 }
@@ -577,7 +577,7 @@ body.site-drawer-open { overflow: hidden; }
    gradient charcoal care stătea aici a fost șters când a intrat fotografia.
    ========================================================================== */
 
-/* Focus vizibil pe fundal închis — magenta nu se vede pe charcoal, nici peste
+/* Focus vizibil pe fundal închis — magenta nu se vede pe negru-prună, nici peste
    fotografia de hero. Se aplică navbar-ului transparent, hero-ului și footer-ului. */
 .site-nav:not(.is-solid) :focus-visible,
 .hero :focus-visible,
@@ -587,7 +587,7 @@ body.site-drawer-open { overflow: hidden; }
    05 · FOOTER
    ========================================================================== */
 .site-footer {
-  background: var(--c-neutral-900);
+  background: var(--c-pruna-900);
   color: var(--site-on-dark);
   padding-top: var(--site-section-y);
 }

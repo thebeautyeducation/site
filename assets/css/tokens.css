@@ -117,7 +117,26 @@
   --c-magenta-900: #3D0620;
   --c-magenta-light: #E36D9E; /* varianta pentru dark mode (contrast 6.0:1 pe fundal închis) */
 
-  /* --- Mauve · accent secundar, UI -------------------------------------- */
+  /* --- Prună · vocea editorială și fundalul închis (din oct. 2026) --------
+     Aceeași nuanță ca magenta, dar mai stinsă: se citește ca accent, nu ca
+     link. 700 = cuvintele-accent din titluri, supratitluri, etichete.
+     900 = fundalul închis (story, coperți, footer, toast) — înlocuiește
+     negrul moale pe suprafețe; negrul moale rămâne pentru text. */
+  --c-pruna-50:  #F3E7ED;
+  --c-pruna-100: #E5D4DB;
+  --c-pruna-200: #D9C2CB;  /* text secundar pe fundal închis (10.2:1 pe 900) */
+  --c-pruna-300: #C396AA;
+  --c-pruna-400: #A9748C;
+  --c-pruna-500: #8F5270;
+  --c-pruna-600: #7D3B5D;
+  --c-pruna-700: #6B2A4A;  /* ★ PRUNĂ — accent editorial (10.2:1 pe alb, 9.4:1 pe crem) */
+  --c-pruna-800: #4B1E36;
+  --c-pruna-900: #2A1520;  /* ★ NEGRU-PRUNĂ — fundal închis (Magenta 200 pe el: 9.8:1) */
+  --c-pruna-950: #211018;  /* fundalul paginii în dark mode */
+
+  /* --- Mauve · decorativ: blocuri de culoare, fundaluri de fotografie -----
+     Din oct. 2026 textul editorial a trecut pe prună; mauve rămâne în
+     paletă ca accent decorativ. */
   --c-mauve-50:  #F7F1F3;
   --c-mauve-100: #EFE3E8;
   --c-mauve-200: #DFC8D1;
@@ -125,7 +144,7 @@
   --c-mauve-400: #A98192;  /* ★ MAUVE OFICIAL — brand book */
   --c-mauve-500: #8E6879;
   --c-mauve-600: #74505F;
-  --c-mauve-700: #6E5361;  /* varianta accesibilă pentru text (6.9:1 pe alb) */
+  --c-mauve-700: #6E5361;  /* 6.9:1 pe alb; până în oct. 2026 vocea editorială, acum prună 700 */
   --c-mauve-800: #4A333E;
 
   /* --- Nude · decorativ, fundaluri -------------------------------------- */
@@ -144,7 +163,7 @@
   --c-neutral-300: #DCCFC4;
   --c-neutral-400: #C0B1A5;
   --c-neutral-500: #9E9086;  /* ★ Gri cald — DECORATIV/borduri, NU text mic (3.1:1) */
-  --c-neutral-600: #7A6A5E;  /* text secundar accesibil (4.8:1 pe crem) */
+  --c-neutral-600: #6B5C51;  /* text secundar: 5.9:1 pe crem, 4.9:1 pe bej și pe roz (până în oct. 2026: #7A6A5E) */
   --c-neutral-700: #5A4D44;
   --c-neutral-800: #3D342E;
   --c-neutral-900: #2C2521;  /* ★ Negru moale */
@@ -157,8 +176,8 @@
   --c-warning-soft:  #FBEEDC;
   --c-danger:        #B3261E;  /* 6.6:1 pe alb */
   --c-danger-soft:   #FBE7E5;
-  --c-info:          #6E5361;  /* mauve adânc, 6.9:1 pe alb */
-  --c-info-soft:     #F1E9EC;
+  --c-info:          #6B2A4A;  /* prună, 10.2:1 pe alb */
+  --c-info-soft:     #F3E7ED;
 
   /* --- Harta Coafezelor · semnal de disponibilitate / pin ---------------- */
   --c-harta-500: #2E6F5E;  /* Verde Hartă, 5.9:1 pe alb */
@@ -339,20 +358,23 @@
 [data-brand="tbe"] {
   color-scheme: light dark;
 
-  /* Suprafețe */
-  --tbe-bg:            light-dark(var(--c-neutral-50),  var(--c-neutral-950));  /* fundalul paginii */
-  --tbe-bg-alt:        light-dark(var(--c-neutral-100), #211B18);               /* secțiune alternantă */
-  --tbe-surface:       light-dark(var(--c-neutral-0),   #241E1B);               /* carduri, panouri */
-  --tbe-surface-sunk:  light-dark(var(--c-neutral-100), #1F1917);               /* input-uri, zone „adâncite" */
-  --tbe-surface-inverse: light-dark(var(--c-neutral-900), var(--c-neutral-50));
-  --tbe-decor:         light-dark(var(--c-nude-100), #2E2521);                  /* blocuri decorative */
-  --tbe-decor-strong:  light-dark(var(--c-nude-200), #3A2F29);
+  /* Suprafețe. În dark mode, fundalurile sunt negru-prună (aceeași nuanță ca
+     brandul), nu maro: textul și accentele roz nu mai par terne pe ele. */
+  --tbe-bg:            light-dark(var(--c-neutral-50),  var(--c-pruna-950));    /* fundalul paginii */
+  --tbe-bg-alt:        light-dark(var(--c-neutral-100), #27171E);               /* secțiune alternantă */
+  --tbe-surface:       light-dark(var(--c-neutral-0),   #2A1A21);               /* carduri, panouri */
+  --tbe-surface-sunk:  light-dark(var(--c-neutral-100), #25151C);               /* input-uri, zone „adâncite" */
+  --tbe-surface-inverse: light-dark(var(--c-pruna-900), var(--c-neutral-50));   /* bloc închis pe pagină deschisă */
+  --tbe-decor:         light-dark(var(--c-nude-100), #332129);                  /* blocuri decorative */
+  --tbe-decor-strong:  light-dark(var(--c-nude-200), #3E2B34);
 
   /* Text */
   --tbe-text:          light-dark(var(--c-neutral-900), var(--c-neutral-50));   /* 15.2:1 light — text principal */
-  --tbe-text-muted:    light-dark(var(--c-neutral-600), #B9A99C);               /* 4.8:1 light — text secundar */
-  --tbe-text-subtle:   light-dark(var(--c-neutral-500), #8B7C71);               /* 3.1:1 — DOAR text mare/decorativ */
+  --tbe-text-muted:    light-dark(var(--c-neutral-600), #BFA4AF);               /* 6.4:1 pe alb, 4.9:1 pe benzile bej/roz — text secundar */
+  --tbe-text-muted-strong: light-dark(var(--c-neutral-700), var(--c-pruna-200)); /* text secundar MIC pe fundal colorat (roz, crem, gri) — 7.5:1 pe crem */
+  --tbe-text-subtle:   light-dark(var(--c-neutral-500), #907782);               /* 3.1:1 — DOAR text mare/decorativ */
   --tbe-text-inverse:  light-dark(var(--c-neutral-50), var(--c-neutral-900));
+  --tbe-text-muted-on-inverse: light-dark(var(--c-pruna-200), var(--c-neutral-600)); /* text secundar pe --tbe-surface-inverse — 10.2:1 */
   --tbe-text-on-action: light-dark(var(--c-neutral-0), var(--c-neutral-900));
 
   /* Acțiune (magenta) */
@@ -362,32 +384,39 @@
   --tbe-action-soft:    light-dark(var(--c-magenta-50),  rgba(227, 109, 158, 0.14));
   --tbe-action-soft-hover: light-dark(var(--c-magenta-100), rgba(227, 109, 158, 0.22));
   --tbe-action-border:  light-dark(var(--c-magenta-200), rgba(227, 109, 158, 0.38));
+  /* Progres secundar, cercul unui pas încă neînceput: trebuie să se vadă
+     (min. 3:1), dar să nu concureze cu acțiunea. 4.2:1 pe alb. */
+  --tbe-action-muted:   light-dark(var(--c-magenta-400), var(--c-magenta-300));
 
-  /* Accent secundar (mauve) */
+  /* Accent secundar decorativ (mauve) — blocuri de culoare, fără text */
   --tbe-accent:        light-dark(var(--c-mauve-400), var(--c-mauve-300));
-  --tbe-accent-text:   light-dark(var(--c-mauve-700), var(--c-mauve-200));   /* varianta lizibilă */
+  --tbe-accent-text:   light-dark(var(--c-pruna-700), var(--c-pruna-200));   /* varianta lizibilă — prună */
   --tbe-accent-soft:   light-dark(var(--c-mauve-50), rgba(201, 166, 180, 0.14));
 
-  /* VOCE EDITORIALĂ (mauve) — rolul principal al mauve-ului în sistem.
-     Tot ce e expresiv dar NU se dă click: kickere, citate, atribuiri,
-     etichete de tabel, linii decorative, roluri și subtitluri.
-     Regula pe care o servește: dacă e magenta, se dă click. Mauve-ul preia
-     tot ce înainte era magenta „de decor" și eliberează magenta pentru acțiune. */
-  --tbe-editorial:      light-dark(var(--c-mauve-700), var(--c-mauve-200));
-  --tbe-editorial-line: light-dark(var(--c-mauve-300), var(--c-mauve-600));
-  --tbe-editorial-soft: light-dark(var(--c-mauve-50), rgba(201, 166, 180, 0.10));
+  /* VOCE EDITORIALĂ (prună, din oct. 2026; înainte mauve 700).
+     Tot ce e expresiv dar NU se dă click: cuvântul-accent din titluri,
+     kickere, citate, atribuiri, etichete de tabel, linii decorative, roluri.
+     Regula pe care o servește: dacă e magenta, se dă click. Prună e din
+     aceeași familie cu magenta, dar mai stinsă, deci nu e confundată cu un
+     link. Mauve 700 arăta gri lângă magenta; prună are forță de accent. */
+  --tbe-editorial:      light-dark(var(--c-pruna-700), var(--c-magenta-200));
+  --tbe-editorial-line: light-dark(var(--c-pruna-300), var(--c-pruna-600));
+  --tbe-editorial-soft: light-dark(var(--c-pruna-50), rgba(217, 194, 203, 0.10));
+  /* Pe un bloc --tbe-surface-inverse (negru-prună în light mode), accentul
+     editorial devine Magenta 200: 9.8:1. */
+  --tbe-editorial-on-inverse: light-dark(var(--c-magenta-200), var(--c-pruna-700));
 
   /* Linii */
-  --tbe-border:        light-dark(var(--c-neutral-300), #3C322C);
-  --tbe-border-strong: light-dark(var(--c-neutral-400), #52453D);
-  --tbe-border-subtle: light-dark(var(--c-neutral-200), #2E2621);
+  --tbe-border:        light-dark(var(--c-neutral-300), #412E36);
+  --tbe-border-strong: light-dark(var(--c-neutral-400), #55424A);
+  --tbe-border-subtle: light-dark(var(--c-neutral-200), #33222A);
   --tbe-ring:          light-dark(var(--c-magenta-500), var(--c-magenta-light));
 
   /* Semnale */
   --tbe-success: light-dark(var(--c-success), #6FC79C);  --tbe-success-bg: light-dark(var(--c-success-soft), rgba(111, 199, 156, 0.14));
   --tbe-warning: light-dark(var(--c-warning), #E3A857);  --tbe-warning-bg: light-dark(var(--c-warning-soft), rgba(227, 168, 87, 0.14));
   --tbe-danger:  light-dark(var(--c-danger), #F08379);   --tbe-danger-bg:  light-dark(var(--c-danger-soft), rgba(240, 131, 121, 0.14));
-  --tbe-info:    light-dark(var(--c-info), #C9A6B4);     --tbe-info-bg:    light-dark(var(--c-info-soft), rgba(201, 166, 180, 0.14));
+  --tbe-info:    light-dark(var(--c-info), var(--c-pruna-200)); --tbe-info-bg: light-dark(var(--c-info-soft), rgba(217, 194, 203, 0.14));
 
   /* Formă per brand — TBE = editorial, generos */
   --tbe-radius-control: var(--r-sm);
@@ -414,8 +443,8 @@
    Folosire: <body data-brand="harta">
    ========================================================================== */
 [data-brand="harta"] {
-  --tbe-bg:      light-dark(var(--c-neutral-0), var(--c-neutral-950));  /* mai alb, mai „utilitar" decât cremul TBE */
-  --tbe-bg-alt:  light-dark(var(--c-neutral-50), #211B18);
+  --tbe-bg:      light-dark(var(--c-neutral-0), var(--c-pruna-950));  /* mai alb, mai „utilitar" decât cremul TBE */
+  --tbe-bg-alt:  light-dark(var(--c-neutral-50), #27171E);
   --tbe-decor:   var(--c-neutral-50);
 
   --tbe-radius-control: var(--r-xs);

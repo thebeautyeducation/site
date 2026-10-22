@@ -8,7 +8,7 @@
    ritmul de bandă (is-band). Aici stă DOAR ce e specific paginii de curs:
    hero split, stiva de valoare, cardul de ofertă magenta și bara CTA lipicioasă.
 
-   Ritm de fundal (fiecare graniță vizibilă): crem (Hero) → charcoal (Problema)
+   Ritm de fundal (fiecare graniță vizibilă): crem (Hero) → negru-prună (Problema)
    → crem (Promisiune) → bej (Ce vei învăța) → crem (Ce conține) → bej (Rezultate)
    → crem (Trainer) → bej (Diplome) → crem (Mărturii) → crem (Ofertă, clm-divider)
    → bej (FAQ) → crem (CTA final, clm-divider).
@@ -49,7 +49,7 @@
   margin-bottom: var(--s-3);
 }
 /* Cuvântul-promisiune — italic Fraunces, magenta (deja încărcat de tokens.css). */
-.clm-titlu em { font-style: italic; font-weight: var(--fw-regular); color: var(--tbe-action); }
+.clm-titlu em { font-style: italic; font-weight: var(--fw-regular); color: var(--tbe-editorial); }
 
 /* Argumentele de vânzare — listă cu bife magenta. */
 .clm-hero-puncte {
@@ -205,12 +205,12 @@
 .clm-buybox-secure svg { width: 14px; height: 14px; color: var(--tbe-text-muted); }
 
 /* ==========================================================================
-   1 · PROBLEMA — charcoal, coloană centrată editorială
+   1 · PROBLEMA — negru-prună, coloană centrată editorială
    ========================================================================== */
 .clm-problema { background: var(--tbe-surface-inverse); color: var(--tbe-text-inverse); }
 .clm-problema-inner { max-width: 680px; margin-inline: auto; text-align: center; }
 .clm-problema h2 { color: var(--tbe-text-inverse); }
-.clm-problema .tbe-kicker { color: var(--c-mauve-300); }
+.clm-problema .tbe-kicker { color: var(--tbe-editorial-on-inverse); }
 .clm-problema-lead {
   font-size: var(--fs-lg);
   color: color-mix(in srgb, var(--tbe-text-inverse) 82%, transparent);
@@ -241,7 +241,7 @@
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: var(--c-magenta-light);
+  background: var(--c-magenta-200);   /* punct decorativ pe negru-prună — accent, nu acțiune */
 }
 .clm-problema-lista strong { color: var(--tbe-text-inverse); font-weight: var(--fw-semibold); }
 
@@ -561,14 +561,15 @@
   font-variant-numeric: tabular-nums;
 }
 .clm-oferta-pret-note { font-size: var(--fs-sm); color: var(--tbe-text-muted); margin-bottom: var(--s-2); }
-/* CTA crem pe card magenta — inversul butonului primar, ca pe homepage. */
+/* CTA închis pe card magenta — inversul butonului primar, ca pe homepage.
+   Negru-prună, fundalul închis al sistemului. */
 .clm-oferta-cta {
-  --_bg: var(--tbe-text);
+  --_bg: var(--c-pruna-900);
   --_fg: var(--c-neutral-50);
-  --_bd: var(--tbe-text);
+  --_bd: var(--c-pruna-900);
   margin-top: var(--s-1);
 }
-.clm-oferta-cta:hover { --_bg: var(--c-neutral-900); --_bd: var(--c-neutral-900); box-shadow: var(--shadow-md); }
+.clm-oferta-cta:hover { --_bg: var(--c-pruna-900); --_bd: var(--c-pruna-900); box-shadow: var(--shadow-md); }
 .clm-oferta-reasig {
   list-style: none;
   margin: var(--s-3) 0 0;

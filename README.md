@@ -13,6 +13,8 @@ pixeli): fonturi și umbre pe fiecare tip de buton și casetă, raze, formulare,
 Atenție: umbrele de aici **diferă** de cele din design system-ul de referință — site-ul le rescrie în `site.css`;
 pentru WordPress se folosesc valorile din spec.
 
+**Culori, octombrie 2026:** fundalurile închise (footer, „Problema", cardurile închise, toast) sunt **negru-prună `#2A1520`**, iar cuvântul-accent din titluri, kickerele și etichetele editoriale sunt **prună `#6B2A4A`** (vezi design system, `docs/decizii.md` § 16). Unde notele mai vechi de mai jos spun „charcoal" pentru un fundal sau „mauve" pentru vocea editorială, citește negru-prună și prună.
+
 **Pasul 1 (acesta):** design system global + navbar + footer + hero gol.
 Nu există încă nicio secțiune de conținut — asta e intenționat.
 
@@ -303,7 +305,7 @@ pe antet, dar `ch` se calculează în fontul elementului, iar antetul moștenea 
 din `hmtx`/`cmap`), la 720px titlul are 631px, adică **un rând**, iar leadul **două** (703 + 375px).
 720px la 18px Jost ≈ 67 caractere, exact `--measure` din design system. *(Remăsurat oct. 2026, cu Fraunces + Inter: titlul are 710px la 48px — tot un rând, dar la limită; 720px la 18px Inter ≈ 65 caractere.)*
 
-**Ierarhia de culoare:** anii și titlurile charcoal (informație), accentul „acum" și etichetele mauve
+**Ierarhia de culoare:** anii și titlurile charcoal (informație), accentul „acum" și etichetele prună
 (voce editorială), iar **magenta doar pe cifrele mari** — singurul moment de impact, și singura folosire
 pe care design system-ul o sancționează deja explicit pentru numere (`.tbe-stat-value`).
 
@@ -331,14 +333,14 @@ Ruptura de ritm față de bento-ul de deasupra **e** designul: fără fotografii
 Citatul („Talentul nu e de-ajuns...") e piesa centrală — Fraunces italic 28→44px, semnat
 „Adriana Dobre · Fondatoare". Prima frază a confesiunii e mai deschisă la culoare (schimbarea de voce),
 concluzia e `<strong>` alb, CTA-ul duce la `ro.thebeautyeducation.com`, ca peste tot.
-Culorile vin din tokenii `--site-on-dark-*` (muted 7,2:1 pe charcoal).
+Culorile vin din tokenii `--site-on-dark-*` (muted 10,2:1 pe negru-prună).
 
 **Decizie luată de utilizator:** după „Problema" urmează FAQ pe fundal diferit, deci adiacența
 charcoal–footer nu e o problemă — nu adăuga separatoare aici.
 
 **Anii din timeline** (`.tl-an`) sunt magenta semibold 16px — abatere cerută explicit de la
-„magenta = acțiune": anii sunt reperul de scanare al secțiunii. Pe cardul charcoal al lui 2026,
-anul trece pe `--c-magenta-light` (magenta oficial ține doar 2,1:1 pe fundal închis).
+„magenta = acțiune": anii sunt reperul de scanare al secțiunii. Pe cardul negru-prună al lui 2026,
+anul trece pe `--c-magenta-200`, 9,8:1 (magenta oficial ține doar 2,3:1 pe fundal închis).
 
 ## Secțiunea „Empiria"
 
@@ -395,8 +397,8 @@ Fiecare graniță dintre secțiuni trebuie să se vadă. Contrastul dintre benzi
 |---|---|---|
 | hero (fotografie închisă) → Povestea (crem `#FAF4EF`) | 16,59:1 | vizibilă |
 | Povestea → Comunitatea (bej cald `#EDDDD3`) | **1,21:1** | vizibilă |
-| Comunitatea → Problema (charcoal `#2C2521`) | 9,42:1 | vizibilă |
-| Problema → footer (charcoal) | — | urmează FAQ între ele, pe fundal diferit |
+| Comunitatea → Problema (negru-prună `#2A1520`) | 12,95:1 | vizibilă |
+| Problema → footer (negru-prună) | — | urmează FAQ între ele, pe fundal diferit |
 
 Prima alegere ar fi fost `--tbe-bg-alt` (`#F2E9E2`), tokenul de secțiune alternantă din sistem — dar dă
 doar **1,10:1** față de crem, adică o graniță pe care ochiul o ratează. Bejul cald urcă la 1,21:1 și

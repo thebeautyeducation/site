@@ -47,7 +47,7 @@
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: var(--c-neutral-950);   /* ce se vede până se încarcă poza */
+  background: var(--c-pruna-900);   /* ce se vede până se încarcă poza */
 }
 .hero-img {
   width: 100%;
