@@ -68,7 +68,7 @@
   font-size: var(--fs-xs);
   letter-spacing: var(--ls-wide);
   text-transform: uppercase;
-  color: var(--tbe-text-subtle);
+  color: var(--tbe-text-muted);
 }
 
 /* --- Oferta: coperta în spate, panoul de preț în față ----------------------- */
@@ -168,7 +168,7 @@
   color: var(--tbe-text);
   font-variant-numeric: tabular-nums;
 }
-.ab-perioada-pret span { font-size: var(--fs-xs); color: var(--tbe-text-subtle); }
+.ab-perioada-pret span { font-size: var(--fs-xs); color: var(--tbe-text-muted); }
 
 /* Eticheta „cel mai ales” pe rândul anual. */
 .ab-perioada-tag {
@@ -209,7 +209,7 @@
   border-top: 1px solid var(--tbe-border-subtle);
   font-size: 11px;
   line-height: 1.5;
-  color: var(--tbe-text-subtle);
+  color: var(--tbe-text-muted);
   max-width: none;
 }
 
@@ -294,7 +294,7 @@
 .ab-bento-nota {
   margin: var(--s-4) 0 0;
   font-size: var(--fs-xs);
-  color: var(--tbe-text-subtle);
+  color: var(--tbe-text-muted);
   max-width: none;
 }
 
@@ -378,7 +378,7 @@
   font-variant-numeric: tabular-nums;
 }
 .ab-mare.is-harta .ab-mare-fapte strong { color: var(--tbe-map); }
-.ab-mare-fapte span { font-size: var(--fs-xs); color: var(--tbe-text-subtle); }
+.ab-mare-fapte span { font-size: var(--fs-xs); color: var(--tbe-text-muted); }
 .ab-mare-link { margin-top: auto; padding-top: var(--s-4); font-size: var(--fs-sm); font-weight: var(--fw-medium); color: var(--tbe-action); }
 
 /* --- Banda „14 diplome” — negru-prună, cifra mare + descompunerea ------------- */

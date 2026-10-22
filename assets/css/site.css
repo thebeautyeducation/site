@@ -402,7 +402,7 @@ body:not(.site-has-hero) { padding-top: var(--site-nav-h); }
   font-size: var(--fs-xs);
   letter-spacing: var(--ls-wide);
   text-transform: uppercase;
-  color: var(--tbe-text-subtle);
+  color: var(--tbe-text-muted);
 }
 /* Al doilea grup primește linie de separare — nu și primul. */
 .site-nav-sub-lista + .site-nav-sub-grup {
@@ -562,7 +562,7 @@ body.site-drawer-open { overflow: hidden; }
   font-size: var(--fs-xs);
   letter-spacing: var(--ls-wide);
   text-transform: uppercase;
-  color: var(--tbe-text-subtle);
+  color: var(--tbe-text-muted);
 }
 .site-drawer-sub-lista + .site-drawer-sub-grup {
   margin-top: var(--s-2);

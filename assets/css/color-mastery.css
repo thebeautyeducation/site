@@ -866,7 +866,7 @@
   margin-top: var(--s-1);
 }
 .clm-price-anchor { font-size: var(--fs-sm); color: var(--tbe-text-muted); margin-bottom: var(--s-3); }
-.clm-price-anchor s, .clm-buybox-note s { color: var(--tbe-text-subtle); }
+.clm-price-anchor s, .clm-buybox-note s { color: var(--tbe-text-muted); }
 .clm-price-cta { margin-top: auto; }
 .clm-pricing-note {
   max-width: 680px;

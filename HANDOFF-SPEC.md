@@ -29,7 +29,7 @@ deplasare 0 pe orizontală, 20px în jos, blur 50px, spread −12px (umbra e mai
 | Text principal | `#2C2521` | corp, titluri |
 | Text secundar (muted) | `#6B5C51` | leaduri, descrieri, placeholder |
 | Text secundar mic pe fundal colorat | `#5A4D44` | etichete și meta pe roz, crem, gri (7.5:1) |
-| Text discret (subtle) — **doar decorativ / text ≥18px** | `#9E9086` | etichete de grup în dropdown |
+| Gri cald (subtle) — **NU pentru text mic** (min. 3:1) | `#897B71` | separatori („·", „/"), săgeți, stele goale, pași viitori, text dezactivat. Orice text mic (etichete, meta, preț tăiat) e `#6B5C51`. |
 | Ink (umbre, scrimuri) | `#211018` (negru-prună) | baza umbrelor și a scrimurilor peste fotografii |
 | **Magenta — acțiune** | `#A71257` | butoane primare, linkuri, focus |
 | Magenta hover | `#8E0F4A` | |
@@ -231,7 +231,7 @@ Regulă: **un singur buton primar per ecran/secțiune.** Butonul busy (`.is-busy
 | **Input / select / textarea** | Inter **16px**, `#2C2521`, fundal `#FFFFFF`, bordură 1px `#DCCFC4`, rază **12px**, padding 12px × 16px, înălțime min. **48px**; textarea min. 120px |
 | Placeholder | `#6B5C51` |
 | **Focus** | bordură `#A71257` + inel **`0 0 0 3px rgba(167,18,87,0.28)`** (fără outline) |
-| Dezactivat | fundal `#F2E9E2`, text `#9E9086` |
+| Dezactivat | fundal `#F2E9E2`, text `#897B71` |
 | Invalid | bordură `#B3261E` |
 | Etichetă (`.tbe-label`) | Inter 14px, 500, `#2C2521`; asterisc obligatoriu `#B3261E` |
 | Text ajutător | 12px, `#6B5C51` · Eroare: 12px, 500, `#B3261E` |
@@ -301,7 +301,7 @@ Hamburger: 44 × 44px, trei linii de 1.5px, alb pe transparent / `#2C2521` pe so
 Fundal `#FFFFFF`, bordură 1px `#EDDDD3`, rază **20px**, padding 8px, lățime min. 240px (280px grupat), umbră **`0 20px 50px -12px rgba(33,16,24,0.12)`**.
 Apare de sub link, cu translație de 8px în sus → 0, 200–320ms. Pe desktop se deschide și la hover.
 Item: 14px, 400, `#2C2521`, padding 12px × 16px, rază 12px; hover/focus: fundal `#FBF0F5`, text `#A71257`.
-Etichetă de grup („Cursuri fizice / online"): mono 12px majuscule, spațiere 0.04em, `#9E9086`; al doilea grup are linie sus 1px `#EDDDD3`.
+Etichetă de grup („Cursuri fizice / online"): mono 12px majuscule, spațiere 0.04em, `#6B5C51`; al doilea grup are linie sus 1px `#EDDDD3`.
 
 ### 7.3 Sertar mobil
 
@@ -311,7 +311,7 @@ Fundal `#FAF4EF`, ocupă ecranul sub navbar, padding 24px sus / 64px jos. Linkur
 
 | Element | Valori |
 |---|---|
-| Breadcrumb | 14px, `#6B5C51`, separator „/" `#9E9086`; hover `#A71257` |
+| Breadcrumb | 14px, `#6B5C51`, separator „/" `#897B71`; hover `#A71257` |
 | Taburi | 14px, 500, `#6B5C51`, padding 12px sus/jos, linie jos 2px transparent; **activ:** text `#A71257` + linie `#A71257`; hover: `#2C2521` |
 | Paginare | butoane **44 × 44px**, 14px, rază 12px, fundal `#FFFFFF`, bordură 1px `#EDDDD3`; **curent:** fundal `#A71257`, text alb |
 
@@ -333,8 +333,8 @@ Vizibil doar la focus: fundal `#FFFFFF`, 14px 500, padding 8px × 24px, pill, um
 | Element | Valori |
 |---|---|
 | Bară de progres | pistă 8px `#F2E9E2`, pill; umplere `#A71257`, tranziție 520ms |
-| Pași (dots) | 8px cerc `#9E9086` (3.1:1); activ: 24 × 8px pill `#A71257`; făcut: `#A71257` |
-| Rating (stele) | `#A71257`, 16px; goală `#9E9086` |
+| Pași (dots) | 8px cerc `#897B71` (3.1:1 pe bej); activ: 24 × 8px pill `#A71257`; făcut: `#A71257` |
+| Rating (stele) | `#A71257`, 16px; goală `#897B71` |
 | Skeleton | gradient `#F2E9E2 → #F4E9E1 → #F2E9E2`, shimmer 1.4s, rază 4px |
 | Spinner | 24px, bordură 2.5px `#DCCFC4`, sus `#A71257`, rotire 0.7s |
 

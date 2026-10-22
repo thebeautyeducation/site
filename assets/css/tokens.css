@@ -372,7 +372,7 @@
   --tbe-text:          light-dark(var(--c-neutral-900), var(--c-neutral-50));   /* 15.2:1 light — text principal */
   --tbe-text-muted:    light-dark(var(--c-neutral-600), #BFA4AF);               /* 6.4:1 pe alb, 4.9:1 pe benzile bej/roz — text secundar */
   --tbe-text-muted-strong: light-dark(var(--c-neutral-700), var(--c-pruna-200)); /* text secundar MIC pe fundal colorat (roz, crem, gri) — 7.5:1 pe crem */
-  --tbe-text-subtle:   light-dark(var(--c-neutral-500), #907782);               /* 3.1:1 — DOAR text mare/decorativ */
+  --tbe-text-subtle:   light-dark(#897B71, #907782);                            /* min. 3:1 pe alb, crem și bej — DOAR grafice (săgeți, stele, separatori) și text ≥24px; NU text mic */
   --tbe-text-inverse:  light-dark(var(--c-neutral-50), var(--c-neutral-900));
   --tbe-text-muted-on-inverse: light-dark(var(--c-pruna-200), var(--c-neutral-600)); /* text secundar pe --tbe-surface-inverse — 10.2:1 */
   --tbe-text-on-action: light-dark(var(--c-neutral-0), var(--c-neutral-900));

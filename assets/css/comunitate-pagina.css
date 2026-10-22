@@ -166,7 +166,7 @@
 .cmp-cifre-nota {
   margin-top: var(--s-4);
   font-size: var(--fs-xs);
-  color: var(--tbe-text-subtle);
+  color: var(--tbe-text-muted);
 }
 
 /* ==========================================================================
@@ -237,7 +237,7 @@
   font-size: var(--fs-xs);
   letter-spacing: var(--ls-wide);
   text-transform: uppercase;
-  color: var(--tbe-text-subtle);
+  color: var(--tbe-text-muted);
   margin: 0 0 var(--s-3);
   padding-bottom: var(--s-2);
   border-bottom: 1px solid var(--tbe-border-subtle);
@@ -324,7 +324,7 @@
 .cmp-act-ritm {
   font-family: var(--font-mono);
   font-size: var(--fs-xs);
-  color: var(--tbe-text-subtle);
+  color: var(--tbe-text-muted);
   background: var(--tbe-decor);
   padding: 3px 10px;
   border-radius: var(--r-pill);
@@ -630,7 +630,7 @@
   display: block;
   font-size: var(--fs-xs);
   font-weight: var(--fw-regular);
-  color: var(--tbe-text-subtle);
+  color: var(--tbe-text-muted);
 }
 
 /* ==========================================================================
@@ -736,7 +736,7 @@
 .cmp-nivel-puncte {
   font-family: var(--font-mono);
   font-size: var(--fs-xs);
-  color: var(--tbe-text-subtle);
+  color: var(--tbe-text-muted);
 }
 
 /* Vârful drumului — Trainer TBE. Aceeași familie ca eph-suprema. */
@@ -866,7 +866,7 @@
   font-size: var(--fs-xs);
   letter-spacing: var(--ls-wide);
   text-transform: uppercase;
-  color: var(--tbe-text-subtle);
+  color: var(--tbe-text-muted);
 }
 .cmp-plan.is-gratuit .cmp-plan-eticheta { color: var(--tbe-action); }
 .cmp-plan h3 {

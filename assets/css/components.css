@@ -107,7 +107,7 @@ p { margin: 0 0 var(--sp-4); max-width: var(--measure); }
 }
 
 .tbe-muted   { color: var(--tbe-text-muted); }
-.tbe-subtle  { color: var(--tbe-text-subtle); }
+.tbe-subtle  { color: var(--tbe-text-subtle); }  /* 3.1:1 — DOAR text ≥24px sau decorativ; text mic → .tbe-muted */
 .tbe-small   { font-size: var(--fs-sm); }
 .tbe-caption { font-size: var(--fs-xs); font-weight: var(--fw-medium); color: var(--tbe-text-muted); }
 
@@ -547,12 +547,14 @@ code, .tbe-code {
 .tbe-header-inner { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-5); min-height: 72px; }
 .tbe-brand { display: flex; align-items: center; gap: var(--sp-3); font-family: var(--font-display); font-size: var(--fs-h4); font-weight: var(--fw-semibold); color: var(--tbe-text); text-decoration: none; letter-spacing: var(--ls-normal); }
 .tbe-nav { display: flex; align-items: center; gap: var(--sp-5); }
-.tbe-nav a {
+/* :not(.tbe-btn) — un buton pus în meniu își păstrează culorile de buton
+   (altfel textul alb de pe butonul primar devenea gri pe magenta). */
+.tbe-nav a:not(.tbe-btn) {
   font-size: var(--fs-sm); font-weight: var(--fw-medium); color: var(--tbe-text-muted);
   text-decoration: none; padding: var(--sp-2) 0; position: relative;
   transition: color var(--dur-base) var(--ease-out);
 }
-.tbe-nav a:hover, .tbe-nav a[aria-current] { color: var(--tbe-action); }
+.tbe-nav a:not(.tbe-btn):hover, .tbe-nav a[aria-current] { color: var(--tbe-action); }
 .tbe-nav a[aria-current]::after {
   content: ''; position: absolute; left: 0; right: 0; bottom: -2px; height: 2px;
   background: var(--tbe-action); border-radius: var(--r-pill);
@@ -724,7 +726,7 @@ code, .tbe-code {
 .tbe-path-node.is-done   { background: var(--tbe-action-soft); color: var(--tbe-action); border-color: var(--tbe-action-border); }
 .tbe-path-node.is-current { background: var(--tbe-action); color: var(--tbe-text-on-action); border-color: var(--tbe-action); }
 .tbe-path-node.is-locked::before { content: '🔒'; font-size: 0.85em; }
-.tbe-path-arrow { color: var(--tbe-border-strong); }
+.tbe-path-arrow { color: var(--tbe-text-subtle); }  /* 3.1:1 — săgeata arată ordinea, deci are nevoie de min. 3:1 */
 
 /* ==========================================================================
    PATTERNURI HARTA COAFEZELOR

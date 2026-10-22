@@ -52,7 +52,7 @@
   font-size: var(--fs-xs);
   letter-spacing: var(--ls-wide);
   text-transform: uppercase;
-  color: var(--tbe-text-subtle);
+  color: var(--tbe-text-muted);
 }
 .rev-meta span { display: inline-flex; align-items: center; gap: 7px; }
 .rev-meta svg { width: 14px; height: 14px; color: var(--tbe-editorial); }
@@ -239,7 +239,7 @@
   margin-top: var(--s-6);
   text-align: center;
   font-size: var(--fs-sm);
-  color: var(--tbe-text-subtle);
+  color: var(--tbe-text-muted);
 }
 
 /* ==========================================================================

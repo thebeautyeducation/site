@@ -40,7 +40,7 @@
   font-size: var(--fs-xs);
   letter-spacing: var(--ls-wide);
   text-transform: uppercase;
-  color: var(--tbe-text-subtle);
+  color: var(--tbe-text-muted);
 }
 
 /* ==========================================================================
@@ -112,7 +112,7 @@
   font-size: var(--fs-xs);
   letter-spacing: var(--ls-wide);
   text-transform: uppercase;
-  color: var(--tbe-text-subtle);
+  color: var(--tbe-text-muted);
 }
 .lp-cat-lista {
   list-style: none;
@@ -143,7 +143,7 @@
   margin-top: auto;
   padding-top: var(--s-3);
   font-size: var(--fs-xs);
-  color: var(--tbe-text-subtle);
+  color: var(--tbe-text-muted);
 }
 /* Nota „valori de bază, nivelul le multiplică". */
 .lp-nota-baza {
@@ -198,7 +198,7 @@
   font-size: 10px;
   letter-spacing: var(--ls-wide);
   text-transform: uppercase;
-  color: var(--tbe-text-subtle);
+  color: var(--tbe-text-muted);
 }
 /* Caseta cu exemplul validat. */
 .lp-exemplu {
@@ -212,7 +212,7 @@
   font-size: var(--fs-xs);
   letter-spacing: var(--ls-wide);
   text-transform: uppercase;
-  color: var(--tbe-text-subtle);
+  color: var(--tbe-text-muted);
   margin-bottom: var(--s-2);
 }
 .lp-exemplu-calcul {
@@ -255,13 +255,13 @@
   color: var(--tbe-text);
   line-height: 1;
 }
-.lp-nivel-puncte span { font-size: var(--fs-sm); color: var(--tbe-text-subtle); font-family: var(--font-body); font-weight: var(--fw-regular); }
+.lp-nivel-puncte span { font-size: var(--fs-sm); color: var(--tbe-text-muted); font-family: var(--font-body); font-weight: var(--fw-regular); }
 .lp-nivel-conditie { margin: 0; font-size: var(--fs-xs); color: var(--tbe-text-muted); }
 
 .lp-beneficii-wrap { overflow-x: auto; }
 .lp-beneficii { min-width: 640px; }
 .lp-beneficii .is-da { color: var(--tbe-action); font-weight: var(--fw-medium); }
-.lp-beneficii .is-nu { color: var(--tbe-text-subtle); }
+.lp-beneficii .is-nu { color: var(--tbe-text-muted); }
 
 /* ==========================================================================
    5 · DIAMOND → TRAINER (callout)

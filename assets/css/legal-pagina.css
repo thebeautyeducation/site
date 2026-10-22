@@ -30,7 +30,7 @@
   font-size: var(--fs-xs);
   letter-spacing: var(--ls-wide);
   text-transform: uppercase;
-  color: var(--tbe-text-subtle);
+  color: var(--tbe-text-muted);
 }
 
 /* --- Grila: cuprins + text ---------------------------------------------- */
@@ -56,7 +56,7 @@
   font-size: var(--fs-xs);
   letter-spacing: var(--ls-wide);
   text-transform: uppercase;
-  color: var(--tbe-text-subtle);
+  color: var(--tbe-text-muted);
 }
 .lg-toc ol {
   list-style: none;
@@ -83,7 +83,7 @@
   flex: none;
   font-family: var(--font-mono);
   font-size: var(--fs-xs);
-  color: var(--tbe-text-subtle);
+  color: var(--tbe-text-muted);
   min-width: 1.6em;
   padding-top: 2px;
 }
